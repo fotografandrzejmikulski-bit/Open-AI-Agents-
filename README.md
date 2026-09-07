@@ -1,27 +1,92 @@
 # Open-AI-Agents-
 
-Repozytorium referencyjne projektu dotyczącego OpenAI Agents SDK, MCP, Skills, pluginów oraz architektury agentów.
+Reference repository for the project's **agent engineering knowledge base and project portfolio**.
 
-## Status
+This repository is intentionally separated from the **Agents for Humans Hackathon** submission repository. It is the long-lived research, architecture and project layer; the hackathon repository contains only the CogniSync submission and its proof artifacts.
 
-Repozytorium zostało utworzone jako miejsce archiwizacji i późniejszej syntezy dokumentacji dostarczanej w ramach projektu.
+## Repository roles
 
-Na tym etapie trwa **faza zbierania materiałów**. Nie należy traktować obecnej zawartości jako finalnej architektury ani implementacji.
+### `docs/knowledge-base/`
 
-## Zakres zebranego materiału
+Source-grounded and research-derived knowledge covering:
 
-Dotychczas zgromadzona dokumentacja obejmuje m.in.:
+- OpenAI Agents SDK and agent runtime patterns;
+- MCP, MCP Apps, tool discovery, deferred loading and capability filtering;
+- Skills, plugin architecture, packaging, authentication and safety;
+- sandbox agents and execution boundaries;
+- memory, state, orchestration, handoffs and guardrails;
+- model selection and provider strategy;
+- agentic application builders;
+- research, OSINT and evidence systems;
+- multimodal systems and adaptive reasoning;
+- local/edge AI and sovereign execution;
+- cognitive and influence security;
+- the supplied project-owner PDF corpus.
 
-- OpenAI Plugins: use cases, architecture, Skills, MCP servers, UI, packaging, authentication, testing, submission i review.
-- Bezpieczeństwo i prywatność pluginów oraz MCP.
-- MCP Apps / UI bridge / widget state / file APIs / checkout.
-- OpenAI Responses API oraz text generation.
-- OpenAI Agents SDK: Quickstart, Agent definitions, models/providers, tools, Tool Search, Programmatic Tool Calling, orchestration/handoffs, running agents, results/state, guardrails i human review.
-- Sandbox Agents: SandboxAgent, Manifest, capabilities, sandbox sessions, lifecycle, snapshots, session state, tool-agents, MCP/function tools oraz obserwowalność.
-- Aktualny katalog modeli OpenAI dostępny w dostarczonej dokumentacji.
+### `projekty/`
 
-## Zasada pracy
+Build-oriented project specifications derived from the knowledge base. Projects are treated as engineered systems rather than prompt-only concepts and are expected to define:
 
-Materiały źródłowe są traktowane jako korpus referencyjny. Po zakończeniu fazy dostarczania dokumentacji zostaną wykorzystane do pełnej analizy, syntezy oraz projektowania systemu.
+`problem → scope → architecture → contracts → security → verification → evaluation → roadmap`
 
-Do tego momentu nie zakłada się, że korpus jest kompletny.
+The portfolio includes agent platforms, security labs, local AI infrastructure, multimodal systems, creative tooling, research orchestration, verified code generation and human-agency protection.
+
+## Evidence discipline
+
+Every important claim should be classified as one of:
+
+**source-derived claim → engineering hypothesis → verified behavior → future roadmap**
+
+External references, benchmark numbers and provider capabilities must not be promoted to verified facts without validation.
+
+## Shared engineering doctrine
+
+The portfolio favors a common control-plane model:
+
+```text
+Intent
+  ↓
+Context / Evidence
+  ↓
+Capability Discovery
+  ↓
+Reasoning / Planning
+  ↓
+Policy / Authorization
+  ↓
+Verification
+  ↓
+Human Decision Boundary
+  ↓
+Execution
+  ↓
+Observation / Audit
+```
+
+Core invariants include:
+
+- model capability is not authorization;
+- memory is not authorization;
+- approval is not execution;
+- external completion requires connector confirmation;
+- unknown capability is handled fail-closed;
+- consequential actions require an explicit policy path;
+- security analysis is stateful across the interaction trajectory;
+- human agency is preserved as a system property.
+
+## Flagship implementation
+
+The current flagship external submission is **CogniSync Professional**, maintained separately in:
+
+`Agents-for-Humans-Hackathon`
+
+That repository is deliberately judgeable without requiring the entire research portfolio.
+
+## Working status
+
+The knowledge base and portfolio are actively evolving. Individual entries can be at different maturity levels; repository status should always be inferred from the file itself and its evidence classification rather than from a single global maturity label.
+
+## Navigation
+
+- [`docs/knowledge-base/`](docs/knowledge-base) — knowledge and research corpus
+- [`projekty/`](projekty) — engineered project portfolio
