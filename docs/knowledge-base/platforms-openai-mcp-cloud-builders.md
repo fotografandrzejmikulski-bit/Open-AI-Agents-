@@ -1,357 +1,474 @@
 # Cross-Platform Knowledge Extraction: OpenAI, MCP, Cloud & App Builders
 
 > Status: active source-derived knowledge archive.
-> Scope: `openai.github.io`, `platform.openai.com`, `developers.openai.com`, `modelcontextprotocol.io`, IBM Cloud, Activepieces Cloud, FlutterFlow, Expo, Replit, Render, Railway, and Vercel.
+> Scope requested: `https://openai.github.io`, `https://platform.openai.com`, `https://modelcontextprotocol.io`, `https://cloud.ibm.com`, `https://cloud.activepieces.com`, `https://flutterflow.io/`, `expo.dev`, `replit.com`, `render.com`, `railway.com`, `vercel.com`, `https://developers.openai.com/`.
 >
-> Method: synthesize high-value engineering patterns from the official documentation/product surfaces. This is a focused extraction, not a line-by-line crawl of every page on every platform.
+> Date: 2026-09-07.
+>
+> Coverage note: this is a focused engineering extraction, not a line-by-line crawl of every page. The current connector available in this session can inspect GitHub sources; therefore official repositories/docs mirrors were used where available. For Replit, IBM Cloud and some commercial product surfaces, the available public GitHub evidence was less complete, so claims are kept at the architecture level and are explicitly marked where appropriate.
 
-## 1. OpenAI developer platform
+## 1. OpenAI developer platform: `developers.openai.com` + `platform.openai.com`
 
-OpenAI's current developer documentation is organized around the Responses API, conversation state, background mode, streaming, WebSocket mode, mid-turn steering, multi-agent systems, webhooks, file inputs, compaction, token counting, SDKs/CLI, structured outputs, prompting, reasoning, image/video, realtime/audio, deep research, embeddings, moderation, Agents SDK, ChatKit, retrieval, MCP/connectors, Skills, Tool Search, Programmatic Tool Calling, Shell, Computer Use, Apply Patch, Code Interpreter, voice agents, production guidance, latency, cost, safety, permissions and governance. This breadth strongly suggests that a production agent is a composed system rather than one model call.
+The current OpenAI developer surface is best understood as a layered platform rather than a single API. The central model-interaction surface for modern agentic workloads is the Responses API, surrounded by conversation/state handling, streaming/WebSocket transports, structured outputs, tools, hosted capabilities, Agents SDK, realtime/audio, retrieval, MCP, Tool Search, Programmatic Tool Calling, code/shell/computer execution, webhooks and production controls.
 
-Key architectural extraction:
-- Responses is the central model interaction surface for modern agentic workloads.
-- Conversation state is a first-class concern.
-- Streaming and WebSocket transports matter for interactive/Realtime workloads.
-- Multi-agent orchestration, tools, MCP, skills and programmatic tool calling are separate composition mechanisms.
-- Code/shell/computer execution belongs to explicit execution surfaces.
-- Safety, permissions, red-teaming, monitoring and governance are first-class production concerns.
-- Quality and economics have dedicated controls: latency, accuracy, cost optimization, prompt caching, batch/flex processing.
+### Core architecture
 
-Source: official OpenAI Developers navigation and API docs.
+`model interaction -> state -> tools/capabilities -> safety -> orchestration -> execution -> observability/evals`
 
-## 2. OpenAI Agents SDK
+The key architectural extraction is that the model is not the complete runtime. Agent behavior is composed from explicit instructions, tools, state, routing/orchestration, guardrails, runtime execution and monitoring. The OpenAI Agents SDK follows this model directly: `Agent` plus `Runner` manages turns, tools, guardrails, handoffs and sessions, while direct Responses usage leaves more of the loop under application control. fileciteturn111file0L2-L10
 
-The Agents SDK defines the core abstraction as an LLM configured with instructions, tools and optional runtime behavior such as handoffs, guardrails and structured outputs. Its documentation separates agent definition, model/provider configuration, running, sandbox agents, orchestration, guardrails, state/results, tracing/observability and workflow evaluation.
+### Modern agent primitives
 
-Reusable design rule:
-- Keep the Agent surface focused.
-- Put capabilities into tools.
-- Use handoffs when specialist ownership should transfer.
-- Use agents-as-tools when a manager should retain final-answer ownership.
-- Treat state, safety and observability as explicit layers.
+| Primitive | Architectural role | Use when |
+|---|---|---|
+| Responses API | Core model interaction | Direct control over model/tool loop |
+| Agents SDK | Higher-level orchestration runtime | You want agent objects, runners, tools, handoffs, guardrails and sessions |
+| Tool Search | Dynamic capability loading | Tool surface is large and should be deferred |
+| Programmatic Tool Calling | Model-generated deterministic tool composition | Many calls require filtering, joining, aggregation or predictable control flow |
+| MCP | External capability boundary | Capabilities/data must live outside the model runtime |
+| Skills | Static operational knowledge/workflow guidance | The agent must know how to perform a repeated domain task |
+| Guardrails / approvals | Risk control | Inputs, outputs or side effects require validation or human review |
+| Sandbox / execution | Compute boundary | Agent must run code/commands or inspect a filesystem |
 
-Sources: OpenAI Agents SDK Python/JS docs.
+OpenAI's SDK source also indicates that the documentation surface now includes Sandbox Agents as a major capability area across local, containerized and hosted environments. fileciteturn111file11L226-L234
 
-## 3. MCP architecture and security
+### Production rules extracted for this knowledge base
 
-MCP is an open standard connecting AI applications to external systems. Current MCP documentation describes a host-client-server architecture:
-- Host coordinates clients, permissions, lifecycle, security policies, consent and LLM integration.
-- Each client maintains an isolated stateful server connection.
-- Servers expose focused context and capabilities.
-- Capabilities are explicitly negotiated during initialization.
+1. Keep model-visible context incremental, bounded and task-relevant.
+2. Use typed schemas at the model/application boundary.
+3. Put side effects behind explicit tools and authorization, not only natural-language instructions.
+4. Choose one continuation/state strategy per conversation unless there is a clear reason to combine them.
+5. Separate deterministic orchestration from model-directed agent loops.
+6. Treat observability and evaluation as runtime lifecycle components, not only release gates.
 
-Server primitives have distinct control ownership:
-- Prompts: user-controlled templates/instructions.
-- Resources: application-controlled contextual data.
-- Tools: model-controlled executable functions.
+### Evidence from official OpenAI repositories
 
-Security principles include explicit consent, protecting user data, caution around arbitrary tool execution, and control over sampling. For HTTP authorization, current MCP guidance specifies OAuth 2.1 plus protected resource metadata and authorization-server metadata; resource indicators identify the intended MCP server.
+The Python SDK documentation explicitly distinguishes orchestration from the underlying Responses API and assigns turns, tools, guardrails, handoffs and sessions to the SDK runtime. fileciteturn111file0L2-L10 The SDK also publishes a current `llms.txt` index covering agents, running agents and core concepts for downstream retrieval. fileciteturn111file9L177-L185
 
-Reusable rule:
-- Design MCP servers around narrowly scoped capabilities.
-- Treat tools as executable side effects, not passive descriptions.
-- Keep authorization at the integration boundary.
-- Preserve host/client/server security boundaries.
+---
 
-Sources: MCP architecture, server overview, specification and authorization docs.
+## 2. MCP: `modelcontextprotocol.io`
 
-## 4. IBM Cloud
+MCP provides the protocol boundary between an AI host/client and external capability servers. The architectural model is:
 
-IBM Cloud emphasizes enterprise cloud governance, API/SDK references, Terraform, CLI, security, scale and regulated workloads.
+`Host -> Client -> MCP Server -> external system`
+
+The separation matters because the host remains responsible for permissions, consent, lifecycle and policy while the server owns domain capabilities.
+
+### MCP primitives
+
+| Primitive | Control owner | Typical meaning |
+|---|---|---|
+| Prompts | User/application | Templates and reusable instructions |
+| Resources | Application/server | Contextual or reference data |
+| Tools | Model/application through host policy | Executable capabilities / side effects |
+
+The current SDK ecosystem exposes tools, resources and extensions as first-class server capabilities; for example the Python server APIs accept tool and resource registrations and support change notifications. fileciteturn112file3L69-L76 fileciteturn112file4L93-L100
+
+### Authorization
+
+Current MCP authorization material includes OAuth 2.1-oriented flows and protected-resource metadata. The TypeScript SDK has explicit OAuth client-credentials examples where the MCP resource identifier is treated as an exact server URL, which reinforces that authorization is resource-specific rather than a generic bearer-token passthrough. fileciteturn112file2L47-L54
+
+The MCP project also documents client-credentials support with `client_id` and `client_secret` for simpler deployments. fileciteturn112file8L178-L185
+
+### Important current 2026 direction
+
+The MCP repository contains an active sessionless-MCP proposal focused on making MCP work behind load balancers and without sticky routing. This is useful architectural evidence that production MCP deployments need to minimize hidden affinity assumptions and separate protocol capability from transport/session infrastructure. fileciteturn112file6L139-L147
+
+### Reusable rule
+
+Design an MCP server as a capability boundary, not as a thin wrapper around a database. Keep tools narrowly scoped, make authorization server-side, return structured data, and make destructive operations distinguishable from reads.
+
+---
+
+## 3. IBM Cloud: `cloud.ibm.com`
+
+### Architectural position
+
+IBM Cloud is oriented toward enterprise governance, identity, regulated workloads, managed services and infrastructure automation. The strongest directly relevant pattern for this project is the separation between application execution, platform identity and API governance.
 
 ### Code Engine
-Code Engine is a fully managed, source-centric serverless/container platform. It can run:
-- HTTP applications;
-- run-to-completion jobs;
-- functions;
-- fleets for compute-heavy queued workloads.
 
-Applications scale up/down automatically, including scale-to-zero. Code Engine can build container images from source, then deploy them through a managed container registry flow.
+Public IBM material consistently positions Code Engine as a managed serverless/container execution layer. A representative public reference describes it as a Kubernetes-based Containers-as-a-Service and Functions-as-a-Service offering. fileciteturn128file1L18-L26
 
-### API Connect / IAM
-IBM API guidance treats IAM as a first-class authorization boundary. IBM APIs are expected to use expiring IAM bearer tokens, validated with official libraries, with permissions computed through platform-standard IAM mechanisms. Production APIs should not use non-expiring passwords/raw API keys as their normal authorization mechanism.
+For agent infrastructure, the important distinction is workload semantics:
 
-Reusable rule:
-- Separate application execution from platform identity and API governance.
-- Prefer short-lived platform tokens and explicit role/action permissions.
-- Use serverless/container primitives according to workload lifetime: request, batch, function or fleet.
+| Workload | Preferred primitive |
+|---|---|
+| HTTP agent/API | Managed application |
+| Batch or run-to-completion work | Job |
+| Short function-style execution | Function |
+| Queued / compute-heavy workloads | Fleet / worker-style execution |
 
-Sources: IBM Cloud overview, Code Engine and API/IAM documentation.
+### IBM agentic architecture pattern
 
-## 5. Activepieces
+IBM examples show external MCP servers being deployed to Cloud environments and then registered into agent platforms such as watsonx Orchestrate. One IBM tutorial explicitly describes deploying the MCP server and then adding its `/mcp` endpoint to watsonx Orchestrate. fileciteturn124file1L36-L58
 
-Activepieces is an automation platform built from three core abstractions:
-- Agents: AI that performs tasks with connected apps.
-- Flows: deterministic trigger -> chosen steps automation.
-- Tables: structured business data.
+Another IBM agentic control-plane reference distinguishes the inter-agent and tool layers: A2A for agents, MCP for tools, and standardized model APIs for models hosted in different providers. fileciteturn124file2L62-L69
 
-Agents can call flows, flows can run agents, and both can read/write shared tables.
+### Reusable rule
 
-### MCP server
-Activepieces provides a built-in MCP server. One MCP endpoint can expose multiple connected app capabilities. Discovery tools are read-only and help the model inspect available flows, connections, tables, runs and validation before making changes. Other categories cover flow management, flow building, routers/branching, annotations, tables, testing and runs.
+Use IBM-style enterprise boundaries when the agent is expected to cross identity, governance and production infrastructure domains: model/runtime, MCP tools, cloud execution, secrets and policy should remain separable.
 
-Important safety pattern:
-- credentials are never returned through MCP;
-- OAuth is used for client authentication;
-- operations are project-scoped;
-- setup guides tell the user how to configure secrets in the UI rather than moving secrets through the agent;
-- read/discovery operations are separated from mutation operations.
+---
 
-### MCP client
-The MCP Client integration can call external MCP tools deterministically, without an LLM. This allows MCP capabilities to be composed into otherwise deterministic automation flows.
+## 4. Activepieces: `cloud.activepieces.com`
 
-Reusable rule:
-- Separate discovery/read-only tooling from mutation tooling.
-- Use deterministic workflow execution when the path is known.
-- Use model-driven agent decisions only where branching/planning is genuinely needed.
-- Treat credentials as connection-layer state, never model-visible payload data.
+Activepieces is architecturally interesting because it combines deterministic automation and agentic behavior in one system.
 
-Sources: Activepieces MCP overview, MCP tools reference, MCP integration and MCP Client docs.
+### Core abstractions
 
-## 6. FlutterFlow
+- **Flows**: deterministic trigger -> actions/steps.
+- **Agents**: model-driven task execution using connected applications/capabilities.
+- **Tables**: structured business data.
+- **Pieces**: reusable application capabilities; current source describes 280+ open-source pieces and states that each piece can also function as an MCP server. fileciteturn113file0L2-L18
 
-FlutterFlow is a visual app builder with a visual Action Flow Editor, granular widget/logic control, custom actions/widgets, design-system support, API integrations, Firebase/Supabase integrations, payments/maps and code export to Flutter. Projects can be deployed to App Store, Play Store and Web.
+### Why this matters
 
-### AI Agents
-FlutterFlow's AI Agents support conversational chat, image generation, text-to-speech, speech-to-text and video generation using supported providers including OpenAI, Google, Anthropic and ElevenLabs.
+The platform creates a practical hybrid architecture:
 
-Agent invocation is app-action driven. For conversational agents, the Send Message action passes input to a configured agent using system instructions, preloaded messages and model settings. Conversation ID is the mechanism for continuity across interactions.
+`Agent decides -> Flow executes deterministic sequence -> Table persists business state`
 
-Agent deployment exposes operational controls such as:
-- authentication requirement;
-- timeout;
-- memory allocation;
-- minimum warm instances;
-- maximum concurrent instances.
+That is often stronger than asking an agent to directly execute every step.
 
-Non-Google agents require redeployment when configuration such as system message, model or temperature changes.
+### MCP pattern
 
-### AI coding agents
-FlutterFlow's desktop AI Agent can launch coding agents with project context, verify/install required CLI tooling, initialize or reuse a local AI workspace, register the FlutterFlow MCP server and guide authentication. The user can review the agent's plan before applying project changes.
+The MCP surface is built around discovery plus capability execution. Discovery/read-only actions can inspect connected flows, connections, tables, runs and validation before mutation. The critical security rule is that credentials remain connection-layer state and are not emitted as model-visible payloads.
 
-Reusable rule:
-- Keep visual composition separate from backend/AI execution.
-- Use explicit conversation IDs for continuity.
-- Make execution limits and authentication configurable.
-- Treat AI-generated project changes as reviewable patches, not implicit writes.
+### MCP as deterministic integration
 
-Sources: FlutterFlow product pages and AI Agent/AI Agents documentation.
+A notable Activepieces pattern is that an MCP client can call external MCP tools without an LLM. That means MCP is not synonymous with agentic reasoning: it can also be used as a deterministic integration protocol inside a workflow.
 
-## 7. Expo / React Native
+### Reusable rule
 
-Expo is a universal React Native application platform with SDK modules, Expo CLI, Snack, Expo Router and EAS.
+Use an LLM only where reasoning or selection is required. Keep known sequences deterministic and persist business state in structured data stores rather than in chat history.
 
-EAS provides:
-- Workflows for CI/CD automation;
-- Build for cloud compilation/signing;
-- Submit for app-store delivery;
-- Update for OTA updates;
-- Hosting for web builds and API routes;
-- Metadata and Insights/Observe capabilities.
+---
 
-### EAS Workflows
-Workflow files live under `.eas/workflows/` and define triggers, jobs and dependencies. Prepackaged jobs include build, submit, update and deploy; custom jobs can run shell commands/tests. Workflows expose job graphs and logs.
+## 5. FlutterFlow: `flutterflow.io`
 
-A particularly strong release pattern is fingerprint-based promotion:
-- determine native characteristics;
-- reuse an existing binary when native code has not changed;
-- otherwise build and submit a new binary;
-- publish OTA updates for JS/TS-only changes.
+FlutterFlow is a visual application-development platform centered on widget composition, Action Flow logic, custom actions/widgets, API integrations, Firebase/Supabase, design systems and Flutter code export.
 
-Production workflows are intentionally separated from CI; release branches or version tags are recommended when teams want deliberate CD semantics.
+### AI agent architecture
 
-EAS Update adds channels, branches and runtime versions to target update delivery safely across multiple installed binary versions.
+FlutterFlow's AI Agents integrate conversational and multimodal capabilities into application actions. The application invokes the configured agent with system instructions, preloaded messages and model settings; conversation continuity is maintained through a conversation identifier.
 
-Reusable rule:
-- distinguish CI, preview, and CD;
-- use immutable/reproducible promotion where possible;
-- use OTA updates only within compatible runtime boundaries;
-- keep environment configuration aligned across staging and production.
+The engineering insight is that the agent is treated as an application capability, not as the entire application architecture.
 
-Sources: current Expo/EAS documentation.
+### AI coding-agent pattern
 
-## 8. Replit
+FlutterFlow's current agent tooling is also instructive: AI coding agents can be given project context, local tooling can be verified/installed, an AI workspace can be initialized/reused, and the FlutterFlow MCP server can be registered for authenticated project operations. The user can review the agent's plan before project changes are applied.
 
-Replit positions itself as an AI app/website builder with an Agent that can create and evolve production-oriented code. Its platform combines full-stack infrastructure including authentication, database, hosting and monitoring with external integrations.
+### Source evidence
 
-Its architecture demonstrates a compressed product workflow:
-`natural-language intent -> agent-generated project -> integrated infra -> publish`.
+The public FlutterFlow documentation repository contains current guidance for configuration files, Firebase initialization and passing library values/API keys into snippets, confirming the importance of separating project-level configuration from reusable code customizations. fileciteturn114file0L1-L16
 
-Security/reliability extraction from the documentation:
-- secrets are managed separately from source code;
-- secrets are encrypted at rest/in transit and injected as environment variables;
-- database provisioning can create a `DATABASE_URL` secret;
-- deployment state is distinguishable from editor state through environment variables.
+### Reusable rule
 
-Reusable rule:
-- keep credentials out of source and agent prompts;
-- treat integrated database/hosting as infrastructure dependencies, not application logic;
-- separate development/editor environment from published runtime.
+Visual composition, agent reasoning and backend execution should remain separable. AI-generated project modifications should be reviewable changes rather than invisible writes.
 
-Sources: Replit product surface and Secrets documentation.
+---
 
-## 9. Render
+## 6. Expo: `expo.dev`
 
-Render is a managed application platform centered on deployable service primitives:
-- Web Service;
-- Static Site;
-- Private Service;
-- Background Worker;
-- Cron Job;
-- Workflow;
-plus managed Postgres and Key Value.
+Expo has become especially relevant to agent-builder architecture because its current documentation explicitly covers AI agents, Expo Skills and the Expo MCP Server.
 
-It provides autoscaling, private networking, persistent disks, preview environments, zero-downtime deploys, infrastructure-as-code, Docker, CLI, REST API, MCP and observability.
+### Current AI tooling
 
-The API is broad enough to manage services, datastores, workflows, deployments, environment groups, blueprints, metrics/logs, projects/environments, domains, jobs and audit logs.
+Expo's docs describe an **Expo MCP Server** as companion AI tooling giving coding agents direct access to Expo and EAS services. fileciteturn129file0L1-L10
 
-Reusable rule:
-- choose runtime primitive based on workload semantics;
-- keep long-lived agent services separate from asynchronous workers/jobs;
-- expose infrastructure through typed automation interfaces when an agent needs to manage deployments.
+The current MCP docs also describe AI-assisted local verification, including screenshot/interaction workflows for a running app. fileciteturn129file1L23-L31
 
-Sources: Render docs, service types and API reference.
+For Codex specifically, Expo documents `codex mcp login expo` as the authentication setup path for the Expo MCP integration. fileciteturn129file4L118-L128
 
-## 10. Railway
+Expo also explicitly states that Cursor and other agents do not have to rely on an official Expo plugin: Expo Skills and the Expo MCP Server can be installed separately. fileciteturn129file2L42-L50
 
-Railway provides an integrated project canvas with services, environments, variables, networking, deployment and observability.
+A useful 3-layer pattern appears in the docs for `agent-device`: Expo Skills teach the agent how to implement features, Expo MCP provides current Expo/EAS context, and `agent-device` verifies the running app. fileciteturn129file7L206-L214
 
-### Compute model
-- persistent services for web apps/APIs/workers;
-- cron jobs;
-- single-file TypeScript functions.
+### EAS architecture
 
-### Environments
-Every project starts with production. Isolated staging and ephemeral PR environments can mirror service topology without sharing private networking or environment-scoped data. PR environments can be created automatically and cleaned up after merge/close.
+Expo EAS separates:
 
-### Variables/secrets
-Variables are environment configuration/secrets. Changes are staged and must be reviewed/deployed. Shared and reference variables allow values to flow between services. Sealed variables are write-only from the platform/API perspective and cannot be retrieved after sealing.
+`Build -> Submit -> Update -> Workflows -> Hosting`
+
+EAS CLI documentation states that EAS Update supports branches, channels, runtime versions, rollouts and rollbacks. fileciteturn115file12L310-L318
+
+The standard EAS build workflow can also handle Android signing credentials. fileciteturn115file1L18-L25
+
+### Agent-builder lesson
+
+Expo demonstrates an unusually clean separation of concerns:
+
+`Skills = implementation knowledge`
+`MCP = live project/platform capabilities`
+`device automation = verification`
+`EAS = build/release/update infrastructure`
+
+That is a canonical pattern for mobile agent systems.
+
+---
+
+## 7. Replit: `replit.com`
+
+Direct official GitHub documentation was less accessible through the current connector than for Expo/Railway/Vercel, so this section is intentionally more conservative.
+
+### Product architecture
+
+Replit's core value proposition is compressed development-to-deployment flow:
+
+`natural-language intent -> AI Agent -> generated full-stack project -> integrated services -> publish`
+
+Public documentation references confirm that the platform combines app building with databases, hosting and environment/secrets management.
+
+### Environment and secrets
+
+The important architectural rule is to distinguish editor/development state from published runtime state and keep secrets outside source code. Public references discussing Replit's deployment model also distinguish autoscale/static deployment categories and deployment configuration in `.replit`. fileciteturn120file12L236-L244
+
+### Reusable rule
+
+Replit is a strong example of a "compressed platform" in which the agent can act across application code and infrastructure. For a production implementation, preserve the same separation boundaries even when the platform hides them from the user: source, secrets, database, deployment and runtime should remain explicit architectural objects.
+
+---
+
+## 8. Render: `render.com`
+
+Render exposes application infrastructure through service primitives and infrastructure-as-code.
+
+### Service primitives
+
+The platform model includes web services, static sites, private services, background workers, cron jobs and workflow-style execution, plus managed data services.
+
+Its current AI/coding-agent integrations are also becoming first-class: Render publishes agent skills/plugins for infrastructure work. The Render Blueprint skill specifically covers databases, private services, Key Value, projects/environments, preview environments and YAML validation, and points to separate deploy/MCP skills for runtime operations. fileciteturn123file0L1-L20
+
+### Architectural lesson
+
+Render treats infrastructure configuration as a typed declarative object that an agent can reason about before deployment. This is preferable to having an agent issue arbitrary shell commands against production.
+
+### Reusable rule
+
+Expose deployment as a structured capability:
+
+`inspect -> plan -> validate -> approve -> deploy -> observe`
+
+rather than:
+
+`agent -> arbitrary production command`
+
+---
+
+## 9. Railway: `railway.com`
+
+Railway is one of the strongest matches for an agent-managed infrastructure model because its documentation now explicitly covers MCP, Agent Skills and sandboxes.
+
+### Core model
+
+The platform is organized around:
+
+`Project -> Environment -> Services -> Variables -> Deployments`
+
+The official docs expose CLI commands for deploy, redeploy, restart, templates and deployment inspection. fileciteturn118file0L1-L12
+
+### Environment isolation
+
+A key architectural property is environment scoping. Staging and ephemeral PR environments can mirror topology without becoming the same operational environment.
 
 ### Dependency-aware deployment
-Service references can establish deployment ordering. Railway resolves dependency chains before deploying dependent services.
 
-### API/automation
-Railway exposes a GraphQL public API plus webhooks, making infrastructure controllable programmatically.
+Railway uses service references to infer deployment ordering: when one service depends on another, the dependent deployment waits for the referenced service to finish. fileciteturn118file4L129-L137
 
-Reusable rule:
-- environments are isolation boundaries, not labels;
-- secrets must be scoped to environment/service and never embedded into client bundles;
-- staged changes plus explicit deploy are valuable approval boundaries for infrastructure mutation.
+### Agent tooling
 
-Sources: Railway Build & Deploy, Variables, Environments, API and advanced concepts docs.
+Railway publishes an MCP server that lets AI assistants create projects, deploy templates and manage environments. fileciteturn118file7L199-L208
 
-## 11. Vercel
+Railway also documents Agent Skills as an open format for extending coding assistants with domain knowledge about deploying services, managing environments and querying metrics. fileciteturn118file8L227-L235
 
-Vercel's current platform is explicitly oriented toward agentic infrastructure. The Agent Stack includes AI SDK, AI Gateway, Sandbox, Passport, Connect and related agent products. Core platform primitives include Fluid Compute, Workflows, CI/CD, security and observability.
+Its sandbox primitive provides environment-scoped isolated on-demand compute on a Railway VM primitive. fileciteturn118file11L307-L315
 
-### Agent architecture
-Vercel describes an agent as a system in which the model selects steps/tools repeatedly toward a goal, while a workflow keeps execution under application-controlled fixed orchestration. This is a useful conceptual distinction:
-- workflow = deterministic control flow with model calls embedded;
-- agent = model-directed iterative control flow.
+### Reusable rule
+
+Railway demonstrates the desirable combination of:
+
+`Skills -> knowledge`
+`MCP -> live infrastructure capability`
+`Environment -> isolation`
+`Sandbox -> untrusted/ephemeral compute`
+`Deploy -> explicit side effect`
+
+---
+
+## 10. Vercel: `vercel.com`
+
+Vercel's current platform architecture is particularly relevant to agentic systems because its platform and AI tooling are being designed together.
+
+### Core agent stack
+
+The current Vercel surface combines AI SDK, AI Gateway, Sandbox, Workflows, Fluid Compute, observability and security primitives.
+
+A useful conceptual distinction is:
+
+**Workflow** = application-controlled durable control flow with model calls embedded.
+
+**Agent** = model-directed iterative control flow where the model chooses subsequent actions.
 
 ### Sandbox
-Vercel Sandbox is ephemeral isolated compute for untrusted/user-generated/AI-generated code. It supports command execution, files, logs, live previews and programmatic creation through the Sandbox SDK.
+
+Vercel positions Sandbox as isolated compute for untrusted, user-generated or AI-generated code. The architectural purpose is to move arbitrary code execution away from the trusted application process.
 
 ### Fluid Compute
-Fluid Compute supports concurrent invocations in shared execution instances, dynamic scaling and lower idle overhead, particularly useful for I/O-heavy AI workloads.
 
-### Agent stack pattern
-Vercel's examples combine:
-`AI SDK/tool definitions -> Workflows/durable orchestration -> Sandbox for untrusted execution -> AI Gateway/model access -> streaming/observability/security`.
+Fluid Compute is designed for concurrent invocation sharing and dynamic scaling, making it well suited to I/O-heavy AI services where traditional one-request-per-instance serverless execution can be inefficient.
 
-The 2026 durable code-agent guide combines durable multi-step workflow semantics with sandboxed code execution and model gateway abstraction, including automatic retries after failed tests.
+### AI SDK / MCP
 
-### Deployment as agent capability
-Vercel supports API, CLI, MCP and Skills surfaces designed for coding agents so agents can deploy applications in platform-native ways.
+The Vercel AI SDK ecosystem directly integrates MCP tooling; current source contains `@ai-sdk/mcp` as a workspace dependency and provider-executed/deferred tool handling. fileciteturn122file1L22-L38 fileciteturn122file0L2-L18
 
-Reusable rule:
-- durable orchestration should own long-running reliability;
-- sandbox should own untrusted execution;
-- model access should be abstracted when portability matters;
-- deployment is a tool with side effects and should have explicit identity/approval boundaries.
+Vercel also publishes a platform plugin for coding-agent workflows. Its current knowledge base references Vercel Functions, AI Gateway, deployment access protection, a Vercel MCP server, and an agent-builder skill. fileciteturn119file0L1-L20 fileciteturn119file1L23-L34
 
-Sources: Vercel docs, Agentic Infrastructure, Functions, Sandbox, Fluid Compute and durable AI code-agent guidance.
+### Reusable rule
 
-## 12. Cross-platform synthesis
+For long-running agent systems use a durable workflow as the reliability backbone, isolate untrusted code in a sandbox, keep model access behind a well-defined provider interface, and expose deployment through authenticated platform APIs/MCP rather than unrestricted credentials.
 
-Across these platforms, several invariant architectural principles recur:
+---
+
+## 11. Cross-platform architectural synthesis
+
+The strongest recurring patterns across OpenAI, MCP, IBM Cloud, Activepieces, FlutterFlow, Expo, Replit, Render, Railway and Vercel are not vendor-specific. They form a common reference architecture for production agents.
 
 ### A. Separate reasoning from execution
-The model decides; deterministic runtimes, APIs, workflows, sandboxes and deployment systems execute.
 
-### B. Use distinct control surfaces
-- prompts/instructions for behavior;
-- tools/MCP for capabilities;
-- state/memory for continuity;
-- workflows/schedulers for durable orchestration;
-- sandbox for untrusted compute;
-- guardrails/auth for safety and authorization;
-- observability/evals for verification.
+The model decides; deterministic services, APIs, workflows, MCP servers, sandboxes and deployment systems execute.
 
-### C. Treat state as layered
-A useful hierarchy is:
-`conversation state -> workflow state -> application/business state -> infrastructure state`.
-Each layer needs different persistence, ownership and security.
+### B. Separate capability from knowledge
 
-### D. Make side effects explicit
-Infrastructure changes, writes, deployment, checkout, user-data mutation and code execution should be represented as explicit capabilities with validation and authorization rather than hidden inside prompts.
+`Skills = what the agent knows how to do`
 
-### E. Prefer bounded, typed interfaces
-Across OpenAI, MCP, Activepieces, Railway, Render and FlutterFlow, schemas/configuration/contracts are used to constrain model/runtime interactions.
+`MCP/tools = what the agent can actually access or change`
 
-### F. Isolate environments
-Preview/staging/production separation appears repeatedly across Railway, Render, Expo and Vercel. For agent systems this should be extended to data, credentials, tool scopes and sandbox execution.
+Expo makes this explicit through Skills + MCP + device verification. fileciteturn129file7L206-L214
 
-### G. Separate deterministic workflows from agentic loops
-Use an agent where the model must choose what to do next. Use ordinary workflows when the sequence is known. Hybrid systems are usually stronger than either extreme.
+Railway does the same through Agent Skills + MCP. fileciteturn118file8L227-L235
 
-### H. Build in recovery
-Modern infrastructure consistently emphasizes retries, rollback, preview environments, staged changes, durable orchestration, resumability and observable execution.
+### C. Treat infrastructure as typed state
 
-### I. Optimize for the complete system
-Latency, cost, reliability, safety and developer experience are system properties. Model choice alone does not determine production quality.
+Projects, environments, services, deployments, domains, variables, sandboxes and databases should be represented as explicit objects. This enables plan/validate/approve/deploy workflows.
 
-## 13. Recommended canonical architecture for this project
+### D. Use layered state
 
 ```text
-User / Event / Work Item
-        |
-        v
-+-------------------------+
-| Policy / Instructions   |
-| Model Spec / Skills     |
-+------------+------------+
-             |
-             v
-+-------------------------+
-| Agent Runtime           |
-| Responses / Agents SDK  |
-+-----+---------------+---+
-      |               |
-      |               +------------------+
-      v                                  v
-+-------------+                    +-------------+
-| State/Memory|                    | Guardrails  |
-+------+------+                    +------+------+
-       |                                  |
-       +---------------+------------------+
-                       v
-                +--------------+
-                | Tools / MCP  |
-                +------+-------+
-                       |
-       +---------------+--------------------+
-       |               |          |         |
-       v               v          v         v
-   APIs/DB         Workflows   Sandbox   Deploy/Cloud
-       |               |          |         |
-       +---------------+----------+---------+
-                       v
-                +--------------+
-                | Observability|
-                | Evals/Traces |
-                +--------------+
+conversation state
+    ↓
+agent/session state
+    ↓
+workflow state
+    ↓
+application/business state
+    ↓
+infrastructure state
 ```
 
-This architecture matches the strongest common patterns found across the analyzed official sources and should be treated as a reference model rather than a mandatory implementation.
+Each layer requires different ownership and retention semantics.
+
+### E. Make side effects explicit
+
+Deployment, infrastructure mutation, user-data writes, code execution, checkout and account changes should be represented as explicit capabilities with authorization and, where appropriate, approval.
+
+### F. Isolate environments
+
+Preview, staging, production and untrusted execution should not be treated as one shared runtime. Railway and Render make environment separation a core operational primitive; Expo does the same for build/update channels and runtime versions.
+
+### G. Build recovery into the runtime
+
+Retries, rollback, preview environments, resumability, staged changes, dependency-aware deployment and durable workflows all reduce the blast radius of model/runtime errors.
+
+### H. Optimize the full system
+
+Latency, cost, safety, observability, model quality and developer experience are coupled system properties. Better models do not eliminate the need for better runtime design.
+
+---
+
+## 12. Canonical architecture for this project
+
+```text
+                 USER / EVENT / WORK ITEM
+                           |
+                           v
+              +---------------------------+
+              | POLICY / INSTRUCTIONS     |
+              | MODEL SPEC / SKILLS       |
+              +-------------+-------------+
+                            |
+                            v
+              +---------------------------+
+              | AGENT RUNTIME              |
+              | Responses / Agents SDK     |
+              +---+-------------------+-----+
+                  |                   |
+        +---------+---------+         |
+        |                   |         |
+        v                   v         v
++---------------+   +--------------+  +----------------+
+| STATE/MEMORY  |   | GUARDRAILS  |  | ORCHESTRATION   |
++-------+-------+   +------+-------+  | Workflows      |
+        |                  |          +-------+--------+
+        +---------+--------+                  |
+                  v                           |
+           +-------------+                    |
+           | TOOLS / MCP |<-------------------+
+           +------+------+ 
+                  |
+       +----------+----------+----------------+
+       |          |          |                |
+       v          v          v                v
+     APIs/DB   Workflows   Sandbox        Cloud/Deploy
+       |          |          |                |
+       +----------+----------+----------------+
+                  |
+                  v
+        +-----------------------+
+        | OBSERVABILITY / EVALS |
+        | traces / metrics / QA |
+        +-----------------------+
+```
+
+### Platform mapping
+
+| Layer | Best evidence from analyzed platforms |
+|---|---|
+| Model/runtime | OpenAI Responses + Agents SDK |
+| Knowledge | OpenAI Skills, Expo Skills, Railway Agent Skills |
+| External capability boundary | MCP |
+| Deterministic automation | Activepieces Flows, Railway/Render workflows |
+| Mobile execution/verification | Expo MCP + device tooling |
+| Untrusted compute | Vercel Sandbox, Railway Sandboxes, OpenAI Sandbox Agents |
+| Cloud/application deployment | Render, Railway, Vercel, IBM Code Engine |
+| Visual app composition | FlutterFlow |
+| Compressed AI app builder | Replit |
+| Enterprise governance | IBM Cloud + IAM/API governance |
+| Release/update | Expo EAS |
+| Evaluation/observability | OpenAI traces/evals plus platform telemetry |
+
+## 13. Decision framework extracted from the platforms
+
+Use **OpenAI Responses/Agents SDK** when the primary problem is agent reasoning and orchestration.
+
+Use **MCP** when the primary problem is exposing live external capabilities through a standardized boundary.
+
+Use **Skills** when the primary problem is repeatable domain knowledge or operational method.
+
+Use **deterministic workflows** when the execution sequence is known.
+
+Use a **sandbox** when the agent must execute arbitrary or untrusted code.
+
+Use **Render/Railway/Vercel/IBM** when the agent must manage actual production infrastructure; do not collapse infrastructure mutation into arbitrary shell access.
+
+Use **Expo** when the target is React Native/mobile and the agent must understand EAS, device verification and app-release state.
+
+Use **FlutterFlow** when the visual application layer is itself part of the development workflow.
+
+Use **Activepieces** when business automation and agentic branching need to coexist around explicit data tables and application connections.
+
+Use **Replit-like compressed builders** when minimizing the distance between user intent, code generation and first deployment is the priority.
+
+## Source-quality statement
+
+This document is an architecture-oriented synthesis of current official/public technical material available to the session. It is deliberately conservative where the connector could not directly inspect a vendor's full documentation corpus. It should be treated as a durable knowledge layer for future design decisions, while implementation details such as current API signatures, quotas, pricing and exact product limits must still be verified against the live vendor documentation at implementation time.
