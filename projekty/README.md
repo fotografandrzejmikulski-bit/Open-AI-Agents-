@@ -1,6 +1,6 @@
 # Projekty — Expanded Design Lab
 
-This directory contains project artifacts upgraded using the project's accumulated knowledge base: OpenAI Agents SDK, MCP, coding-agent patterns, AI application builders, formal verification, adversarial AI security, distributed execution, multimodal systems, model engineering, adaptive reasoning, research orchestration, prompt optimization, Google AI developer patterns, and the source materials supplied by the project owner.
+This directory contains project artifacts upgraded using the project's accumulated knowledge base: OpenAI Agents SDK, MCP, coding-agent patterns, AI application builders, formal verification, adversarial AI security, distributed execution, multimodal systems, model engineering, adaptive reasoning, research orchestration, prompt optimization, Google AI developer patterns, OmniCore/Nexus systems research, verified code generation, and the source materials supplied by the project owner.
 
 ## Engineering standard
 
@@ -49,6 +49,8 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
 | `24-agentic-prompt-compiler-and-dsl.md` | Prompt compiler / DSL | Compile natural-language intent into typed, evaluable and policy-aware agent programs |
 | `25-portfolio-integration-control-tower.md` | Portfolio governance | Federate project manifests, capabilities, evidence, routing, evaluation and release policy |
 | `26-omnicore-trustworthy-kernel-and-agentic-safety-lab.md` | OmniCore trust + AI security | Harden the OmniCore vision with deterministic trust boundaries, capability brokering, verified generation and multimodal adversarial evaluation |
+| `27-omnicore-compound-reasoning-and-self-consistency-engine.md` | Adaptive reasoning | Allocate bounded compute across cached context, parallel solvers, self-consistency, disagreement analysis and escalation |
+| `28-omnicore-ai-foundry-verified-code-generation.md` | Verified code generation | Turn AI Foundry into a contract-first, provenance-aware, formally assisted generation and promotion pipeline |
 
 ## Cross-project architecture
 
@@ -63,6 +65,7 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
                   │ Evals / Approval │
                   │ Provenance       │
                   │ Routing Policy   │
+                  │ Reasoning Budget │
                   └────────┬─────────┘
                            │
           ┌────────────────┼────────────────┐
@@ -70,6 +73,10 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
       Agent Runtime      MCP/Tools      Knowledge
           │                │                │
           └────────────────┼────────────────┘
+                           │
+                 REASONING / PLANNING
+                           │
+                    VERIFIED PLAN
                            │
                  EXECUTION / SANDBOX
                            │
@@ -89,6 +96,8 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
 
 Reasoning depth is treated as a resource to allocate, not a constant. Fast paths are preferred for simple tasks; deeper reasoning is introduced when task complexity, uncertainty or consequence level justifies it. Model-specific internal reasoning representations remain implementation details and are never treated as a user-facing source of truth.
 
+Project 27 operationalizes this doctrine through bounded compound reasoning, cached context, multiple solver paths, disagreement detection and escalation. The supplied research argues for a system-centric architecture in which a capable smaller model can be combined with caching and self-consistency rather than relying exclusively on a single top-tier call. fileciteturn238file1L8-L33
+
 ## Research doctrine
 
 Deep research uses source planning, parallel expertise, adversarial critique, provenance tracking, falsification and resumability. A synthesis is accepted only when claims are traceable to evidence and uncertainty is explicitly represented.
@@ -99,12 +108,12 @@ The portfolio treats covert persuasion, hidden directives, jailbreaks and unauth
 
 ## New OmniCore trust doctrine
 
-The OmniCore research set now has an explicit **trustworthy execution layer** between cognition and side effects:
+The OmniCore research set has an explicit **trustworthy execution layer** between cognition and side effects:
 
 ```text
 MODEL / AGENT
      ↓
-INTERPRETATION
+INTERPRETATION / REASONING
      ↓
 POLICY + PROVENANCE + AUTHZ
      ↓
@@ -117,9 +126,13 @@ ISOLATED DOMAIN / HARDWARE
 
 Semantic retrieval, multimodal perception and model output are information sources, not authority. Privileged actions require typed capabilities, bounded scope and auditable execution. AI-generated kernel/driver artifacts require verification before promotion. GPU-heavy workloads are kept in a lower-trust accelerator domain when direct trusted-domain integration is immature.
 
-The new architecture is grounded in the supplied OmniCore feasibility analysis: the proposed production path uses seL4 with a Linux GPU driver domain and IOMMU/SMMU passthrough, while large media transfers should use shared-memory paths. fileciteturn234file0L45-L79
+The supplied OmniCore feasibility analysis identifies GPU integration as the dominant risk and proposes a seL4 VMM with a Linux GPU driver domain plus IOMMU/SMMU passthrough; shared memory is recommended for large transfers. fileciteturn234file0L45-L79
 
 The security layer also incorporates the supplied jailbreak research: multilingual/encoding gaps, structured representations, multimodal/OCR injection, multi-turn escalation, indirect prompt injection and persistent-memory poisoning are modeled as one threat family rather than isolated prompt bugs. fileciteturn234file2L471-L509 fileciteturn235file1L228-L297 fileciteturn235file0L50-L94
+
+## AI Foundry doctrine
+
+AI-generated code is never promoted merely because it compiles. Project 28 adds a contract-first generation path built around provenance, effects, verification, quarantine, attestation and rollback. The supplied OmniCore materials already define the underlying idea: AI Foundry retrieves hardware documentation, synthesizes code, and passes it through CIRA invariants and verification before loading the resulting module. fileciteturn234file1L327-L364
 
 ## Model and platform doctrine
 
