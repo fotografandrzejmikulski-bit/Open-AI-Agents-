@@ -1,6 +1,6 @@
 # Projekty — Expanded Design Lab
 
-This directory contains project artifacts upgraded using the project's accumulated knowledge base: OpenAI Agents SDK, MCP, coding-agent patterns, AI application builders, formal verification, adversarial AI security, distributed execution, multimodal systems, model engineering, adaptive reasoning, research orchestration, prompt optimization, Google AI developer patterns, OmniCore/Nexus systems research, verified code generation, and the source materials supplied by the project owner.
+This directory contains project artifacts upgraded using the project's accumulated knowledge base: OpenAI Agents SDK, MCP, coding-agent patterns, AI application builders, formal verification, adversarial AI security, distributed execution, multimodal systems, model engineering, adaptive reasoning, research orchestration, prompt optimization, Google AI developer patterns, OmniCore/Nexus systems research, verified code generation, the Sugra data/MCP fabric, and the source materials supplied by the project owner.
 
 ## Engineering standard
 
@@ -17,7 +17,8 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
 - reproducible builds and versioned artifacts;
 - graceful degradation and recovery;
 - an escape hatch from visual builders to inspectable source or explicit runtime contracts;
-- evidence/hypothesis separation for research claims.
+- evidence/hypothesis separation for research claims;
+- external data capabilities with provenance, freshness and quota semantics.
 
 ## Project portfolio
 
@@ -51,6 +52,7 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
 | `26-omnicore-trustworthy-kernel-and-agentic-safety-lab.md` | OmniCore trust + AI security | Harden the OmniCore vision with deterministic trust boundaries, capability brokering, verified generation and multimodal adversarial evaluation |
 | `27-omnicore-compound-reasoning-and-self-consistency-engine.md` | Adaptive reasoning | Allocate bounded compute across cached context, parallel solvers, self-consistency, disagreement analysis and escalation |
 | `28-omnicore-ai-foundry-verified-code-generation.md` | Verified code generation | Turn AI Foundry into a contract-first, provenance-aware, formally assisted generation and promotion pipeline |
+| `29-sugra-agentic-data-and-research-fabric-max.md` | External data + MCP | Make Sugra a governed, provenance-aware, quota-aware evidence and data plane for research and agent operations |
 
 ## Cross-project architecture
 
@@ -66,6 +68,8 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
                   │ Provenance       │
                   │ Routing Policy   │
                   │ Reasoning Budget │
+                  │ Data Freshness   │
+                  │ Quota Budget     │
                   └────────┬─────────┘
                            │
           ┌────────────────┼────────────────┐
@@ -102,6 +106,8 @@ Project 27 operationalizes this doctrine through bounded compound reasoning, cac
 
 Deep research uses source planning, parallel expertise, adversarial critique, provenance tracking, falsification and resumability. A synthesis is accepted only when claims are traceable to evidence and uncertainty is explicitly represented.
 
+Project 29 adds a machine-readable external evidence fabric. Sugra documents one API covering finance, macro, entity, internet infrastructure, news, earth and research data, with a consistent `data` + `meta` response envelope and a large endpoint catalog. citeturn425504search1
+
 ## Security doctrine
 
 The portfolio treats covert persuasion, hidden directives, jailbreaks and unauthorized behavioral influence as security concerns. Defensive analysis may model such techniques, but implementations must not use them to bypass safety controls or covertly manipulate users.
@@ -126,17 +132,44 @@ ISOLATED DOMAIN / HARDWARE
 
 Semantic retrieval, multimodal perception and model output are information sources, not authority. Privileged actions require typed capabilities, bounded scope and auditable execution. AI-generated kernel/driver artifacts require verification before promotion. GPU-heavy workloads are kept in a lower-trust accelerator domain when direct trusted-domain integration is immature.
 
-The supplied OmniCore feasibility analysis identifies GPU integration as the dominant risk and proposes a seL4 VMM with a Linux GPU driver domain plus IOMMU/SMMU passthrough; shared memory is recommended for large transfers. fileciteturn234file0L45-L79
+## Sugra data-fabric doctrine
 
-The security layer also incorporates the supplied jailbreak research: multilingual/encoding gaps, structured representations, multimodal/OCR injection, multi-turn escalation, indirect prompt injection and persistent-memory poisoning are modeled as one threat family rather than isolated prompt bugs. fileciteturn234file2L471-L509 fileciteturn235file1L228-L297 fileciteturn235file0L50-L94
+Sugra is now treated as a **governed data capability plane**, not merely an API integration.
 
-## AI Foundry doctrine
+```text
+NATURAL-LANGUAGE RESEARCH INTENT
+             ↓
+        CAPABILITY SEARCH
+             ↓
+       ENDPOINT DESCRIBE
+             ↓
+       SCHEMA / POLICY CHECK
+             ↓
+        AUTHORIZED CALL
+             ↓
+  DATA + SOURCE + FRESHNESS + QUOTA
+             ↓
+        EVIDENCE OBJECT
+             ↓
+       RESEARCH / AGENT GRAPH
+```
 
-AI-generated code is never promoted merely because it compiles. Project 28 adds a contract-first generation path built around provenance, effects, verification, quarantine, attestation and rollback. The supplied OmniCore materials already define the underlying idea: AI Foundry retrieves hardware documentation, synthesizes code, and passes it through CIRA invariants and verification before loading the resulting module. fileciteturn234file1L327-L364
+The hosted Sugra MCP surface provides discovery, endpoint description, endpoint calling and composed entity/time-series tools. This allows the agent to defer large catalogs until a task actually needs a capability. citeturn425504search0turn270359search3
+
+The portfolio therefore adds four invariants:
+
+1. **Discovery before invocation** for large capability surfaces.
+2. **Provenance survives retrieval** into the evidence graph.
+3. **Freshness is evaluated per query**, not treated as a static trust label.
+4. **Quota and latency are planning constraints**, not post-failure concerns.
+
+For high-consequence workflows, the Sugra documentation provides an especially strong pattern: verify data-source coverage first, preserve per-field provenance, route ambiguous `review` outcomes to humans, and fail closed when required sanctions data is unavailable. citeturn270359search0
 
 ## Model and platform doctrine
 
 Platform-specific capabilities are implemented through adapters and explicit contracts. Reasoning configuration, thought-state metadata, multimodal processing, tool calling and provider features must not leak into business logic. Provider-specific capabilities are optional accelerators, not architectural dependencies unless deliberately selected and tested.
+
+Remote MCP servers are external trust domains. The portfolio therefore applies the same control model to Sugra as to any third-party service: explicit server selection, secret isolation, approval policy, output provenance and review of data shared with the service. fileciteturn246file3L160-L190
 
 ## Lifecycle
 
