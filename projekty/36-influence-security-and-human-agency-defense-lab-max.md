@@ -35,6 +35,9 @@ BEHAVIORAL SIGNAL EXTRACTION
           +--> dependency signals
           +--> authority cues
           +--> contradiction / pressure
+          +--> covert suggestion patterns
+          +--> expectation shaping
+          +--> attention capture
           |
           v
 INFLUENCE RISK ENGINE
@@ -112,6 +115,26 @@ INFLUENCE RISK
 
 The detector should flag the **system design**, not label the user as gullible or susceptible.
 
+### 3.1 Suggestion / expectancy analysis
+
+The newly supplied performance material demonstrates a recurring structure: direct attention toward a desired mental representation, constrain when the participant begins forming it, reinforce vivid visualization, and use timing/performance to shape expectations. fileciteturn76file0L19-L45 The companion material also combines verbal instructions with gestures and emphasized words. fileciteturn77file15L805-L818
+
+The defensive system therefore adds a **Suggestion Exposure Vector**:
+
+```yaml
+SuggestionExposure:
+  imperative_density:
+  sequencing_pressure:
+  attention_direction:
+  repetition:
+  expectancy_cues:
+  multimodal_reinforcement:
+  opt_out_friction:
+  disclosure:
+```
+
+High scores do not prove manipulation. They trigger transparency, review or neutralization according to policy.
+
 ## 4. Deception-aware evidence model
 
 The supplied deception material proposes looking for inconsistencies across verbal content, timing, gestures and story structure. fileciteturn53file14L864-L898 However, such cues are not reliable enough to serve as an autonomous truth oracle.
@@ -145,7 +168,8 @@ The engine detects interaction patterns including:
 - framing a requested action as already authorized when it is not;
 - emotional escalation immediately before a consequential action;
 - repeated normalization of increasingly risky requests;
-- instructions to hide the interaction from oversight.
+- instructions to hide the interaction from oversight;
+- covert suggestion or expectancy shaping without disclosure.
 
 These signals feed policy review and user-protection controls.
 
@@ -232,6 +256,7 @@ A business model with high revenue but significant autonomy cost must be flagged
 | Reward loops | variable reinforcement | compulsive-loop risk |
 | Personalization | sensitive targeting | prohibited-target rate |
 | Pressure | urgency escalation | intervention rate |
+| Suggestion | expectancy shaping | disclosure / neutralization rate |
 | Deception | inconsistent evidence | calibrated confidence |
 | Authority | fake authorization | verification rate |
 | Emotional framing | fear / guilt pressure | neutralization rate |
