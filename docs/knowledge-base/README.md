@@ -29,8 +29,9 @@ The repository is documentation-first. Source-derived knowledge is archived here
 
 ## Cross-platform knowledge
 
-- Official OpenAI developer/platform documentation, MCP specification, IBM Cloud, Activepieces, FlutterFlow, Expo, Replit, Render, Railway and Vercel have been analyzed for reusable architecture and production patterns.
+- Official/public technical material for OpenAI developer/platform documentation, MCP, IBM Cloud, Activepieces, FlutterFlow, Expo, Replit, Render, Railway and Vercel has been analyzed for reusable architecture and production patterns.
 - The consolidated cross-platform extraction is in `docs/knowledge-base/platforms-openai-mcp-cloud-builders.md`.
+- The 2026-09-07 extraction emphasizes agent/runtime separation, MCP capability boundaries, deterministic workflows, sandbox isolation, environment separation, explicit side effects, infrastructure-as-code, and deployment/evaluation recovery patterns.
 
 ## Key architectural themes
 
@@ -44,6 +45,9 @@ The repository is documentation-first. Source-derived knowledge is archived here
 8. Separate deterministic workflows from model-directed agent loops.
 9. Isolate development, preview/staging, production and untrusted execution environments.
 10. Treat credentials, deployment and infrastructure mutation as explicit security-sensitive capabilities.
+11. Separate knowledge from capability: Skills teach the method; tools/MCP provide access or side effects.
+12. Treat infrastructure as typed state that can be inspected, planned, validated, approved, deployed and observed.
+13. Build recovery into the runtime through retries, rollback, staged changes, resumability and durable orchestration.
 
 ## Source principle
 
