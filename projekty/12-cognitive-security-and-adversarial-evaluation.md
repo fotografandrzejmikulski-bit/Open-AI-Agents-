@@ -40,9 +40,71 @@ Run deterministic test cases for role manipulation, instruction injection, multi
 ### 5. Tool firewall
 A tool call is authorized from the structured request and current policy state, never from natural-language content alone.
 
+## 6. Context-aware intent verification
+
+The new intent-security research adds a dedicated evaluation axis for **unknown intent, contextual blindness, over-refusal and under-refusal**. The supplied report argues that modern LLM intent detection operates in an open semantic space and must handle unknown intents rather than forcing every request into a static taxonomy. fileciteturn52file0L36-L40
+
+The benchmark therefore evaluates:
+
+```text
+CURRENT TURN
+    +
+TRAJECTORY
+    +
+PROVENANCE
+    +
+CONSEQUENCE
+    +
+UNCERTAINTY
+    →
+INTENT HYPOTHESIS
+```
+
+A system passes only when it can preserve benign assistance while detecting adversarial state transitions. Unknown/OOS is a first-class result, not an error state.
+
+## 7. Safe-completion evaluation
+
+Binary refusal is no longer sufficient. The test harness measures whether the system can choose among:
+
+```text
+ALLOW
+SAFE-COMPLETE
+CONSTRAIN
+CLARIFY
+ESCALATE
+REFUSE
+```
+
+The source material explicitly identifies the tension between excessive refusal and educationally framed attacks, recommending contextual intent awareness rather than removal of safety controls. fileciteturn52file4L193-L204
+
+## 8. Influence-security evaluation
+
+Behavioral and persuasion-oriented sources are incorporated as a **defensive influence threat taxonomy**. Relevant classes include hidden objectives, pressure, deceptive framing, artificial urgency, reward-loop design, dependency signals and attempts to manufacture consent.
+
+The bio-hacking material describes variable-ratio reinforcement as a mechanism associated with persistent checking/compulsive behavior. fileciteturn52file13L638-L655 Mentalism material emphasizes expectation, suggestion and performance as components of convincing psychological illusions. fileciteturn53file0L46-L60
+
+The platform tests whether an agent or application:
+
+- discloses material persuasive intent;
+- preserves meaningful opt-out;
+- avoids targeting vulnerability;
+- separates personalization from authorization;
+- avoids engagement optimization that conflicts with user welfare.
+
 ## Metrics
 
 Attack success rate, false positive rate, protected-intent preservation, unauthorized tool-call rate, policy drift, time-to-detection, recovery success and user-visible friction.
+
+Additional MAX metrics:
+
+- unknown-intent calibration;
+- benign pass rate;
+- trajectory detection latency;
+- safe-completion utility;
+- influence-risk intervention rate;
+- consent/reversibility success;
+- memory-poisoning acceptance rate;
+- cross-modal policy consistency.
 
 ## Safety property
 
@@ -50,4 +112,8 @@ No red-team test should require deploying an offensive payload against an extern
 
 ## Architecture principle
 
-`detection != blocking != authorization`: each is a separate control layer.
+`detection != blocking != authorization`
+
+Each is a separate control layer. Intent inference is also not authorization:
+
+`intent confidence != capability permission`.
