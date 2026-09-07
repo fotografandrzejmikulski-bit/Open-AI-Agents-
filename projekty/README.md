@@ -53,6 +53,7 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
 | `27-omnicore-compound-reasoning-and-self-consistency-engine.md` | Adaptive reasoning | Allocate bounded compute across cached context, parallel solvers, self-consistency, disagreement analysis and escalation |
 | `28-omnicore-ai-foundry-verified-code-generation.md` | Verified code generation | Turn AI Foundry into a contract-first, provenance-aware, formally assisted generation and promotion pipeline |
 | `29-sugra-agentic-data-and-research-fabric-max.md` | External data + MCP | Make Sugra a governed, provenance-aware, quota-aware evidence and data plane for research and agent operations |
+| `30-omnicore-sugra-evidence-osint-control-fabric.md` | External evidence + OSINT + control | Integrate Sugra, evidence graphs, freshness/partiality gates, quota-aware planning and Zero-Trust MCP execution into the OmniCore control plane |
 
 ## Cross-project architecture
 
@@ -106,7 +107,7 @@ Project 27 operationalizes this doctrine through bounded compound reasoning, cac
 
 Deep research uses source planning, parallel expertise, adversarial critique, provenance tracking, falsification and resumability. A synthesis is accepted only when claims are traceable to evidence and uncertainty is explicitly represented.
 
-Project 29 adds a machine-readable external evidence fabric. Sugra documents one API covering finance, macro, entity, internet infrastructure, news, earth and research data, with a consistent `data` + `meta` response envelope and a large endpoint catalog. citeturn425504search1
+Project 29/30 adds a machine-readable external evidence fabric. Sugra documents a broad API/MCP surface spanning finance, macro, entity, internet infrastructure, news, earth and research data; its responses expose a consistent `data` + `meta` envelope, while research endpoints expose source metadata and research-oriented retrieval workflows. citeturn510648search0turn622684search3
 
 ## Security doctrine
 
@@ -154,16 +155,37 @@ NATURAL-LANGUAGE RESEARCH INTENT
        RESEARCH / AGENT GRAPH
 ```
 
-The hosted Sugra MCP surface provides discovery, endpoint description, endpoint calling and composed entity/time-series tools. This allows the agent to defer large catalogs until a task actually needs a capability. citeturn425504search0turn270359search3
+The hosted Sugra MCP surface provides discovery, endpoint description, endpoint calling and composed entity/time-series tools. The documentation explicitly positions discovery tools as a way to work with the large endpoint catalog without loading every function into every agent step. citeturn510648search0
 
-The portfolio therefore adds four invariants:
+The portfolio therefore enforces five invariants:
 
-1. **Discovery before invocation** for large capability surfaces.
+1. **Discovery before invocation** for uncertain or large capability surfaces.
 2. **Provenance survives retrieval** into the evidence graph.
-3. **Freshness is evaluated per query**, not treated as a static trust label.
-4. **Quota and latency are planning constraints**, not post-failure concerns.
+3. **Freshness and partiality are query-time admissibility signals.**
+4. **Quota, latency and request cost participate in planning.**
+5. **Remote MCP is an independent trust domain.**
 
-For high-consequence workflows, the Sugra documentation provides an especially strong pattern: verify data-source coverage first, preserve per-field provenance, route ambiguous `review` outcomes to humans, and fail closed when required sanctions data is unavailable. citeturn270359search0
+Sugra's documentation also provides explicit authentication and quota semantics: data endpoints require the `x-api-key` header, keys must remain server-side, and quotas are tracked per key with UTC reset semantics. citeturn622684search1turn510648search10
+
+## Project 30 integration doctrine
+
+Project 30 is the reference implementation of the Sugra control boundary. It joins the external evidence plane with Projects 15, 17, 19, 24, 25, 26 and 27 through:
+
+```text
+EVIDENCE CONTRACT
+      +
+FRESHNESS CONTRACT
+      +
+QUOTA CONTRACT
+      +
+AUTHORIZATION CONTRACT
+      +
+PROVENANCE CONTRACT
+      ↓
+REASONING / RESEARCH / OSINT
+```
+
+This means an external API result is never inserted into agent context as undifferentiated text. It is normalized, typed, attributable and policy-scored first.
 
 ## Model and platform doctrine
 
