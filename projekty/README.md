@@ -44,6 +44,11 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
 | `19-omniscience-research-orchestrator-max.md` | Research orchestration | Convert deep questions into evidence graphs, adversarial expert review, hypotheses and falsification tests |
 | `20-adaptive-prompt-lab.md` | Prompt optimization | Treat prompts as versioned artifacts optimized against frozen evaluation and robustness suites |
 | `21-google-ai-sovereign-developer-stack.md` | Google AI developer stack | Combine local/edge inference, cloud reasoning, agentic orchestration, multimodal compute and verification |
+| `22-agentic-media-forge-multimodal-studio.md` | Multimodal production | Build a provenance-aware production pipeline for image, video, audio and visual analysis |
+| `23-legacy-migration-cira-graph-engine.md` | Legacy modernization | Use AST/CFG/DFG/PDG graphs, CIRA and verification gates for safe modernization |
+| `24-agentic-prompt-compiler-and-dsl.md` | Prompt compiler / DSL | Compile natural-language intent into typed, evaluable and policy-aware agent programs |
+| `25-portfolio-integration-control-tower.md` | Portfolio governance | Federate project manifests, capabilities, evidence, routing, evaluation and release policy |
+| `26-omnicore-trustworthy-kernel-and-agentic-safety-lab.md` | OmniCore trust + AI security | Harden the OmniCore vision with deterministic trust boundaries, capability brokering, verified generation and multimodal adversarial evaluation |
 
 ## Cross-project architecture
 
@@ -91,6 +96,30 @@ Deep research uses source planning, parallel expertise, adversarial critique, pr
 ## Security doctrine
 
 The portfolio treats covert persuasion, hidden directives, jailbreaks and unauthorized behavioral influence as security concerns. Defensive analysis may model such techniques, but implementations must not use them to bypass safety controls or covertly manipulate users.
+
+## New OmniCore trust doctrine
+
+The OmniCore research set now has an explicit **trustworthy execution layer** between cognition and side effects:
+
+```text
+MODEL / AGENT
+     ↓
+INTERPRETATION
+     ↓
+POLICY + PROVENANCE + AUTHZ
+     ↓
+CAPABILITY BROKER
+     ↓
+DETERMINISTIC EXECUTION
+     ↓
+ISOLATED DOMAIN / HARDWARE
+```
+
+Semantic retrieval, multimodal perception and model output are information sources, not authority. Privileged actions require typed capabilities, bounded scope and auditable execution. AI-generated kernel/driver artifacts require verification before promotion. GPU-heavy workloads are kept in a lower-trust accelerator domain when direct trusted-domain integration is immature.
+
+The new architecture is grounded in the supplied OmniCore feasibility analysis: the proposed production path uses seL4 with a Linux GPU driver domain and IOMMU/SMMU passthrough, while large media transfers should use shared-memory paths. fileciteturn234file0L45-L79
+
+The security layer also incorporates the supplied jailbreak research: multilingual/encoding gaps, structured representations, multimodal/OCR injection, multi-turn escalation, indirect prompt injection and persistent-memory poisoning are modeled as one threat family rather than isolated prompt bugs. fileciteturn234file2L471-L509 fileciteturn235file1L228-L297 fileciteturn235file0L50-L94
 
 ## Model and platform doctrine
 
