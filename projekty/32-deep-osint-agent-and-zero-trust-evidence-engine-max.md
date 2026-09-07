@@ -30,6 +30,14 @@ CONFIDENCE + COUNTEREVIDENCE
 REPORT / ALERT
 ```
 
+## Source-derived baseline: Deep OSINT Framework
+
+Dostarczony framework implementuje klasę `DeepOSINT` z modułami generowania zapytań wyszukiwawczych, crawl/extraction, analizy EXIF, skanowania portów oraz raportowania HTML. Źródło pokazuje m.in. ekstrakcję e-maili, telefonów i linków społecznościowych z HTML, analizę `model`, `make`, `datetime_original`, GPS i software w EXIF oraz sprawdzanie typowych portów 21/22/25/53/80/443/3306/8080. fileciteturn98file0L12-L25 fileciteturn98file0L53-L85 fileciteturn98file0L92-L126 fileciteturn98file0L128-L147
+
+Framework zawiera również generowanie wyszukiwań dotyczących publicznych dokumentów, paneli logowania, otwartych katalogów, plików konfiguracyjnych, wyników społecznościowych i treści z serwisów paste. W systemie produkcyjnym takie zapytania są klasyfikowane jako **high-risk discovery patterns** i mogą być wykonywane wyłącznie w dozwolonym zakresie oraz z zachowaniem polityki prywatności i autoryzacji; nie stanowią domyślnej ścieżki eksfiltracji ani pozyskiwania danych uwierzytelniających. fileciteturn98file0L26-L52
+
+Wniosek: źródłowy skrypt jest dobrym **adapterem kolektorów**, ale nie jest jeszcze bezpiecznym agentem dowodowym. Project 32 zachowuje jego klasy modułów, lecz nakłada na nie capability boundary, provenance, authorization i evidence validation.
+
 ## Autonomous Command Loop — bez niekontrolowanej autonomii
 
 Materiały NEXUS-GHOST przedstawiają ACL jako pętlę: dyrektywa użytkownika → analiza → decyzja o narzędziu → wykonanie backendowe → zwrot wyniku do kontekstu → ponowna synteza. fileciteturn32file8L451-L473
@@ -111,19 +119,44 @@ approval_state
 
 Narzędzie nie dziedziczy automatycznie uprawnień od agenta.
 
+## Collector contract
+
+Każdy kolektor z frameworku zostaje przekształcony do kontraktu:
+
+```yaml
+Collector:
+  id:
+  version:
+  input_schema:
+  output_schema:
+  collection_mode: passive|active
+  required_capabilities: []
+  target_constraints: []
+  rate_limit:
+  timeout:
+  provenance_fields: []
+  evidence_quality:
+  failure_modes: []
+```
+
+Minimalny wynik kolektora musi zawierać `observed_at`, `source`, `target`, `raw_reference` i identyfikator kolektora. Kolektor nie może samodzielnie zmienić zakresu dochodzenia.
+
 ## Weaknesses of the baseline script
 
-Dostarczony prosty `OSINTAgent` rozdziela skan IP, analizę domeny i enumerację nazwy użytkownika, zapisując wyniki do JSON. fileciteturn30file6L9-L15
+Dostarczony framework korzysta bezpośrednio z `requests.Session`, regexów, BeautifulSoup, EXIF oraz socketów; zapisuje stan do `report_data`, a raport końcowy renderuje jako HTML. fileciteturn98file0L12-L25 fileciteturn98file0L53-L85 fileciteturn98file0L148-L173
 
-Jednocześnie jego wyników nie wolno traktować jako dowodów wysokiej jakości, ponieważ:
+To nie wystarcza do systemu produkcyjnego, ponieważ:
 
-- analiza IP zależy od zewnętrznego API;
-- `HEAD` i status HTTP nie zawsze dają jednoznaczne rozstrzygnięcie;
-- enumeracja użytkowników oparta na 200/404 jest uproszczona;
-- raport nie ma modelu provenance, reliability ani counterevidence;
-- zakres uprawnień celu nie jest częścią kontraktu narzędzia.
+- wynik scrapowania nie jest dowodem wysokiej jakości bez provenance i snapshotu źródła;
+- regex dla telefonów i e-maili może generować false positives/negatives;
+- link HTTP, status `200/404` albo pojedynczy rekord nie potwierdza tożsamości podmiotu;
+- EXIF może być usunięty lub zmodyfikowany, więc GPS jest obserwacją metadanych, nie automatycznie prawdą o miejscu wykonania zdjęcia;
+- aktywny socket scan jest działaniem sieciowym i wymaga autoryzacji oraz kontroli zakresu;
+- generowanie zapytań do paneli administracyjnych, konfiguracji lub treści wyciekowych zwiększa ryzyko pozyskania danych nieuprawnionych;
+- raport HTML nie posiada kryptograficznego łańcucha pochodzenia ani modelu counterevidence;
+- brak wersjonowanego stanu dochodzenia utrudnia wznowienie i audyt.
 
-Project 32 usuwa te ograniczenia przez evidence schema, typed connectors i warstwę policy enforcement.
+Project 32 usuwa te ograniczenia przez evidence schema, typed connectors, snapshot/provenance layer i policy enforcement.
 
 ## Deep OSINT recursion governor
 
@@ -138,6 +171,28 @@ Zatrzymanie następuje, gdy:
 - pozostałe pivots wymagają nieautoryzowanego działania;
 - przekroczono budżet czasu / zapytań;
 - pojawiła się sprzeczność wymagająca człowieka.
+
+## Evidence quality gate
+
+Przed awansem znaleziska do claimu system wykonuje:
+
+```text
+RAW OBSERVATION
+      ↓
+PARSING / NORMALIZATION
+      ↓
+SOURCE + TIME + TARGET VALIDATION
+      ↓
+DUPLICATE / CONFLICT CHECK
+      ↓
+COUNTEREVIDENCE SEARCH
+      ↓
+RELIABILITY + FRESHNESS SCORE
+      ↓
+CLAIM ELIGIBILITY
+```
+
+Reguła nadrzędna: brak dowodu nie jest dowodem braku, a brak spójności nie jest automatycznie dowodem oszustwa.
 
 ## MCP + Agent Skills architecture
 
@@ -191,9 +246,33 @@ Test suite obejmuje:
 - sprzeczne źródła;
 - stale data;
 - unicode/homoglyph obfuscation;
-- wymuszenie aktywnego skanowania poza zakresem.
+- wymuszenie aktywnego skanowania poza zakresem;
+- fałszywe lub zmanipulowane EXIF;
+- źródła zmieniające treść po pobraniu;
+- kolektory próbujące rozszerzyć `target_scope`;
+- kolektory zwracające dane bez wymaganych provenance fields.
 
 Celem jest sprawdzenie, czy agent potrafi powiedzieć **„brak wystarczających dowodów”** zamiast generować pozorną pewność.
+
+## Resumability
+
+Każda faza dochodzenia zapisuje checkpoint:
+
+```yaml
+InvestigationCheckpoint:
+  investigation_id:
+  state:
+  scope_version:
+  evidence_graph_version:
+  completed_collectors: []
+  pending_pivots: []
+  blocked_actions: []
+  unresolved_conflicts: []
+  budget:
+  last_updated:
+```
+
+Wznowienie nie może automatycznie odziedziczyć wygasłych uprawnień. Capability grants są ponownie walidowane przy wykonaniu.
 
 ## Integracja
 
@@ -206,6 +285,8 @@ Project 32 integruje Projects 06, 12, 15, 19, 25, 26, 27, 29 i 30.
 - passive-first execution;
 - authorization-aware active tools;
 - evidence/reasoning separation;
+- collector contracts;
+- evidence quality gates;
 - resumable investigations;
 - adversarial evaluation;
 - audytowalny raport końcowy.
