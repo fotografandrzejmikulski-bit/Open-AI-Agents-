@@ -23,9 +23,14 @@ The repository is documentation-first. Source-derived knowledge is archived here
 
 ## Repository-derived knowledge
 
-- `openai/codex`, `openai/symphony`, `openai/plugins`, `openai/openai-mcpkit`, `openai/openai-apps-sdk-examples` and other high-value OpenAI repositories have been mined for reusable engineering patterns.
+- `openai/codex`, `openai/symphony`, `openai/plugins`, `openai/openai-mcpkit` and `openai/openai-apps-sdk-examples` and other high-value OpenAI repositories have been mined for reusable engineering patterns.
 - The consolidated repository map is in `docs/knowledge-base/openai-org-repository-knowledge.md`.
 - Earlier extractions from `openai/whisper`, `openai/evals`, `openai/openai-python`, `openai/tiktoken`, and `openai/openai-node` are archived separately.
+
+## Cross-platform knowledge
+
+- Official OpenAI developer/platform documentation, MCP specification, IBM Cloud, Activepieces, FlutterFlow, Expo, Replit, Render, Railway and Vercel have been analyzed for reusable architecture and production patterns.
+- The consolidated cross-platform extraction is in `docs/knowledge-base/platforms-openai-mcp-cloud-builders.md`.
 
 ## Key architectural themes
 
@@ -36,7 +41,10 @@ The repository is documentation-first. Source-derived knowledge is archived here
 5. Specialize agents when instruction/tool/policy surfaces materially diverge.
 6. Treat evaluations and traces as part of the runtime lifecycle, not merely release-time tests.
 7. Keep authoritative business state server-side and treat UI/widget state as ephemeral.
+8. Separate deterministic workflows from model-directed agent loops.
+9. Isolate development, preview/staging, production and untrusted execution environments.
+10. Treat credentials, deployment and infrastructure mutation as explicit security-sensitive capabilities.
 
 ## Source principle
 
-The supplied documentation and repository source are treated as the primary evidence for this project. Later synthesis should verify exact details against archived source materials rather than guessing from memory. Where this knowledge base summarizes repository content, it should not be read as a claim that every file in every OpenAI repository has been exhaustively analyzed.
+The supplied documentation and repository source are treated as the primary evidence for this project. Later synthesis should verify exact details against archived source materials rather than guessing from memory. Where this knowledge base summarizes repository or web content, it should not be read as a claim that every file on every listed platform has been exhaustively analyzed.
