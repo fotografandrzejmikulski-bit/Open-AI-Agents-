@@ -2,20 +2,20 @@
 
 ## Cel projektu
 
-Zbudować warstwę, która zamienia pomysł na produkt AI w **sprawdzalny model biznesu**, a dopiero potem w implementację. Projekt łączy klasyczne modele biznesowe z agentic software factory, application builders, MCP/Skills i kontrolą ryzyka.
+Zbudować warstwę, która zamienia pomysł, problem lub sygnał rynkowy w **sprawdzalny model biznesu, konkretną strategię i sekwencję wykonalnych eksperymentów**, a dopiero potem w implementację. Project 34 traktuje strategię jako adaptacyjną politykę działania, a model biznesowy jako aktualną konfigurację sposobu tworzenia i przechwytywania wartości.
 
-Źródłowe ujęcia modelu biznesu rozróżniają strategię od modelu biznesu, ale wskazują na ich silne powiązanie przez tworzenie i przechwytywanie wartości. W literaturze model biznesu bywa opisywany przez wybory strategiczne, tworzenie wartości, przejmowanie wartości oraz sieć wartości. fileciteturn34file7L369-L388
+Źródła podkreślają, że model biznesowy może być ujmowany przez wybory strategiczne, zasoby, działania, pozycję rynkową, koszty oraz tworzenie i przechwytywanie wartości. fileciteturn34file7L369-L388 fileciteturn51file3L141-L160
+
+Niewiadomski dodatkowo traktuje konkretyzację strategii jako problem badawczy wymagający identyfikacji mikrofundamentów przyjętego modelu biznesowego oraz empirycznej weryfikacji ich znaczenia. fileciteturn64file6L314-L334
 
 ## Model kanoniczny
 
-Projekt implementuje dwa komplementarne widoki:
-
 ```text
 MAGICZNY TRÓJKĄT
-WHO?  → segment klienta
-WHAT? → propozycja wartości
-HOW?  → łańcuch wartości
-WHY?  → ekonomika / rentowność
+WHO?   → segment / użytkownik / beneficjent
+WHAT?  → propozycja wartości
+HOW?   → konfiguracja działań i łańcuch wartości
+WHY?   → ekonomika / mechanizm przechwytywania wartości
 ```
 
 oraz pełny model 9-elementowy:
@@ -32,66 +32,120 @@ REVENUE STREAMS
 COST STRUCTURE
 ```
 
-Takie komponenty są explicite przedstawione w ujęciu Osterwaldera i Pigneura, a model Gassmanna, Frankenbergera i Csika sprowadza decyzje do pytań kto/co/jak/dlaczego. fileciteturn34file0L11-L38
+Te elementy są jawnie reprezentowane w materiale o Osterwalderze i Pigneurze. fileciteturn51file4L171-L208
 
-## AI Venture Compiler
+## Strategy Concretization Compiler
 
-Natural-language intent jest kompilowany do `BusinessModelSpec`:
+Natural-language intent jest kompilowany do dwóch powiązanych artefaktów:
 
-```yaml
-customer_segment:
-value_proposition:
-problem:
-workflow:
-channels:
-relationship_model:
-key_resources:
-key_activities:
-key_partners:
-revenue_model:
-cost_model:
-unit_economics:
-moat:
-risks:
-assumptions:
-evidence:
-experiments:
+```text
+BusinessModelSpec = CURRENT CONFIGURATION
+StrategySpec      = ADAPTATION / EXECUTION POLICY
 ```
 
 Każde pole ma status:
 
 `OBSERVED | INFERRED | HYPOTHESIS | VALIDATED | REJECTED`
 
-Agent nie może przedstawiać hipotez rynkowych jako faktów.
+### StrategySpec
+
+```yaml
+StrategySpec:
+  objective:
+  target_domain:
+  strategic_position:
+  time_horizon:
+  required_resources:
+  required_competences:
+  distinctive_capabilities:
+  key_activities:
+  activity_sequence:
+  decision_rules:
+  dependencies:
+  constraints:
+  assumptions:
+  evidence_refs:
+  leading_indicators:
+  lagging_indicators:
+  triggers:
+  fallback_paths:
+  review_date:
+```
+
+Strategia nie jest opisem aspiracji. Musi zejść do poziomu **zasobów → kompetencji → działań → kolejności → mierników → decyzji**.
+
+## Microfoundation Map
+
+Na podstawie podejścia mikrofundamentów Foundry odwzorowuje:
+
+```text
+GOAL
+ ↓
+RESOURCES
+ ↓
+COMPETENCES
+ ↓
+CAPABILITIES
+ ↓
+ACTIVITIES
+ ↓
+VALUE CREATION
+ ↓
+VALUE CAPTURE
+ ↓
+OUTCOME
+```
+
+Każda zależność posiada:
+
+`owner + evidence + confidence + time_validity + dependency`.
+
+Pozwala to wykryć sytuację, w której strategia zakłada kompetencję, której organizacja faktycznie nie posiada.
 
 ## Dynamic Strategy Engine
 
-Źródło biznesowe rozróżnia model biznesowy od strategii: model opisuje układ elementów i relacji, natomiast strategia określa sposób działania wobec zmieniających się warunków. fileciteturn50file3L29-L47
+Model biznesowy opisuje sposób działania w danym momencie; strategia określa kierunek zmian i musi reagować na zmienne otoczenie. Źródło wyraźnie podkreśla konieczność dostosowywania lub przebudowy modelu przy istotnych zmianach otoczenia lub celów. fileciteturn135file9L367-L374
 
-Foundry dlatego utrzymuje dwa powiązane artefakty:
+Foundry dlatego utrzymuje:
 
 ```text
-BUSINESS MODEL = CURRENT ECONOMIC CONFIGURATION
-STRATEGY       = ADAPTATION POLICY OVER TIME
+CURRENT STATE
+      ↓
+ENVIRONMENTAL CHANGE
+      ↓
+STRATEGIC HYPOTHESIS
+      ↓
+SMALL VALIDATING EXPERIMENT
+      ↓
+MEASURED RESULT
+      ↓
+PROCEED / ADAPT / ABANDON
 ```
 
-Silnik strategii monitoruje:
+Zmiana modelu biznesowego nie jest automatyczna tylko dlatego, że pojawił się nowy sygnał. Wymaga progu dowodowego.
 
-- zmianę potrzeb klientów;
-- konkurencję i imitowalność;
-- koszty kluczowych zasobów;
-- kanały dystrybucji;
-- retencję i skłonność do płacenia;
-- zmiany regulacyjne;
-- nowe możliwości technologiczne.
+## Strategic Concretization Score
 
-Zmiana otoczenia nie powoduje automatycznej przebudowy produktu. Najpierw powstaje hipoteza strategiczna, następnie eksperyment i dopiero później decyzja o zmianie modelu.
+Każdą strategię ocenia się wielowymiarowo:
+
+```text
+S = f(goal_clarity,
+      domain_fit,
+      resource_fit,
+      competence_fit,
+      activity_coherence,
+      timing,
+      value_creation,
+      value_capture,
+      adaptability,
+      evidence_quality)
+```
+
+Brak danych może obniżyć confidence, ale nie zostaje zamieniony na sztuczną precyzję.
 
 ## Competitive Advantage Compiler
 
-Ujęcie K. Obłoja przedstawione w źródle łączy model biznesu z koncepcją strategiczną i praktycznym łańcuchem wartości, a jako tworzywo modelu wskazuje przewagę konkurencyjną, zasoby/umiejętności i łańcuch wartości. fileciteturn51file3L130-L157
-
-Foundry koduje to jako:
+Przewaga musi wynikać z mechanizmu, a nie z deklaracji:
 
 ```yaml
 CompetitiveAdvantage:
@@ -107,77 +161,102 @@ CompetitiveAdvantage:
   renewal_mechanism:
 ```
 
-Każda deklarowana przewaga musi mieć mechanizm utrzymania albo odnowy. Sam fakt użycia AI nie jest uznawany za moat.
+Samo użycie AI nie stanowi moat.
 
-## Opportunity Mining
+## Opportunity Mining from unsolved problems
 
-Publikacja Mindstream x HubSpot pokazuje szeroki katalog możliwych biznesów AI: chatboty i asystenci dla firm, narzędzia do tworzenia treści, automatyzacja dokumentów, analityka rynku, reputacja, tłumaczenia, narzędzia podcastowe i wiele innych. fileciteturn31file1L45-L105
+Nowy materiał o nierozwiązanych problemach przesuwa Opportunity Mining z katalogu „pomysłów AI” w stronę **problem-first discovery**. Raport wskazuje połączenia między fizyką, matematyką, biologią, medycyną, klimatem, ekonomią, świadomością i zarządzaniem AI oraz interpretuje granice wiedzy jako jednocześnie źródło ryzyka i potencjalnej wartości. fileciteturn53file6L331-L357 fileciteturn61file7L360-L377
 
-Foundry nie kopiuje tego katalogu. Tworzy **silnik selekcji okazji** oceniany według:
+Foundry dodaje:
 
-```text
-market_pain
-willingness_to_pay
-frequency_of_use
-distribution_access
-gross_margin
-integration_friction
-retention_potential
-data_advantage
-security_risk
-regulatory_risk
-implementation_cost
-imitation_risk
+```yaml
+GrandChallenge:
+  problem_statement:
+  domain:
+  unmet_need:
+  scientific_unknowns:
+  engineering_bottlenecks:
+  affected_stakeholders:
+  current_workarounds:
+  measurable_outcomes:
+  evidence:
+  intervention_candidates:
+  time_horizon:
+  regulatory_risk:
+  ethical_risk:
 ```
 
-Wynikiem jest ranking hipotez, nie automatyczna decyzja inwestycyjna.
+Priorytet otrzymuje problem, dla którego istnieje zarówno **wartość społeczna/ekonomiczna**, jak i możliwa do sprawdzenia ścieżka eksperymentalna.
 
-## Monetyzacja
+## Grand Challenge → Venture Loop
 
-Obsługiwane są modele:
+```text
+UNSOLVED PROBLEM
+ ↓
+EVIDENCE MAP
+ ↓
+BOTTLENECK / CONSTRAINT MAP
+ ↓
+INTERVENTION HYPOTHESIS
+ ↓
+TECHNICAL FEASIBILITY TEST
+ ↓
+USER / STAKEHOLDER VALUE TEST
+ ↓
+BUSINESS MODEL
+ ↓
+STRATEGY
+ ↓
+PILOT
+ ↓
+MEASURE
+ ↓
+SCALE / PIVOT / KILL
+```
 
-- subscription / SaaS;
-- usage-based;
-- transactional / take-rate;
-- service + software;
-- enterprise licensing;
-- marketplace;
-- affiliate / referral;
-- implementation / integration;
-- data/insight products, tylko gdy legalność i zgody na wykorzystanie danych są jawnie spełnione.
+To integruje Project 15/19 research orchestration z Project 34 business engineering.
 
-Każdy model musi policzyć minimum:
+## Economics
+
+Każdy model musi rozdzielać:
+
+`observed economics` od `assumption-driven forecast`.
+
+Minimum:
 
 `ARPU → gross margin → acquisition cost → retention → payback → capacity cost → support cost`
 
-## Economic Scenario Engine
+Scenariusze:
 
-Model biznesu nie jest pojedynczym forecastem. Foundry generuje co najmniej trzy scenariusze:
+`CONSERVATIVE / BASE / UPSIDE`
+
+oraz sensitivity dla CAC, churn, ARPU, inference/tool cost, conversion i capacity utilization.
+
+## Stakeholder / Value Network
+
+Model nie kończy się na kliencie. Foundry odwzorowuje:
 
 ```text
-CONSERVATIVE
-BASE
-UPSIDE
+CUSTOMER
+SUPPLIER
+PARTNER
+REGULATOR
+PLATFORM
+OPERATOR
+END USER
+AFFECTED NON-PAYER
 ```
 
-oraz wykonuje sensitivity analysis dla:
+Każdy stakeholder ma:
 
-- CAC;
-- churn;
-- ARPU;
-- infrastruktury/inference cost;
-- support cost;
-- konwersji;
-- capacity utilization.
-
-Decyzja inwestycyjna wymaga ujawnienia, które parametry są obserwowane, a które są jedynie założeniami.
+`value_received + value_contributed + dependency + risk + bargaining_position`.
 
 ## Agentic MVP Loop
 
 ```text
-IDEA
+IDEA / PROBLEM
  ↓
-CUSTOMER / PROBLEM
+CUSTOMER / STAKEHOLDER
  ↓
 VALUE PROPOSITION
  ↓
@@ -196,84 +275,92 @@ PIVOT / PROCEED / KILL
 IMPLEMENTATION SPEC
 ```
 
-Najpierw eksperyment, później ciężka implementacja.
+## OMEGA-derived intelligence, safely reframed
+
+Materiały OMEGA pokazują zalążek **all-source fusion**: połączenie danych cyber/recon, publicznych danych podmiotowych, geolokalizacji i analizy obrazu, a następnie przekazanie zunifikowanego `intel_packet` do lokalnego modelu. fileciteturn61file1L53-L104
+
+Foundry wykorzystuje tę ideę nie do ofensywnych operacji, lecz do **market/technology intelligence**:
+
+```text
+PUBLIC / AUTHORIZED SOURCES
+        ↓
+SOURCE NORMALIZATION
+        ↓
+EVIDENCE GRAPH
+        ↓
+ENTITY / MARKET / TECHNOLOGY CORRELATION
+        ↓
+STRATEGIC SIGNALS
+        ↓
+OPPORTUNITY / RISK HYPOTHESES
+```
+
+Aktywne czynności techniczne pozostają poza domyślnym zakresem i wymagają osobnej autoryzacji zgodnie z Project 32.
+
+## Influence-adjusted economics
+
+Materiały o perswazji są traktowane jako materiał do wykrywania ryzyka. Źródło opisuje Future Pacing, presupozycje, embedded commands oraz sensoryczny język jako techniki wpływu. fileciteturn175file2L5-L25
+
+Project 34 nie implementuje covert persuasion. Zamiast tego dodaje:
+
+```text
+USER VALUE
+   ↓
+TRANSPARENT COMMUNICATION
+   ↓
+CONSENT / OPT-OUT
+   ↓
+MEASURED OUTCOME
+```
+
+Przy wzroście konwersji analizuje się również, czy efekt nie wynika z presji, ukrywania informacji albo ograniczenia świadomej odmowy.
 
 ## Application-builder integration
-
-Wewnętrzna analiza dostarczonych pakietów AppBuilder/AppStudio wskazuje na istotny wzorzec produktowy: builder może być traktowany nie tylko jako edytor, ale jako **kontrolowana warstwa delivery** z projektami, szablonami, statusami buildów, konfiguracją AI, analityką, subskrypcją, onboardingiem i mechanizmami publikacji.
-
-Foundry rozdziela więc:
 
 ```text
 BUSINESS MODEL CONTROL PLANE
         ↓
-PRODUCT SPEC
+PRODUCT / STRATEGY SPEC
         ↓
-APP BUILDER / AGENTIC SOFTWARE FACTORY
+APP BUILDER / SOFTWARE FACTORY
         ↓
 BUILD + TEST + VERIFY
         ↓
 PUBLISH / BILL / OBSERVE
 ```
 
-Builder nie może stać się źródłem prawdy dla ekonomiki biznesu; prawda biznesowa pozostaje w wersjonowanych specyfikacjach i danych backendowych.
+Builder nie jest źródłem prawdy ekonomicznej; wersjonowane specyfikacje i dane backendowe są źródłem prawdy.
 
-## Anti-manipulation boundary
+## Governance artifact
 
-Materiały o ukrytej perswazji są traktowane jako materiał **do rozpoznawania wpływu**, nie jako instrukcja projektowania covert persuasion. Źródło opisuje budowanie porozumienia, synchronizację i wykorzystywanie zainteresowań jako elementy wpływu. fileciteturn30file3L28-L50
+Każdy venture run wytwarza:
 
-Foundry zabrania:
-
-- ukrywania celu perswazji;
-- manipulacyjnych dark patterns;
-- wykorzystywania danych osobowych do niejawnego profilowania wpływu;
-- automatycznego targetowania osób podatnych;
-- projektowania interfejsów utrudniających świadomą odmowę.
-
-Dopuszcza transparentną komunikację wartości, personalizację za zgodą, eksperymenty UX z mierzalną hipotezą oraz łatwe opt-out.
-
-## Influence-adjusted economics
-
-Nowe materiały o wpływie pokazują ryzyko sytuacji, w której wzrost engagement staje się celem samym w sobie. fileciteturn52file13L638-L655
-
-Foundry dodaje dlatego do ekonomiki:
-
-```text
-USER_VALUE
-      /
-INFLUENCE_COST
+```yaml
+VentureRecord:
+  problem_id:
+  business_model_version:
+  strategy_version:
+  resource_capability_map:
+  experiment_log:
+  evidence_bundle:
+  assumption_registry:
+  policy_decision:
+  implementation_decision:
+  outcome_metrics:
+  decision_rationale:
 ```
-
-oraz obowiązkowy przegląd, gdy wzrost konwersji wynika z:
-
-- ukrywania informacji;
-- sztucznej presji czasu;
-- trudnego opt-out;
-- projektowania zależności użytkownika;
-- personalizacji opartej na wrażliwych cechach lub podatności.
-
-Wysoki revenue nie kompensuje naruszenia autonomii użytkownika.
-
-## Governance
-
-Każdy pomysł otrzymuje:
-
-`business-model-version + evidence-bundle + assumptions + experiment-log + policy-decision + implementation-decision + strategy-version`
-
-### Integracja
-
-Projekt 34 integruje Projects 07, 13, 16, 20, 22, 24, 25, 29, 30, 35 i 36.
 
 ## Definition of Done
 
-- spisana propozycja wartości;
-- segmenty i kanały;
-- pełny model przychodów i kosztów;
-- jawne założenia i hipotezy;
-- dynamiczna strategia oddzielona od modelu biznesowego;
-- zidentyfikowany mechanizm przewagi konkurencyjnej;
-- scenariusze ekonomiczne i sensitivity analysis;
-- eksperyment walidacyjny;
-- mierniki ekonomiczne i user-value;
-- influence/policy review;
-- implementacja dopiero po spełnieniu progu walidacji.
+- problem-first opportunity discovery;
+- StrategySpec z konkretyzacją zasobów, kompetencji, działań i czasu;
+- BusinessModelSpec 9-elementowy;
+- evidence/hypothesis separation;
+- competitive-advantage mechanism;
+- scenario + sensitivity engine;
+- smallest validating experiment;
+- stakeholder/value-network map;
+- all-source strategic intelligence z autoryzowanych źródeł;
+- influence-risk review;
+- implementation gate;
+- pełny lineage decyzji.
