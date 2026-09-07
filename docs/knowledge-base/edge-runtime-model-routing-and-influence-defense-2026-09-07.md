@@ -207,12 +207,73 @@ Każda konkluzja naukowo-techniczna powinna przechowywać assumptions, equations
 17. Domain-specific criteria must be versioned against authoritative sources.
 18. High-consequence scientific/medical/physical side effects remain outside autonomous agent authority.
 
+## 15. Alibaba Cloud — agent/cloud execution fabric
+
+Alibaba Cloud adds a complete implementation layer spanning Model Studio, Qwen and third-party models, MCP, AgentBay, ACK, ECS, Function Compute, OSS, SLS, RAM/STS and Container Registry. Model Studio exposes OpenAI-compatible and native interfaces; AgentBay provides agent-oriented sandbox execution; ACK provides heterogeneous GPU/ASIC/eRDMA scheduling; RAM provides deny-by-default authorization and temporary role credentials; OSS supplies versioned object storage; SLS supplies logs/metrics/traces/events; ACR can block risky container images. citeturn0search1turn0search8turn1search22turn2search13turn1search3turn1search21turn1search2turn2search1turn1search4
+
+### 15.1 Model gateway
+
+`MODEL != PROVIDER != EXECUTION SUBSTRATE` remains invariant. Model Studio is an adapter with explicit model, region, quota, cost and evaluation profiles rather than the authority for policy.
+
+### 15.2 MCP capability boundary
+
+Model Studio supports MCP through the Responses API using SSE MCP servers. citeturn0search0 The correct OmniCore pattern remains:
+
+```text
+DISCOVER → TRUST/PROVENANCE → ALLOWLIST → AUTHORIZE → CALL → VALIDATE → AUDIT
+```
+
+### 15.3 Disposable agent runtime
+
+AgentBay supports ephemeral sandboxes and MCP-accessible browser, computer, mobile and code environments. citeturn2search5turn2search6 The sandbox is execution isolation, not authorization.
+
+Persistent browser state is treated as high-sensitivity state because AgentBay can retain cookies, cache, local/session storage, preferences and extensions. citeturn2search0
+
+### 15.4 Heterogeneous compute
+
+ACK supports GPUs, ASICs and eRDMA, including GPU sharing/fencing and GPU autoscaling. citeturn2search13turn2search8 This extends Project 37 into a continuous local/edge/cloud compute fabric.
+
+### 15.5 Cloud authorization
+
+RAM uses deny-by-default and explicit-deny-overrides-allow semantics; roles can provide temporary STS credentials. citeturn1search3turn1search12turn1search21 Resource-group scope can isolate projects/environments. citeturn1search6
+
+### 15.6 Evidence/object fabric
+
+OSS provides versioned object storage, lifecycle policies, multiple storage classes and encryption/integrity features. citeturn1search2turn1search8turn1search14 This is useful for Project 30/32 evidence artifacts only when provenance, retention, jurisdiction and access policies are explicit.
+
+### 15.7 Observability
+
+SLS unifies logs, metrics, traces and events and supports alerting and correlated monitoring. citeturn2search1turn2search2turn2search10 The canonical agent event should connect model, capability, policy decision, provenance, artifact, latency, cost and security event through a shared trace ID.
+
+### 15.8 Supply-chain verification
+
+ACR can scan pushed images and enforce blocking policies for high-risk images. citeturn1search4 This strengthens Project 28's `GENERATE → BUILD → SBOM → SCAN → POLICY GATE → SIGN → STAGED DEPLOYMENT` chain.
+
+### 15.9 Confidential execution
+
+ECS documents memory encryption, trusted computing/vTPM and confidential computing with remote attestation on supported instance families. citeturn0search4 This adds an optional higher trust tier but does not replace application-level authorization or provenance.
+
+## 16. Alibaba-derived portfolio invariants
+
+19. Cloud provider is an execution substrate, not the policy authority.
+20. Sandbox isolation is not authorization.
+21. Persistent browser state is a privileged capability.
+22. Temporary cloud credentials should be purpose-bound and short-lived.
+23. GPU scheduling must remain scheduler-mediated and tenant-aware.
+24. Object storage becomes evidence infrastructure only with provenance and retention controls.
+25. Container promotion requires supply-chain verification.
+26. Observability must correlate model, capability, policy, artifact and security events.
+27. Cloud-native features must not silently bypass the OmniCore policy plane.
+28. Local/edge/cloud routing should optimize measurable quality, latency, privacy, energy and cost rather than provider preference.
+
 ## Projects affected
 
 - Project 15 — Universal Research Orchestrator
 - Project 17 — Adaptive Model Router
 - Project 21 — Google AI Sovereign Developer Stack
 - Project 26 — OmniCore Trustworthy Kernel & Agentic Safety Lab
+- Project 28 — OmniCore AI Foundry / Verified Code Generation
+- Project 30 — OmniCore Sugra Evidence/OSINT Control Fabric
 - Project 31 — OmniCore Sovereign Agent Operating Fabric MAX
 - Project 32 — Deep OSINT Evidence Engine MAX
 - Project 33 — Agentic App Builder & Delivery Control Plane MAX
@@ -220,3 +281,4 @@ Każda konkluzja naukowo-techniczna powinna przechowywać assumptions, equations
 - Project 36 — Influence Security & Human Agency Defense Lab MAX
 - Project 37 — Sovereign Edge AI Runtime & Zero-Cost Delivery Fabric MAX
 - Project 38 — OmniCore Constraint-Aware Scientific Reasoning & Stability Verifier MAX
+- Project 39 — OmniCore Alibaba Cloud Agent Runtime & Cloud Fabric MAX
