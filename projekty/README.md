@@ -1,6 +1,6 @@
 # Projekty — Expanded Design Lab
 
-This directory contains project artifacts upgraded using the project's accumulated knowledge base: OpenAI Agents SDK, MCP, coding-agent patterns, AI application builders, formal verification, adversarial AI security, distributed execution, multimodal systems, model engineering, and the source materials supplied by the project owner.
+This directory contains project artifacts upgraded using the project's accumulated knowledge base: OpenAI Agents SDK, MCP, coding-agent patterns, AI application builders, formal verification, adversarial AI security, distributed execution, multimodal systems, model engineering, adaptive reasoning, research orchestration, and the source materials supplied by the project owner.
 
 ## Engineering standard
 
@@ -36,6 +36,10 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
 | `11-model-engineering-and-qlora-lab.md` | Open-weight model engineering | Create a reproducible QLoRA/adapter pipeline with dataset, evaluation and rollback controls |
 | `12-cognitive-security-and-adversarial-evaluation.md` | Defensive AI security | Convert hidden directives, Chain-of-Attack and adversarial-model research into a stateful evaluation platform |
 | `13-agentic-software-factory.md` | Agentic software engineering | Create a staged factory for requirements, architecture, coding, verification, security and release |
+| `14-gemini-3-adaptive-reasoning-multimodal-agent.md` | Multimodal reasoning agent | Dynamically route reasoning depth, preserve tool-call state, exploit multimodal analysis and verify outputs |
+| `15-universal-research-orchestrator.md` | Scientific/research agent | Coordinate domain experts, evidence collection, hypothesis generation and falsification in resumable runs |
+| `16-prompt-laboratory-and-evaluation-engine.md` | Prompt engineering | Generate structured prompt variants and select them through reproducible evaluation rather than intuition |
+| `17-adaptive-model-router.md` | Multi-model infrastructure | Route requests by capability, privacy, quality, latency and cost with verification-driven escalation |
 
 ## Cross-project architecture
 
@@ -49,6 +53,7 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
                   │ Specs / Policy   │
                   │ Evals / Approval │
                   │ Provenance       │
+                  │ Routing Policy   │
                   └────────┬─────────┘
                            │
           ┌────────────────┼────────────────┐
@@ -68,24 +73,32 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
                            │
                OBSERVABILITY / EVALS
                            │
-                   VERSIONED ARTIFACT
+                  VERSIONED ARTIFACT
 ```
 
 ## Security doctrine
 
-The project portfolio explicitly treats covert persuasion, hidden directives and unauthorized behavioral influence as security concerns. Defensive analysis may model such techniques, but project implementations must not use them to covertly manipulate people.
+The project portfolio explicitly treats covert persuasion, hidden directives, jailbreaks and unauthorized behavioral influence as security concerns. Defensive analysis may model such techniques, but project implementations must not use them to covertly manipulate people or bypass safety controls.
 
-The supplied research on Chain of Attack is translated into stateful security evaluation, while the supplied material on hidden commands becomes a detection and provenance problem rather than an implementation recipe. fileciteturn195file7L44-L65 fileciteturn195file6L17-L36
+The supplied research on hidden commands and Chain-of-Attack is therefore translated into detection, provenance, stateful adversarial evaluation and regression testing rather than operational bypass recipes.
 
 ## Research doctrine
 
-The supplied ASI/Nexus and AI-native OS documents contain a mixture of engineering concepts, forward-looking claims and speculative hardware assertions. These projects preserve the architecture as hypotheses and require independent measurement before any claimed performance advantage is treated as fact. The Nexus source itself presents its hyper-orchestrator as conceptual. fileciteturn191file0L433-L447
+The supplied ASI/Nexus and AI-native OS documents contain a mixture of engineering concepts, forward-looking claims and speculative hardware assertions. These projects preserve the architecture as hypotheses and require independent measurement before any claimed performance advantage is treated as fact.
 
-The OmniCore materials similarly present a learned kernel, NPS and AI Supervisor as a target architecture. Their implementation is therefore split into shadow-mode, constrained-control and research-only execution stages rather than placing unconstrained model output directly in privileged kernel paths. fileciteturn206file0L43-L70
+The OmniCore materials similarly present a learned kernel, NPS and AI Supervisor as target architecture; implementation is staged through shadow-mode, constrained control and research-only experiments rather than direct unconstrained model authority in privileged kernel paths.
 
 ## Model engineering doctrine
 
-Local fine-tuning projects preserve the distinction between base model, tokenizer, dataset, adapters, merged artifacts and serving runtimes. The QLoRA material emphasizes frozen 4-bit base weights, low-rank adapters, NF4 and local deployment paths. fileciteturn206file9L45-L62
+Local model projects preserve the distinction between base model, tokenizer, dataset, adapters, merged artifacts and serving runtimes. Fine-tuning work must include dataset validation, reproducibility, evaluation, rollback and explicit safety regression suites.
+
+## Reasoning doctrine
+
+Reasoning depth is treated as a resource to allocate, not a constant. Fast paths are preferred for simple tasks; deeper reasoning is introduced when task complexity, uncertainty or consequence level justifies it. Model-specific internal reasoning representations remain implementation details and are never treated as a user-facing source of truth.
+
+## Research-orchestration doctrine
+
+Deep research uses source planning, parallel expertise, adversarial critique, provenance tracking, falsification and resumability. A synthesis is accepted only when claims are traceable to evidence and uncertainty is explicitly represented.
 
 ## Lifecycle
 
