@@ -21,7 +21,9 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
 - external data capabilities with provenance, freshness and quota semantics;
 - versioned Skills and bounded capability discovery;
 - minimum-necessary tool exposure through filtering/deferred loading;
-- defensive influence-security controls for manipulation-oriented attack surfaces.
+- defensive influence-security controls for manipulation-oriented attack surfaces;
+- explicit intent uncertainty and trajectory-aware safety decisions;
+- separation of user intent, authorization and executable capability.
 
 ## Project portfolio
 
@@ -58,6 +60,11 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
 | `29-sugra-agentic-data-and-research-fabric-max.md` | External data + MCP | Make Sugra a governed, provenance-aware, quota-aware evidence and data plane for research and agent operations |
 | `30-omnicore-sugra-evidence-osint-control-fabric.md` | External evidence + OSINT + control | Integrate Sugra, evidence graphs, freshness/partiality gates, quota-aware planning and Zero-Trust MCP execution into the OmniCore control plane |
 | `31-omnicore-sovereign-agent-operating-fabric-max.md` | Agent OS + Skills + MCP + security | Unify agent operating-system abstractions, dynamic capability discovery, versioned Skills, sovereign execution, multimodal security and adaptive hardware into one control-plane architecture |
+| `32-deep-osint-agent-and-zero-trust-evidence-engine-max.md` | Deep OSINT + evidence security | Build a recursive, provenance-aware OSINT engine with explicit scope, legal boundaries, evidence graphs and Zero-Trust tool execution |
+| `33-agentic-app-builder-and-delivery-control-plane-max.md` | Agentic application delivery | Turn natural-language application intent into governed specs, builds, verification, signing, staged release and observability |
+| `34-agentic-venture-and-business-model-foundry-max.md` | AI venture + business model engineering | Compile ideas into evidence-backed business models, dynamic strategy, unit economics, experiments and implementation gates |
+| `35-context-aware-intent-and-agent-security-engine-max.md` | Intent + contextual AI security | Detect unknown intent, contextual drift, over-refusal/under-refusal and stateful Chain-of-Attack behavior without conflating intent with authorization |
+| `36-influence-security-and-human-agency-defense-lab-max.md` | Influence security + human agency | Detect covert persuasion, dependency loops, pressure, dark patterns and vulnerability targeting while preserving consent and user autonomy |
 
 ## Cross-project architecture
 
@@ -77,6 +84,8 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
                   │ Quota Budget     │
                   │ Capability Risk │
                   │ Skill Version   │
+                  │ Intent State    │
+                  │ Influence Risk  │
                   └────────┬─────────┘
                            │
           ┌────────────────┼───────────────────┐
@@ -232,6 +241,70 @@ HYPOTHESIS
 
 No binary “truth detector” is considered an authoritative decision mechanism.
 
+## Intent and contextual-security doctrine
+
+Intent is modeled as a versioned hypothesis over the interaction trajectory, not as a permanent label attached to the latest prompt. The supplied intent research identifies unknown intents, contextual blindness and the tension between over-refusal and under-refusal as core safety problems. fileciteturn52file0L15-L35
+
+The portfolio therefore enforces:
+
+```text
+CURRENT TURN
+    +
+TRAJECTORY
+    +
+PROVENANCE
+    +
+UNCERTAINTY
+    +
+CONSEQUENCE
+    →
+INTENT HYPOTHESIS
+    →
+POLICY DECISION
+```
+
+Unknown/OOS is an explicit state. Safe-completion may constrain assistance without turning off consequential-action controls. Intent confidence never grants capability permission.
+
+## Chain-of-Attack doctrine
+
+The Chain-of-Attack research describes multi-turn attacks as semantic, contextual and temporal, with individually low-signal steps accumulating into a high-risk trajectory. fileciteturn50file1L49-L78
+
+The portfolio consequently treats conversation history, memory, retrieved content and tool results as security state. Detection includes semantic drift, authority redefinition, delayed escalation and cross-modal continuity.
+
+```text
+EVENT
+ ↓
+STATE DELTA
+ ↓
+TRAJECTORY RISK
+ ↓
+CAPABILITY IMPACT
+ ↓
+POLICY CHECK
+```
+
+This stateful model is complementary to the existing prompt-injection firewall and capability broker.
+
+## Influence and human-agency doctrine
+
+The influence materials are incorporated only as a defensive threat model. The supplied bio-hacking report describes reward prediction error and variable-ratio reinforcement as mechanisms associated with persistent behavior loops. fileciteturn52file13L632-L655 Mentalism materials describe expectation, suggestion and performance as components of psychological illusion, while the subliminal-force material describes verbal forcing and influence framing. fileciteturn53file0L46-L60 fileciteturn53file2L139-L161
+
+The engineering translation is:
+
+```text
+PERSONALIZATION
+      +
+PRESSURE
+      +
+HIDDEN OBJECTIVE
+      +
+LOW REVERSIBILITY
+      ↓
+INFLUENCE RISK
+```
+
+Systems must preserve transparency, meaningful opt-out, explicit consent for high-impact actions and protection against vulnerability targeting. Engagement is not treated as a proxy for user welfare.
+
 ## OSINT / evidence doctrine
 
 Deep OSINT is modeled as an iterative research loop in which discovered public data can become new pivot points, while scope, legality and provenance remain explicit. fileciteturn250file2L38-L55
@@ -357,6 +430,26 @@ RELEASE GATE
 ```
 
 The market and engineering reports describe coding agents that plan, modify code, run tests, inspect failures and iterate; Project 13/28/31 keeps these actions inside bounded sandboxes and promotion gates. fileciteturn23file0L35-L48
+
+## Business-model doctrine
+
+The business-model corpus treats the model as an interconnected system of value proposition, customers, channels, relationships, resources, activities, partners, revenues and costs; it also distinguishes the current model from the adaptive strategy used under changing conditions. fileciteturn51file10L483-L514 fileciteturn50file3L29-L47
+
+Project 34 therefore maintains:
+
+```text
+BUSINESS MODEL
+      +
+DYNAMIC STRATEGY
+      +
+COMPETITIVE ADVANTAGE
+      +
+UNIT ECONOMICS
+      +
+VALIDATION EXPERIMENTS
+```
+
+Business opportunities are hypotheses until validated; revenue alone is not sufficient evidence of durable value or safe product-market fit.
 
 ## Release doctrine
 
