@@ -1,6 +1,6 @@
 # Projekty — Expanded Design Lab
 
-This directory contains project artifacts upgraded using the project's accumulated knowledge base: OpenAI Agents SDK, MCP, coding-agent patterns, AI application builders, formal verification, adversarial AI security, distributed execution, multimodal systems, model engineering, adaptive reasoning, research orchestration, and the source materials supplied by the project owner.
+This directory contains project artifacts upgraded using the project's accumulated knowledge base: OpenAI Agents SDK, MCP, coding-agent patterns, AI application builders, formal verification, adversarial AI security, distributed execution, multimodal systems, model engineering, adaptive reasoning, research orchestration, prompt optimization, Google AI developer patterns, and the source materials supplied by the project owner.
 
 ## Engineering standard
 
@@ -40,6 +40,10 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
 | `15-universal-research-orchestrator.md` | Scientific/research agent | Coordinate domain experts, evidence collection, hypothesis generation and falsification in resumable runs |
 | `16-prompt-laboratory-and-evaluation-engine.md` | Prompt engineering | Generate structured prompt variants and select them through reproducible evaluation rather than intuition |
 | `17-adaptive-model-router.md` | Multi-model infrastructure | Route requests by capability, privacy, quality, latency and cost with verification-driven escalation |
+| `18-gemini-3-max-cognitive-agent.md` | Multimodal reasoning + coding agent | Dynamically allocate reasoning, use measurable visual computation and keep application state explicit |
+| `19-omniscience-research-orchestrator-max.md` | Research orchestration | Convert deep questions into evidence graphs, adversarial expert review, hypotheses and falsification tests |
+| `20-adaptive-prompt-lab.md` | Prompt optimization | Treat prompts as versioned artifacts optimized against frozen evaluation and robustness suites |
+| `21-google-ai-sovereign-developer-stack.md` | Google AI developer stack | Combine local/edge inference, cloud reasoning, agentic orchestration, multimodal compute and verification |
 
 ## Cross-project architecture
 
@@ -76,29 +80,21 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
                   VERSIONED ARTIFACT
 ```
 
-## Security doctrine
-
-The project portfolio explicitly treats covert persuasion, hidden directives, jailbreaks and unauthorized behavioral influence as security concerns. Defensive analysis may model such techniques, but project implementations must not use them to covertly manipulate people or bypass safety controls.
-
-The supplied research on hidden commands and Chain-of-Attack is therefore translated into detection, provenance, stateful adversarial evaluation and regression testing rather than operational bypass recipes.
-
-## Research doctrine
-
-The supplied ASI/Nexus and AI-native OS documents contain a mixture of engineering concepts, forward-looking claims and speculative hardware assertions. These projects preserve the architecture as hypotheses and require independent measurement before any claimed performance advantage is treated as fact.
-
-The OmniCore materials similarly present a learned kernel, NPS and AI Supervisor as target architecture; implementation is staged through shadow-mode, constrained control and research-only experiments rather than direct unconstrained model authority in privileged kernel paths.
-
-## Model engineering doctrine
-
-Local model projects preserve the distinction between base model, tokenizer, dataset, adapters, merged artifacts and serving runtimes. Fine-tuning work must include dataset validation, reproducibility, evaluation, rollback and explicit safety regression suites.
-
 ## Reasoning doctrine
 
 Reasoning depth is treated as a resource to allocate, not a constant. Fast paths are preferred for simple tasks; deeper reasoning is introduced when task complexity, uncertainty or consequence level justifies it. Model-specific internal reasoning representations remain implementation details and are never treated as a user-facing source of truth.
 
-## Research-orchestration doctrine
+## Research doctrine
 
 Deep research uses source planning, parallel expertise, adversarial critique, provenance tracking, falsification and resumability. A synthesis is accepted only when claims are traceable to evidence and uncertainty is explicitly represented.
+
+## Security doctrine
+
+The portfolio treats covert persuasion, hidden directives, jailbreaks and unauthorized behavioral influence as security concerns. Defensive analysis may model such techniques, but implementations must not use them to bypass safety controls or covertly manipulate users.
+
+## Model and platform doctrine
+
+Platform-specific capabilities are implemented through adapters and explicit contracts. Reasoning configuration, thought-state metadata, multimodal processing, tool calling and provider features must not leak into business logic. Provider-specific capabilities are optional accelerators, not architectural dependencies unless deliberately selected and tested.
 
 ## Lifecycle
 
