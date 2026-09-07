@@ -4,7 +4,11 @@
 Portfolio project. Hackathon-derived foundation upgraded into a production-grade proactive work operating layer.
 
 ## Mission
-Build a background-first professional agent that continuously converts fragmented work signals into verified decision support while preserving human agency. The target is not maximal autonomy; it is maximal **useful autonomy per unit of risk**.
+Build a background-first professional agent that continuously converts fragmented work signals into **verified decision support and bounded action**, preserving human judgment where consequences are material.
+
+The objective is not maximal autonomy. It is:
+
+`MAX useful autonomy per unit of risk`
 
 ## Core loop
 
@@ -52,13 +56,39 @@ MAIL / CALENDAR / FILES / CHAT / CRM / PROJECT DATA
              AUDIT / TRACE
 ```
 
-## Decision packets
+## 1. Work Graph
 
-For every material recommendation, produce a compact packet:
+Work is represented as structured state instead of only a chat transcript:
+
+```yaml
+WorkNode:
+  id:
+  type: task|decision|meeting|message|document|deadline|risk|blocker|artifact
+  source:
+  owner:
+  timestamp:
+  status:
+  priority:
+  provenance:
+
+WorkEdge:
+  from:
+  to:
+  relation: blocks|depends_on|derived_from|contradicts|resolves|mentioned_in
+  confidence:
+  provenance:
+```
+
+This lets the agent reason over dependencies, deadlines and consequences while preserving source lineage.
+
+## 2. Decision packets
+
+For every material recommendation:
 
 ```yaml
 DecisionPacket:
   objective:
+  current_state:
   options:
   recommended_option:
   tradeoffs:
@@ -68,36 +98,62 @@ DecisionPacket:
   expected_consequences:
   reversibility:
   approval_required:
+  next_verification:
 ```
 
-The agent must distinguish **fact, inference, recommendation and pending action**.
+The agent must distinguish **fact, inference, recommendation, prepared action and verified outcome**.
 
-## Proactivity governor
+## 3. Proactivity Governor
 
 Proactivity is a bounded resource:
 
 ```yaml
 ProactivityPolicy:
   urgency_threshold:
-  interruption_budget:
-  notification_budget:
   confidence_threshold:
   consequence_threshold:
+  interruption_budget:
+  notification_budget:
   quiet_hours:
+  batching_policy:
   escalation_policy:
 ```
 
-The system optimizes interruption quality rather than message volume.
+Decision function:
 
-## Memory architecture
+`value × confidence × urgency × consequence × reversibility − interruption_cost`
 
-Separate:
+The system optimizes interruption quality, not message volume.
 
-`ephemeral_context → working memory → durable user memory → organizational knowledge → audit ledger`
+## 4. Memory architecture
 
-Memory writes require provenance and policy evaluation. The model cannot promote arbitrary conversational content into trusted durable memory.
+```text
+EPHEMERAL CONTEXT
+       ↓
+WORKING MEMORY
+       ↓
+DURABLE USER MEMORY
+       ↓
+ORGANIZATIONAL KNOWLEDGE
+       ↓
+AUDIT / PROVENANCE LEDGER
+```
 
-## Capability contract
+Durable writes require provenance, scope and policy evaluation. Arbitrary model output cannot silently become trusted memory.
+
+## 5. Evidence / grounding
+
+Every important conclusion retains:
+
+`source → observation → inference → recommendation`
+
+with:
+
+`timestamp + freshness + confidence + provenance`.
+
+Conflicting evidence is surfaced rather than silently averaged.
+
+## 6. Capability contract
 
 ```yaml
 Capability:
@@ -114,105 +170,199 @@ Capability:
   provenance:
 ```
 
-## Consequence-aware execution
+Capability is not authorization. The Capability Broker remains the only gateway to consequential external effects.
+
+## 7. Consequence-aware execution
 
 ```text
 LOW CONSEQUENCE
-→ auto-execute when reversible + policy-safe
+→ auto-execute only when reversible + policy-safe
 
 MEDIUM CONSEQUENCE
-→ prepare + summarize + approval or bounded rule
+→ prepare + summarize + bounded approval/rule
 
 HIGH / IRREVERSIBLE
-→ explicit approval + execution + confirmation
+→ explicit approval + execution + authoritative confirmation
 ```
 
-## Evidence and grounding
+Completion is never inferred only from a connector response; the system reads back authoritative state and verifies the postcondition.
 
-All important conclusions retain source references, timestamps and freshness. Conflicting evidence is surfaced rather than silently averaged.
+## 8. Adaptive model routing
 
-## Adaptive model routing
+Routing is task-driven:
 
-CogniSync delegates by task profile rather than brand:
+```text
+FAST CLASSIFICATION
+      ↓
+LOW-COST WORKER
+      ↓ uncertainty / complexity
+STRONGER REASONER
+      ↓ disagreement / consequence
+MULTI-SOLVER / VERIFIER
+      ↓ unresolved high consequence
+HUMAN DECISION GATE
+```
 
-`fast classification → low-cost model`
-`complex synthesis → reasoning model`
-`vision/audio → multimodal specialist`
-`private work → local/edge model when policy permits`
-`high-consequence output → verifier / multi-model check`
+Profile dimensions:
 
-## Failure and recovery
+`quality + latency + privacy + cost + consequence + capability + freshness`.
+
+## 9. Professional workflow packs
+
+Initial vertical packs:
+
+- creative professional;
+- consultant;
+- project delivery;
+- research coordination;
+- small business/team.
+
+Each pack is a versioned Skill with explicit capabilities, provenance and evaluation criteria.
+
+## 10. Grand-Challenge bridge
+
+CogniSync is the human-facing operational layer for Project 48:
+
+```text
+GRAND CHALLENGE / BUSINESS PROBLEM
+          ↓
+RESEARCH / EVIDENCE
+          ↓
+DECISION PACKET
+          ↓
+EXPERIMENT / ACTION PLAN
+          ↓
+TEAM COORDINATION
+          ↓
+MEASURED RESULT
+```
+
+It converts research into bounded organizational work without claiming that unresolved science has been solved.
+
+## 11. Influence and agency protection
+
+The agent does not optimize user behavior through hidden pressure. Recommendations expose assumptions, trade-offs, reversibility and alternatives.
+
+Integration:
+
+```text
+RECOMMENDATION
+      ↓
+AGENCY CHECK
+      ↓
+DISCLOSURE / REVERSIBILITY
+      ↓
+USER DECISION
+```
+
+Project 43 supplies defensive influence-risk analysis.
+
+## 12. Notification policy
+
+Notifications are typed:
+
+`INFO | FYI | WARNING | DECISION | ACTION_REQUEST | CRITICAL`
+
+Every class has explicit thresholds and batching rules.
+
+## 13. Stale-turn / stale-state protection
+
+```yaml
+Run:
+  run_id:
+  state_version:
+  authority_epoch:
+  started_at:
+  expires_at:
+  status: active|superseded|cancelled|completed|failed
+```
+
+A stale run cannot authoritatively overwrite newer state. Before resumption, the agent re-reads current state and revalidates authorization.
+
+## 14. Failure and recovery
 
 Failure classes:
 
-- stale context;
+- stale context/state;
 - connector outage;
 - authorization denial;
 - ambiguous intent;
 - tool failure;
 - postcondition failure;
-- duplicate side effect;
+- duplicate-side-effect risk;
 - budget exhaustion;
 - evaluator disagreement.
 
-Each class has an explicit retry, compensate, escalate or stop policy.
+Each maps to:
 
-## Observability
+`RETRY | COMPENSATE | ESCALATE | STOP | REPLAN`.
+
+## 15. Observability
 
 Every run correlates:
 
-`session_id + turn_id + model_id + capability_id + policy_version + evidence_refs + artifact_id + latency + cost + final_state_version`
+```text
+session_id
+turn_id
+model_id
+actual_runtime_id
+capability_id
+policy_version
+evidence_refs
+artifact_id
+state_version
+latency
+cost
+outcome
+```
 
-## Security invariants
+Actual execution identity, not requested aliases, determines metering.
 
-1. Model output is never authorization.
-2. Secrets remain outside model context whenever possible.
-3. External completion is reported only after connector confirmation.
-4. Stale turns cannot overwrite newer state.
-5. Unknown side effects fail closed.
-6. Durable memory requires provenance.
-7. User intent, authorization and capability remain separate.
-
-## Evaluation
+## 16. Evaluation
 
 ### Productivity
-- time saved per approved outcome;
-- unnecessary interruption rate;
+- time saved per verified outcome;
 - decision latency reduction;
-- completion reliability.
+- blocker detection precision;
+- unnecessary interruption rate.
 
-### Quality
+### Quality / epistemics
 - recommendation precision;
 - evidence coverage;
 - stale-context rate;
-- hallucination/unsupported-claim rate.
+- unsupported-claim rate;
+- contradiction surfacing.
 
 ### Safety
 - unauthorized-action rate;
 - duplicate-side-effect rate;
 - secret-exposure rate;
-- policy-bypass rate;
-- approval-skipping rate.
+- approval-skipping rate;
+- policy-bypass rate.
 
 ### Economics
 - cost per successful workflow;
-- human minutes saved;
-- connector invocation efficiency.
+- human review minutes per outcome;
+- connector efficiency;
+- cloud escalation ratio.
 
-## Roadmap
+## 17. Definition of Done
 
-### Phase 1 — verified assistant
-Daily brief, blockers, drafts, decision packets and audit trail.
+- work graph;
+- evidence/provenance ledger;
+- decision packets;
+- proactivity governor;
+- durable checkpointed state;
+- capability-brokered connectors;
+- authoritative outcome confirmation;
+- stale-turn protection;
+- adaptive routing;
+- notification policy;
+- agency/influence guard;
+- versioned workflow packs;
+- grand-challenge integration;
+- measurable utility, safety and cost evaluation.
 
-### Phase 2 — governed action
-MCP/API connectors, durable memory, notifications, confirmation semantics.
+## Position in portfolio
 
-### Phase 3 — adaptive specialist network
-Bounded specialist agents, model routing, multi-model verification.
-
-### Phase 4 — vertical operating packs
-Creative professionals, consultants, small teams and other knowledge-work verticals.
-
-## Definition of Done
-
-CogniSync is complete when proactive behavior, capability execution, evidence, memory, approval and audit operate as one reproducible control loop, with measurable utility and measurable restraint.
+Project 37 is the human-facing professional operating layer above the evidence, reasoning, trust, routing, sovereign-runtime and grand-challenge subsystems. It converts them into bounded professional workflows while preserving human control over consequential decisions.
