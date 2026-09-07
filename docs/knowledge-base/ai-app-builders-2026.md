@@ -1,294 +1,290 @@
 # AI Application Builders — Source-Derived Architecture Knowledge
 
 > Analysis date: 2026-09-07
-> Scope: AI-assisted web/mobile application builders, IDE agents, no-code/low-code builders, and agent infrastructure named by the user.
-> Method: extract reusable engineering patterns and architectural boundaries from official repositories and available official/public technical material. This is not a line-by-line crawl of every vendor page.
+> Scope: AI-assisted web/mobile application builders, IDE agents, no-code/low-code builders, agentic application platforms, and agent infrastructure named by the user.
+> Method: extract reusable engineering patterns and architectural boundaries from official/public material and repository evidence. Current vendor claims are treated as product evidence, not universal capability guarantees. This is not a line-by-line crawl of every vendor page.
 
 ## 1. Architectural taxonomy
 
-The platforms in this list are not one homogeneous category. They occupy different layers:
+The platforms in this list are not one homogeneous category. They occupy different architectural layers:
 
 | Layer | Representative platforms | Primary job |
 |---|---|---|
-| AI coding / app generation | Lovable, Bolt.new, Replit Agent, Base44, Emergent | Turn natural-language intent into application code + infrastructure configuration |
-| AI coding IDE / developer agent | Cursor, Windsurf | Modify an existing codebase with agentic coding workflows |
-| Frontend / UI generation | v0, Framer, Webflow | Generate or visually compose UI/web experiences |
-| Visual app builders | Bubble, FlutterFlow, Glide, Softr, Adalo, Zite, ToolJet, DronaHQ | Compose applications and workflows with low/no code |
-| Framework-specialized generation | LaraCopilot | Accelerate Laravel/PHP application work |
-| Agentic application orchestration | Emergent, Stack AI | Combine agent reasoning with application/workflow generation |
-| Data/app platform | Airtable | Structured data + interfaces + automation/application surfaces |
-| Agent infrastructure | Blaxel | Run/host agents, MCP and execution workloads |
-| Enterprise agent/workflow platform | Stack AI | Production-oriented AI workflows and agent applications |
-| Agent research / market references | arahi.ai | Comparative discovery and market intelligence |
+| Prompt-to-full-stack app generation | Lovable, Bolt.new, Replit Agent, Base44, Emergent | Turn natural-language product intent into application code/configuration and supporting infrastructure |
+| AI coding IDE / developer agent | Cursor, Windsurf | Modify, test, debug and evolve an existing codebase with an agentic harness |
+| UI / web experience generation | v0, Framer, Webflow | Generate or visually compose front-end and content experiences |
+| Visual application builders | Bubble, FlutterFlow, Glide, Softr, Adalo, Zite | Build web/mobile/business applications with visual logic and AI assistance |
+| Data-first application systems | Airtable, Glide, Softr | Turn structured data into interfaces, workflows and operational tools |
+| Internal software platforms | ToolJet, DronaHQ, Zite | Build operational dashboards, admin tools and workflows with governance |
+| Framework-specialized generation | LaraCopilot | Accelerate application work inside a known framework such as Laravel |
+| Agentic application generation | Emergent | Use multiple specialized AI workers to construct application layers |
+| Enterprise AI workflow / agent platform | Stack AI | Compose managed AI workflows and applications for production use |
+| AI worker / automation platforms | Relevance AI, Lindy, Beam AI | Deploy task-oriented digital workers against business systems |
+| Customer-service agent platform | Sierra | Operate customer-facing AI agents with business data, policies and escalation |
+| Agent infrastructure | Blaxel | Host and execute agents, MCP servers and related workloads |
+| Open-source autonomous agent runtime | SuperAGI | Develop, provision and operate autonomous agents |
+| SDK / orchestration layer | Semantic Kernel | Integrate models, tools/plugins, memory and application logic in conventional software |
+| Market/discovery reference | arahi.ai | Comparative market intelligence and tool discovery |
 
-The first design decision should therefore be **which layer is actually missing**. Choosing a tool because it is marketed as an "AI app builder" is insufficient.
+**First design decision:** identify which architectural layer is actually missing. Selecting a vendor because it says "AI app builder" is not sufficient.
 
-## 2. Lovable-style prompt-to-full-stack pattern
+## 2. Prompt-to-application builders: the compressed software lifecycle
 
-The core pattern of prompt-driven builders is:
+Lovable, Bolt.new, Replit Agent and Base44 demonstrate a common compression of the traditional lifecycle:
 
 ```text
-Natural-language product intent
-          |
-          v
-      Agent/planner
-          |
-     +----+----+
-     |         |
-     v         v
-   Code     Infrastructure
-     |         |
-     +----+----+
-          |
-          v
-   Preview / deploy
+Natural-language intent
+        |
+        v
+  Agent / planner
+        |
+   +----+----+
+   |         |
+   v         v
+ Application  Infrastructure
+   |         |
+   +----+----+
+        |
+        v
+ Preview / test
+        |
+        v
+ Deploy / publish
 ```
 
-The strongest reusable lesson is that **code generation, data layer, auth and deployment become one product workflow**. This compresses time-to-first-app but also increases the importance of generated architecture review. Generated code should still be treated as source code with tests, dependency review, environment isolation and rollback rather than as an opaque artifact.
+The important architectural consequence is that **application generation, data, auth, execution and deployment become a single product journey**. This dramatically reduces time-to-first-app, but it makes generated architecture review more—not less—important.
 
-For systems built this way, the repository remains the durable source of truth even when the builder provides a visual or conversational UI.
+Generated output must still be treated as software: version it, test it, inspect dependencies, separate environments, protect credentials, verify authorization, and preserve rollback/recovery paths.
 
-## 3. Bolt.new-style browser-native execution
+### Lovable
 
-Browser-native builders demonstrate a particularly useful architecture: editing, dependency installation, local/remote execution, preview and deployment can happen in one controlled environment.
+Lovable's current Supabase integration can couple UI design with a PostgreSQL backend, authentication, storage, real-time features and serverless functions through one conversational workflow. citeturn651359search7turn651359search8
 
-Reusable principle:
+**Reusable lesson:** unified frontend/backend generation is productive because it reduces integration friction, but the resulting database, auth and server boundaries should remain explicit in the engineering model.
+
+### Bolt.new
+
+Bolt.new is a browser-native application builder from StackBlitz. Its WebContainers-based environment brings editing and execution into the browser, while current product material also covers hosting, domains, connectors, GitHub import and project export/restore. citeturn602447search3turn602447search1turn602447search11
+
+The strongest reusable architecture is:
 
 ```text
-Editor UI
-   |
+Browser editor
+      |
 Agent runtime
-   |
-Execution sandbox
-   |
-Preview
-   |
+      |
+Isolated development environment
+      |
+Preview / test
+      |
 Deploy
 ```
 
-The important boundary is the **execution environment**. Package installation and arbitrary code execution should occur in an isolated workspace, not in the browser's security context and not with unrestricted production credentials.
+The key control point is the **execution environment**: arbitrary code, package installation and integration credentials must not be treated as equivalent to ordinary browser UI state.
 
-## 4. v0 / UI-first generation
+Current Bolt documentation also shows action-level connector controls rather than an undifferentiated "everything is allowed" model, reinforcing the principle that capability discovery and permission are separable. citeturn602447search5
 
-v0-like systems should be treated primarily as a **presentation-layer generator**. They are excellent when the dominant problem is transforming product intent into React/component structures and visual layouts.
+### Replit Agent
 
-Architectural lesson:
-- UI generation should not own authoritative business state;
-- generated components should consume explicit APIs/data contracts;
-- visual generation and backend mutation should remain separate concerns.
+Replit positions Agent as an application-building agent able to plan changes, write code, debug and improve applications; its current guidance explicitly recommends being specific, planning the work, adding context, reviewing/testing and using checkpoints. citeturn669519search10turn669519search11
 
-This aligns naturally with a modern agent architecture where the UI is one client and the agent/backend owns business capabilities.
+**Reusable lesson:** checkpoints are not merely UX convenience. They create recovery boundaries in an agentic development loop.
 
-## 5. Replit Agent / integrated development-to-deployment
+### Base44
 
-Replit demonstrates the compressed lifecycle:
+Base44 demonstrates a stronger managed-infrastructure abstraction: the platform describes automatic generation of logic/infrastructure including logins, authentication, data storage, role-based permissions, hosting, analytics and custom domains. citeturn408980search11
 
-`intent -> agent-generated code -> integrated services -> publish`
+**Rule:** hide infrastructure complexity from the end user without hiding ownership, state, authorization and failure boundaries from the engineering design.
 
-The important engineering pattern is not the brand-specific workflow but the integration of:
-- code editing;
-- database provisioning;
-- secrets;
-- environment variables;
-- hosting;
-- monitoring.
+## 3. UI-first generation: v0, Framer, Webflow
 
-A mature version of this architecture must distinguish editor/development state from deployed runtime state and must keep secrets out of source, prompts and generated client bundles.
+### v0
 
-## 6. Base44 and managed infrastructure abstraction
+v0 should primarily be treated as a **UI/component generation layer**. Public examples show generation around React/Next.js, Tailwind CSS and component libraries such as shadcn/ui. citeturn602447search15turn602447search14
 
-Managed application builders reduce the number of infrastructure decisions exposed to the user. That is valuable for speed, but architecture still exists underneath the abstraction.
+Architectural rule:
+- UI generation should consume explicit APIs/data contracts;
+- UI state should not become authoritative business state;
+- generated frontend code should remain testable as ordinary source.
 
-For an agent-building project, this implies a rule:
+### Framer
 
-> hide operational complexity from the end user, but do not hide ownership, state, authentication or failure boundaries from the engineering design.
+Framer has moved beyond static design generation: its current AI system can create and refine editable pages, CMS content and code components directly on the canvas, and it supports external agents such as Claude Code, Cursor and Codex. It also exposes branching/staging and publishing workflows. citeturn669519search0turn669519search3
 
-The internal design should retain explicit concepts for database, auth, API surface, deployment, environment and observability even when the product UI presents them as one-click features.
+**New architectural insight:** visual builders increasingly become **agent clients** themselves. The agent does not have to live outside the product; a visual canvas can be the control surface for an agent operating on editable product state.
 
-## 7. Cursor and Windsurf — codebase agents
+### Webflow
 
-AI IDEs differ from prompt-to-app builders in a fundamental way: the starting point is usually an existing repository rather than a blank application.
+Webflow AI currently spans site generation, page/design modification, copy generation, code components, CMS collection generation and optimization; Webflow also explicitly exposes a Webflow MCP server for extending AI workflows. citeturn669519search4turn669519search5
 
-Their strongest architectural pattern is:
+**Important consequence:** MCP is becoming an interoperability boundary between a visual product system and external coding/agent runtimes. This supports the broader architecture rule that product builders and agent runtimes should be independently replaceable.
+
+## 4. AI coding IDEs: Cursor and Windsurf
+
+Coding-agent IDEs are fundamentally different from blank-slate app builders. Their primary input is an existing repository.
+
+Cursor's current agent model explicitly consists of **instructions + tools + model**, with tools for repository search, reading/editing files, terminal execution and browser-based verification. Its documentation also emphasizes plan/review flows, checkpoints and approval controls for sensitive actions. citeturn651359search0turn651359search1turn651359search9
+
+Reusable control loop:
 
 ```text
 Repository context
       |
-      +--> search/read
+      +--> search / read
       +--> plan
       +--> edit
-      +--> run tests
-      +--> inspect failures
-      +--> iterate
+      +--> run
+      +--> inspect
+      +--> test
+      +--> revise
 ```
 
-This makes **repository context management** a first-class problem. The agent should load only relevant files, preserve project instructions, inspect dependencies and validate edits with tests rather than treating the whole repository as prompt content.
+This reveals a useful abstraction:
 
-The practical lesson from OpenAI Codex and comparable coding-agent systems is consistent: context must remain bounded and incremental, and edits should be verified through the actual project toolchain.
+> **Model + tools + harness = coding agent.**
 
-## 8. Bubble — visual application runtime
+The harness is not incidental. It contains system rules, context selection, tool definitions, permission semantics and verification loops.
 
-Bubble represents the opposite end of the spectrum from coding agents: the application is constructed inside a visual runtime rather than primarily represented as source code.
+For the project, repository context must therefore be treated as a **bounded capability**, not as "paste the whole repository into the prompt".
 
-Useful architectural lesson:
+Cursor also exposes a distinct separation between Agent, Ask, Manual and Custom modes, which is an example of matching tool power to task intent. citeturn651359search5
+
+## 5. Visual application runtimes: Bubble, FlutterFlow, Adalo
+
+### Bubble
+
+Bubble has expanded to both web and native mobile AI app generation. Its current material emphasizes prompt-to-app generation, visual workflow editing, an AI agent for adding/troubleshooting features, real-device preview and publishing. citeturn669519search6turn669519search2turn669519search14
+
+**Architectural lesson:** visual logic is valuable because it keeps business workflows inspectable. For agent-backed systems, AI reasoning should be exposed through explicit actions/APIs rather than becoming invisible inside a canvas.
+
+### FlutterFlow
+
+FlutterFlow's AI generation model historically spans page, schema, component, theme and code generation, while the platform's core value remains visual construction with access to generated Flutter code. citeturn602447search10
+
+**Durability rule:** code export is an architectural escape hatch. A serious application should remain maintainable outside the visual editor.
+
+### Adalo
+
+Adalo currently combines AI-assisted generation with a visual multi-screen canvas, hosted data and publishing to iOS, Android and the web from a single project. citeturn669519search1turn669519search12
+
+**Lesson:** one project can target multiple clients, but backend state and permissions should still be modeled independently of presentation.
+
+## 6. Data-first builders: Glide, Softr, Airtable
+
+These platforms demonstrate a distinct architecture:
 
 ```text
-Data model
-   |
-Visual UI
-   |
-Workflow / business logic
-   |
-External APIs
+Structured business data
+        |
+   +----+----+
+   |         |
+   v         v
+Interfaces  Workflows
+   |         |
+   +----+----+
+        |
+        v
+    Human operators
 ```
 
-For AI integrations, keep model reasoning outside the visual editor when possible. Expose AI capabilities through stable APIs/actions so model upgrades do not require rewriting the entire visual application.
+### Glide
 
-## 9. FlutterFlow — visual mobile/web + code export
+Glide's current product model can ingest spreadsheets and connect other business systems, then build connected desktop/mobile apps around the same live data. Its current material emphasizes user-specific views and access to the information/actions appropriate for each audience. citeturn690852search8
 
-FlutterFlow occupies an important middle ground: visual composition with an escape hatch into conventional Flutter code.
+### Softr
 
-This is valuable for agent systems because it supports a separation between:
-- product/UI composition;
-- application logic;
-- backend services;
-- AI agent execution.
+Softr positions its AI App Generator around complete business applications, while current product material emphasizes permissions, automations and an AI interface that can answer questions over live application data. citeturn408980search1turn690852search10
 
-The durable lesson is that the **exportable source tree matters**. A serious application should not become impossible to maintain outside the visual builder.
+### Airtable
 
-## 10. Glide / Softr / Airtable-style data-first application building
+Airtable's Interface Designer remains a data-driven application surface: interfaces read from existing bases, support custom layouts and can be tailored to different users through permissions. citeturn891535search10
 
-These platforms illustrate a **data-first application** architecture:
+**Agent integration rule:** data-first systems should expose narrowly scoped capabilities such as `search`, `get`, `propose_update` and `apply_approved_update`, rather than unrestricted database writes.
+
+## 7. Internal software builders: Zite, ToolJet, DronaHQ
+
+Internal-tool platforms reveal an important category for enterprise agent systems: **human control planes around automation**.
+
+### Zite
+
+Zite currently combines apps, workflows, forms, databases and AI actions in a single business operating environment. It explicitly describes giving agents context, permissions and tools while retaining visible workflows and controls. citeturn690852search1
+
+### ToolJet
+
+ToolJet is now explicitly AI-native: its platform combines AI app generation, AI agents, workflow automation, integrations, RBAC, SSO, version history and audit logs. Its documentation distinguishes ToolJet AI from ToolJet MCP: one is driven inside ToolJet, the other lets external coding agents such as Claude Code or Codex operate ToolJet through MCP. citeturn891535search0turn891535search9
+
+This is a particularly important architectural pattern:
 
 ```text
-Structured data
-     |
-     +--> views / interfaces
-     +--> forms
-     +--> workflows
-     +--> permissions
+External agent
+      |
+      v
+   ToolJet MCP
+      |
+      v
+Business app / workflows / users
 ```
 
-This is especially suitable for internal tools, portals and CRUD-heavy business systems.
+The builder can therefore become an **agent-addressable business platform**, not merely a place where humans click UI controls.
 
-For agent integration, the data layer becomes an explicit capability boundary. Agents should have narrowly scoped operations such as:
-- list/search records;
-- retrieve a single record;
-- propose an update;
-- apply an approved mutation.
+### DronaHQ
 
-Avoid giving an agent an undifferentiated database-write surface.
+DronaHQ's AI-assisted builder can generate or modify components, attach actions and create supported action flows through prompts. It also offers self-hosting options and explicit workflow primitives including approvals, records, notifications and API calls. citeturn408980search2turn408980search5turn408980search12
 
-## 11. Framer / Webflow — content and presentation systems
+**Lesson:** AI generation is most useful when the output lands inside a typed, inspectable workflow system instead of an opaque blob of generated behavior.
 
-Framer and Webflow are best understood as web experience and content systems rather than general-purpose agent runtimes.
+## 8. Framework-specific generation: LaraCopilot
 
-Their relevance to agent architecture is at the **presentation boundary**:
-- agent-generated content can feed a CMS;
-- APIs can expose content to an agent;
-- user-facing pages can become clients of backend/agent services.
+Laravel-focused tooling illustrates a broader reliability pattern:
 
-Do not couple critical business logic to design-editor state when a dedicated backend can own it more reliably.
+`known framework conventions -> smaller solution space -> easier validation`
 
-## 12. Zite / ToolJet / DronaHQ — internal software builders
+When correctness and maintainability dominate raw novelty, constrain the agent to a mature application framework and repository structure rather than asking it to invent architecture repeatedly.
 
-These systems emphasize internal applications, dashboards, admin tools and workflow-driven business software.
+## 9. Multi-agent application generation: Emergent
 
-The strongest reusable pattern is the combination of:
-- relational/business data;
-- role-based access;
-- forms and actions;
-- API/database integrations;
-- operational workflow.
-
-For enterprise agents, these tools can serve as **human control planes** around an agentic backend: operators review proposed actions, inspect state and trigger approved workflows without needing direct access to agent internals.
-
-## 13. Adalo — simplified application composition
-
-Adalo emphasizes accessibility and rapid composition. Its main architectural lesson is the value of separating product-level configuration from infrastructure complexity.
-
-For serious agent deployments, however, a low-code surface should not eliminate explicit understanding of:
-- authentication;
-- data ownership;
-- API contracts;
-- deployment targets;
-- observability;
-- vendor lock-in.
-
-## 14. LaraCopilot — framework-specific generation
-
-Framework-specialized generators show a distinct class of AI tooling: instead of inventing an entire architecture, the agent operates inside a known application framework such as Laravel.
-
-This has a major quality advantage:
-
-`strong framework conventions -> smaller solution space -> easier validation`
-
-General lesson: when reliability is more important than novelty, constrain the agent to a well-understood framework and project structure.
-
-## 15. Emergent — multi-agent app generation
-
-Emergent is particularly relevant because it represents an explicit **multi-agent application-building approach**.
-
-A useful abstract model is:
+Emergent represents the multi-agent application-builder pattern named by the user. The reusable abstraction is:
 
 ```text
 Product specification
         |
         v
-   Coordinator
-   /    |     \
- UI   Backend  QA
- |      |       |
- +------+-------+
-        |
-        v
-      App
-```
-
-The important lesson is not that every app generator needs multiple agents. It is that multi-agent generation becomes useful when responsibilities have different tools, context and validation requirements.
-
-The generated application should then be tested as a normal software system, not judged only by whether the agents completed their tasks.
-
-## 16. Stack AI — enterprise workflow orientation
-
-Stack AI belongs to the production/enterprise side of the spectrum. The valuable architectural idea is to make AI workflows explicit, composable and operationally manageable.
-
-For enterprise agent systems, important first-class concerns are:
-- workflow versioning;
-- access control;
-- data connectors;
-- environment separation;
-- monitoring/evaluation;
-- repeatable deployment.
-
-An enterprise agent should therefore be represented as a **versioned artifact plus runtime configuration**, not merely as a prompt.
-
-## 17. Blaxel — agent infrastructure layer
-
-Blaxel represents a different category: infrastructure for running agents and MCP servers rather than a visual application builder.
-
-Architecturally this fills the execution plane:
-
-```text
-Agent / MCP server code
+    Coordinator
+    /    |     \
+  UI   Backend   QA
+   |      |       |
+   +------+-------+
           |
           v
-   managed runtime
-          |
-     +----+----+
-     |         |
-     v         v
-  compute    networking
-     |
-     v
-observability / scaling
+        App
 ```
 
-This reinforces an important distinction for the project: **an agent builder and an agent hosting substrate are separate architectural layers**.
+**Critical distinction:** multi-agent generation is justified when the responsibilities have different tools, contexts or validation loops. It is not automatically superior to one agent.
 
-## 18. Enterprise autonomous-worker platforms
+Generated applications must be evaluated as software systems: build, tests, security, permissions, runtime behavior and failure recovery matter more than whether multiple agents participated.
 
-Platforms such as Relevance AI, Beam AI and Lindy-style products demonstrate the "AI worker" model:
+## 10. Enterprise AI workflows: Stack AI
+
+Stack AI belongs to the production-oriented workflow layer. The reusable architectural idea is to represent AI behavior as **versioned, composable workflow artifacts** with explicit connectors, access controls, environments and observability.
+
+A production agent should therefore look more like:
+
+```text
+Agent definition
++ prompt/instructions
++ tool catalog
++ policy
++ workflow graph
++ environment config
++ evaluation suite
++ deployment version
+```
+
+rather than simply "a prompt".
+
+## 11. AI workforce platforms: Relevance AI, Lindy, Beam AI
+
+The AI-worker category turns a business goal or event into an operational loop:
 
 ```text
 Goal / event
@@ -296,221 +292,331 @@ Goal / event
     v
 AI worker
     |
-    +--> tools
-    +--> SaaS systems
-    +--> memory
-    +--> workflows
+    +--> context / memory
+    +--> tools / SaaS
+    +--> workflow steps
+    +--> policies / controls
     |
     v
 business outcome
 ```
 
-The key production requirement is strong capability governance. An autonomous worker touching email, CRM, documents, billing or operations must have explicit scopes, auditing and approval rules.
+Lindy's current material explicitly describes AI employees that perform multi-step work, with examples spanning scheduling, inboxes, CRM and operations; earlier Lindy material also describes teams of AI employees cooperating on workflows. citeturn408980search3turn408980search4
 
-A useful design pattern is:
+Beam AI currently exposes implementation-ready workflows with agent steps, systems, controls and outputs across functions such as operations, customer support, finance and HR. citeturn408980search9turn408980search14
 
-`observe -> propose -> validate -> approve (when required) -> execute -> audit`.
+**Production rule:** autonomous workers need the same capability governance as any other agent. Email, CRM, billing, documents and business operations must use scoped permissions, auditing and approval boundaries.
 
-## 19. Customer-service agent platforms
+A robust pattern is:
 
-Sierra-style systems illustrate a specialized production category in which the agent is the user-facing interface for customer support rather than a general-purpose coding system.
+`observe -> propose -> validate -> approve when required -> execute -> audit`.
 
-Architectural lessons:
-- knowledge retrieval is a distinct layer;
-- business data and conversation history should be joined deliberately;
-- tools represent controlled business actions;
-- escalation to humans is part of the runtime;
-- quality measurement must cover task success, policy compliance and customer experience.
+## 12. Customer-service agent platform: Sierra
 
-This is consistent with the broader architecture already stored in the knowledge base: knowledge, capabilities, state, safety and evaluation should remain separate concerns.
+Sierra represents a specialized category: the agent is the primary customer-facing interface.
 
-## 20. Claude Code and coding-agent architecture
-
-Anthropic's Claude Code ecosystem reinforces several patterns already identified in the project:
-- MCP tools can be used autonomously by an agent;
-- tool usage should be tested thoroughly before deployment;
-- plugin workflows can distinguish query/execute/schema capabilities;
-- hooks and permission checks can constrain tool behavior.
-
-The practical lesson is to make **agent capability discovery and execution permissions separate dimensions**. A coding agent can know that a tool exists without automatically having permission to execute a risky operation.
-
-## 21. OpenAI Agents SDK — application-agent baseline
-
-The OpenAI Agents SDK adds a programmable runtime around Agents, tools, handoffs, guardrails, sessions and tracing.
-
-Current source material also exposes Tool Search and increasingly explicit handling of programmatic tool calls. This means the application architecture can decide between:
+The reusable architecture is:
 
 ```text
-Direct tool calls
-vs.
-Programmatic tool orchestration
+Customer
+   |
+   v
+Conversation
+   |
+   +--> knowledge / policy
+   +--> business data
+   +--> controlled tools
+   +--> escalation
+   |
+   v
+Outcome + audit trail
 ```
 
-The right choice depends on complexity: single/simple actions should stay direct; filtering, joins, aggregation and predictable multi-call orchestration may be better represented programmatically.
+This reinforces a broader rule: **knowledge, capability, state, policy and evaluation are distinct concerns**, even when a product presents them as one conversational agent.
 
-Agent state can be continued through sessions/conversation strategies rather than forcing the application to rebuild every turn manually.
+## 13. Blaxel: agent and MCP execution infrastructure
 
-## 22. Semantic Kernel
+Blaxel is best classified as an execution/deployment layer rather than an app builder.
 
-Semantic Kernel represents the SDK/orchestration layer inside a conventional software-engineering environment. The important lesson is the bridge between probabilistic AI capabilities and ordinary application components.
+```text
+Agent / MCP server artifact
+          |
+          v
+   managed execution
+          |
+    +-----+-----+
+    |           |
+  compute    networking
+    |
+    v
+scaling / observability
+```
 
-A robust enterprise design therefore treats LLM calls as one dependency among many, with explicit interfaces for:
+This preserves a fundamental separation:
+
+> **Agent design and agent hosting are independent architectural layers.**
+
+## 14. SuperAGI: open autonomous-agent runtime
+
+SuperAGI presents a dev-first open-source framework for building, managing and running autonomous agents. Current documentation highlights provisioning/deployment, tools, concurrent agents, a GUI/action console, vector databases, memory storage, telemetry and token-usage controls. citeturn408980search0turn408980search7
+
+The reusable pattern is a **managed autonomous runtime** rather than a prompt template. That makes execution state, tool governance, telemetry and cost control first-class architecture.
+
+## 15. Semantic Kernel: conventional software integration layer
+
+Semantic Kernel is valuable as the SDK/orchestration category that integrates LLM capabilities with ordinary application components. The architectural principle is that models should behave like a dependency of the application—not become the hidden owner of business state or business rules.
+
+A robust design keeps explicit interfaces for:
+- model invocation;
 - planners/orchestration;
 - tools/plugins;
 - memory;
+- business state;
 - telemetry;
-- application state.
+- policy.
 
-This prevents the LLM from becoming the hidden owner of business logic.
+## 16. MCP + app builders: an emerging interoperability pattern
 
-## 23. Dify and Flowise in the app-builder landscape
-
-Dify and Flowise are valuable as visual composition environments for LLM applications and agents. Their architectural role is complementary to MCP and code-first agent SDKs.
-
-Use them when the problem is primarily:
-- assembling LLM application flows;
-- prototyping RAG/agent behavior;
-- exposing connectors and tools visually;
-- validating a product concept quickly.
-
-Do not confuse visual workflow representation with durable infrastructure semantics. Once production criticality increases, state, auth, secrets, deployment, evaluation and rollback should be represented explicitly outside the canvas as well.
-
-## 24. The most important pattern: separation of concerns
-
-The entire list converges on a layered architecture:
+The newest important pattern is not simply "AI builds apps". It is:
 
 ```text
-                    PRODUCT/UI
-                         |
-          +--------------+--------------+
-          |                             |
-       Web/Mobile                    Admin UI
-          |                             |
-          +--------------+--------------+
-                         |
-                         v
-                 APPLICATION API
-                         |
-        +----------------+----------------+
-        |                                 |
-        v                                 v
-  AGENT RUNTIME                      WORKFLOW RUNTIME
-        |                                 |
-        +----------------+----------------+
-                         |
-                         v
-                    TOOLS / MCP
-                         |
-          +--------------+--------------+
-          |              |              |
-          v              v              v
-       APIs/DB        SaaS/tools     SANDBOX
-          |              |              |
-          +--------------+--------------+
-                         |
-                         v
-              CLOUD / DEPLOYMENT
-                         |
-             +-----------+-----------+
-             |                       |
-             v                       v
-        OBSERVABILITY             EVALS
+Visual / code application builder
+             |
+       MCP / typed API
+             |
+       external agent
+             |
+   inspect -> plan -> mutate -> verify
 ```
 
-A builder such as Lovable, Bolt or Replit may span several boxes from the user's perspective, but the underlying system should preserve the boundaries.
+Webflow already exposes an MCP server, and ToolJet explicitly supports external coding agents through ToolJet MCP. Framer also supports external agents such as Claude Code, Cursor and Codex. citeturn669519search4turn891535search9turn669519search0
 
-## 25. Selection matrix for this project
+This suggests a powerful long-term architecture: **builders become capability surfaces for agents**, while MCP or equivalent typed APIs provide the interoperability boundary.
+
+## 17. The application-builder control hierarchy
+
+Across the ecosystem, application-building systems can be ranked by how much they compress architecture:
+
+```text
+1. UI generator
+2. Visual app builder
+3. Prompt-to-full-stack builder
+4. Agentic codebase builder
+5. Multi-agent application generator
+6. Enterprise agent/workflow platform
+7. Agent + infrastructure control plane
+```
+
+Higher levels reduce more visible engineering decisions. They therefore require stronger hidden governance if the resulting systems are to remain reliable.
+
+## 18. Code ownership vs managed runtime ownership
+
+This is one of the strongest strategic axes in the ecosystem.
+
+| Model | Typical examples | Advantage | Risk |
+|---|---|---|---|
+| Exportable source code | Lovable, Bolt, Replit, Emergent | Git/version-control ownership, portability | More engineering responsibility |
+| Visual managed runtime | Bubble, Softr, Zite, Glide | Fast iteration without infrastructure work | Vendor coupling / limited portability |
+| Hybrid | FlutterFlow, ToolJet, Framer/Webflow + external agents | Visual speed + integration escape hatches | More moving pieces |
+
+The right choice depends on whether the product's strategic asset is **source code ownership**, **operational simplicity**, or **rapid business iteration**.
+
+## 19. Security architecture extracted from AI app builders
+
+The ecosystem repeatedly points to the same boundary conditions:
+
+### Never make these equivalent
+
+`model access != production access`
+
+`tool visibility != tool permission`
+
+`generated code != trusted code`
+
+`preview credentials != production credentials`
+
+`UI state != authoritative business state`
+
+Cursor explicitly warns about prompt injection and sensitive actions and uses approval controls for higher-risk operations. citeturn651359search9
+
+DronaHQ exposes environment switching and approval/action primitives, while ToolJet explicitly combines RBAC, SSO, audit logs and environment/version controls. citeturn408980search2turn891535search0
+
+**Canonical security pattern:**
+
+```text
+User intent
+    |
+    v
+Agent reasoning
+    |
+    v
+Capability selection
+    |
+    v
+Policy / authorization
+    |
+    +--> human approval when required
+    |
+    v
+Execution
+    |
+    v
+Audit / trace
+```
+
+## 20. Reliability architecture extracted from the ecosystem
+
+A modern AI app builder should create applications with four separate kinds of state:
+
+| State | Examples | Authority |
+|---|---|---|
+| Conversation state | messages, current turn, short-lived intent | agent/runtime |
+| Application state | users, orders, settings, records | backend/database |
+| Workflow state | step, checkpoint, pending approval | workflow/runtime |
+| Development state | files, Git history, checkpoints, versions | repository/builder |
+
+Confusing these layers creates predictable failures.
+
+### Recovery-first rule
+
+Every serious agentic app should have explicit behavior for:
+
+`retry -> resume -> checkpoint -> rollback -> human escalation`.
+
+This is consistent with current Replit checkpoints, Cursor checkpoints and the broader durable-runtime pattern already archived in the repository. citeturn669519search10turn651359search1
+
+## 21. AI builders should preserve an escape hatch
+
+Three forms of escape hatch matter:
+
+1. **Code escape hatch** — export/inspect generated source.
+2. **Runtime escape hatch** — inspect logs, state, workflows and deployment.
+3. **Integration escape hatch** — connect external agents via MCP/APIs.
+
+A builder that offers none of these may be excellent for prototypes but is a weaker foundation for a long-lived, high-criticality agent system.
+
+## 22. Selection matrix for this project
 
 | Need | Strong candidate class |
 |---|---|
-| Build a new SaaS from natural language | Lovable / Bolt / Replit / Base44 / Emergent |
-| Build/refactor an existing repository | Cursor / Windsurf / Claude Code / OpenAI Agents SDK-powered coding runtime |
-| Generate frontend rapidly | v0 / Lovable / Webflow / Framer |
-| Visual mobile application | FlutterFlow / Adalo |
-| Internal business tool | ToolJet / DronaHQ / Bubble / Zite |
+| Prompt-to-full-stack SaaS | Lovable / Bolt / Replit / Base44 / Emergent |
+| Modify an existing codebase | Cursor / Windsurf / Claude Code / OpenAI coding-agent runtime |
+| UI-first generation | v0 / Framer / Webflow |
+| Visual mobile application | FlutterFlow / Adalo / Bubble |
+| Internal business software | ToolJet / DronaHQ / Zite / Bubble |
 | Data-first portal | Airtable / Glide / Softr |
-| Laravel-specific software | LaraCopilot |
+| Laravel-specific development | LaraCopilot |
 | Visual LLM/agent workflow | Dify / Flowise / Stack AI |
-| Enterprise AI workflow | Stack AI / Semantic Kernel + application runtime |
-| Autonomous business-worker pattern | Relevance AI / Lindy / Beam AI |
-| Agent hosting / MCP runtime | Blaxel |
-| General code-first agent runtime | OpenAI Agents SDK / LangGraph / Semantic Kernel / AutoGen / CrewAI |
+| Enterprise workflow/agent platform | Stack AI / Semantic Kernel + application runtime |
+| AI worker automation | Relevance AI / Lindy / Beam AI |
+| Customer-service agents | Sierra |
+| Autonomous open-source runtime | SuperAGI |
+| Agent/MCP hosting substrate | Blaxel |
+| General code-first agent runtime | OpenAI Agents SDK / LangGraph / AutoGen / CrewAI / Semantic Kernel |
 
-This table is a selection aid, not a claim that any vendor is universally "best".
+This matrix is a classification/selection aid, not a claim that one product is universally best.
 
-## 26. Engineering rules extracted from the ecosystem
+## 23. Engineering rules extracted from the entire app-builder ecosystem
 
 ### Rule 1 — The builder is not the runtime
-A visual or prompt-driven builder can create the artifact, but the deployed system still needs an explicit runtime model.
+A builder may generate the artifact; the deployed system still needs a clear execution model.
 
-### Rule 2 — Generated code must become ordinary software
-Run tests, static checks, dependency checks and security reviews against generated source.
+### Rule 2 — Generated software becomes ordinary software
+Run tests, static checks, dependency checks, security reviews and deployment validation.
 
-### Rule 3 — Keep authoritative state out of prompts
-Conversation context is not a database. Business state belongs in explicit storage systems.
+### Rule 3 — Keep authoritative state outside the prompt
+Conversation context is not a database.
 
-### Rule 4 — Do not expose unrestricted infrastructure to agents
-Deployment, database mutation, billing, credentials and production configuration are high-impact capabilities and need scoped APIs and approval boundaries.
+### Rule 4 — Separate discovery from permission
+Knowing that a tool exists is not equivalent to being authorized to execute it.
 
-### Rule 5 — Use environment isolation
-At minimum separate development, preview/staging and production. Agent sandboxes should be separate again from production infrastructure.
+### Rule 5 — Scope infrastructure mutation
+Deployment, credentials, database writes, billing and production configuration are privileged capabilities.
 
-### Rule 6 — Prefer constrained frameworks when possible
-A smaller solution space improves reliability, testability and code review.
+### Rule 6 — Separate environments
+At minimum: development -> preview/staging -> production; untrusted execution should be isolated again.
 
-### Rule 7 — Human review is a runtime primitive
-Approvals should be resumable state transitions, not ad-hoc UI confirmations.
+### Rule 7 — Prefer typed contracts
+Schemas, action definitions and API contracts should be executable boundaries between probabilistic reasoning and deterministic software.
 
-### Rule 8 — Evaluation belongs in the build/deploy loop
-A generated agent application needs tests for both software correctness and agent behavior.
+### Rule 8 — Human approval is a runtime primitive
+Approval should create a resumable execution state, not merely a modal confirmation.
 
-### Rule 9 — Preserve an escape hatch
-Low-code/visual systems are strongest when critical functionality can be moved into code or an external API without rewriting the product.
+### Rule 9 — Preserve version control and rollback
+Visual builders need repository/export/version equivalents; code-first builders need Git and explicit recovery.
 
-### Rule 10 — Avoid vendor-layer conflation
-Separate product builder, agent framework, MCP, workflow engine, hosting, database, authentication and observability even when one vendor bundles several of them.
+### Rule 10 — Use constrained frameworks when reliability dominates novelty
+Known conventions reduce the agent's solution space.
 
-## 27. Canonical architecture for an AI-built application
+### Rule 11 — Evaluate the resulting system, not the generation process
+The metric is task success, correctness, security, maintainability and operator control—not how impressive the generation transcript looks.
+
+### Rule 12 — Make builders agent-addressable
+Where appropriate, expose application operations through MCP or typed APIs so external agents can inspect and modify systems under policy.
+
+## 24. Master synthesis
+
+The application-builder ecosystem now fits cleanly into the project's broader agent architecture:
 
 ```text
-User
- |
- v
-UI generated/maintained by builder
- |
- v
-API / application gateway
- |
- +--> AuthN/AuthZ
- |
- +--> Agent runtime --------------------+
- |                                      |
- |                                      v
- |                               State / Memory
- |
- +--> Deterministic workflows
- |
- +--> Tools / MCP ----------------------+
- |                                      |
- |                 +--------------------+-------------------+
- |                 |                    |                   |
- |                 v                    v                   v
- |               SaaS                 DB/API             Sandbox
- |                 |                    |                   |
- |                 +--------------------+-------------------+
- |
- v
-Cloud deployment
- |
- +--> logs/metrics/traces
- +--> evals
- +--> audit trail
+                         PRODUCT EXPERIENCE
+                                |
+                +---------------+---------------+
+                |                               |
+             Web/Mobile                      Admin UI
+                |                               |
+                +---------------+---------------+
+                                |
+                                v
+                         APPLICATION API
+                                |
+            +-------------------+-------------------+
+            |                                       |
+            v                                       v
+      AGENT RUNTIME                           WORKFLOW RUNTIME
+            |                                       |
+            +-------------------+-------------------+
+                                |
+                                v
+                           TOOLS / MCP
+                                |
+              +-----------------+-----------------+
+              |                 |                 |
+              v                 v                 v
+            APIs/DB          SaaS/tools         Sandbox
+              |                 |                 |
+              +-----------------+-----------------+
+                                |
+                                v
+                         CLOUD / DEPLOYMENT
+                                |
+                    +-----------+-----------+
+                    |                       |
+                    v                       v
+               OBSERVABILITY             EVALS
 ```
 
-The strongest ecosystem-wide insight is that AI app builders are increasingly **front ends to software-generation and deployment pipelines**, not substitutes for architecture. The durable design remains the separation of reasoning, execution, state, capabilities, security and operations.
+A Lovable/Bolt/Replit project may present most of this as one conversational interface. Bubble/Zite/ToolJet may represent it as a visual application. Cursor/Windsurf may expose it through a coding harness. Stack AI may expose it as workflow composition. Blaxel may expose only the execution substrate.
 
-## 28. Source and confidence note
+**The architecture remains the same even when the interface changes.**
 
-High-confidence repository-derived observations in this round include current OpenAI Agents SDK behavior, Anthropic Claude Code MCP/plugin patterns, LangGraph persistence and interrupt patterns, CrewAI's Crews/Flows split, n8n's MCP client/agent integration, Dify repository structure, and the existence of Expo/other related agent tooling already archived in this knowledge base.
+## 25. Evidence notes for the 2026-09-07 expansion
 
-For vendors where no authoritative repository material was available through the available connector, vendor positioning is treated as contextual product information rather than as a fully verified implementation claim. This distinction is intentional and should be preserved in later engineering decisions.
+Strong current first-party evidence used in this expansion includes:
+
+- Lovable Supabase integration: UI + PostgreSQL + auth/storage/realtime/functions. citeturn651359search7turn651359search8
+- Bolt.new: browser-native development with WebContainers, hosting, GitHub import/export, recovery and connector permissions. citeturn602447search3turn602447search1turn602447search11turn602447search5
+- Replit Agent: planning, context, review/testing and checkpoints. citeturn669519search10turn669519search11
+- Base44: managed auth, data, role permissions, hosting and analytics. citeturn408980search11
+- Cursor: agent harness, tools, planning, verification, checkpoints and security controls. citeturn651359search0turn651359search1turn651359search9
+- Bubble: AI-generated web/mobile applications with visual logic, testing and publishing. citeturn669519search6turn669519search2turn669519search14
+- Glide: data-connected business applications with differentiated views and permissions. citeturn690852search8
+- Framer: AI canvas/CMS/code agents, publishing, staging and external-agent connectivity. citeturn669519search0turn669519search3
+- Webflow: AI site generation, code/CMS generation and MCP integration. citeturn669519search4turn669519search5
+- Zite: apps/workflows/databases and agent permissions/guardrails. citeturn690852search1
+- ToolJet: AI apps + agents + workflows + governance + MCP. citeturn891535search0turn891535search9
+- DronaHQ: prompt-driven UI/action generation, workflow primitives and self-hosting. citeturn408980search2turn408980search5turn408980search12
+- SuperAGI: autonomous agents, tools, memory, telemetry and deployment. citeturn408980search0
+- Lindy/Beam: AI-worker workflows and enterprise operational automation. citeturn408980search3turn408980search9turn408980search14
+
+For some vendors in the user-supplied list, current first-party evidence was not available in the retrieved material at the same depth. Those entries are therefore retained as architectural categories rather than upgraded into detailed vendor-specific capability claims. This is deliberate: the knowledge base should distinguish evidence from inference instead of inventing parity between platforms.
