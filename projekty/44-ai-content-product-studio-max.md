@@ -1,7 +1,7 @@
 # Project 44 — AI Content Product Studio MAX
 
 ## Mission
-Create a production system that turns research, expertise and creative intent into reusable, evidence-grounded digital products and content operations with measurable quality, economics and provenance.
+Create a production system that turns research, expertise and creative intent into reusable, evidence-grounded digital products and content operations with measurable quality, economics, provenance and human-agency safeguards.
 
 ## Architecture
 
@@ -30,35 +30,56 @@ TEXT     VISUAL     AUDIO/VIDEO
               ↓
           PUBLISH / SELL
               ↓
-      MEASURE / LEARN / REVISE
+      AUTHORITATIVE OUTCOME
+              ↓
+       MEASURE / LEARN / REVISE
 ```
 
-## Product specification
+## 1. ContentProductSpec
 
 ```yaml
 ContentProductSpec:
+  id:
   audience:
   problem:
   value_proposition:
   format:
-  evidence_requirements:
-  brand_constraints:
-  accessibility_requirements:
-  legal_requirements:
+  evidence_requirements: []
+  brand_constraints: []
+  accessibility_requirements: []
+  legal_requirements: []
   distribution:
   monetization:
-  success_metrics:
+  success_metrics: []
+  source_lineage: []
+  version:
 ```
 
-## Content graph
+The specification is versioned before generation so the agent can be evaluated against a stable target.
 
-Content is represented as reusable nodes rather than isolated documents:
+## 2. Content graph
 
-`SOURCE → CLAIM → OUTLINE → ASSET → VARIANT → PRODUCT → CHANNEL → RESULT`
+```text
+SOURCE
+  ↓
+CLAIM
+  ↓
+OUTLINE
+  ↓
+ASSET
+  ↓
+VARIANT
+  ↓
+PRODUCT
+  ↓
+CHANNEL
+  ↓
+RESULT
+```
 
-Every claim can point back to source evidence. Every derivative retains provenance.
+Every claim retains source lineage; every derivative retains the identity of the parent artifact.
 
-## Research-to-production loop
+## 3. Research-to-production compiler
 
 ```text
 QUESTION
@@ -69,32 +90,55 @@ EVIDENCE COLLECTION
  ↓
 CLAIM NORMALIZATION
  ↓
+COUNTER-CLAIM / FALSIFICATION
+ ↓
 DRAFT
  ↓
-COUNTER-CLAIM / FALSIFICATION CHECK
- ↓
 EDITORIAL GENERATION
+ ↓
+QA
 ```
 
-Unsupported claims must remain marked as uncertain or be removed.
+Unsupported claims remain uncertain or are removed. Source claims and model-generated inferences remain separate.
 
-## Specialist agents
+## 4. Specialist-agent topology
 
 - **Research Agent** — source planning, collection and evidence mapping.
 - **Editor Agent** — structure, clarity and narrative coherence.
 - **Design Agent** — visual system and asset specifications.
-- **Repurposing Agent** — transforms one source product into channel-specific variants.
+- **Media Agent** — image/audio/video production under asset policy.
+- **Repurposing Agent** — controlled transformation into channel-specific variants.
 - **QA Agent** — factuality, duplication, accessibility and policy checks.
 - **Offer Agent** — packaging, pricing hypotheses and experiment design.
 - **Distribution Agent** — prepares approved outputs for configured channels.
-- **Analytics Agent** — evaluates outcomes and feeds evidence back into the system.
+- **Analytics Agent** — measures outcomes and feeds validated observations back.
 
-Agent roles remain bounded by explicit capabilities and approval rules.
+The orchestrator owns workflow state. Workers cannot grant themselves capabilities.
 
-## Quality gate
+## 5. Evidence-to-product integrity
+
+```text
+SOURCE
+ ↓
+CLAIM
+ ↓
+VERIFY
+ ↓
+APPROVE
+ ↓
+DERIVE
+ ↓
+PUBLISH
+```
+
+A high-performing asset is not automatically a truthful asset. Observed metrics are not causal explanations.
+
+## 6. Quality gates
 
 ```text
 FACTUAL / SOURCE CHECK
+        ↓
+COUNTER-CLAIM CHECK
         ↓
 STYLE / BRAND CHECK
         ↓
@@ -111,21 +155,27 @@ HUMAN APPROVAL
 PUBLICATION
 ```
 
-## Personalization boundary
+## 7. Influence-aware content QA
 
-Personalization may optimize relevance, format and accessibility, but must not exploit sensitive vulnerabilities or covertly manipulate user behavior. The Influence Security principles from Project 43 apply to engagement design.
+The supplied NLP/advertising corpus describes Future Pacing, presuppositions, embedded commands and sensory framing as influence mechanisms. fileciteturn175file2L5-L25
 
-## Economics
+Project 44 does not optimize these techniques for covert persuasion. It passes content through Project 43's defensive checks:
 
-The studio tracks:
+```text
+CONTENT
+ ↓
+INFLUENCE-SIGNAL DETECTION
+ ↓
+DISCLOSURE / CHOICE ANALYSIS
+ ↓
+AGENCY RISK
+ ↓
+TRANSPARENT REVISION
+```
 
-`creation_cost + review_cost + distribution_cost + model_cost + expected_revenue + reuse_value`.
+Personalization is permitted for relevance, formatting and accessibility; vulnerability targeting and covert dependency formation are prohibited.
 
-Optimization target:
-
-`gross contribution per approved product unit`, not raw content volume.
-
-## Experiment engine
+## 8. Product experimentation
 
 ```text
 HYPOTHESIS
@@ -141,71 +191,146 @@ STATISTICAL / BUSINESS REVIEW
 KEEP / MODIFY / RETIRE
 ```
 
-Separate observed results from causal claims; do not treat engagement as proof of product value.
+Experiments register:
 
-## Reuse engine
+`hypothesis + variant + audience scope + metric + time window + confounders + result + decision`.
 
-A high-value source can generate a controlled asset family:
+## 9. Reuse and provenance engine
 
 ```text
-ONE EVIDENCE-BACKED SOURCE
+ONE VERIFIED SOURCE
         ↓
-LONG-FORM PRODUCT
-        ↓
-NEWSLETTER
-        ↓
-SHORT POSTS
-        ↓
-SCRIPT / PODCAST
-        ↓
-VISUAL SUMMARY
-        ↓
-TEMPLATE / CHECKLIST
+LONG-FORM
+   ├─ NEWSLETTER
+   ├─ SHORT-FORM
+   ├─ SCRIPT / PODCAST
+   ├─ VISUAL SUMMARY
+   └─ TEMPLATE / CHECKLIST
 ```
 
-Derivatives share source identifiers to prevent provenance loss.
+Reuse increases production leverage without allowing provenance to disappear.
 
-## Distribution safety
+## 10. Distribution as capability
 
-Publishing and commercial actions require connector confirmation. Failed or partial publishing is never reported as completed.
+Publishing, posting, CRM mutations, payments, email sending and other external actions are Capability Broker operations:
 
-## Metrics
+```text
+PREPARE
+ ↓
+AUTHORIZE
+ ↓
+EXECUTE
+ ↓
+READ AUTHORITATIVE STATE
+ ↓
+VERIFY OUTCOME
+```
 
-### Production
-- time to approved artifact;
-- human review minutes;
-- revision cycles;
-- reusable-asset ratio.
+A connector's successful HTTP response is not necessarily a successful business outcome.
 
-### Quality
-- source coverage;
+## 11. Economics
+
+Track:
+
+`model_cost + tool_cost + human_review + media_cost + distribution_cost + acquisition_cost + revenue + reuse_value`.
+
+Primary metric:
+
+`contribution margin per verified approved product outcome`.
+
+Secondary metrics include cost per approved artifact, human minutes per outcome and reuse multiplier.
+
+## 12. Accessibility and quality engineering
+
+Accessibility becomes a release gate, not a final polishing step. Track:
+
+- readability;
+- caption/transcript availability;
+- semantic structure;
+- keyboard/accessibility defects where applicable;
+- alt-text/source-description completeness;
+- localization quality.
+
+## 13. Observability
+
+```yaml
+ContentRun:
+  run_id:
+  spec_version:
+  model_ids: []
+  agent_ids: []
+  tool_path: []
+  evidence_refs: []
+  policy_version:
+  artifact_versions: []
+  approval_state:
+  cost:
+  latency:
+  outcome:
+```
+
+## 14. Reliability / recovery
+
+Every production run is checkpointable:
+
+```yaml
+Checkpoint:
+  run_id:
+  state_version:
+  completed_steps: []
+  pending_steps: []
+  artifact_refs: []
+  approval_state:
+  unresolved_conflicts: []
+```
+
+A resumed run revalidates current policy and state instead of assuming previous context is still authoritative.
+
+## 15. Evaluation matrix
+
+### Factuality
 - unsupported-claim rate;
-- duplication rate;
-- accessibility defects;
-- policy rejection rate.
+- evidence coverage;
+- citation/source integrity.
+
+### Editorial quality
+- approval rate;
+- revision cycles;
+- consistency;
+- duplication.
+
+### Agency/safety
+- influence-risk detection;
+- disclosure quality;
+- opt-out friction;
+- policy violations.
 
 ### Business
-- conversion per approved asset;
-- revenue per product;
-- customer acquisition efficiency;
+- conversion;
 - contribution margin;
-- retention/reuse.
+- retention;
+- reuse rate.
 
-### System
-- cost per successful product;
-- model/tool utilization;
-- failure/recovery rate;
-- provenance completeness.
+### Efficiency
+- cost/outcome;
+- human review minutes/outcome;
+- time-to-approved artifact.
 
-## Security and governance
+## 16. Definition of Done
 
-1. Generated content is untrusted until QA.
-2. Sources are versioned and provenance-preserving.
-3. Publication is a capability requiring authorization.
-4. Financial or reputational side effects use explicit approval boundaries.
-5. User-level personalization cannot silently become behavioral targeting.
-6. Model choice does not alter policy.
+- versioned product specifications;
+- evidence-aware research/claim compiler;
+- specialist-agent topology;
+- multimodal production pipeline;
+- factual/structural/accessibility/policy QA;
+- influence transparency gate;
+- provenance-preserving reuse engine;
+- authorized distribution;
+- authoritative outcome confirmation;
+- checkpoint/recovery;
+- measured economics;
+- complete evaluation/audit trail.
 
-## Definition of Done
+## Position in portfolio
 
-Project 44 is complete when the studio can repeatedly turn evidence-backed ideas into commercially usable, accessible and auditable product families while minimizing manual production effort without maximizing unverified content volume.
+Project 44 is the canonical content-production layer feeding Project 45's content-to-commerce orchestration and Project 48's problem/research-to-venture loop.
