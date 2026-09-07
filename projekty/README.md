@@ -1,6 +1,6 @@
 # Projekty — Expanded Design Lab
 
-This directory contains project artifacts upgraded using the project's accumulated knowledge base: OpenAI Agents SDK, MCP, coding-agent patterns, AI application builders, formal verification, adversarial AI security, distributed execution, multimodal systems, and the source materials supplied by the project owner.
+This directory contains project artifacts upgraded using the project's accumulated knowledge base: OpenAI Agents SDK, MCP, coding-agent patterns, AI application builders, formal verification, adversarial AI security, distributed execution, multimodal systems, model engineering, and the source materials supplied by the project owner.
 
 ## Engineering standard
 
@@ -31,6 +31,11 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
 | `06-cognitive-security-red-team.md` | Cognitive security | Detect hidden directives, manipulation patterns and stateful adversarial interaction sequences |
 | `07-agentic-creative-studio.md` | AI application/content builder | Turn natural-language intent into verified applications and creative artifacts |
 | `08-paulaOS-agentic-personal-os.md` | Personal agent system | Build a proactive, privacy-first operating layer with explicit consent and bounded memory |
+| `09-omnicore-learned-kernel-lab.md` | Learned-kernel systems research | Test predictive scheduling and AI-assisted OS primitives behind deterministic safety boundaries |
+| `10-sovereign-ai-local-first-stack.md` | Local/edge AI infrastructure | Build provider-independent local-first inference with privacy-aware routing and remote fallback |
+| `11-model-engineering-and-qlora-lab.md` | Open-weight model engineering | Create a reproducible QLoRA/adapter pipeline with dataset, evaluation and rollback controls |
+| `12-cognitive-security-and-adversarial-evaluation.md` | Defensive AI security | Convert hidden directives, Chain-of-Attack and adversarial-model research into a stateful evaluation platform |
+| `13-agentic-software-factory.md` | Agentic software engineering | Create a staged factory for requirements, architecture, coding, verification, security and release |
 
 ## Cross-project architecture
 
@@ -43,6 +48,7 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
                   │ CONTROL PLANE    │
                   │ Specs / Policy   │
                   │ Evals / Approval │
+                  │ Provenance       │
                   └────────┬─────────┘
                            │
           ┌────────────────┼────────────────┐
@@ -69,11 +75,17 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
 
 The project portfolio explicitly treats covert persuasion, hidden directives and unauthorized behavioral influence as security concerns. Defensive analysis may model such techniques, but project implementations must not use them to covertly manipulate people.
 
-The supplied research on Chain of Attack is therefore translated into stateful security evaluation, while the supplied material on hidden commands becomes a detection and provenance problem rather than an implementation recipe. fileciteturn195file7L44-L65 fileciteturn195file6L17-L36
+The supplied research on Chain of Attack is translated into stateful security evaluation, while the supplied material on hidden commands becomes a detection and provenance problem rather than an implementation recipe. fileciteturn195file7L44-L65 fileciteturn195file6L17-L36
 
 ## Research doctrine
 
 The supplied ASI/Nexus and AI-native OS documents contain a mixture of engineering concepts, forward-looking claims and speculative hardware assertions. These projects preserve the architecture as hypotheses and require independent measurement before any claimed performance advantage is treated as fact. The Nexus source itself presents its hyper-orchestrator as conceptual. fileciteturn191file0L433-L447
+
+The OmniCore materials similarly present a learned kernel, NPS and AI Supervisor as a target architecture. Their implementation is therefore split into shadow-mode, constrained-control and research-only execution stages rather than placing unconstrained model output directly in privileged kernel paths. fileciteturn206file0L43-L70
+
+## Model engineering doctrine
+
+Local fine-tuning projects preserve the distinction between base model, tokenizer, dataset, adapters, merged artifacts and serving runtimes. The QLoRA material emphasizes frozen 4-bit base weights, low-rank adapters, NF4 and local deployment paths. fileciteturn206file9L45-L62
 
 ## Lifecycle
 
