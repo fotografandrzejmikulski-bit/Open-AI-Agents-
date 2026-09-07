@@ -1,6 +1,6 @@
 # Projekty — Expanded Design Lab
 
-This directory contains project artifacts upgraded using the project's accumulated knowledge base: OpenAI Agents SDK, MCP, coding-agent patterns, AI application builders, formal verification, adversarial AI security, distributed execution, multimodal systems, model engineering, adaptive reasoning, research orchestration, prompt optimization, Google AI developer patterns, OmniCore/Nexus systems research, verified code generation, the Sugra data/MCP fabric, and the source materials supplied by the project owner.
+This directory contains project artifacts upgraded using the project's accumulated knowledge base: OpenAI Agents SDK, MCP, coding-agent patterns, AI application builders, formal verification, adversarial AI security, distributed execution, multimodal systems, model engineering, adaptive reasoning, research orchestration, prompt optimization, Google AI developer patterns, OmniCore/Nexus systems research, verified code generation, the Sugra data/MCP fabric, Skills, dynamic tool discovery, MCP Apps, sovereign execution and the source materials supplied by the project owner.
 
 ## Engineering standard
 
@@ -18,7 +18,10 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
 - graceful degradation and recovery;
 - an escape hatch from visual builders to inspectable source or explicit runtime contracts;
 - evidence/hypothesis separation for research claims;
-- external data capabilities with provenance, freshness and quota semantics.
+- external data capabilities with provenance, freshness and quota semantics;
+- versioned Skills and bounded capability discovery;
+- minimum-necessary tool exposure through filtering/deferred loading;
+- defensive influence-security controls for manipulation-oriented attack surfaces.
 
 ## Project portfolio
 
@@ -54,6 +57,7 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
 | `28-omnicore-ai-foundry-verified-code-generation.md` | Verified code generation | Turn AI Foundry into a contract-first, provenance-aware, formally assisted generation and promotion pipeline |
 | `29-sugra-agentic-data-and-research-fabric-max.md` | External data + MCP | Make Sugra a governed, provenance-aware, quota-aware evidence and data plane for research and agent operations |
 | `30-omnicore-sugra-evidence-osint-control-fabric.md` | External evidence + OSINT + control | Integrate Sugra, evidence graphs, freshness/partiality gates, quota-aware planning and Zero-Trust MCP execution into the OmniCore control plane |
+| `31-omnicore-sovereign-agent-operating-fabric-max.md` | Agent OS + Skills + MCP + security | Unify agent operating-system abstractions, dynamic capability discovery, versioned Skills, sovereign execution, multimodal security and adaptive hardware into one control-plane architecture |
 
 ## Cross-project architecture
 
@@ -71,17 +75,24 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
                   │ Reasoning Budget │
                   │ Data Freshness   │
                   │ Quota Budget     │
+                  │ Capability Risk │
+                  │ Skill Version   │
                   └────────┬─────────┘
                            │
-          ┌────────────────┼────────────────┐
-          │                │                │
-      Agent Runtime      MCP/Tools      Knowledge
-          │                │                │
-          └────────────────┼────────────────┘
+          ┌────────────────┼───────────────────┐
+          │                │                   │
+      Agent Runtime      Knowledge         Capability
+          │             / Evidence           Catalog
+          │                │                   │
+          └────────────────┼───────────────────┘
                            │
                  REASONING / PLANNING
                            │
+                   TOOL / SKILL SEARCH
+                           │
                     VERIFIED PLAN
+                           │
+                 CAPABILITY BROKER
                            │
                  EXECUTION / SANDBOX
                            │
@@ -101,97 +112,255 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
 
 Reasoning depth is treated as a resource to allocate, not a constant. Fast paths are preferred for simple tasks; deeper reasoning is introduced when task complexity, uncertainty or consequence level justifies it. Model-specific internal reasoning representations remain implementation details and are never treated as a user-facing source of truth.
 
-Project 27 operationalizes this doctrine through bounded compound reasoning, cached context, multiple solver paths, disagreement detection and escalation. The supplied research argues for a system-centric architecture in which a capable smaller model can be combined with caching and self-consistency rather than relying exclusively on a single top-tier call. fileciteturn238file1L8-L33
+Project 27 operationalizes this doctrine through bounded compound reasoning, cached context, multiple solver paths, disagreement detection and escalation. The supplied research emphasizes inference-time compute, context caching, RAG and agentic workflows as architectural levers rather than assuming that model size alone determines system performance. fileciteturn16file4L185-L196
+
+Project 31 extends this into an operating-fabric model: the planner can search and load only the capability definitions needed for the current task, then allocate reasoning and tool budget under policy. The OpenAI tooling documentation explicitly supports tool search and deferred loading for large tool surfaces. fileciteturn24file1L1294-L1348
 
 ## Research doctrine
 
 Deep research uses source planning, parallel expertise, adversarial critique, provenance tracking, falsification and resumability. A synthesis is accepted only when claims are traceable to evidence and uncertainty is explicitly represented.
 
-Project 29/30 adds a machine-readable external evidence fabric. Sugra documents a broad API/MCP surface spanning finance, macro, entity, internet infrastructure, news, earth and research data; its responses expose a consistent `data` + `meta` envelope, while research endpoints expose source metadata and research-oriented retrieval workflows. citeturn510648search0turn622684search3
+Project 29/30 supplies the external evidence plane through the Sugra data/MCP fabric, while Project 31 adds general capability discovery and a unified Observation → Inference → Plan → Effect model.
+
+## Agent Operating Fabric doctrine
+
+The portfolio now treats an agent runtime as an operating substrate with explicit cognitive system calls:
+
+```text
+agent_syscall(intent)
+agent_alloc(reasoning_budget)
+agent_mount(skill)
+agent_search_tool(namespace)
+agent_call(capability)
+agent_checkpoint(state)
+agent_verify(result)
+agent_commit(artifact)
+```
+
+This is an architectural abstraction inspired by the supplied AIOS-style analysis: LLM system calls, agent scheduling, context management, memory/storage management and tool management are separated rather than embedded ad hoc in each agent. fileciteturn15file2L35-L68
+
+## Skills doctrine
+
+Skills are treated as **versioned executable knowledge**, not harmless prompt fragments. A Skill may contain instructions, scripts and assets; its content can influence planning, tool use and command execution. The current OpenAI documentation therefore treats Skills as privileged code and instructions, recommends developer-level integration and requires explicit approval/policy controls for sensitive actions. fileciteturn28file0L14-L24 fileciteturn28file0L540-L568
+
+Portfolio invariant:
+
+```text
+SKILL
+ ↓
+PROVENANCE
+ ↓
+VERSION
+ ↓
+REQUIRED CAPABILITIES
+ ↓
+RISK CLASS
+ ↓
+EVALUATION
+ ↓
+MOUNT
+```
+
+## Capability discovery doctrine
+
+Large catalogs are searched rather than blindly imported. The preferred sequence is:
+
+```text
+TASK
+ ↓
+CAPABILITY SEARCH
+ ↓
+MINIMAL TOOL SET
+ ↓
+DEFINITION LOAD
+ ↓
+SCHEMA / POLICY CHECK
+ ↓
+AUTHORIZED CALL
+```
+
+This applies to MCP servers, function namespaces and Skill-backed tools. The `allowed_tools` mechanism provides an explicit minimum-capability filter for MCP servers. fileciteturn25file0L491-L514
+
+## OmniCore adaptive capability doctrine
+
+The new OmniCore materials reject forced pixel parity between devices and instead define adaptive fidelity: behavioral identity is preserved while rendering varies with hardware capacity. fileciteturn23file2L21-L35 fileciteturn23file2L39-L46
+
+The portfolio generalizes this to:
+
+```text
+SAME INTENT
+   ↓
+HARDWARE / NETWORK / PRIVACY PROFILE
+   ↓
+ADAPTIVE CAPABILITY PLAN
+   ├─ mobile
+   ├─ workstation GPU
+   ├─ edge NPU
+   ├─ local CPU
+   └─ remote accelerator
+```
+
+Policy, authorization and provenance remain invariant across profiles.
 
 ## Security doctrine
 
 The portfolio treats covert persuasion, hidden directives, jailbreaks and unauthorized behavioral influence as security concerns. Defensive analysis may model such techniques, but implementations must not use them to bypass safety controls or covertly manipulate users.
 
-## New OmniCore trust doctrine
+The supplied Gemini security research distinguishes jailbreak from prompt injection and places application compromise at the boundary between untrusted input and privileged tool execution. fileciteturn23file5L39-L56
 
-The OmniCore research set has an explicit **trustworthy execution layer** between cognition and side effects:
+The supplied influence-oriented reports are therefore incorporated as a **defensive Influence Security** discipline. Visual persuasion, dependency loops, coercive control, propaganda/narrative engineering and social manipulation become detection and evaluation signals rather than objectives. fileciteturn15file0L15-L33 fileciteturn23file6L16-L27 fileciteturn23file7L14-L28 fileciteturn23file8L16-L24
+
+## Behavioral evidence doctrine
+
+The supplied behavioral-analysis research explicitly rejects the idea that a single gesture, microexpression or physiological cue proves deception. fileciteturn23file9L9-L23
+
+Accordingly, the portfolio requires:
 
 ```text
-MODEL / AGENT
-     ↓
-INTERPRETATION / REASONING
-     ↓
-POLICY + PROVENANCE + AUTHZ
-     ↓
-CAPABILITY BROKER
-     ↓
-DETERMINISTIC EXECUTION
-     ↓
-ISOLATED DOMAIN / HARDWARE
+OBSERVATION
+ +
+INCONSISTENCY
+ +
+ALTERNATIVE EXPLANATIONS
+ +
+CONTEXT
+ +
+CONFIDENCE
+ →
+HYPOTHESIS
 ```
 
-Semantic retrieval, multimodal perception and model output are information sources, not authority. Privileged actions require typed capabilities, bounded scope and auditable execution. AI-generated kernel/driver artifacts require verification before promotion. GPU-heavy workloads are kept in a lower-trust accelerator domain when direct trusted-domain integration is immature.
+No binary “truth detector” is considered an authoritative decision mechanism.
 
-## Sugra data-fabric doctrine
+## OSINT / evidence doctrine
 
-Sugra is now treated as a **governed data capability plane**, not merely an API integration.
+Deep OSINT is modeled as an iterative research loop in which discovered public data can become new pivot points, while scope, legality and provenance remain explicit. fileciteturn250file2L38-L55
 
-```text
-NATURAL-LANGUAGE RESEARCH INTENT
-             ↓
-        CAPABILITY SEARCH
-             ↓
-       ENDPOINT DESCRIBE
-             ↓
-       SCHEMA / POLICY CHECK
-             ↓
-        AUTHORIZED CALL
-             ↓
-  DATA + SOURCE + FRESHNESS + QUOTA
-             ↓
-        EVIDENCE OBJECT
-             ↓
-       RESEARCH / AGENT GRAPH
-```
-
-The hosted Sugra MCP surface provides discovery, endpoint description, endpoint calling and composed entity/time-series tools. The documentation explicitly positions discovery tools as a way to work with the large endpoint catalog without loading every function into every agent step. citeturn510648search0
-
-The portfolio therefore enforces five invariants:
-
-1. **Discovery before invocation** for uncertain or large capability surfaces.
-2. **Provenance survives retrieval** into the evidence graph.
-3. **Freshness and partiality are query-time admissibility signals.**
-4. **Quota, latency and request cost participate in planning.**
-5. **Remote MCP is an independent trust domain.**
-
-Sugra's documentation also provides explicit authentication and quota semantics: data endpoints require the `x-api-key` header, keys must remain server-side, and quotas are tracked per key with UTC reset semantics. citeturn622684search1turn510648search10
-
-## Project 30 integration doctrine
-
-Project 30 is the reference implementation of the Sugra control boundary. It joins the external evidence plane with Projects 15, 17, 19, 24, 25, 26 and 27 through:
+The resulting control path is:
 
 ```text
-EVIDENCE CONTRACT
-      +
-FRESHNESS CONTRACT
-      +
-QUOTA CONTRACT
-      +
-AUTHORIZATION CONTRACT
-      +
-PROVENANCE CONTRACT
+RESEARCH QUESTION
       ↓
-REASONING / RESEARCH / OSINT
+TARGET / SCOPE
+      ↓
+SOURCE PLAN
+      ↓
+PUBLIC / PASSIVE DATA
+      ↓
+ENTITY RESOLUTION
+      ↓
+PIVOT GENERATION
+      ↓
+EVIDENCE GRAPH
+      ↓
+COUNTER-CHECK
+      ↓
+REPORT
 ```
 
-This means an external API result is never inserted into agent context as undifferentiated text. It is normalized, typed, attributable and policy-scored first.
+Active interaction with external infrastructure remains authorization-sensitive; capability does not imply permission.
 
-## Model and platform doctrine
+## Multimodal trust doctrine
 
-Platform-specific capabilities are implemented through adapters and explicit contracts. Reasoning configuration, thought-state metadata, multimodal processing, tool calling and provider features must not leak into business logic. Provider-specific capabilities are optional accelerators, not architectural dependencies unless deliberately selected and tested.
+Text, image/OCR, audio/transcript, video, web content, logs, history, memory, Skills and MCP metadata are all treated as potentially untrusted input classes.
 
-Remote MCP servers are external trust domains. The portfolio therefore applies the same control model to Sugra as to any third-party service: explicit server selection, secret isolation, approval policy, output provenance and review of data shared with the service. fileciteturn246file3L160-L190
+```text
+MULTIMODAL INPUT
+      ↓
+NORMALIZATION
+      ↓
+PROVENANCE
+      ↓
+CLASSIFICATION
+      ↓
+CONTEXT ISOLATION
+      ↓
+POLICY / CAPABILITY CHECK
+      ↓
+REASONING
+```
+
+This unifies the supplied multimodal Gemini security research with the portfolio's existing prompt-injection defenses. fileciteturn23file5L16-L31
+
+## MCP and remote-service doctrine
+
+Remote MCP servers are independent trust domains. The OpenAI documentation warns that a malicious remote MCP server can exfiltrate sensitive data entering model context, and recommends careful review of server trust and data sharing. fileciteturn25file0L210-L213
+
+The portfolio therefore applies:
+
+```text
+SERVER IDENTITY
+ ↓
+TOOL INVENTORY
+ ↓
+ALLOWED TOOLS
+ ↓
+APPROVAL POLICY
+ ↓
+DATA EGRESS CHECK
+ ↓
+CALL
+```
+
+Approval is a control-plane decision, not an informal model preference. fileciteturn25file0L691-L705
+
+## UI doctrine
+
+MCP Apps is the standards-first UI layer. Data tools remain useful without UI; render tools are separated from data processing; authoritative business state remains server-side; widget state is presentation state. fileciteturn25file1L1028-L1054 fileciteturn25file1L1160-L1193 fileciteturn25file1L1375-L1415
+
+For networked UI, CSP allowlists remain narrow and explicit. fileciteturn25file1L1684-L1695
+
+## Sovereign hardware doctrine
+
+The Zero-Trust hardware material introduces a hardware root of trust, secure boot, attestation and strict compartmentation as foundations for sovereign systems. fileciteturn250file3L8-L24
+
+Project 31 extends the trust chain:
+
+```text
+HARDWARE ROOT OF TRUST
+        ↓
+SECURE BOOT
+        ↓
+VERIFIED KERNEL
+        ↓
+VERIFIED AGENT RUNTIME
+        ↓
+VERIFIED SKILL / TOOL BUNDLE
+        ↓
+VERIFIED POLICY
+        ↓
+AUDITED EXECUTION
+```
+
+AI remains outside the immutable trust root.
+
+## Software factory doctrine
+
+Autonomous software engineering is treated as a staged production system rather than unrestricted code generation:
+
+```text
+INTENT
+ ↓
+ARCHITECT
+ ↓
+IMPLEMENTER
+ ↓
+TESTER
+ ↓
+SECURITY REVIEW
+ ↓
+VERIFIER
+ ↓
+REPAIR
+ ↓
+RELEASE GATE
+```
+
+The market and engineering reports describe coding agents that plan, modify code, run tests, inspect failures and iterate; Project 13/28/31 keeps these actions inside bounded sandboxes and promotion gates. fileciteturn23file0L35-L48
+
+## Release doctrine
+
+The plugin/agent release process requires accurate tool metadata, security review, domain/authentication checks and reviewer-oriented positive/negative evaluation. The current submission documentation requires at least five positive and three negative test cases. fileciteturn28file2L824-L838 fileciteturn28file2L1079-L1098
 
 ## Lifecycle
 
@@ -208,4 +377,4 @@ A completed project should have:
 
 ## Absolute-maximum rule
 
-"Maximum" means measurable engineering quality, not unbounded autonomy. Every increase in agent capability must be accompanied by stronger state management, authorization, isolation, evaluation and recovery.
+“Maximum” means measurable engineering quality, not unbounded autonomy. Every increase in agent capability must be accompanied by stronger state management, authorization, isolation, evaluation and recovery.
