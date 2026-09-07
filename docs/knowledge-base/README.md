@@ -31,7 +31,9 @@ The repository is documentation-first. Source-derived knowledge is archived here
 
 - Official/public technical material for OpenAI developer/platform documentation, MCP, IBM Cloud, Activepieces, FlutterFlow, Expo, Replit, Render, Railway and Vercel has been analyzed for reusable architecture and production patterns.
 - The consolidated cross-platform extraction is in `docs/knowledge-base/platforms-openai-mcp-cloud-builders.md`.
-- The 2026-09-07 extraction emphasizes agent/runtime separation, MCP capability boundaries, deterministic workflows, sandbox isolation, environment separation, explicit side effects, infrastructure-as-code, and deployment/evaluation recovery patterns.
+- `docs/knowledge-base/mcp-and-agent-platforms-second-wave.md` captures the second-wave MCP, framework and low-code agent analysis.
+- `docs/knowledge-base/ai-app-builders-2026.md` captures the AI web/mobile app-builder and agentic-development ecosystem, including coding agents, visual builders, enterprise AI workflow platforms, and agent infrastructure.
+- The latest extraction emphasizes separation between product builders, agent runtimes, workflow engines, tools/MCP, sandboxes, deployment substrates and observability/evaluation systems.
 
 ## Key architectural themes
 
@@ -48,6 +50,13 @@ The repository is documentation-first. Source-derived knowledge is archived here
 11. Separate knowledge from capability: Skills teach the method; tools/MCP provide access or side effects.
 12. Treat infrastructure as typed state that can be inspected, planned, validated, approved, deployed and observed.
 13. Build recovery into the runtime through retries, rollback, staged changes, resumability and durable orchestration.
+14. MCP is a capability integration protocol, not an agent framework; keep protocol, orchestration and infrastructure concerns separate.
+15. Prefer hybrid systems: model-directed reasoning where choice is needed, deterministic workflows where the path is known.
+16. A schema should be treated as an executable contract whose validity must remain aligned with runtime parameters.
+17. AI app builders reduce time-to-first-application but do not eliminate software architecture, testing, security, state management or deployment boundaries.
+18. AI coding environments and visual builders should preserve an escape hatch to inspect, test, export, version and operate the resulting application as ordinary software.
+19. Human review should be modeled as a resumable runtime state transition for high-impact operations rather than as an informal UI confirmation.
+20. Agent hosting is a separate architectural layer from agent design; builders, runtimes and execution substrates should remain independently replaceable.
 
 ## Source principle
 
