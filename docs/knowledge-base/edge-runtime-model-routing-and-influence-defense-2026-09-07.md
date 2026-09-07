@@ -133,6 +133,80 @@ Te elementy mogą być traktowane jako warstwa nomenklatury i UX dla projektu be
 9. Cost optimization cannot weaken privacy or security.
 10. All source-specific performance claims require reproducible evaluation.
 
+## 11. Deep OSINT collector architecture
+
+Dostarczony `DeepOSINT` pokazuje praktyczny baseline kolektorów: web crawling i ekstrakcję kontaktów, generowanie zaawansowanych zapytań, EXIF oraz network reconnaissance. fileciteturn98file0L12-L25 fileciteturn98file0L53-L85 fileciteturn98file0L92-L126 fileciteturn98file0L128-L147
+
+Najważniejsza konsekwencja architektoniczna: kolektor jest adapterem danych, a nie właścicielem polityki. Każdy kolektor powinien mieć wersję, input/output schema, collection mode, wymagane capabilities, target constraints, rate limit, provenance fields i jawne failure modes.
+
+Wzorzec:
+
+```text
+COLLECTOR
+ ↓
+NORMALIZE
+ ↓
+PROVENANCE
+ ↓
+EVIDENCE QUALITY GATE
+ ↓
+EVIDENCE GRAPH
+```
+
+Aktywne operacje, takie jak socket-based port scanning, wymagają jawnego scope, autoryzacji, allowlisty operacji, rate limitu i audytu. Zapytania dotyczące paneli administracyjnych, plików konfiguracyjnych lub treści wyciekowych są traktowane jako high-risk discovery patterns i nie są domyślną ścieżką pozyskiwania danych uwierzytelniających. fileciteturn98file0L26-L52 fileciteturn98file0L128-L147
+
+## 12. Constraint-aware scientific reasoning
+
+Drugi materiał wnosi niezależny pattern: odpowiedź techniczna powinna być oceniana względem jawnych warunków stabilności, termodynamiki i geometrii funkcji celu, a nie tylko względem językowej plausibility. W materiale pojawiają się równania MHD i równowaga `∇p = J × B`, krajobraz energii swobodnej z kosztami entropowymi i solwatacją oraz klasyfikacja punktów krytycznych przez wartości własne Hesjanu. fileciteturn98file1L8-L20 fileciteturn98file1L21-L36 fileciteturn98file1L37-L50
+
+W portfolio zostaje to uogólnione do:
+
+```text
+CLAIM
+ ↓
+ASSUMPTIONS
+ ↓
+CONSTRAINTS
+ ↓
+SYMBOLIC / NUMERIC CHECK
+ ↓
+STABILITY / SENSITIVITY
+ ↓
+EVIDENCE + COUNTEREVIDENCE
+ ↓
+SIMULATION / FORMAL CHECK
+ ↓
+CONDITIONAL ACCEPTANCE OR ESCALATION
+```
+
+Kluczowa zasada: `unknown` nie jest równoważne `satisfied`.
+
+## 13. Scientific claim provenance
+
+Nowy wzorzec łączy Research Orchestrator z Verified Code Generation i Evidence OSINT:
+
+```text
+OBSERVATION
+≠ DERIVATION
+≠ SIMULATION RESULT
+≠ EMPIRICAL RESULT
+≠ HYPOTHESIS
+≠ PROVEN CLAIM
+```
+
+Każda konkluzja naukowo-techniczna powinna przechowywać assumptions, equations, constraints, evidence, counterevidence, verification status i uncertainty. Wysokokonsekwencyjne tezy wymagają zewnętrznej walidacji eksperckiej.
+
+## 14. Updated portfolio invariants
+
+11. A collector never owns authorization policy.
+12. Active OSINT actions require explicit scope and authorization.
+13. Raw observation must remain distinguishable from inference.
+14. A scientific claim with an unresolved required constraint cannot be `verified`.
+15. Stability and sensitivity are first-class verification properties.
+16. Agreement between multiple solvers is not proof when they share assumptions.
+17. Domain-specific criteria must be versioned against authoritative sources.
+18. High-consequence scientific/medical/physical side effects remain outside autonomous agent authority.
+
 ## Projects affected
 
 - Project 15 — Universal Research Orchestrator
@@ -140,7 +214,9 @@ Te elementy mogą być traktowane jako warstwa nomenklatury i UX dla projektu be
 - Project 21 — Google AI Sovereign Developer Stack
 - Project 26 — OmniCore Trustworthy Kernel & Agentic Safety Lab
 - Project 31 — OmniCore Sovereign Agent Operating Fabric MAX
+- Project 32 — Deep OSINT Evidence Engine MAX
 - Project 33 — Agentic App Builder & Delivery Control Plane MAX
 - Project 35 — Context-Aware Intent & Agent Security Engine MAX
 - Project 36 — Influence Security & Human Agency Defense Lab MAX
 - Project 37 — Sovereign Edge AI Runtime & Zero-Cost Delivery Fabric MAX
+- Project 38 — OmniCore Constraint-Aware Scientific Reasoning & Stability Verifier MAX
