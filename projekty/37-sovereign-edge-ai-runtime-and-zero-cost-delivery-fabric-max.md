@@ -235,6 +235,122 @@ Każdy model/runtime jest oceniany na identycznych zadaniach:
 | Security | policy violation rate |
 | Portability | adapter compatibility |
 
+## Alibaba Cloud extension — edge-to-cloud continuum
+
+Alibaba Cloud dostarcza konkretny zestaw implementacyjny dla Tier 4: Model Studio/Qwen jako model gateway, AgentBay jako agent-oriented sandbox, ACK jako heterogeneous compute fabric, RAM/STS jako identity/capability substrate, OSS jako object/evidence layer, SLS jako observability fabric oraz ECS/Function Compute/ACR jako execution and supply-chain layers. citeturn0search1turn1search22turn2search13turn1search3turn1search21turn1search2turn2search1turn0search9turn1search4
+
+Nowy continuum:
+
+```text
+T0 DETERMINISTIC
+ ↓
+T1 LOCAL SERVER
+ ↓
+T2 BROWSER / DESKTOP EDGE
+ ↓
+T3 MOBILE / ON-PREMISE EDGE
+ ↓
+T4 ACK / CLOUD GPU
+ ↓
+T5 MODEL STUDIO / SPECIALIST MODEL
+```
+
+Routing uwzględnia:
+
+`quality + latency + privacy + energy + cost + data_gravity + capability`.
+
+## AgentBay runtime adapter
+
+AgentBay pozwala tworzyć sandboxy, uruchamiać Browser/Computer/Mobile/Code workloads przez MCP oraz zwalniać środowisko po zakończeniu zadania. citeturn2search5turn2search6
+
+W Project 37:
+
+```text
+CLOUD ESCALATION
+ ↓
+EPHEMERAL SANDBOX
+ ↓
+MINIMAL STATE
+ ↓
+CAPABILITY-SCOPED EXECUTION
+ ↓
+VERIFY ARTIFACT
+ ↓
+PERSIST APPROVED RESULT
+ ↓
+KILL SANDBOX
+```
+
+Persistent browser state jest traktowany jako privileged state, ponieważ może obejmować cookies, local/session storage, cache, preferences i extensions. citeturn2search0
+
+## ACK GPU substrate
+
+ACK zarządza GPU, ASIC i eRDMA, a także GPU sharing/fencing i autoscaling. citeturn2search13turn2search8
+
+Project 37 nie może omijać scheduler-mediated allocation; ACK dokumentuje standardowy Kubernetes resource request jako właściwy mechanizm GPU allocation. citeturn2search3
+
+## Cloud authorization and data egress
+
+RAM stosuje deny-by-default, explicit Deny overrides Allow i wspiera krótkotrwałe role/STS. citeturn1search3turn1search12turn1search21
+
+Dlatego cloud escalation otrzymuje jawny kontrakt:
+
+```yaml
+CloudEscalation:
+  reason:
+  data_classes:
+  destination:
+  allowed_capabilities:
+  expiry:
+  approval:
+  audit_id:
+```
+
+Brak zgodności z policy oznacza brak eksportu danych.
+
+## Evidence and observability substrate
+
+OSS może przechowywać wersjonowane artefakty z lifecycle i encryption controls. citeturn1search2turn1search8turn1search14 SLS może łączyć logs, metrics, traces i events. citeturn2search1turn2search2
+
+To pozwala rozszerzyć runtime telemetry o:
+
+```text
+model
+runtime_tier
+capability
+policy_decision
+data_egress
+artifact_id
+trace_id
+latency
+cost
+recovery
+```
+
+## CI/CD supply-chain extension
+
+ACR image scanning może blokować wysokiego ryzyka obrazy w pipeline. citeturn1search4
+
+Project 37 rozszerza więc release gate:
+
+```text
+BUILD
+ ↓
+SBOM
+ ↓
+IMAGE SCAN
+ ↓
+POLICY GATE
+ ↓
+SIGN
+ ↓
+STAGED DEPLOYMENT
+ ↓
+OBSERVE
+ ↓
+ROLLBACK / PROMOTE
+```
+
 ## Definition of Done
 
 - provider-neutral runtime contract;
@@ -242,11 +358,17 @@ Każdy model/runtime jest oceniany na identycznych zadaniach:
 - browser/mobile capability wrappers;
 - deterministic fallback;
 - cloud escalation gate;
+- AgentBay sandbox adapter;
+- ACK heterogeneous compute adapter;
+- RAM/STS capability mapping;
+- OSS artifact/evidence adapter;
+- SLS telemetry adapter;
+- ACR supply-chain gate;
 - reproducible build environment;
 - signed artifacts;
 - telemetry and evaluation suite;
 - explicit data-egress policy;
-- integration with Projects 15, 17, 26, 28, 30, 31, 33, 35 and 36.
+- integration with Projects 15, 17, 26, 28, 30, 31, 33, 35, 36 and 39.
 
 ## Strategic result
 
