@@ -53,6 +53,13 @@ release_channel:
 rollback_version:
 telemetry_policy:
 commercial_plan:
+execution_profiles:
+  - deterministic
+  - local
+  - edge
+  - cloud
+privacy_policy:
+data_egress_policy:
 ```
 
 Manifest jest źródłem prawdy dla delivery; UI builder jest jego klientem.
@@ -158,6 +165,55 @@ Control Plane dodaje:
 - staged rollout;
 - automatic quarantine po regresji.
 
+## Sovereign execution profiles
+
+Na podstawie Project 37 builder nie zakłada jednego backendu inferencyjnego. Aplikacja może otrzymać kilka profili wykonawczych:
+
+```text
+DETERMINISTIC
+    ↓ fallback
+LOCAL SERVER
+    ↓ fallback/escalation
+DESKTOP EDGE
+    ↓ fallback/escalation
+MOBILE EDGE
+    ↓ policy-controlled escalation
+CLOUD
+```
+
+Dzięki temu prywatność, offline mode, latency i koszt stają się parametrami aplikacji, a nie przypadkową właściwością dostawcy modelu. Warstwa edge musi jednak przejść tę samą walidację i policy enforcement co cloud.
+
+## Provider-neutral AI contract
+
+Builder powinien generować adapter zamiast wiązać aplikację z jednym dostawcą:
+
+`capabilities → session → generate → stream → structured_output → tool_call → usage → health → cancel`
+
+Dostarczony materiał o architekturze długowiecznej pokazuje rozdzielenie logiki biznesowej od konkretnego modelu przez warstwę Genkit oraz lokalną inferencję przez Ollama. fileciteturn77file2L129-L153
+
+## Local-first policy
+
+Manifest deklaruje klasę prywatności i dopuszczalny egress danych. Control Plane wybiera najniższy poziom wykonawczy spełniający wymagania.
+
+```text
+PRIVATE
+ ↓
+NO CLOUD EGRESS
+ ↓
+LOCAL / EDGE ONLY
+```
+
+Cloud escalation jest dozwolone wyłącznie, gdy:
+
+- policy dopuszcza transfer;
+- wymagane capability nie istnieje lokalnie;
+- jakość lokalna nie przechodzi verification gate;
+- użytkownik/polityka dopuszcza konsekwencję działania.
+
+## Mobile and browser resilience
+
+Edge APIs są traktowane jako niestabilne zależności. Wrapper odpowiada za capability detection, lifecycle sesji, streaming, timeouty, brak modelu, cold start i graceful degradation. Materiał źródłowy proponuje dokładnie taki wrapper dla `window.ai`. fileciteturn77file4L233-L280
+
 ## Monetization integration
 
 Builder jest sprzężony z Project 31, ale billing pozostaje oddzielony od generatora kodu. Plan komercyjny decyduje o limitach i funkcjach, nie o bezpieczeństwie.
@@ -176,13 +232,15 @@ G5 — SIGNING PASS
 G6 — HUMAN / POLICY APPROVAL
 G7 — STAGED DEPLOYMENT
 G8 — OBSERVED STABILITY
+G9 — EDGE/LOCAL FALLBACK VERIFIED
+G10 — DATA-EGRESS POLICY VERIFIED
 ```
 
 Brak przejścia przez gate blokuje promocję.
 
 ## Integracja
 
-Project 33 integruje Projects 07, 13, 16, 20, 24, 25, 26, 28 i 31.
+Project 33 integruje Projects 07, 13, 16, 20, 24, 25, 26, 28, 31, 35, 36 i 37.
 
 ## Definition of Done
 
@@ -194,5 +252,9 @@ Project 33 integruje Projects 07, 13, 16, 20, 24, 25, 26, 28 i 31.
 - signing and rollback;
 - MCP Apps data/render separation;
 - CSP allowlists;
+- provider-neutral execution contract;
+- local/edge/cloud routing;
+- explicit data-egress policy;
+- deterministic fallback;
 - telemetry/evals;
 - commercial limits isolated from security policy.
