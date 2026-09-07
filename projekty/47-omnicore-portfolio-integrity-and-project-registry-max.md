@@ -1,10 +1,10 @@
 # Project 47 — OmniCore Portfolio Integrity & Project Registry MAX
 
 ## Mission
-Create a canonical machine-readable registry for the entire OmniCore project portfolio so duplicate concepts, conflicting numbers, successor/alias relationships and integration dependencies are explicit rather than implicit.
+Create a canonical machine-readable registry for the entire OmniCore project portfolio so duplicate concepts, conflicting numbers, successor/alias relationships, evidence lineage and integration dependencies are explicit rather than implicit.
 
 ## Problem solved
-The repository currently contains legitimate project artifacts that can share numerical identities or preserve historical names after architectural evolution. The registry makes identity a graph instead of relying on filenames alone.
+The portfolio contains legitimate artifacts that evolved over time. Numeric labels alone are therefore insufficient. Project 47 makes identity a **versioned graph with deterministic reconciliation rules**.
 
 ## Canonical identity model
 
@@ -12,28 +12,105 @@ The repository currently contains legitimate project artifacts that can share nu
 ProjectIdentity:
   canonical_id:
   title:
-  aliases:
-  historical_ids:
+  aliases: []
+  historical_ids: []
   status:
   lifecycle:
-  supersedes:
-  derived_from:
-  depends_on:
-  related_to:
+  supersedes: []
+  superseded_by: []
+  derived_from: []
+  depends_on: []
+  related_to: []
   canonical_artifact:
-  evidence:
+  content_sha:
+  last_verified_commit:
+  evidence_refs: []
+  owner_scope:
 ```
 
-## Registry invariants
+## Reconciliation algorithm
+
+```text
+REPOSITORY INVENTORY
+        ↓
+PROJECT CANDIDATE EXTRACTION
+        ↓
+TITLE / ID NORMALIZATION
+        ↓
+SEMANTIC SIMILARITY
+        ↓
+CONTENT / LINEAGE COMPARISON
+        ↓
+CANONICAL CANDIDATE
+        ↓
+EXPLICIT COLLISION RESOLUTION
+        ↓
+REGISTRY UPDATE
+        ↓
+REFERENCE INTEGRITY CHECK
+```
+
+Semantic similarity is a discovery signal, not authority. Canonicalization requires explicit lineage evidence.
+
+## Identity invariants
 
 1. A numeric label is not sufficient to establish identity.
 2. One canonical project may have historical aliases.
-3. A renamed or superseded project must preserve lineage.
-4. Two distinct artifacts with the same historical number must never silently overwrite each other.
-5. Canonical links point to stable artifact paths and commit evidence.
-6. Every project declares status: research, architecture, prototype, implementation, archived or superseded.
+3. Renamed or superseded projects retain lineage.
+4. Two distinct artifacts with the same historical number never silently overwrite each other.
+5. A canonical artifact has a stable path and verifiable content identity.
+6. Every project declares lifecycle status.
+7. References to a project resolve through `canonical_id` before mutation.
+8. Historical artifacts remain distinguishable from current authority.
+9. Registry updates themselves are versioned and auditable.
+10. A failed or ambiguous reconciliation blocks destructive rename/delete decisions.
 
-## Graph
+## Current canonical family
+
+```text
+37  CogniSync Professional
+38  Sovereign Edge AI
+39  OmniCore Alibaba Cloud Agent Runtime & Cloud Fabric
+40  OmniCore Agentic Development & Visual Intelligence Fabric
+41  OmniCore Repository Intelligence & Multimodal Action Fabric
+42  Open Creator Layer
+43  Influence Literacy & Human Agency Lab
+44  AI Content Product Studio
+45  OmniCore Agentic Content & Commerce Factory
+46  CogniSync Open Creator Influence & Content Nexus
+47  OmniCore Portfolio Integrity & Project Registry
+48  OmniCore Grand Challenge & All-Source Intelligence Foundry
+```
+
+This family is the current canonical sequence. Historical duplicate numeric names are retained only as lineage artifacts.
+
+## Machine-readable registry record
+
+```yaml
+ProjectRecord:
+  canonical_id: 48
+  title: OmniCore Grand Challenge & All-Source Intelligence Foundry MAX
+  status: architecture
+  canonical_artifact: projekty/48-omnicore-grand-challenge-all-source-intelligence-foundry-max.md
+  aliases: []
+  historical_ids: []
+  derived_from:
+    - 15
+    - 19
+    - 26
+    - 27
+    - 30
+    - 32
+    - 34
+  depends_on:
+    - 47
+  validates:
+    - evidence lineage
+    - strategy concretization
+    - grand challenge research loop
+```
+
+## Project graph
 
 ```text
 PROJECT
@@ -41,60 +118,141 @@ PROJECT
   ├── SUPERSEDES
   ├── DERIVED_FROM
   ├── DEPENDS_ON
+  ├── RELATED_TO
   ├── IMPLEMENTED_BY
   ├── VALIDATED_BY
-  └── DOCUMENTED_BY
+  ├── DOCUMENTED_BY
+  └── EVIDENCED_BY
 ```
+
+Every edge has:
+
+`source_ref + observed_at + confidence + registry_version`.
 
 ## Portfolio compiler
 
 ```text
-SCAN REPOSITORY
+SCAN
  ↓
-IDENTIFY PROJECT ARTIFACTS
+EXTRACT
  ↓
-NORMALIZE TITLES / IDS
+NORMALIZE
  ↓
-DETECT COLLISIONS
+COLLISION DETECTION
  ↓
-CLASSIFY LINEAGE
+LINEAGE CLASSIFICATION
  ↓
-BUILD CANONICAL GRAPH
+CANONICALIZATION
  ↓
-GENERATE INDEX / REPORT
+REFERENCE REWRITE
+ ↓
+INTEGRITY REPORT
 ```
 
-## Why this matters
+The compiler should produce:
 
-As the portfolio grows, project-level architectural quality becomes dependent on portfolio-level integrity. Duplicate IDs, stale READMEs and untracked successor relationships can otherwise produce false assumptions in future agent planning.
+- canonical registry;
+- collision report;
+- orphan-reference report;
+- stale-reference report;
+- lineage graph;
+- dependency graph;
+- unresolved-ambiguity queue.
 
-## Integration with OmniCore control plane
+## Agent-safe project resolution
 
-The registry becomes a read-only capability for planners:
+Before an agent modifies a project:
 
 ```text
-USER REQUEST
+USER INTENT
  ↓
-PROJECT SEARCH
+PROJECT LOOKUP
  ↓
 CANONICAL ID RESOLUTION
  ↓
-DEPENDENCY / LINEAGE GRAPH
+CURRENT ARTIFACT FETCH
  ↓
-RELEVANT PROJECT CONTEXT
+DEPENDENCY / LINEAGE CHECK
+ ↓
+PATCH PLAN
+ ↓
+AUTHORIZATION
+ ↓
+MODIFY
+ ↓
+TEST
+ ↓
+VERIFY
+ ↓
+REGISTRY UPDATE
 ```
 
-Agents must resolve canonical identity before modifying or extending an existing project.
+No agent may infer canonical identity from a filename alone when a collision or historical alias exists.
 
-## Evaluation
+## Stale reference protection
 
-- zero silent ID collisions;
-- 100% canonical artifacts resolvable;
-- lineage coverage;
-- stale-reference detection;
-- README/index consistency;
-- dependency graph completeness.
+Each dependency reference stores the expected artifact identity:
+
+```yaml
+Reference:
+  canonical_id:
+  artifact_path:
+  expected_content_sha:
+  observed_commit:
+  relation:
+```
+
+A changed SHA does not automatically mean a project changed identity; it triggers content verification and lineage review.
+
+## Portfolio consistency checks
+
+The registry should continuously test:
+
+```text
+PROJECT TABLE ↔ PROJECT FILES
+PROJECT LINKS ↔ TARGET ARTIFACTS
+ALIASES ↔ CANONICAL IDS
+DEPENDENCIES ↔ EXISTING PROJECTS
+README ↔ REGISTRY
+KNOWLEDGE BASE ↔ PROJECT REFERENCES
+```
+
+## Evidence integrity
+
+A registry can store claims about projects, but it must distinguish:
+
+`repository observation ≠ inferred relationship ≠ architectural judgment`.
+
+The registry itself therefore has an evidence ledger.
+
+## Integration with the OmniCore control plane
+
+Project 47 becomes a governance service:
+
+```text
+TASK
+ ↓
+PROJECT / CAPABILITY SEARCH
+ ↓
+CANONICAL ID RESOLUTION
+ ↓
+DEPENDENCY CONTEXT
+ ↓
+RELEVANT KNOWLEDGE
+ ↓
+SAFE MODIFICATION PLAN
+```
 
 ## Definition of Done
 
-Project 47 is complete when the repository can answer deterministically: which project is canonical, which names are aliases, what changed, what it superseded, what depends on it and which file is authoritative.
+- canonical IDs resolvable deterministically;
+- zero silent numeric-collision overwrites;
+- aliases and historical IDs represented explicitly;
+- stable artifact/content identity;
+- dependency and lineage graphs;
+- stale-reference detection;
+- orphan-reference detection;
+- registry/index consistency checks;
+- ambiguity queue;
+- auditable registry revisions;
+- agent mutation blocked until canonical identity is resolved.
