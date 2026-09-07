@@ -1,41 +1,82 @@
 # Project 45 — OmniCore Agentic Content & Commerce Factory MAX
 
 ## Thesis
-Unify the strongest properties of Project 44, Project 34 and the new agentic platform corpus into a governed system that turns evidence-backed ideas into validated content products, distribution assets and measurable commercial experiments without optimizing for manipulation or unverified volume.
+Unify the strongest properties of the original AI Content Product Studio with Project 34's business-model engineering and the portfolio's agent-platform, evidence, routing, verification and influence-security layers.
 
 ## Architecture
 
 ```text
 IDEA / MARKET SIGNAL
         ↓
-EVIDENCE + RESEARCH GRAPH
+RESEARCH + EVIDENCE GRAPH
         ↓
-AUDIENCE / JOB-TO-BE-DONE MODEL
+AUDIENCE / JOB-TO-BE-DONE
         ↓
-OFFER / PRODUCT SPEC
+BUSINESS MODEL / OFFER SPEC
         ↓
 CONTENT GRAPH
         ↓
-SPECIALIST AGENT SWARM
-  ↙       ↓        ↘
-RESEARCH  CREATE   DESIGN
-     ↘    ↓      ↙
-       QA / VERIFY
-            ↓
-     PACKAGING / CHANNEL
-            ↓
-   APPROVAL / POLICY GATE
-            ↓
-      PUBLISH / TRANSACT
-            ↓
-    AUTHORITATIVE OUTCOME
-            ↓
-      MEASURE / LEARN
+SPECIALIST AGENTS
+  ↙       ↓       ↘
+RESEARCH CREATE  DESIGN
+     ↘    ↓     ↙
+        QA / VERIFY
+             ↓
+       PACKAGE / DISTRIBUTE
+             ↓
+      APPROVAL / POLICY GATE
+             ↓
+          PUBLISH / SELL
+             ↓
+      AUTHORITATIVE OUTCOME
+             ↓
+       MEASURE / LEARN
 ```
 
-## Agent topology
+## Product graph
 
-Use specialized workers only where separation materially improves quality, policy, ownership or observability:
+```yaml
+ProductNode:
+  id:
+  audience:
+  problem:
+  value_proposition:
+  source_claims:
+  assets:
+  channels:
+  price_hypothesis:
+  status:
+  provenance:
+
+ProductEdge:
+  from:
+  to:
+  relation:
+  confidence:
+  provenance:
+```
+
+## Evidence-to-product integrity
+
+```text
+SOURCE
+ ↓
+CLAIM
+ ↓
+VERIFY
+ ↓
+APPROVE
+ ↓
+DERIVE
+ ↓
+PUBLISH
+```
+
+Observed metrics must remain separate from causal interpretation.
+
+## Specialist topology
+
+Use multiple agents only where specialization materially improves quality, ownership, evaluation or safety:
 
 - Research Agent
 - Editorial Agent
@@ -45,45 +86,17 @@ Use specialized workers only where separation materially improves quality, polic
 - Distribution Agent
 - Analytics Agent
 
-The orchestrator owns workflow state; workers do not independently authorize consequential actions.
+The orchestrator owns workflow state; workers do not grant themselves capabilities.
 
-## Product graph
+## Business-model compiler
 
-```yaml
-ProductNode:
-  id:
-  source_claims:
-  audience:
-  value_proposition:
-  assets:
-  channels:
-  price_hypothesis:
-  status:
+Compile:
 
-ProductEdge:
-  from:
-  to:
-  relation: derives_from|variant_of|published_to|measured_by
-  provenance:
-```
+`WHO + PROBLEM + VALUE + CHANNEL + ACTIVITIES + RESOURCES + PARTNERS + REVENUE + COST`
 
-## Evidence-to-commerce integrity
+into a versioned BusinessModelSpec. The supplied strategy literature treats a business model as the architecture for executing long-term goals and stresses that it must adapt to changing conditions. fileciteturn135file1L52-L65 fileciteturn135file9L367-L374
 
-A claim becomes publishable only after:
-
-`SOURCE → CLAIM → VERIFY → APPROVE → DERIVE → PUBLISH`
-
-Observed performance data is kept separate from causal explanations.
-
-## Business model engine
-
-The studio compiles:
-
-`who + problem + value + channel + activity + resources + partners + revenue + cost`
-
-into an executable BusinessModelSpec and evaluates alternative operating models before building large asset libraries. The business-model literature distinguishes strategic direction from the architecture of how value is actually delivered, and emphasizes adaptation as market conditions change. fileciteturn135file1L52-L65 fileciteturn135file9L367-L374
-
-## Experimentation
+## Experiment engine
 
 ```text
 HYPOTHESIS
@@ -97,53 +110,48 @@ EVALUATE
 KEEP / MODIFY / RETIRE
 ```
 
-A high-performing variant is not automatically promoted if it violates quality, policy or agency constraints.
+High engagement is not by itself evidence of product value and cannot override policy gates.
 
-## Distribution as capability
+## Distribution capabilities
 
-Publishing, email sending, payment, CRM mutation and external posting are capabilities behind the Capability Broker. A successful tool call is not a confirmed business outcome; completion must be verified against authoritative state.
+Email, publishing, CRM writes, payments and other external actions are Capability Broker operations. A connector response is not treated as completed business outcome until authoritative state confirms it.
 
-## Personalization guard
+## Personalization and influence safety
 
-Relevance and accessibility personalization are permitted. Hidden psychological targeting, vulnerability exploitation, covert dependency formation and undisclosed behavioral shaping are explicitly out of scope. Project 43 remains the defensive reference model.
+Personalization may improve relevance, accessibility and format. It must not exploit sensitive vulnerabilities, create covert dependency or silently optimize behavior against the user's interests. Defensive influence analysis follows Project 43.
+
+## Reuse engine
+
+```text
+ONE EVIDENCE-BACKED SOURCE
+ ├─ long-form product
+ ├─ newsletter
+ ├─ short-form variants
+ ├─ script/podcast
+ ├─ visual summary
+ └─ template/checklist
+```
+
+Every derivative retains source lineage.
 
 ## Economics
 
 Track:
 
-`inference cost + tool cost + human review + distribution cost + acquisition cost + revenue + reuse value`.
+`model_cost + tool_cost + review_cost + distribution_cost + acquisition_cost + revenue + reuse_value`.
 
-Primary optimization metric:
+Primary optimization:
 
-`contribution margin per verified, approved outcome`.
-
-Not:
-
-`messages generated` or `engagement at any cost`.
-
-## Reuse engine
-
-One evidence-backed source can create multiple derivative products while retaining provenance:
-
-```text
-SOURCE
- ├─ long-form
- ├─ newsletter
- ├─ short-form
- ├─ script
- ├─ visual summary
- └─ template/checklist
-```
+`contribution margin per verified approved outcome`.
 
 ## Observability
-
-Each run records:
 
 ```yaml
 Run:
   run_id:
   model_id:
   agent_id:
+  workflow_version:
   tool_path:
   evidence_refs:
   policy_version:
@@ -154,7 +162,7 @@ Run:
   outcome:
 ```
 
-## Evaluation matrix
+## Evaluation
 
 | Dimension | Metrics |
 |---|---|
@@ -162,10 +170,10 @@ Run:
 | Quality | approval rate, revision cycles |
 | Accessibility | defect rate, readability |
 | Business | contribution margin, conversion, reuse |
-| Safety | policy violations, influence-risk flags |
-| Efficiency | cost/outcome, human minutes/outcome |
-| Reliability | publish-confirmation rate, recovery success |
+| Safety | policy violations, influence-risk rate |
+| Efficiency | cost/outcome, human review minutes |
+| Reliability | external completion confirmation, recovery rate |
 
 ## Definition of Done
 
-Project 45 is complete when the system can discover opportunities, formulate evidence-backed offers, produce reusable multi-format content, validate it, publish only through authorized capabilities, verify external outcomes and learn from measured results without turning attention capture or behavioral manipulation into the optimization target.
+Project 45 is complete when it can discover opportunities, formulate evidence-backed offers, produce reusable multi-format products, validate every publishable claim, execute external actions only through authorized capabilities, confirm real-world outcomes and continuously improve economics without turning manipulation or unverified content volume into the optimization target.
