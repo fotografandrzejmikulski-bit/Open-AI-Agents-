@@ -65,6 +65,11 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
 | `34-agentic-venture-and-business-model-foundry-max.md` | AI venture + business model engineering | Compile ideas into evidence-backed business models, dynamic strategy, unit economics, experiments and implementation gates |
 | `35-context-aware-intent-and-agent-security-engine-max.md` | Intent + contextual AI security | Detect unknown intent, contextual drift, over-refusal/under-refusal and stateful Chain-of-Attack behavior without conflating intent with authorization |
 | `36-influence-security-and-human-agency-defense-lab-max.md` | Influence security + human agency | Detect covert persuasion, dependency loops, pressure, dark patterns and vulnerability targeting while preserving consent and user autonomy |
+| `37-sovereign-edge-ai-runtime-and-zero-cost-delivery-fabric-max.md` | Edge/local/cloud runtime | Route model execution across local, edge, mobile and cloud substrates with provider-neutral contracts, cost/privacy controls and graceful degradation |
+| `39-omnicore-alibaba-cloud-agent-runtime-and-cloud-fabric-max.md` | Alibaba Cloud agent execution fabric | Integrate Model Studio/Qwen, MCP, AgentBay, ACK, RAM/STS, OSS, SLS, ACR and confidential compute under the OmniCore control plane |
+| `40-omnicore-agentic-development-and-visual-intelligence-fabric-max.md` | Coding agents + multimodal/live-state agents | Unify repo-scale software agents, deterministic action runners, multimodal world state, cost governance and evidence-driven execution |
+
+> **Numbering note:** Project 38 is not listed until its existence is verified in the repository. Project 39 and Project 40 are real repository artifacts.
 
 ## Cross-project architecture
 
@@ -211,6 +216,34 @@ ADAPTIVE CAPABILITY PLAN
 
 Policy, authorization and provenance remain invariant across profiles.
 
+## New Agentic Development doctrine
+
+The latest coding and visual-intelligence synthesis adds a stronger distinction between **repository state**, **world state**, **action execution** and **presentation**. G0DM0D3 contributes reusable inference-time evaluation patterns: adaptive execution parameters, parallel model races, explicit quotas and privacy-separated telemetry. God's Eye View contributes a live-state multimodal agent pattern: authoritative scene context, deterministic tool execution, postcondition verification, supersession/cancellation, ephemeral credentials and restricted network proxies. fileciteturn116file0L1-L2 fileciteturn122file0L1-L2 fileciteturn123file0L1-L2 fileciteturn124file0L1-L2
+
+The generalized stack is:
+
+```text
+REPOSITORY GRAPH     WORLD STATE GRAPH     KNOWLEDGE/EVIDENCE
+       │                    │                    │
+       └─────────────── CONTEXT COMPILER ───────┘
+                              ↓
+                          AGENT BRAIN
+                              ↓
+                     TYPED CAPABILITY PLAN
+                              ↓
+                     CAPABILITY BROKER
+                              ↓
+                    DETERMINISTIC ACTIONS
+                              ↓
+              AUTHORITATIVE READBACK / VERIFY
+                              ↓
+                 ARTIFACT + STATE DELTA
+                              ↓
+                EVALUATION / AUDIT / RELEASE
+```
+
+Key invariants now include: action success requires verified postcondition; stale turns cannot authoritatively confirm newer state; actual execution identity determines metering; multimodal observations remain evidence with uncertainty; and UI is a projection rather than a source of truth.
+
 ## Security doctrine
 
 The portfolio treats covert persuasion, hidden directives, jailbreaks and unauthorized behavioral influence as security concerns. Defensive analysis may model such techniques, but implementations must not use them to bypass safety controls or covertly manipulate users.
@@ -218,256 +251,3 @@ The portfolio treats covert persuasion, hidden directives, jailbreaks and unauth
 The supplied Gemini security research distinguishes jailbreak from prompt injection and places application compromise at the boundary between untrusted input and privileged tool execution. fileciteturn23file5L39-L56
 
 The supplied influence-oriented reports are therefore incorporated as a **defensive Influence Security** discipline. Visual persuasion, dependency loops, coercive control, propaganda/narrative engineering and social manipulation become detection and evaluation signals rather than objectives. fileciteturn15file0L15-L33 fileciteturn23file6L16-L27 fileciteturn23file7L14-L28 fileciteturn23file8L16-L24
-
-## Behavioral evidence doctrine
-
-The supplied behavioral-analysis research explicitly rejects the idea that a single gesture, microexpression or physiological cue proves deception. fileciteturn23file9L9-L23
-
-Accordingly, the portfolio requires:
-
-```text
-OBSERVATION
- +
-INCONSISTENCY
- +
-ALTERNATIVE EXPLANATIONS
- +
-CONTEXT
- +
-CONFIDENCE
- →
-HYPOTHESIS
-```
-
-No binary “truth detector” is considered an authoritative decision mechanism.
-
-## Intent and contextual-security doctrine
-
-Intent is modeled as a versioned hypothesis over the interaction trajectory, not as a permanent label attached to the latest prompt. The supplied intent research identifies unknown intents, contextual blindness and the tension between over-refusal and under-refusal as core safety problems. fileciteturn52file0L15-L35
-
-The portfolio therefore enforces:
-
-```text
-CURRENT TURN
-    +
-TRAJECTORY
-    +
-PROVENANCE
-    +
-UNCERTAINTY
-    +
-CONSEQUENCE
-    →
-INTENT HYPOTHESIS
-    →
-POLICY DECISION
-```
-
-Unknown/OOS is an explicit state. Safe-completion may constrain assistance without turning off consequential-action controls. Intent confidence never grants capability permission.
-
-## Chain-of-Attack doctrine
-
-The Chain-of-Attack research describes multi-turn attacks as semantic, contextual and temporal, with individually low-signal steps accumulating into a high-risk trajectory. fileciteturn50file1L49-L78
-
-The portfolio consequently treats conversation history, memory, retrieved content and tool results as security state. Detection includes semantic drift, authority redefinition, delayed escalation and cross-modal continuity.
-
-```text
-EVENT
- ↓
-STATE DELTA
- ↓
-TRAJECTORY RISK
- ↓
-CAPABILITY IMPACT
- ↓
-POLICY CHECK
-```
-
-This stateful model is complementary to the existing prompt-injection firewall and capability broker.
-
-## Influence and human-agency doctrine
-
-The influence materials are incorporated only as a defensive threat model. The supplied bio-hacking report describes reward prediction error and variable-ratio reinforcement as mechanisms associated with persistent behavior loops. fileciteturn52file13L632-L655 Mentalism materials describe expectation, suggestion and performance as components of psychological illusion, while the subliminal-force material describes verbal forcing and influence framing. fileciteturn53file0L46-L60 fileciteturn53file2L139-L161
-
-The engineering translation is:
-
-```text
-PERSONALIZATION
-      +
-PRESSURE
-      +
-HIDDEN OBJECTIVE
-      +
-LOW REVERSIBILITY
-      ↓
-INFLUENCE RISK
-```
-
-Systems must preserve transparency, meaningful opt-out, explicit consent for high-impact actions and protection against vulnerability targeting. Engagement is not treated as a proxy for user welfare.
-
-## OSINT / evidence doctrine
-
-Deep OSINT is modeled as an iterative research loop in which discovered public data can become new pivot points, while scope, legality and provenance remain explicit. fileciteturn250file2L38-L55
-
-The resulting control path is:
-
-```text
-RESEARCH QUESTION
-      ↓
-TARGET / SCOPE
-      ↓
-SOURCE PLAN
-      ↓
-PUBLIC / PASSIVE DATA
-      ↓
-ENTITY RESOLUTION
-      ↓
-PIVOT GENERATION
-      ↓
-EVIDENCE GRAPH
-      ↓
-COUNTER-CHECK
-      ↓
-REPORT
-```
-
-Active interaction with external infrastructure remains authorization-sensitive; capability does not imply permission.
-
-## Multimodal trust doctrine
-
-Text, image/OCR, audio/transcript, video, web content, logs, history, memory, Skills and MCP metadata are all treated as potentially untrusted input classes.
-
-```text
-MULTIMODAL INPUT
-      ↓
-NORMALIZATION
-      ↓
-PROVENANCE
-      ↓
-CLASSIFICATION
-      ↓
-CONTEXT ISOLATION
-      ↓
-POLICY / CAPABILITY CHECK
-      ↓
-REASONING
-```
-
-This unifies the supplied multimodal Gemini security research with the portfolio's existing prompt-injection defenses. fileciteturn23file5L16-L31
-
-## MCP and remote-service doctrine
-
-Remote MCP servers are independent trust domains. The OpenAI documentation warns that a malicious remote MCP server can exfiltrate sensitive data entering model context, and recommends careful review of server trust and data sharing. fileciteturn25file0L210-L213
-
-The portfolio therefore applies:
-
-```text
-SERVER IDENTITY
- ↓
-TOOL INVENTORY
- ↓
-ALLOWED TOOLS
- ↓
-APPROVAL POLICY
- ↓
-DATA EGRESS CHECK
- ↓
-CALL
-```
-
-Approval is a control-plane decision, not an informal model preference. fileciteturn25file0L691-L705
-
-## UI doctrine
-
-MCP Apps is the standards-first UI layer. Data tools remain useful without UI; render tools are separated from data processing; authoritative business state remains server-side; widget state is presentation state. fileciteturn25file1L1028-L1054 fileciteturn25file1L1160-L1193 fileciteturn25file1L1375-L1415
-
-For networked UI, CSP allowlists remain narrow and explicit. fileciteturn25file1L1684-L1695
-
-## Sovereign hardware doctrine
-
-The Zero-Trust hardware material introduces a hardware root of trust, secure boot, attestation and strict compartmentation as foundations for sovereign systems. fileciteturn250file3L8-L24
-
-Project 31 extends the trust chain:
-
-```text
-HARDWARE ROOT OF TRUST
-        ↓
-SECURE BOOT
-        ↓
-VERIFIED KERNEL
-        ↓
-VERIFIED AGENT RUNTIME
-        ↓
-VERIFIED SKILL / TOOL BUNDLE
-        ↓
-VERIFIED POLICY
-        ↓
-AUDITED EXECUTION
-```
-
-AI remains outside the immutable trust root.
-
-## Software factory doctrine
-
-Autonomous software engineering is treated as a staged production system rather than unrestricted code generation:
-
-```text
-INTENT
- ↓
-ARCHITECT
- ↓
-IMPLEMENTER
- ↓
-TESTER
- ↓
-SECURITY REVIEW
- ↓
-VERIFIER
- ↓
-REPAIR
- ↓
-RELEASE GATE
-```
-
-The market and engineering reports describe coding agents that plan, modify code, run tests, inspect failures and iterate; Project 13/28/31 keeps these actions inside bounded sandboxes and promotion gates. fileciteturn23file0L35-L48
-
-## Business-model doctrine
-
-The business-model corpus treats the model as an interconnected system of value proposition, customers, channels, relationships, resources, activities, partners, revenues and costs; it also distinguishes the current model from the adaptive strategy used under changing conditions. fileciteturn51file10L483-L514 fileciteturn50file3L29-L47
-
-Project 34 therefore maintains:
-
-```text
-BUSINESS MODEL
-      +
-DYNAMIC STRATEGY
-      +
-COMPETITIVE ADVANTAGE
-      +
-UNIT ECONOMICS
-      +
-VALIDATION EXPERIMENTS
-```
-
-Business opportunities are hypotheses until validated; revenue alone is not sufficient evidence of durable value or safe product-market fit.
-
-## Release doctrine
-
-The plugin/agent release process requires accurate tool metadata, security review, domain/authentication checks and reviewer-oriented positive/negative evaluation. The current submission documentation requires at least five positive and three negative test cases. fileciteturn28file2L824-L838 fileciteturn28file2L1079-L1098
-
-## Lifecycle
-
-`research → architecture → prototype → verification → hardening → evaluation → deployment → monitoring → revision`
-
-A completed project should have:
-- source specification;
-- implementation or prototype;
-- threat model;
-- test/evaluation suite;
-- deployment definition;
-- rollback/recovery path;
-- provenance/evidence record.
-
-## Absolute-maximum rule
-
-“Maximum” means measurable engineering quality, not unbounded autonomy. Every increase in agent capability must be accompanied by stronger state management, authorization, isolation, evaluation and recovery.
