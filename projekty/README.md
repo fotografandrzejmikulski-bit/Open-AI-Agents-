@@ -1,6 +1,6 @@
 # Projekty — Expanded Design Lab
 
-This directory contains project artifacts upgraded using the project's accumulated knowledge base: OpenAI Agents SDK, MCP, coding-agent patterns, AI application builders, formal verification, adversarial AI security, distributed execution, multimodal systems, model engineering, adaptive reasoning, research orchestration, prompt optimization, Google AI developer patterns, OmniCore/Nexus systems research, verified code generation, the Sugra data/MCP fabric, Skills, dynamic tool discovery, MCP Apps, sovereign execution and the source materials supplied by the project owner.
+This directory contains project artifacts upgraded using the project's accumulated knowledge base: OpenAI Agents SDK, MCP, coding-agent patterns, AI application builders, formal verification, adversarial AI security, distributed execution, multimodal systems, model engineering, adaptive reasoning, research orchestration, prompt optimization, Google AI developer patterns, OmniCore/Nexus systems research, verified code generation, the Sugra data/MCP fabric, Skills, dynamic tool discovery, MCP Apps, sovereign execution, repository intelligence, multimodal world-state control, multi-model evaluation and the source materials supplied by the project owner.
 
 ## Engineering standard
 
@@ -23,7 +23,10 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
 - minimum-necessary tool exposure through filtering/deferred loading;
 - defensive influence-security controls for manipulation-oriented attack surfaces;
 - explicit intent uncertainty and trajectory-aware safety decisions;
-- separation of user intent, authorization and executable capability.
+- separation of user intent, authorization and executable capability;
+- repository/world/evidence state as first-class versioned state;
+- authoritative readback and postcondition verification for consequential actions;
+- actual-execution metering rather than trusting requested labels/configuration.
 
 ## Project portfolio
 
@@ -66,10 +69,13 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
 | `35-context-aware-intent-and-agent-security-engine-max.md` | Intent + contextual AI security | Detect unknown intent, contextual drift, over-refusal/under-refusal and stateful Chain-of-Attack behavior without conflating intent with authorization |
 | `36-influence-security-and-human-agency-defense-lab-max.md` | Influence security + human agency | Detect covert persuasion, dependency loops, pressure, dark patterns and vulnerability targeting while preserving consent and user autonomy |
 | `37-sovereign-edge-ai-runtime-and-zero-cost-delivery-fabric-max.md` | Edge/local/cloud runtime | Route model execution across local, edge, mobile and cloud substrates with provider-neutral contracts, cost/privacy controls and graceful degradation |
+| `38-sovereign-edge-ai-from-supplied-corpus.md` | Sovereign edge AI | Preserve local-first execution under constrained hardware with provider-neutral adapters, quantization and verification |
+| `38-omnicore-constraint-aware-scientific-reasoning-and-stability-verifier-max.md` | Scientific stability verification | Apply explicit constraints, perturbation, sensitivity and multi-solver checks to technical conclusions |
 | `39-omnicore-alibaba-cloud-agent-runtime-and-cloud-fabric-max.md` | Alibaba Cloud agent execution fabric | Integrate Model Studio/Qwen, MCP, AgentBay, ACK, RAM/STS, OSS, SLS, ACR and confidential compute under the OmniCore control plane |
 | `40-omnicore-agentic-development-and-visual-intelligence-fabric-max.md` | Coding agents + multimodal/live-state agents | Unify repo-scale software agents, deterministic action runners, multimodal world state, cost governance and evidence-driven execution |
+| `41-omnicore-repository-intelligence-and-multimodal-action-fabric-max.md` | Repository intelligence + multimodal execution | Unify repository graphs, world-state graphs, evidence graphs, context compilation, typed actions, postcondition verification and multi-model evaluation |
 
-> **Numbering note:** Project 38 is not listed until its existence is verified in the repository. Project 39 and Project 40 are real repository artifacts.
+> **Numbering note:** The repository contains two distinct Project 38 artifacts, both verified by repository search. Project 39, Project 40 and Project 41 are real repository artifacts.
 
 ## Cross-project architecture
 
@@ -91,6 +97,7 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
                   │ Skill Version   │
                   │ Intent State    │
                   │ Influence Risk  │
+                  │ Repo/World State│
                   └────────┬─────────┘
                            │
           ┌────────────────┼───────────────────┐
@@ -126,9 +133,7 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
 
 Reasoning depth is treated as a resource to allocate, not a constant. Fast paths are preferred for simple tasks; deeper reasoning is introduced when task complexity, uncertainty or consequence level justifies it. Model-specific internal reasoning representations remain implementation details and are never treated as a user-facing source of truth.
 
-Project 27 operationalizes this doctrine through bounded compound reasoning, cached context, multiple solver paths, disagreement detection and escalation. The supplied research emphasizes inference-time compute, context caching, RAG and agentic workflows as architectural levers rather than assuming that model size alone determines system performance. fileciteturn16file4L185-L196
-
-Project 31 extends this into an operating-fabric model: the planner can search and load only the capability definitions needed for the current task, then allocate reasoning and tool budget under policy. The OpenAI tooling documentation explicitly supports tool search and deferred loading for large tool surfaces. fileciteturn24file1L1294-L1348
+Project 27 operationalizes this doctrine through bounded compound reasoning, cached context, multiple solver paths, disagreement detection and escalation. The supplied research emphasizes inference-time compute, context caching, RAG and agentic workflows as architectural levers rather than assuming that model size alone determines system performance.
 
 ## Research doctrine
 
@@ -151,74 +156,15 @@ agent_verify(result)
 agent_commit(artifact)
 ```
 
-This is an architectural abstraction inspired by the supplied AIOS-style analysis: LLM system calls, agent scheduling, context management, memory/storage management and tool management are separated rather than embedded ad hoc in each agent. fileciteturn15file2L35-L68
+LLM cognition, scheduling, memory/storage and tools are separate runtime concerns.
 
-## Skills doctrine
+## Prompt and context doctrine
 
-Skills are treated as **versioned executable knowledge**, not harmless prompt fragments. A Skill may contain instructions, scripts and assets; its content can influence planning, tool use and command execution. The current OpenAI documentation therefore treats Skills as privileged code and instructions, recommends developer-level integration and requires explicit approval/policy controls for sensitive actions. fileciteturn28file0L14-L24 fileciteturn28file0L540-L568
-
-Portfolio invariant:
-
-```text
-SKILL
- ↓
-PROVENANCE
- ↓
-VERSION
- ↓
-REQUIRED CAPABILITIES
- ↓
-RISK CLASS
- ↓
-EVALUATION
- ↓
-MOUNT
-```
-
-## Capability discovery doctrine
-
-Large catalogs are searched rather than blindly imported. The preferred sequence is:
-
-```text
-TASK
- ↓
-CAPABILITY SEARCH
- ↓
-MINIMAL TOOL SET
- ↓
-DEFINITION LOAD
- ↓
-SCHEMA / POLICY CHECK
- ↓
-AUTHORIZED CALL
-```
-
-This applies to MCP servers, function namespaces and Skill-backed tools. The `allowed_tools` mechanism provides an explicit minimum-capability filter for MCP servers. fileciteturn25file0L491-L514
-
-## OmniCore adaptive capability doctrine
-
-The new OmniCore materials reject forced pixel parity between devices and instead define adaptive fidelity: behavioral identity is preserved while rendering varies with hardware capacity. fileciteturn23file2L21-L35 fileciteturn23file2L39-L46
-
-The portfolio generalizes this to:
-
-```text
-SAME INTENT
-   ↓
-HARDWARE / NETWORK / PRIVACY PROFILE
-   ↓
-ADAPTIVE CAPABILITY PLAN
-   ├─ mobile
-   ├─ workstation GPU
-   ├─ edge NPU
-   ├─ local CPU
-   └─ remote accelerator
-```
-
-Policy, authorization and provenance remain invariant across profiles.
+Prompt is treated as a compiled task specification rather than the security boundary. A strong prompt can define role/context, task, constraints, method, output contract, counterargument checks and evaluation. Dynamic context compilation is preferred over blindly enlarging prompts.
 
 ## New Agentic Development doctrine
 
-The latest coding and visual-intelligence synthesis adds a stronger distinction between **repository state**, **world state**, **action execution** and **presentation**. G0DM0D3 contributes reusable inference-time evaluation patterns: adaptive execution parameters, parallel model races, explicit quotas and privacy-separated telemetry. God's Eye View contributes a live-state multimodal agent pattern: authoritative scene context, deterministic tool execution, postcondition verification, supersession/cancellation, ephemeral credentials and restricted network proxies. fileciteturn116file0L1-L2 fileciteturn122file0L1-L2 fileciteturn123file0L1-L2 fileciteturn124file0L1-L2
+G0DM0D3 contributes adaptive execution parameters, multi-model racing, explicit quotas and privacy-separated telemetry. God's Eye View contributes live-state multimodal agents with authoritative scene context, deterministic action tools, postcondition verification, turn supersession/cancellation, ephemeral credentials and restricted network proxies.
 
 The generalized stack is:
 
@@ -242,12 +188,34 @@ REPOSITORY GRAPH     WORLD STATE GRAPH     KNOWLEDGE/EVIDENCE
                 EVALUATION / AUDIT / RELEASE
 ```
 
-Key invariants now include: action success requires verified postcondition; stale turns cannot authoritatively confirm newer state; actual execution identity determines metering; multimodal observations remain evidence with uncertainty; and UI is a projection rather than a source of truth.
+The portfolio now treats repository state and world state as peers: both are dynamic, versioned, observable and subject to stale-state conflicts.
 
 ## Security doctrine
 
 The portfolio treats covert persuasion, hidden directives, jailbreaks and unauthorized behavioral influence as security concerns. Defensive analysis may model such techniques, but implementations must not use them to bypass safety controls or covertly manipulate users.
 
-The supplied Gemini security research distinguishes jailbreak from prompt injection and places application compromise at the boundary between untrusted input and privileged tool execution. fileciteturn23file5L39-L56
+Security is enforced at the capability boundary, not inferred from prompts.
 
-The supplied influence-oriented reports are therefore incorporated as a **defensive Influence Security** discipline. Visual persuasion, dependency loops, coercive control, propaganda/narrative engineering and social manipulation become detection and evaluation signals rather than objectives. fileciteturn15file0L15-L33 fileciteturn23file6L16-L27 fileciteturn23file7L14-L28 fileciteturn23file8L16-L24
+## Runtime invariants
+
+1. Prompt is a program specification, not a security boundary.
+2. Persona changes reasoning style, never authorization.
+3. Tool execution is typed and schema-validated.
+4. Action success requires a verified postcondition.
+5. Stale turns cannot overwrite newer committed state.
+6. Multimodal perception is evidence with provenance and uncertainty.
+7. Actual runtime/model identity determines metering.
+8. Multi-model agreement is not proof when assumptions are correlated.
+9. Network proxies are allowlisted and SSRF-resistant.
+10. Secrets remain server-side where possible; clients receive bounded ephemeral credentials.
+11. Repository, world and evidence state are explicit and versioned.
+12. Repository-scale coding follows inspect → modify → test → repair → verify.
+13. Scientific conclusions require explicit constraints and stability checks.
+14. Graph edges require provenance; visualization is not validation.
+15. Safety gates cannot be lowered by dynamic prompt, persona or model selection.
+16. Execution profiles may optimize cost/latency, but not relax mandatory security controls.
+17. Visual builders must preserve an escape hatch to inspectable source/runtime contracts.
+
+## Safety boundary
+
+Projects involving influence, behavior, perception or persuasive systems are defensive by default. Analysis of potentially manipulative techniques may be used to detect or disclose them, but not to build covert psychological-control mechanisms.
