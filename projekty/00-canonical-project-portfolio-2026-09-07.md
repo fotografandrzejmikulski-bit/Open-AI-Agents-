@@ -18,6 +18,7 @@ This index is the canonical home for projects that are not part of a specific gr
 | 46 | CogniSync Open Creator Influence & Content Nexus MAX | Cross-domain product integration |
 | 47 | OmniCore Portfolio Integrity & Project Registry MAX | Canonical portfolio identity and lineage |
 | 48 | OmniCore Grand Challenge & All-Source Intelligence Foundry MAX | Grand-challenge research, evidence fusion and governed intervention |
+| 49 | OmniCore Active Inference, Problem-Solving & Cognitive Security Fabric MAX | Epistemic control, adaptive experimentation and cognitive-security defense |
 
 ## Legacy reconciliation
 
@@ -29,7 +30,7 @@ The previous OmniCore Projects 39–41 remain valid artifacts from an earlier ev
 
 ## New corpus integration
 
-The 2026-09-08 corpus adds three portfolio-level capabilities: (1) problem-first discovery of unresolved scientific/civilizational challenges, (2) strategy concretization from resources/competences/capabilities into executable activity sequences, and (3) defensive all-source intelligence derived from the OMEGA family. These capabilities are consolidated in Project 48 and feed Projects 34, 43, 45 and the broader evidence/reasoning fabric.
+The 2026-09-08 corpus adds four portfolio-level capabilities: (1) problem-first discovery of unresolved scientific/civilizational challenges, (2) strategy concretization from resources/competences/capabilities into executable activity sequences, (3) defensive all-source intelligence derived from the OMEGA family, and (4) active-inference-style epistemic control combined with multimodal/stateful AI security and typed model capabilities. These are consolidated in Projects 48–49 and feed Projects 15, 17, 26, 27, 34, 35, 36/43, 37–41 and 45–47.
 
 ## Canonical separation rule
 
@@ -40,7 +41,7 @@ The dedicated `Agents-for-Humans-Hackathon` repository is the competition submis
 ```text
                          USER / OPERATOR
                                 │
-                       INTENT / REQUIREMENTS
+                       INTENT / PROBLEM
                                 │
                      CANONICAL PROJECT REGISTRY
                                 │
@@ -52,7 +53,9 @@ The dedicated `Agents-for-Humans-Hackathon` repository is the competition submis
         │                       │                       │
         └───────────────────────┼───────────────────────┘
                                 ↓
-                        REASONING / MODEL ROUTER
+                 EPISTEMIC / REASONING CONTROL
+                                ↓
+              SIMULATION / MULTI-SOLVER / SAFETY
                                 ↓
                         VERIFIED PLAN / HYPOTHESIS
                                 ↓
@@ -69,6 +72,7 @@ The dedicated `Agents-for-Humans-Hackathon` repository is the competition submis
                     EVAL / AUDIT / RELEASE
                                 ↓
                        MEASURED OUTCOME
+                                ↺
 ```
 
 ## Portfolio engineering invariants
@@ -90,4 +94,10 @@ The dedicated `Agents-for-Humans-Hackathon` repository is the competition submis
 15. Strategic claims require concrete resource/competence/capability/action/time mapping.
 16. Grand challenges require evidence-backed hypotheses and explicit uncertainty.
 17. All-source intelligence requires provenance and counterevidence.
-18. Legacy project lineage is preserved rather than silently overwritten.
+18. Long-context and multimodal inputs are compiled as untrusted evidence unless explicitly authorized otherwise.
+19. Explore/exploit decisions are constrained by information gain, cost, risk and reversibility.
+20. Simulation and digital twins are advisory evidence, not guarantees about real-world behavior.
+21. General model capability is separate from executable authority.
+22. Human agency is a measurable system property: choice visibility, reversibility, disclosure and opt-out friction are evaluated.
+23. High-sensitivity cognitive/neural data is purpose-bound, consent-gated, minimized and auditable.
+24. Legacy project lineage is preserved rather than silently overwritten.
