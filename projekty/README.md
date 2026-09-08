@@ -91,6 +91,7 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
 | `52-omnicore-adaptive-game-designer-and-procedural-playtest-foundry-max.md` | Adaptive game design + procedural testing | Generate, simulate, adversarially test and human-review diverse game rulesets under hard fairness, accessibility and safety constraints |
 | `53-omnicore-symbolic-interface-and-artifact-compiler-max.md` | Symbolic UI + artifact compilation | Compile symbolic states into physical cards, digital interfaces, rules and manufacturing profiles while keeping symbolism distinct from truth |
 | `54-omnicore-epistemic-signal-and-adversarial-control-fabric-max.md` | Epistemic evidence + adversarial control | Unify multimodal signal calibration, contradiction-aware evidence, non-coercive inquiry, prompt/context defense, control-plane integrity, stochastic validation, symbolic boundaries and influence-risk detection |
+| `55-omnicore-reproducible-stochastic-integrity-and-probability-lab-max.md` | Stochastic integrity + probability research | Reproduce random processes, characterize distributions, test anomalies, separate correlation from causation, and enforce authorization/reproducibility boundaries |
 
 ## Reconciliation / lineage
 
@@ -167,7 +168,7 @@ Influence-oriented capabilities are defensive by default. The portfolio may anal
 
 ## Probability doctrine
 
-Game randomness must be distinguishable from payout design, variance, expected value and presentation. Seeded replay, distribution tests and explicit assumptions are preferred over opaque claims about fairness.
+Game randomness must be distinguishable from payout design, variance, expected value and presentation. Seeded replay, distribution tests and explicit assumptions are preferred over opaque claims about fairness. Anomalies require statistical characterization and replication; they do not automatically imply exploitability.
 
 ## Prompt and context doctrine
 
@@ -204,18 +205,14 @@ Model output never grants authorization. External inputs are untrusted evidence.
 23. Game randomness is independently reproducible and testable.
 24. Player-facing sensory effects do not become hidden behavioral-control channels.
 25. Physical and digital state transitions are explicit, observable and auditable.
-26. Manufacturing tolerances are engineering hypotheses until validated on production-intent samples.
-27. Accessibility is a release gate when essential game state depends on a physical or visual cue.
+26. Manufacturing tolerances are hypotheses until validated against physical samples.
+27. Accessibility is a release gate when essential state depends on physical or visual cues.
 28. Gambling-derived mechanics are used for integrity analysis, not compulsion optimization.
-29. Symbolic interpretation remains distinct from empirical evidence and factual state.
-30. Deck/rules variants are versioned semantic contracts, not presentation-only artifacts.
-31. Behavioral signal is never equivalent to a truth verdict.
-32. Evidence fusion preserves modality, provenance, timing, baseline and uncertainty.
-33. Coercive interrogation capabilities are non-authorized system behaviors.
-34. Jailbreak/manipulation patterns are red-team assets, not production optimization targets.
-35. Control-plane integrity is independent of model-generated content.
-36. Probabilistic anomalies require reproducible experiments and calibrated uncertainty.
-37. Symbolic overlays cannot promote themselves into empirical truth.
-38. Capability changes require authorization outside the model's own output channel.
-39. High-impact recommendations expose alternatives, uncertainty and reversibility.
-40. Business scaling cannot bypass provenance, quality, rights or agency gates.
+29. Symbolic interpretation is distinct from empirical evidence and factual state.
+30. Deck/rules variants are versioned semantic contracts.
+31. Behavioral signals never independently establish guilt, deception or other adverse factual conclusions.
+32. Baseline drift, missingness and alternative explanations are explicit state, not hidden model assumptions.
+33. Stochastic anomalies require reproducibility and uncertainty analysis before escalation.
+34. Statistical association does not become causal attribution without an explicit causal model and supporting evidence.
+35. Active experiments require authorization, bounded scope and auditable stopping rules.
+36. Commercial optimization must measure realized user/business value and system reliability, not merely model output volume.
