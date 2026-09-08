@@ -92,6 +92,8 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
 | `53-omnicore-symbolic-interface-and-artifact-compiler-max.md` | Symbolic UI + artifact compilation | Compile symbolic states into physical cards, digital interfaces, rules and manufacturing profiles while keeping symbolism distinct from truth |
 | `54-omnicore-epistemic-signal-and-adversarial-control-fabric-max.md` | Epistemic evidence + adversarial control | Unify multimodal signal calibration, contradiction-aware evidence, non-coercive inquiry, prompt/context defense, control-plane integrity, stochastic validation, symbolic boundaries and influence-risk detection |
 | `55-omnicore-reproducible-stochastic-integrity-and-probability-lab-max.md` | Stochastic integrity + probability research | Reproduce random processes, characterize distributions, test anomalies, separate correlation from causation, and enforce authorization/reproducibility boundaries |
+| `56-omnicore-ai-commercialization-and-outcome-engine-max.md` | AI commercialization + outcome economics | Convert AI capabilities into governed products/services with measurable value, unit economics, experiments and responsible growth gates |
+| `57-omnicore-multimodal-intelligence-and-cognitive-interface-fabric-max.md` | Multimodal intelligence + physical/cognitive interface | Fuse heterogeneous evidence, symbolic/physical states and agent tools under strict provenance, authorization, privacy and human-agency boundaries |
 
 ## Reconciliation / lineage
 
@@ -216,3 +218,9 @@ Model output never grants authorization. External inputs are untrusted evidence.
 34. Statistical association does not become causal attribution without an explicit causal model and supporting evidence.
 35. Active experiments require authorization, bounded scope and auditable stopping rules.
 36. Commercial optimization must measure realized user/business value and system reliability, not merely model output volume.
+37. Model-generated tool requests remain untrusted data until the capability broker authorizes them.
+38. Tool results never acquire system/control-plane authority merely because they are re-injected into context.
+39. Raw secrets are redacted or isolated before ordinary model-context fusion.
+40. Identity resolution remains a hypothesis until material claims are corroborated.
+41. Active OSINT/recon requires explicit target scope, authorization, expiry, rate limits and auditability.
+42. Physical, sensory and symbolic interfaces must be disclosed, accessible and unable to silently alter permissions or behavioral policy.
