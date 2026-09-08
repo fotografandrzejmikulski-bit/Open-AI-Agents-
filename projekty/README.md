@@ -1,4 +1,4 @@
-# Projekty — Expanded Design Lab
+# Projects — Expanded Design Lab
 
 This directory contains project artifacts upgraded using the project's accumulated knowledge base: OpenAI Agents SDK, MCP, coding-agent patterns, AI application builders, formal verification, adversarial AI security, distributed execution, multimodal systems, model engineering, adaptive reasoning, research orchestration, prompt optimization, Google AI developer patterns, OmniCore/Nexus systems research, verified code generation, the Sugra data/MCP fabric, Skills, dynamic tool discovery, MCP Apps, sovereign execution, repository intelligence, multimodal world-state control, multi-model evaluation, physical/game-system engineering, probability modeling, and the source materials supplied by the project owner.
 
@@ -90,6 +90,7 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
 | `51-omnicore-signal-game-probability-and-cognitive-safety-lab-max.md` | Game-system evaluation laboratory | Measure stochastic integrity, multimodal signals, cognitive load, influence risk, accessibility and reproducible player outcomes |
 | `52-omnicore-adaptive-game-designer-and-procedural-playtest-foundry-max.md` | Adaptive game design + procedural testing | Generate, simulate, adversarially test and human-review diverse game rulesets under hard fairness, accessibility and safety constraints |
 | `53-omnicore-symbolic-interface-and-artifact-compiler-max.md` | Symbolic UI + artifact compilation | Compile symbolic states into physical cards, digital interfaces, rules and manufacturing profiles while keeping symbolism distinct from truth |
+| `54-omnicore-epistemic-signal-and-adversarial-control-fabric-max.md` | Epistemic evidence + adversarial control | Unify multimodal signal calibration, contradiction-aware evidence, non-coercive inquiry, prompt/context defense, control-plane integrity, stochastic validation, symbolic boundaries and influence-risk detection |
 
 ## Reconciliation / lineage
 
@@ -208,3 +209,13 @@ Model output never grants authorization. External inputs are untrusted evidence.
 28. Gambling-derived mechanics are used for integrity analysis, not compulsion optimization.
 29. Symbolic interpretation remains distinct from empirical evidence and factual state.
 30. Deck/rules variants are versioned semantic contracts, not presentation-only artifacts.
+31. Behavioral signal is never equivalent to a truth verdict.
+32. Evidence fusion preserves modality, provenance, timing, baseline and uncertainty.
+33. Coercive interrogation capabilities are non-authorized system behaviors.
+34. Jailbreak/manipulation patterns are red-team assets, not production optimization targets.
+35. Control-plane integrity is independent of model-generated content.
+36. Probabilistic anomalies require reproducible experiments and calibrated uncertainty.
+37. Symbolic overlays cannot promote themselves into empirical truth.
+38. Capability changes require authorization outside the model's own output channel.
+39. High-impact recommendations expose alternatives, uncertainty and reversibility.
+40. Business scaling cannot bypass provenance, quality, rights or agency gates.
