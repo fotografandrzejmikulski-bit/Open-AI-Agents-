@@ -1,6 +1,6 @@
 # Projekty — Expanded Design Lab
 
-This directory contains project artifacts upgraded using the project's accumulated knowledge base: OpenAI Agents SDK, MCP, coding-agent patterns, AI application builders, formal verification, adversarial AI security, distributed execution, multimodal systems, model engineering, adaptive reasoning, research orchestration, prompt optimization, Google AI developer patterns, OmniCore/Nexus systems research, verified code generation, the Sugra data/MCP fabric, Skills, dynamic tool discovery, MCP Apps, sovereign execution, repository intelligence, multimodal world-state control, multi-model evaluation and the source materials supplied by the project owner.
+This directory contains project artifacts upgraded using the project's accumulated knowledge base: OpenAI Agents SDK, MCP, coding-agent patterns, AI application builders, formal verification, adversarial AI security, distributed execution, multimodal systems, model engineering, adaptive reasoning, research orchestration, prompt optimization, Google AI developer patterns, OmniCore/Nexus systems research, verified code generation, the Sugra data/MCP fabric, Skills, dynamic tool discovery, MCP Apps, sovereign execution, repository intelligence, multimodal world-state control, multi-model evaluation, physical/game-system engineering, probability modeling, and the source materials supplied by the project owner.
 
 ## Engineering standard
 
@@ -28,7 +28,9 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
 - authoritative readback and postcondition verification for consequential actions;
 - actual-execution metering rather than trusting requested labels/configuration;
 - explicit cognitive-sovereignty controls for recommendation rationale, alternatives, disclosure, opt-out and reversibility;
-- active-inference-style selection of next observations/experiments under information, cost, risk and authorization constraints.
+- active-inference-style selection of next observations/experiments under information, cost, risk and authorization constraints;
+- explicit game-state, probability, physical-signal and manufacturing models where applicable;
+- player-agency and responsible-design gates for interactive products.
 
 ## Project portfolio
 
@@ -84,6 +86,8 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
 | `47-omnicore-portfolio-integrity-and-project-registry-max.md` | Portfolio identity / lineage | Canonicalize project IDs, aliases, historical artifacts, dependencies and supersession relationships |
 | `48-omnicore-grand-challenge-all-source-intelligence-foundry-max.md` | Grand challenge research + evidence fusion | Discover important unknowns, fuse authorized evidence, challenge hypotheses, concretize strategy and govern interventions |
 | `49-omnicore-cognitive-sovereignty-and-adaptive-intelligence-fabric-max.md` | Cognitive sovereignty + adaptive intelligence | Unify active inference, specialist-agent composition, influence defense, information-hazard controls, symbolic state interfaces and model evaluation |
+| `50-omnicore-physical-game-and-phygital-experience-foundry-max.md` | Physical games + phygital products | Compile typed game artifacts into physical/digital experiences with probability, manufacturing, accessibility and agency gates |
+| `51-omnicore-signal-game-probability-and-cognitive-safety-lab-max.md` | Game-system evaluation laboratory | Measure stochastic integrity, multimodal signals, cognitive load, influence risk, accessibility and reproducible player outcomes |
 
 ## Reconciliation / lineage
 
@@ -100,7 +104,7 @@ USER / OPERATOR
 CANONICAL PROJECT REGISTRY
        │
        ↓
-INTENT / PROBLEM
+INTENT / PROBLEM / GAME DESIGN
        │
        ↓
 CONTEXT COMPILER
@@ -108,6 +112,7 @@ CONTEXT COMPILER
        ├──────────── REPOSITORY GRAPH
        ├──────────── WORLD STATE GRAPH
        ├──────────── EVIDENCE / UNKNOWNS GRAPH
+       ├──────────── GAME / RULE GRAPH
        └──────────── INFLUENCE / HUMAN-AGENCY SIGNALS
        │
        ↓
@@ -117,13 +122,13 @@ EPISTEMIC / REASONING CONTROL
 MODEL / SPECIALIST ROUTER
        │
        ↓
-VERIFIED PLAN / HYPOTHESIS
+VERIFIED PLAN / HYPOTHESIS / RULESET
        │
        ↓
 CAPABILITY BROKER
        │
        ↓
-DETERMINISTIC EXECUTION / SANDBOX
+DETERMINISTIC EXECUTION / SANDBOX / SIMULATION
        │
        ↓
 AUTHORITATIVE READBACK
@@ -132,7 +137,7 @@ AUTHORITATIVE READBACK
 POSTCONDITION / POLICY / AGENCY VERIFY
        │
        ↓
-ARTIFACT + STATE DELTA
+ARTIFACT + STATE DELTA / EVIDENCE PACKET
        │
        ↓
 EVAL / AUDIT / RELEASE
@@ -149,9 +154,17 @@ Reasoning depth is a resource to allocate. Fast paths handle low-complexity task
 
 Research uses source planning, parallel expertise, evidence graphs, adversarial critique, falsification, counterevidence and resumable execution. Unknown is never treated as pass.
 
+## Game / physical-product doctrine
+
+Physical interaction is treated as an interface, not a hidden behavior-control mechanism. Randomness, rules, sensory signals, print constraints and digital state are separately modeled and then linked through explicit contracts. Sensory effects may create immersion, but they do not grant hidden authority over player behavior.
+
 ## Cognitive-sovereignty doctrine
 
 Influence-oriented capabilities are defensive by default. The portfolio may analyze hidden objectives, framing, urgency, repetition, social proof, authority cues, reward loops, personalization, attention capture, expectation shaping and opt-out friction to detect risk. It must not optimize covert psychological control, dependency creation or vulnerability targeting.
+
+## Probability doctrine
+
+Game randomness must be distinguishable from payout design, variance, expected value and presentation. Seeded replay, distribution tests and explicit assumptions are preferred over opaque claims about fairness.
 
 ## Prompt and context doctrine
 
@@ -185,3 +198,9 @@ Model output never grants authorization. External inputs are untrusted evidence.
 20. Active inference may select observations/experiments, but cannot self-authorize consequential action.
 21. Simulation/digital-twin output remains advisory until externally validated.
 22. Symbolic interfaces are reflective aids, not truth or diagnostic oracles.
+23. Game randomness is independently reproducible and testable.
+24. Player-facing sensory effects do not become hidden behavioral-control channels.
+25. Physical and digital state transitions are explicit, observable and auditable.
+26. Manufacturing tolerances are engineering hypotheses until validated on production-intent samples.
+27. Accessibility is a release gate when essential game state depends on a physical or visual cue.
+28. Gambling-derived mechanics are used for integrity analysis, not compulsion optimization.
