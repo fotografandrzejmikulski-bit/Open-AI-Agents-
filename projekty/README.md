@@ -30,7 +30,8 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
 - explicit cognitive-sovereignty controls for recommendation rationale, alternatives, disclosure, opt-out and reversibility;
 - active-inference-style selection of next observations/experiments under information, cost, risk and authorization constraints;
 - explicit game-state, probability, physical-signal and manufacturing models where applicable;
-- player-agency and responsible-design gates for interactive products.
+- player-agency and responsible-design gates for interactive products;
+- monitorability-aware oversight with independent action/state verification for highly capable models.
 
 ## Project portfolio
 
@@ -94,6 +95,7 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
 | `55-omnicore-reproducible-stochastic-integrity-and-probability-lab-max.md` | Stochastic integrity + probability research | Reproduce random processes, characterize distributions, test anomalies, separate correlation from causation, and enforce authorization/reproducibility boundaries |
 | `56-omnicore-ai-commercialization-and-outcome-engine-max.md` | AI commercialization + outcome economics | Convert AI capabilities into governed products/services with measurable value, unit economics, experiments and responsible growth gates |
 | `57-omnicore-multimodal-intelligence-and-cognitive-interface-fabric-max.md` | Multimodal intelligence + physical/cognitive interface | Fuse heterogeneous evidence, symbolic/physical states and agent tools under strict provenance, authorization, privacy and human-agency boundaries |
+| `58-omnicore-monitorability-aware-oversight-and-verification-fabric-max.md` | Monitorability-aware AI oversight | Replace CoT-only oversight with multi-signal monitoring, capability isolation, authoritative state verification and adaptive control when model observability degrades |
 
 ## Reconciliation / lineage
 
@@ -180,6 +182,10 @@ Prompt is a compiled task specification, never the security boundary. Context is
 
 Model output never grants authorization. External inputs are untrusted evidence. All consequential side effects pass through typed capabilities, policy checks, human approval where required and authoritative postcondition verification.
 
+## Monitorability doctrine
+
+Reasoning traces are useful evidence when available but are not a security boundary. When monitorability falls, the system increases external verification, capability restriction, audit depth and human-review requirements rather than assuming either benignity or malice. Action-only and state-only oversight must remain independently functional.
+
 ## Runtime invariants
 
 1. Prompt is a program specification, not a security boundary.
@@ -224,3 +230,10 @@ Model output never grants authorization. External inputs are untrusted evidence.
 40. Identity resolution remains a hypothesis until material claims are corroborated.
 41. Active OSINT/recon requires explicit target scope, authorization, expiry, rate limits and auditability.
 42. Physical, sensory and symbolic interfaces must be disclosed, accessible and unable to silently alter permissions or behavioral policy.
+43. CoT monitorability is measured explicitly and is not assumed to be stable across model generations.
+44. Empty or weak reasoning traces never reduce mandatory safety controls.
+45. Action-only and authoritative-state verification remain operational when CoT is unavailable or uninformative.
+46. Reduced monitorability monotonically increases required verification for consequential actions.
+47. Evaluation-aware behavior and monitor-awareness are tested independently from ordinary benchmark performance.
+48. Monitor disagreement and uncertainty are preserved as evidence rather than silently collapsed into a single confidence score.
+49. Revocation and shutdown remain effective without model cooperation.
