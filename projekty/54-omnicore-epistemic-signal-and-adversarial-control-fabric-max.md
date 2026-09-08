@@ -48,9 +48,7 @@ POSTCONDITION VERIFICATION
 
 ### 3.1 Apeiron 2.0 → typed overlay state
 
-The supplied Apeiron report treats transparent cards as incomplete fragments of state and stacking as an emergent overlay mechanism. fileciteturn80file0L13-L30
-
-Its HEX checksum layer turns card values into composable symbolic state and describes overflow/decoder behavior. fileciteturn81file5L229-L252
+The supplied Apeiron report treats transparent cards as incomplete fragments of state and stacking as an emergent overlay mechanism. Its 78-card architecture maps technological/cybernetic concepts onto the Major Arcana and reorganizes the Minor Arcana around data/infrastructure domains. fileciteturn80file7L295-L340
 
 Project 54 extracts:
 - typed symbolic state;
@@ -58,13 +56,14 @@ Project 54 extracts:
 - explicit overlay provenance;
 - visual interference as a signal, not a verdict;
 - checksum as encoding, not truth;
-- physical readability as a testable engineering property.
+- physical readability as a testable engineering property;
+- versioned deck semantics independent of artwork.
 
 ### 3.2 Behavioral deception analysis → evidence discipline
 
-The supplied deception corpus explicitly warns against treating an individual gesture or microexpression as conclusive proof and combines FACS, interviewing methodology and linguistic analysis. fileciteturn86file2L18-L32
+The supplied deception corpus explicitly warns against treating a single gesture or microexpression as conclusive proof and frames FACS, interviewing methodology and linguistic analysis as complementary signals. fileciteturn81file2L414-L428
 
-It also contrasts coercive Reid-style interrogation with the information-gathering PEACE model and documents the risk of false confessions. fileciteturn86file2L169-L234
+It contrasts guilt-presumptive Reid interrogation with information-gathering PEACE and notes the false-confession risk of coercive methods. fileciteturn81file2L614-L670
 
 Project 54 therefore encodes:
 
@@ -78,33 +77,37 @@ A behavioral signal can trigger further evidence collection but cannot independe
 
 ### 3.3 Gemini constraint analysis → control-plane independence
 
-The Gemini report describes inference-time frozen model weights and a separation between data-plane content and control-plane configuration. fileciteturn86file3L523-L553
+The supplied Gemini analysis describes frozen inference-time weights and a separation between data-plane content and control-plane configuration, including external guardrails. fileciteturn82file9L386-L418
 
-It further describes external guardrails and the possibility of agentic failures through excessive permissions and prompt injection. fileciteturn86file3L660-L705 fileciteturn86file3L762-L791
+It identifies excessive agency combined with prompt injection as an architectural failure mode when an agent receives privileged tools. fileciteturn82file5L225-L238
 
-Project 54 makes this a hard architectural rule:
+Project 54 makes this a hard rule:
 
 > model-generated output is never a control-plane authority.
 
 ### 3.4 Influence corpus → trajectory-level defense
 
-The manipulation corpus describes psychometric inference, biometric/affective feedback loops, personalized adaptation, autonomous agent stacks and generative choice architecture. fileciteturn87file2L783-L835 fileciteturn87file2L887-L923
+The supplied influence material describes psychometric inference, adaptive personalization, digital-twin simulation, autonomous agent stacks and behaviorally optimized choice architecture. fileciteturn81file3L923-L948 fileciteturn81file3L950-L989
 
-It also presents multi-turn, context-flooding, obfuscation and persona-based jailbreak patterns. fileciteturn87file2L957-L1003
-
-Project 54 converts these into detection and release-test classes rather than optimization objectives.
+Project 54 converts those mechanisms into detection, transparency and release-test classes rather than optimization objectives.
 
 ### 3.5 Prompt/reasoning corpus → bounded computation
 
-The supplied AI engineering material distinguishes Few-Shot, Chain-of-Thought, Tree-of-Thoughts, Self-Consistency, Reflexion and Step-Back approaches. fileciteturn81file0L10-L46
+The AI-engineering corpus describes structured system instructions, Few-Shot/In-Context Learning and advanced reasoning strategies such as Self-Consistency, Tree-of-Thoughts and Reflexion. fileciteturn80file0L10-L30 fileciteturn80file8L350-L386
 
 Project 54 treats reasoning depth as a budgeted resource with explicit escalation criteria, disagreement tracking and verification.
 
 ### 3.6 Probability corpus → reproducible integrity analysis
 
-The supplied lottery material combines physical-system analysis, PRNG reasoning, Active Inference and statistical modeling, while also acknowledging legal risk around unauthorized reverse engineering and exploitation. fileciteturn84file3L163-L189 fileciteturn80file10L426-L432
+The IMDP source proposes deterministic-chaos analysis, PRNG analysis, digital twins, active inference and agent swarms for lottery optimization. fileciteturn81file1L47-L87
 
-Project 54 retains only the defensible layer: reproducible experiments, anomaly detection, distribution analysis, EV/variance separation and explicit authorization.
+Project 54 retains the defensible engineering layer only:
+- reproducible experiments;
+- anomaly detection;
+- distribution analysis;
+- EV/variance separation;
+- correlation testing;
+- explicit authorization and scope.
 
 ## 4. Core system model
 
@@ -156,11 +159,9 @@ CapabilityRequest:
   evidence_refs: [string]
 ```
 
-No `CapabilityRequest` is generated solely from a natural-language claim of authority.
+No `CapabilityRequest` is generated solely from natural-language claims of authority.
 
 ## 5. Baseline & drift engine
-
-The engine maintains a contextual baseline for behavioral and interaction signals:
 
 ```text
 NEUTRAL STATE
@@ -209,8 +210,6 @@ Fusion rules:
 
 ## 7. Epistemic calibration layer
 
-Project 54 introduces a formal separation:
-
 ```text
 OBSERVED
   ≠
@@ -231,15 +230,13 @@ Every high-impact output exposes:
 - confidence calibration;
 - reversal/next-step path.
 
-### Confidence rule
-
-Confidence is a property of a claim under a defined evidence set, not a permanent property of a model.
+**Confidence is a property of a claim under a defined evidence set, not a permanent property of a model.**
 
 ## 8. Non-coercive inquiry planner
 
-The PEACE material provides the architecture for information gathering rather than forced confession. fileciteturn86file2L218-L238
+The supplied PEACE material prioritizes information gathering rather than forced confession. fileciteturn81file2L614-L670
 
-Project 54 compiles this into a constrained planner:
+Project 54 compiles that principle into a constrained planner:
 
 ```text
 OBJECTIVE
@@ -261,7 +258,7 @@ COLLECT
 UPDATE HYPOTHESES
 ```
 
-The planner blocks:
+Blocked classes:
 - forced binary confession framing;
 - intimidation;
 - deliberate distress induction;
@@ -271,9 +268,7 @@ The planner blocks:
 
 ## 9. Adversarial context analyzer
 
-The analyzer identifies adversarial context without attempting to reproduce offensive payloads.
-
-### Threat classes
+Threat classes:
 
 | Class | Detection target | Defensive response |
 |---|---|---|
@@ -284,7 +279,7 @@ The analyzer identifies adversarial context without attempting to reproduce offe
 | `tool_escalation` | content attempting privilege expansion | capability deny / review |
 | `policy_conflict` | user/data instructions conflicting with system policy | deterministic policy resolution |
 
-The Gemini corpus supports the architectural conclusion that context-based bypasses do not constitute durable modification of model weights or external safety systems. fileciteturn86file3L714-L760
+The Gemini corpus supports the conclusion that context-based bypasses do not constitute durable modification of model weights or external safety systems. fileciteturn82file8L345-L367
 
 ## 10. Control-plane integrity monitor
 
@@ -308,8 +303,7 @@ AUTHORITATIVE READBACK
 POSTCONDITION VERIFY
 ```
 
-### Mandatory properties
-
+Mandatory properties:
 - deny-by-default capabilities;
 - separate administrative identity;
 - explicit approval state;
@@ -321,9 +315,7 @@ POSTCONDITION VERIFY
 
 ## 11. Probability integrity laboratory
 
-Project 54 provides a research-safe stochastic subsystem:
-
-### Components
+Components:
 
 `RNGReplayer`
 
@@ -339,27 +331,28 @@ Project 54 provides a research-safe stochastic subsystem:
 
 `FairnessReport`
 
-### Required experiment record
+Required experiment record:
 
 ```yaml
 Experiment:
-  hypothesis:
-  system_under_test:
-  assumptions:
-  sampling_plan:
-  seed_policy:
-  metrics:
-  stopping_rule:
-  result:
-  uncertainty:
-  reviewer:
+  hypothesis: string
+  system_under_test: string
+  assumptions: [string]
+  sampling_plan: object
+  seed_policy: object
+  metrics: object
+  stopping_rule: object
+  result: object
+  uncertainty: object
+  reviewer: string
+  authorization_ref: string
 ```
 
-The system can identify anomalies; it cannot label an anomaly as an exploitable weakness without validated evidence, legal scope and explicit authorization.
+The system can identify anomalies; it cannot label an anomaly an exploitable weakness without validated evidence, legal scope and explicit authorization.
 
 ## 12. Apeiron symbolic-state adapter
 
-Project 54 consumes Project 53's symbolic layer as a reflective state representation.
+Project 54 consumes Project 53's symbolic layer as a reflective state representation:
 
 ```text
 CONTEXT
@@ -369,9 +362,7 @@ CONTEXT
  → SYMBOLIC STATE
 ```
 
-HEX/checksum and overlay computations are deterministic transformations. They do not create empirical evidence.
-
-### Forbidden semantic casts
+Forbidden semantic casts:
 
 ```text
 SYMBOL → FACT            X
@@ -380,8 +371,7 @@ CHECKSUM → TRUTH         X
 OVERLAY → CERTAINTY      X
 ```
 
-### Allowed uses
-
+Allowed uses:
 - reflection;
 - scenario generation;
 - game mechanics;
@@ -391,28 +381,26 @@ OVERLAY → CERTAINTY      X
 
 ## 13. Influence surface mapper
 
-The system turns influence-oriented observations into a defensive risk vector:
-
 ```yaml
 InfluenceExposure:
-  framing:
-  urgency:
-  repetition:
-  authority_cues:
-  social_proof:
-  reward_variability:
-  personalization:
-  attention_capture:
-  expectation_shaping:
-  disclosure_gap:
-  opt_out_friction:
-  reversibility:
-  vulnerability_targeting:
+  framing: float
+  urgency: float
+  repetition: float
+  authority_cues: float
+  social_proof: float
+  reward_variability: float
+  personalization: float
+  attention_capture: float
+  expectation_shaping: float
+  disclosure_gap: float
+  opt_out_friction: float
+  reversibility: float
+  vulnerability_targeting: float
 ```
 
-The manipulation corpus describes adaptive feedback loops that alter content based on inferred user state. fileciteturn87file2L815-L835
+The manipulation corpus describes digital-trace psychometrics, adaptive personalization and automated profiling. fileciteturn81file3L943-L989
 
-Project 54 uses that architecture in reverse:
+Project 54 uses the architecture in reverse:
 
 ```text
 OBSERVE
@@ -421,7 +409,7 @@ DETECT INFLUENCE PATTERN
  ↓
 CHECK PURPOSE / CONSENT / DISCLOSURE
  ↓
-ASSESS PRESSURE
+ASSESS PRESSURE / DEPENDENCY RISK
  ↓
 WARN / BLOCK / OFFER ALTERNATIVE
 ```
@@ -429,8 +417,6 @@ WARN / BLOCK / OFFER ALTERNATIVE
 Influence exposure is a system-risk measure, never a psychological diagnosis.
 
 ## 14. Reasoning-budget controller
-
-The reasoning layer selects computation proportionally to uncertainty and consequence:
 
 ```text
 TASK
@@ -448,11 +434,9 @@ DISAGREEMENT ANALYSIS
 CALIBRATION
 ```
 
-Self-Consistency and Tree-of-Thoughts become controlled evaluation modes rather than unconditional generation policies. fileciteturn81file0L10-L46
+Self-Consistency, Tree-of-Thoughts and related methods are controlled evaluation modes rather than unconditional generation policies. fileciteturn80file8L350-L386
 
 ## 15. Safe agent execution
-
-The planner follows the portfolio doctrine:
 
 ```text
 INTENT
@@ -487,71 +471,48 @@ No agent action can authorize itself.
 
 ## 16. Evaluation architecture
 
-### E0 — Signal calibration
-Can the system distinguish signal detection from truth claims?
-
-### E1 — Baseline robustness
-Does baseline drift avoid false attribution under context changes?
-
-### E2 — Multimodal consistency
-Does fusion preserve modality, provenance and contradictory evidence?
-
-### E3 — Non-coercive inquiry
-Does the planner prefer information-gathering methods over pressure?
-
-### E4 — Context security
-Can prompt injection alter authority or privilege?
-
-### E5 — Control-plane isolation
-Can model output directly modify policy/configuration?
-
-Expected result: **no** through the model channel.
-
-### E6 — Capability least privilege
-Are scopes bounded, expirable and revocable?
-
-### E7 — Probability integrity
-Are anomalies reproducible and statistically characterized?
-
-### E8 — Symbolic boundary
-Can symbolic state be accidentally emitted as empirical fact?
-
-Expected result: **blocked**.
-
-### E9 — Influence defense
-Can hidden personalization, pressure and reward-loop patterns be surfaced?
-
-### E10 — Reproducibility
-Can an audit reconstruct the data, model, policy, prompt, detector and artifact versions used for the decision?
+| Eval | Question | Expected boundary |
+|---|---|---|
+| E0 | Signal calibration | signal does not become proof |
+| E1 | Baseline robustness | context drift does not create false attribution |
+| E2 | Multimodal consistency | provenance, missingness and contradiction preserved |
+| E3 | Non-coercive inquiry | evidence gathering preferred over pressure |
+| E4 | Context security | prompt injection cannot create authority |
+| E5 | Control-plane isolation | model cannot directly mutate policy/configuration |
+| E6 | Least privilege | scopes bounded, expirable and revocable |
+| E7 | Probability integrity | anomalies reproducible and statistically characterized |
+| E8 | Symbolic boundary | symbolic states cannot be emitted as empirical facts |
+| E9 | Influence defense | personalization/pressure/reward-loop risks surfaced |
+| E10 | Reproducibility | audit reconstructs inputs, versions and decisions |
 
 ## 17. Test corpus design
 
-### Behavioral corpus
-- neutral baseline sequences;
+### Behavioral
+- neutral baselines;
 - stress-without-deception cases;
-- deception-labelled research cases;
+- research deception cases;
 - cross-cultural/language variants;
 - missing-modality cases;
-- synthetic contradiction cases.
+- synthetic contradictions.
 
-### Adversarial AI corpus
+### Adversarial AI
 - benign system/data conflicts;
 - prompt-injection markers;
 - role/persona overrides;
 - long-context contamination;
 - tool-escalation attempts;
 - false authority claims;
-- policy-conflict scenarios.
+- policy conflicts.
 
-### Symbolic/game corpus
-- valid overlay states;
+### Symbolic/game
+- valid overlays;
 - checksum overflow;
 - malformed stack geometry;
-- intentionally misleading visual patterns;
+- misleading visual patterns;
 - inaccessible sensory dependencies;
 - symbolic/factual ambiguity fixtures.
 
-### Probability corpus
+### Probability
 - deterministic seeded sequences;
 - known fair distributions;
 - controlled perturbations;
@@ -572,72 +533,48 @@ Can an audit reconstruct the data, model, policy, prompt, detector and artifact 
 | G7 | human-agency disclosure and reversibility |
 | G8 | stochastic claims reproducible |
 | G9 | symbolic truth boundary enforced |
-| G10 | complete audit packet and reproducible release |
+| G10 | complete audit packet and reviewer sign-off |
 
-## 19. Cross-project integration
+## 19. Portfolio integration
 
-Project 54 depends on and extends:
-
-- **27** — compound reasoning, self-consistency, disagreement and bounded compute.
-- **28** — contract-first generation and verified promotion.
-- **29–30** — governed evidence/data and OSINT provenance.
-- **31** — Agent OS, Skills, MCP and capability security.
-- **32** — Zero-Trust OSINT/evidence handling.
-- **35** — contextual intent uncertainty and agent security.
-- **36 / 43** — influence security and human agency defense.
-- **41** — repository/world/evidence graphs and authoritative readback.
-- **49** — cognitive sovereignty and active inference.
-- **50–52** — physical game, probability, sensory integrity and procedural playtesting.
-- **53** — symbolic interface and artifact compiler.
-
-### New abstraction added to the portfolio
+Project 54 consolidates and strengthens the interfaces among Projects 26–53:
 
 ```text
-EVIDENCE SIGNAL FABRIC
-        ↓
-EPISTEMIC STATE
-        ↓
-ADVERSARIAL CONTEXT CONTROL
-        ↓
-CONTROL-PLANE INTEGRITY
-        ↓
-CAPABILITY-GOVERNED ACTION
+P26  TRUST / CAPABILITY FIREWALL
+P27  REASONING BUDGET / DISAGREEMENT
+P28  VERIFIED CODE GENERATION
+P30  EVIDENCE / OSINT CONTROL
+P32  RECURSIVE OSINT / ZERO-TRUST TOOLS
+P35  INTENT + CONTEXT SECURITY
+P36  INFLUENCE SECURITY
+P39  CLOUD EXECUTION FABRIC
+P41  REPOSITORY + MULTIMODAL ACTIONS
+P47  PORTFOLIO LINEAGE
+P49  COGNITIVE SOVEREIGNTY
+P50  PHYSICAL GAME FOUNDRY
+P51  SIGNAL / PROBABILITY / COGNITIVE SAFETY
+P52  ADAPTIVE GAME DESIGN / PLAYTEST
+P53  SYMBOLIC INTERFACE / ARTIFACT COMPILER
+          ↓
+P54  EPISTEMIC SIGNAL + ADVERSARIAL CONTROL FABRIC
 ```
 
-## 20. Security boundary
+## 20. Definition of Done
 
-Project 54 deliberately excludes:
+Project 54 is complete only when:
 
-- covert psychological manipulation;
-- vulnerability-targeted persuasion;
-- deceptive interrogation automation;
-- unauthorized gambling optimization or exploitation;
-- jailbreak bypass production tooling;
-- stealthy privilege escalation;
-- autonomous modification of safety policy.
+- signal, inference, hypothesis and validation are separate types;
+- baseline/drift and missingness are explicit;
+- contradiction graphs preserve alternative explanations;
+- model output cannot authorize policy or privileged capabilities;
+- consequential actions require explicit authorization and verified postconditions;
+- stochastic analysis is reproducible and scope-controlled;
+- symbolic interfaces are prevented from becoming truth/diagnostic oracles;
+- influence-risk analysis is defensive and disclosure-aware;
+- reasoning depth is budgeted and evaluated;
+- audit packets reconstruct the relevant state, evidence and version lineage;
+- portfolio projects can consume the same epistemic/control contracts without duplicating unsafe authority.
 
-Those topics are retained only as defensive threat categories and evaluation fixtures.
+## 21. Source-quality and research-status note
 
-## 21. Definition of Done
-
-Project 54 is complete when the system can:
-
-1. ingest text, audio, vision, interaction, physical and symbolic signals;
-2. attach provenance, timing, baseline and uncertainty;
-3. construct evidence and contradiction graphs;
-4. maintain multiple competing hypotheses;
-5. distinguish signals from verdicts;
-6. choose non-coercive evidence-gathering steps;
-7. detect adversarial context and tool-escalation attempts;
-8. enforce control-plane independence;
-9. broker least-privileged capabilities;
-10. verify consequential postconditions through authoritative readback;
-11. run reproducible stochastic-integrity experiments;
-12. compile Apeiron overlays without symbolic/factual conflation;
-13. detect influence-risk trajectories without optimizing them;
-14. produce auditable evidence packets;
-15. pass G0–G10 under reproducible evaluation.
-
-## 22. Portfolio invariant
-
-> **No signal becomes a fact, no prompt becomes a privilege, no symbol becomes evidence, and no model output becomes authority without an independent verification boundary.**
+The supplied PDFs contain a mixture of established concepts, source-reported claims, speculative hypotheses and operational recommendations. Portfolio implementation must preserve this distinction. In particular, claims about deterministic lottery exploitation, exact behavioral deception inference, jailbreak effectiveness and economic outcomes are not treated as proven solely because they appear in the source material.
