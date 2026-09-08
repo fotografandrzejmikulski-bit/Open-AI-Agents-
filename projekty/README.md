@@ -26,7 +26,9 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
 - separation of user intent, authorization and executable capability;
 - repository/world/evidence state as first-class versioned state;
 - authoritative readback and postcondition verification for consequential actions;
-- actual-execution metering rather than trusting requested labels/configuration.
+- actual-execution metering rather than trusting requested labels/configuration;
+- explicit cognitive-sovereignty controls for recommendation rationale, alternatives, disclosure, opt-out and reversibility;
+- active-inference-style selection of next observations/experiments under information, cost, risk and authorization constraints.
 
 ## Project portfolio
 
@@ -74,127 +76,90 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
 | `39-omnicore-alibaba-cloud-agent-runtime-and-cloud-fabric-max.md` | Alibaba Cloud agent execution fabric | Integrate Model Studio/Qwen, MCP, AgentBay, ACK, RAM/STS, OSS, SLS, ACR and confidential compute under the OmniCore control plane |
 | `40-omnicore-agentic-development-and-visual-intelligence-fabric-max.md` | Coding agents + multimodal/live-state agents | Unify repo-scale software agents, deterministic action runners, multimodal world state, cost governance and evidence-driven execution |
 | `41-omnicore-repository-intelligence-and-multimodal-action-fabric-max.md` | Repository intelligence + multimodal execution | Unify repository graphs, world-state graphs, evidence graphs, context compilation, typed actions, postcondition verification and multi-model evaluation |
+| `42-open-creator-layer-engine-on-engine-max.md` | Engine-on-engine creator platform | Provide graph-first, engine-neutral creation with native project artifacts, reversible changes and governed automation |
+| `43-influence-literacy-and-human-agency-lab-max.md` | Defensive influence-security research product | Detect persuasive-risk patterns, protect autonomy, expose dark patterns and provide transparent alternatives |
+| `44-ai-content-product-studio-max.md` | Content production system | Transform evidence-backed research and creative intent into auditable content/product families with controlled distribution |
+| `45-omnicore-agentic-content-commerce-factory-max.md` | Content + commerce orchestration | Connect research, content production, offers, business experiments, distribution and measurement through governed capabilities |
+| `46-cognisync-open-creator-influence-content-nexus-max.md` | Cross-domain product integration | Unify professional assistance, creator tooling, influence defense, sovereign runtime and content commerce |
+| `47-omnicore-portfolio-integrity-and-project-registry-max.md` | Portfolio identity / lineage | Canonicalize project IDs, aliases, historical artifacts, dependencies and supersession relationships |
+| `48-omnicore-grand-challenge-all-source-intelligence-foundry-max.md` | Grand challenge research + evidence fusion | Discover important unknowns, fuse authorized evidence, challenge hypotheses, concretize strategy and govern interventions |
+| `49-omnicore-cognitive-sovereignty-and-adaptive-intelligence-fabric-max.md` | Cognitive sovereignty + adaptive intelligence | Unify active inference, specialist-agent composition, influence defense, information-hazard controls, symbolic state interfaces and model evaluation |
 
-> **Numbering note:** The repository contains two distinct Project 38 artifacts, both verified by repository search. Project 39, Project 40 and Project 41 are real repository artifacts.
+## Reconciliation / lineage
+
+Project numbering is a canonical identity problem rather than a filename problem. The portfolio preserves historical duplicates and maps them through Project 47 instead of silently deleting or overwriting them.
+
+The sovereign edge specification is the canonical Project 38; the separate scientific-stability artifact remains preserved as historical/research lineage. The original Open Creator, Influence Literacy and AI Content projects are canonicalized as Projects 42, 43 and 44 respectively.
 
 ## Cross-project architecture
 
 ```text
-                    USER / OPERATOR
-                           │
-                    Intent / Requirements
-                           │
-                  ┌────────▼─────────┐
-                  │ CONTROL PLANE    │
-                  │ Specs / Policy   │
-                  │ Evals / Approval │
-                  │ Provenance       │
-                  │ Routing Policy   │
-                  │ Reasoning Budget │
-                  │ Data Freshness   │
-                  │ Quota Budget     │
-                  │ Capability Risk │
-                  │ Skill Version   │
-                  │ Intent State    │
-                  │ Influence Risk  │
-                  │ Repo/World State│
-                  └────────┬─────────┘
-                           │
-          ┌────────────────┼───────────────────┐
-          │                │                   │
-      Agent Runtime      Knowledge         Capability
-          │             / Evidence           Catalog
-          │                │                   │
-          └────────────────┼───────────────────┘
-                           │
-                 REASONING / PLANNING
-                           │
-                   TOOL / SKILL SEARCH
-                           │
-                    VERIFIED PLAN
-                           │
-                 CAPABILITY BROKER
-                           │
-                 EXECUTION / SANDBOX
-                           │
-            ┌──────────────┼──────────────┐
-            │              │              │
-         Software       Data/Cloud     Heterogeneous
-         Systems        Services        Substrates
-            │              │              │
-            └──────────────┼──────────────┘
-                           │
-               OBSERVABILITY / EVALS
-                           │
-                  VERSIONED ARTIFACT
+USER / OPERATOR
+       │
+       ↓
+CANONICAL PROJECT REGISTRY
+       │
+       ↓
+INTENT / PROBLEM
+       │
+       ↓
+CONTEXT COMPILER
+       │
+       ├──────────── REPOSITORY GRAPH
+       ├──────────── WORLD STATE GRAPH
+       ├──────────── EVIDENCE / UNKNOWNS GRAPH
+       └──────────── INFLUENCE / HUMAN-AGENCY SIGNALS
+       │
+       ↓
+EPISTEMIC / REASONING CONTROL
+       │
+       ↓
+MODEL / SPECIALIST ROUTER
+       │
+       ↓
+VERIFIED PLAN / HYPOTHESIS
+       │
+       ↓
+CAPABILITY BROKER
+       │
+       ↓
+DETERMINISTIC EXECUTION / SANDBOX
+       │
+       ↓
+AUTHORITATIVE READBACK
+       │
+       ↓
+POSTCONDITION / POLICY / AGENCY VERIFY
+       │
+       ↓
+ARTIFACT + STATE DELTA
+       │
+       ↓
+EVAL / AUDIT / RELEASE
+       │
+       ↺
+MEASURED OUTCOME → ADAPT
 ```
 
 ## Reasoning doctrine
 
-Reasoning depth is treated as a resource to allocate, not a constant. Fast paths are preferred for simple tasks; deeper reasoning is introduced when task complexity, uncertainty or consequence level justifies it. Model-specific internal reasoning representations remain implementation details and are never treated as a user-facing source of truth.
-
-Project 27 operationalizes this doctrine through bounded compound reasoning, cached context, multiple solver paths, disagreement detection and escalation. The supplied research emphasizes inference-time compute, context caching, RAG and agentic workflows as architectural levers rather than assuming that model size alone determines system performance.
+Reasoning depth is a resource to allocate. Fast paths handle low-complexity tasks; deeper reasoning, specialist routing and multi-solver comparison are introduced when uncertainty, consequence or task complexity warrants them.
 
 ## Research doctrine
 
-Deep research uses source planning, parallel expertise, adversarial critique, provenance tracking, falsification and resumability. A synthesis is accepted only when claims are traceable to evidence and uncertainty is explicitly represented.
+Research uses source planning, parallel expertise, evidence graphs, adversarial critique, falsification, counterevidence and resumable execution. Unknown is never treated as pass.
 
-Project 29/30 supplies the external evidence plane through the Sugra data/MCP fabric, while Project 31 adds general capability discovery and a unified Observation → Inference → Plan → Effect model.
+## Cognitive-sovereignty doctrine
 
-## Agent Operating Fabric doctrine
-
-The portfolio now treats an agent runtime as an operating substrate with explicit cognitive system calls:
-
-```text
-agent_syscall(intent)
-agent_alloc(reasoning_budget)
-agent_mount(skill)
-agent_search_tool(namespace)
-agent_call(capability)
-agent_checkpoint(state)
-agent_verify(result)
-agent_commit(artifact)
-```
-
-LLM cognition, scheduling, memory/storage and tools are separate runtime concerns.
+Influence-oriented capabilities are defensive by default. The portfolio may analyze hidden objectives, framing, urgency, repetition, social proof, authority cues, reward loops, personalization, attention capture, expectation shaping and opt-out friction to detect risk. It must not optimize covert psychological control, dependency creation or vulnerability targeting.
 
 ## Prompt and context doctrine
 
-Prompt is treated as a compiled task specification rather than the security boundary. A strong prompt can define role/context, task, constraints, method, output contract, counterargument checks and evaluation. Dynamic context compilation is preferred over blindly enlarging prompts.
-
-## New Agentic Development doctrine
-
-G0DM0D3 contributes adaptive execution parameters, multi-model racing, explicit quotas and privacy-separated telemetry. God's Eye View contributes live-state multimodal agents with authoritative scene context, deterministic action tools, postcondition verification, turn supersession/cancellation, ephemeral credentials and restricted network proxies.
-
-The generalized stack is:
-
-```text
-REPOSITORY GRAPH     WORLD STATE GRAPH     KNOWLEDGE/EVIDENCE
-       │                    │                    │
-       └─────────────── CONTEXT COMPILER ───────┘
-                              ↓
-                          AGENT BRAIN
-                              ↓
-                     TYPED CAPABILITY PLAN
-                              ↓
-                     CAPABILITY BROKER
-                              ↓
-                    DETERMINISTIC ACTIONS
-                              ↓
-              AUTHORITATIVE READBACK / VERIFY
-                              ↓
-                 ARTIFACT + STATE DELTA
-                              ↓
-                EVALUATION / AUDIT / RELEASE
-```
-
-The portfolio now treats repository state and world state as peers: both are dynamic, versioned, observable and subject to stale-state conflicts.
+Prompt is a compiled task specification, never the security boundary. Context is dynamically composed from relevant state and evidence; larger context is not automatically better.
 
 ## Security doctrine
 
-The portfolio treats covert persuasion, hidden directives, jailbreaks and unauthorized behavioral influence as security concerns. Defensive analysis may model such techniques, but implementations must not use them to bypass safety controls or covertly manipulate users.
-
-Security is enforced at the capability boundary, not inferred from prompts.
+Model output never grants authorization. External inputs are untrusted evidence. All consequential side effects pass through typed capabilities, policy checks, human approval where required and authoritative postcondition verification.
 
 ## Runtime invariants
 
@@ -215,7 +180,8 @@ Security is enforced at the capability boundary, not inferred from prompts.
 15. Safety gates cannot be lowered by dynamic prompt, persona or model selection.
 16. Execution profiles may optimize cost/latency, but not relax mandatory security controls.
 17. Visual builders must preserve an escape hatch to inspectable source/runtime contracts.
-
-## Safety boundary
-
-Projects involving influence, behavior, perception or persuasive systems are defensive by default. Analysis of potentially manipulative techniques may be used to detect or disclose them, but not to build covert psychological-control mechanisms.
+18. Influence risk is evaluated at trajectory/system level, not from isolated text alone.
+19. Sensitive behavioral/neural inference cannot become a covert targeting capability.
+20. Active inference may select observations/experiments, but cannot self-authorize consequential action.
+21. Simulation/digital-twin output remains advisory until externally validated.
+22. Symbolic interfaces are reflective aids, not truth or diagnostic oracles.
