@@ -88,6 +88,8 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
 | `49-omnicore-cognitive-sovereignty-and-adaptive-intelligence-fabric-max.md` | Cognitive sovereignty + adaptive intelligence | Unify active inference, specialist-agent composition, influence defense, information-hazard controls, symbolic state interfaces and model evaluation |
 | `50-omnicore-physical-game-and-phygital-experience-foundry-max.md` | Physical games + phygital products | Compile typed game artifacts into physical/digital experiences with probability, manufacturing, accessibility and agency gates |
 | `51-omnicore-signal-game-probability-and-cognitive-safety-lab-max.md` | Game-system evaluation laboratory | Measure stochastic integrity, multimodal signals, cognitive load, influence risk, accessibility and reproducible player outcomes |
+| `52-omnicore-adaptive-game-designer-and-procedural-playtest-foundry-max.md` | Adaptive game design + procedural testing | Generate, simulate, adversarially test and human-review diverse game rulesets under hard fairness, accessibility and safety constraints |
+| `53-omnicore-symbolic-interface-and-artifact-compiler-max.md` | Symbolic UI + artifact compilation | Compile symbolic states into physical cards, digital interfaces, rules and manufacturing profiles while keeping symbolism distinct from truth |
 
 ## Reconciliation / lineage
 
@@ -204,3 +206,5 @@ Model output never grants authorization. External inputs are untrusted evidence.
 26. Manufacturing tolerances are engineering hypotheses until validated on production-intent samples.
 27. Accessibility is a release gate when essential game state depends on a physical or visual cue.
 28. Gambling-derived mechanics are used for integrity analysis, not compulsion optimization.
+29. Symbolic interpretation remains distinct from empirical evidence and factual state.
+30. Deck/rules variants are versioned semantic contracts, not presentation-only artifacts.
