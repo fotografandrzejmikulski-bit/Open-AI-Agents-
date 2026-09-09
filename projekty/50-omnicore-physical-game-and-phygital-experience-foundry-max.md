@@ -382,6 +382,32 @@ Project 50 extends:
 - Project 44 — AI Content Product Studio;
 - Project 49 — Cognitive Sovereignty & Adaptive Intelligence.
 
+## 21. New integrity integration
+
+The latest stochastic-system corpus adds a dedicated integrity boundary:
+
+```text
+RNG VERSION + RULESET HASH + SEED
+          ↓
+      REPLAY ENGINE
+          ↓
+ EXPECTED / OBSERVED OUTCOME
+          ↓
+ DISTRIBUTION / ANOMALY TESTS
+          ↓
+     EVIDENCE PACKET
+```
+
+Presentation, personalization and reward UI must not alter the underlying stochastic state without an explicit ruleset version transition.
+
+## 22. New physical artifact contract
+
+Manufacturing becomes a first-class state machine:
+
+`DESIGN → MATERIAL SAMPLE → PREPRESS → PROTOTYPE → QC → BLIND PLAYTEST → RELEASE BATCH`.
+
+Supplier/material specifications are hypotheses until measurements on production-intent samples confirm thickness, transmission, haze, friction, durability and registration tolerances.
+
 ## Definition of Done
 
 1. A typed deck/rules schema exists.
@@ -394,3 +420,6 @@ Project 50 extends:
 8. Generated visual assets are linked to provenance and rules metadata.
 9. AI playtesting includes independent adversarial evaluators.
 10. Human review remains the final gate for consequential product decisions.
+11. RNG/ruleset versions are replayable and independently auditable.
+12. Stochastic anomalies are investigated with replicated evidence rather than inferred from a single sample.
+13. Physical production claims are backed by batch measurements.
