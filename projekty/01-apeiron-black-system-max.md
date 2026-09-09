@@ -1,54 +1,31 @@
-# APEIRON Black System — Maximum Upgrade Specification
+# 01 — APEIRON BLACK SYSTEM — MAX
 
-**Input:** supplied `Index.html` and concept of the Apeiron card system.  
-**Target:** transform the current visual demo into a production-grade interactive application while preserving its obsidian / UV / thermochromic identity.
+## Status
+**Engineering Specification Baseline**
 
-## Current baseline
+## Scope
+Stateful symbolic card interaction engine. The project evolves the existing visual card concept into a deterministic, testable application with a strict separation between artifact data, ritual/session state, interpretation, persistence and presentation.
 
-The source already contains a React card database, cards with rest/active/UV layers, terminal-style logs, random draws, UV toggling and table clearing. fileciteturn189file1L4-L15 fileciteturn189file1L72-L89 fileciteturn189file1L141-L176
+## Engineering objective
+Provide a production-ready domain boundary in which:
 
-## Maximum upgrade
+- card data is immutable and versioned;
+- session state is explicit and cannot enter impossible states;
+- randomness is reproducible in test mode;
+- AI interpretation is advisory and has no direct authority over domain state;
+- persistence does not equate to presentation-layer clearing;
+- every consequential state change produces an auditable event;
+- accessibility and reduced-motion behavior are first-class requirements.
 
-### 1. Product architecture
-
-```text
-Apeiron UI
- ├─ Card renderer
- ├─ Draw/session state
- ├─ Interpretation engine
- ├─ Archive/history
- ├─ Accessibility layer
- └─ Visual system
-          |
-          v
- Application state machine
-          |
-   +------+------+
-   |             |
- Rules engine   Optional AI
-   |             |
-   +------+------+
-          |
-     audit/event log
-```
-
-### 2. Replace ad-hoc randomness
-
-The current draw uses `Array.sort(() => 0.5 - Math.random())`. Replace this with a Fisher–Yates shuffle backed by `crypto.getRandomValues()` where cryptographic-quality randomness is desired. Keep a seeded deterministic mode for reproducible tests.
-
-### 3. Model card state explicitly
-
-Create a typed state machine:
-
-`IDLE → DRAWING → REVEALED → INSPECTING → UV_REVEAL → ARCHIVED`
-
-No UI gesture should be able to create an impossible state.
-
-### 4. Expand the card schema
+## Domain model
 
 ```ts
+type CardId = string;
+type SessionId = string;
+type DrawId = string;
+
 type ApeironCard = {
-  id: string;
+  id: CardId;
   arcana: 'major' | 'void' | 'glitch' | 'memory' | 'system';
   archetype: string;
   title: string;
@@ -62,113 +39,227 @@ type ApeironCard = {
   riskLevel: 'low' | 'medium' | 'high';
   icon: string;
 };
+
+type SessionState =
+  | 'IDLE'
+  | 'DRAWING'
+  | 'REVEALED'
+  | 'INSPECTING'
+  | 'UV_REVEAL'
+  | 'ARCHIVED';
 ```
 
-Use stable IDs instead of positional numeric assumptions.
+### State-transition contract
 
-### 5. Add deterministic interpretation
+```text
+IDLE --start--> DRAWING
+DRAWING --draw_success--> REVEALED
+REVEALED --inspect--> INSPECTING
+INSPECTING --uv_reveal--> UV_REVEAL
+UV_REVEAL --finish--> REVEALED
+REVEALED --archive--> ARCHIVED
+ARCHIVED --new_session--> IDLE
+```
 
-The application should distinguish **symbol generation** from **interpretation**. Every draw receives a structured event:
+Invalid transitions must return typed domain errors and leave authoritative state unchanged.
+
+## Application architecture
+
+```text
+Presentation
+  ├─ CardRenderer
+  ├─ SessionControls
+  ├─ HistoryView
+  └─ AccessibilityAdapter
+          │
+Application
+  ├─ SessionService
+  ├─ DrawService
+  ├─ InterpretationService
+  └─ ArchiveService
+          │
+Domain
+  ├─ CardCatalog
+  ├─ SessionAggregate
+  ├─ DrawPolicy
+  └─ DomainEvents
+          │
+Infrastructure
+  ├─ CardRepository
+  ├─ SessionStore
+  ├─ EventStore
+  └─ TelemetrySink
+```
+
+Dependencies point inward. The domain must not depend on React, browser storage, network clients or an LLM SDK.
+
+## Deterministic randomness
+
+Production random draws may use a secure browser entropy source when the product requires unpredictable selection. Tests use a seeded PRNG and record the seed in the test fixture. The shuffle implementation must satisfy permutation and cardinality invariants.
+
+Required invariants:
+
+- no duplicated card IDs in a draw unless explicitly allowed by deck policy;
+- every returned card exists in the catalog version used by the session;
+- draw size is within configured bounds;
+- clearing the visual table never mutates archived draw history.
+
+## Canonical event model
+
+```ts
+type ApeironEvent =
+  | { type: 'SESSION_STARTED'; sessionId: SessionId; at: string }
+  | { type: 'DRAW_REQUESTED'; drawId: DrawId; count: number; at: string }
+  | { type: 'DRAW_COMPLETED'; drawId: DrawId; cards: CardId[]; at: string }
+  | { type: 'CARD_INSPECTED'; cardId: CardId; at: string }
+  | { type: 'UV_ENABLED'; cardId: CardId; at: string }
+  | { type: 'SESSION_ARCHIVED'; sessionId: SessionId; at: string }
+  | { type: 'PRESENTATION_CLEARED'; sessionId: SessionId; at: string };
+```
+
+The terminal/diagnostic UI is a projection of these events, not their authoritative source.
+
+## Persistence contract
+
+Separate stores are required for:
+
+1. **Catalog** — immutable/versioned card definitions.
+2. **Session state** — current resumable aggregate.
+3. **History** — archived immutable draw/session records.
+4. **Telemetry** — operational events and performance metrics.
+
+A UI reset may only emit `PRESENTATION_CLEARED`; it must not delete history unless an explicit archive-deletion command exists and is separately authorized.
+
+## Interpretation boundary
+
+Deterministic interpretation may operate on catalog metadata and draw structure. An optional LLM adapter receives a read-only projection:
 
 ```json
 {
   "sessionId": "...",
-  "drawId": "...",
   "cards": ["..."],
-  "mode": "single|debug|spread",
-  "uv": false,
-  "timestamp": "..."
+  "drawContext": "...",
+  "catalogVersion": "..."
 }
 ```
 
-An optional LLM layer may interpret this event, but cannot mutate the deck or authoritative session state without passing through typed actions.
+Output must validate against a versioned schema. AI output is advisory only. It cannot create authoritative entities, change card state, delete history, grant capabilities or write memory outside an explicit application command.
 
-### 6. MCP-ready capability surface
+## API / capability surface
 
-Potential read-only tools:
-
+### Read-only
 - `apeiron.list_cards`
 - `apeiron.get_card`
 - `apeiron.get_session`
 - `apeiron.get_history`
 
-Potential mutating tools:
-
+### Mutating
 - `apeiron.start_session`
 - `apeiron.draw_cards`
+- `apeiron.inspect_card`
 - `apeiron.reveal_uv`
 - `apeiron.archive_session`
+- `apeiron.clear_presentation`
 
-Mutating capabilities should remain separate from read-only retrieval.
+Mutating operations require typed authorization at the application boundary.
 
-### 7. Accessibility upgrade
+## Error model
 
-The existing interface is visually dominant. Add keyboard navigation, focus states, reduced-motion mode, semantic buttons, `aria-live` terminal output and a textual description for every card state.
+Errors are typed and observable:
 
-### 8. Observability
-
-Emit structured events instead of relying only on free-form strings:
-
-```ts
-type ApeironEvent =
-  | { type: 'BOOT'; at: string }
-  | { type: 'DRAW'; drawId: string; count: number; at: string }
-  | { type: 'UV_ENABLED'; at: string }
-  | { type: 'CARD_INSPECTED'; cardId: string; at: string }
-  | { type: 'TABLE_CLEARED'; at: string };
+```text
+CatalogNotFound
+InvalidTransition
+InvalidDrawSize
+DuplicateCard
+SessionNotFound
+PersistenceFailure
+InterpretationValidationFailure
+AuthorizationDenied
 ```
 
-Keep the terminal as a projection of the event stream.
+A failed command must be atomic from the user's perspective: no partial authoritative state transition is permitted.
 
-### 9. Persistence
+## Accessibility
 
-Persist the session separately from the UI. The source currently clears local state directly with `setDrawnCards([])` and `setIsSystemActive(false)`. fileciteturn189file1L172-L176
+Required behavior:
 
-Upgrade to a durable session model where clearing the screen does not silently imply irreversible history deletion.
+- complete keyboard navigation;
+- visible focus indicators;
+- semantic buttons and headings;
+- non-color-only state communication;
+- text equivalents for card states and UV content;
+- `aria-live` only for meaningful asynchronous status updates;
+- reduced-motion mode that removes non-essential animation;
+- sufficient contrast against the obsidian visual system;
+- touch targets meeting the application's accessibility target size policy.
 
-### 10. Visual system
+## Observability
 
-Preserve:
-- near-black obsidian surfaces;
-- restrained emerald system telemetry;
-- purple UV layer;
-- thermochromic reveal metaphor;
-- monospaced diagnostic typography.
+Track at minimum:
 
-Add a calibrated token system for spacing, elevation, glow intensity, border alpha, motion duration and responsive breakpoints.
+- draw latency;
+- command success/failure rate;
+- invalid transition count;
+- persistence failures;
+- interpretation validation failures;
+- session resume success rate;
+- client error rate;
+- performance metrics for card/UV transitions.
 
-### 11. Engineering hardening
+Every event should include correlation identifiers where relevant (`sessionId`, `drawId`, application version).
 
-- TypeScript strict mode.
-- Unit tests for deck integrity and state transitions.
-- Property-based tests for shuffle invariants.
-- Component tests for visible/UV states.
-- E2E test for draw → inspect → UV → clear.
-- Snapshot tests for deterministic seeded draws.
-- Error boundary for render failures.
-- No secrets in client source.
+## Security
 
-### 12. AI integration boundary
+- no secrets in client bundles;
+- no direct model-controlled privileged commands;
+- validate all persisted and externally supplied identifiers;
+- defend against DOM/XSS injection when rendering imported card content;
+- treat AI/tool output as untrusted input;
+- maintain an explicit separation between presentation state and archival data;
+- rate-limit remote interpretation endpoints if introduced.
 
-If an AI oracle is added, its output must use a schema such as:
+## Test strategy
 
-```json
-{
-  "reading": "string",
-  "themes": ["string"],
-  "confidence": 0.0,
-  "disclaimer": "string"
-}
-```
+### Unit
+- state transition matrix;
+- draw invariants;
+- catalog schema validation;
+- event serialization;
+- interpretation schema validation.
 
-The AI may explain a card; it cannot invent an authoritative card ID, modify the deck, or silently persist memory.
+### Property-based
+- shuffle remains a permutation;
+- repeated seeded runs produce identical results;
+- invalid transitions never mutate state.
 
-### 13. Maximum product direction
+### Component
+- dormant/active/UV rendering;
+- keyboard flow;
+- reduced-motion mode;
+- error states.
 
-APEIRON should evolve from a visual card demo into a **stateful symbolic interaction engine** with three layers:
+### E2E
+`start → draw → inspect → UV → archive → resume/read history → clear presentation`.
 
-`Artifact → Ritual → Interpretation`
+### Regression
+Every previously discovered bug becomes a versioned regression fixture.
 
-The card is the artifact, the session/draw sequence is the ritual, and deterministic + optional AI interpretation is the interpretation layer.
+## Performance budget
 
-This keeps the original artistic concept intact while giving it the architecture required for a serious web application.
+Measure rather than assume. Define budgets for initial render, interaction latency, draw completion and card-list rendering. Large catalogs must not require unnecessary rerenders of unrelated UI.
+
+## MCP integration rule
+MCP adapters, if implemented, call the same application services as the UI. They must not bypass domain validation or persistence invariants.
+
+## Definition of Done
+
+APEIRON reaches **Implementation Ready** only when the domain contracts, state machine, persistence model, error model, security boundary, accessibility behavior, test matrix and observable event model are implemented or represented by executable tests. Production release additionally requires deployment verification and evidence from real test runs.
+
+## Non-goals
+
+This project does not define a general-purpose tarot system, an autonomous agent with unrestricted authority, or an LLM-controlled persistent memory layer.
+
+## Architectural relationship
+
+APEIRON may consume shared platform capabilities from the repository's agent/runtime/security projects, but remains independently understandable as a bounded application domain. Shared infrastructure must not erase the application's explicit domain invariants.
