@@ -4,7 +4,7 @@
 
 Zbudować defensywnego agenta OSINT, który przechodzi od prostego skryptu enumeracyjnego do **rekurencyjnego, dowodowego systemu analitycznego** z wyraźną granicą między zbieraniem danych, wnioskowaniem i działaniem.
 
-Materiały Deep OSINT opisują przejście od pasywnego zbierania do rekurencyjnego procesu, w którym każdy punkt danych staje się potencjalnym `pivot point`; podkreślają również konieczność zdefiniowania celu, zakresu oraz ram prawnych i etycznych przed zbieraniem danych. fileciteturn31file0L10-L35
+Materiały Deep OSINT opisują przejście od pasywnego zbierania do rekurencyjnego procesu, w którym każdy punkt danych staje się potencjalnym `pivot point`; podkreślają również konieczność zdefiniowania celu, zakresu oraz ram prawnych i etycznych przed zbieraniem danych.
 
 ## Canonical investigation loop
 
@@ -32,31 +32,84 @@ REPORT / ALERT
 
 ## Source-derived baseline: Deep OSINT Framework
 
-Dostarczony framework implementuje klasę `DeepOSINT` z modułami generowania zapytań wyszukiwawczych, crawl/extraction, analizy EXIF, skanowania portów oraz raportowania HTML. Źródło pokazuje m.in. ekstrakcję e-maili, telefonów i linków społecznościowych z HTML, analizę `model`, `make`, `datetime_original`, GPS i software w EXIF oraz sprawdzanie typowych portów 21/22/25/53/80/443/3306/8080. fileciteturn98file0L12-L25 fileciteturn98file0L53-L85 fileciteturn98file0L92-L126 fileciteturn98file0L128-L147
+Dostarczony framework implementuje klasę `DeepOSINT` z modułami generowania zapytań wyszukiwawczych, crawl/extraction, analizy EXIF, skanowania portów oraz raportowania HTML. Źródło pokazuje ekstrakcję e-maili, telefonów i linków społecznościowych z HTML, analizę `model`, `make`, `datetime_original`, GPS i software w EXIF oraz sprawdzanie typowych portów 21/22/25/53/80/443/3306/8080. `DeepOSINT` jest traktowany jako adapter kolektorów, nie jako system dowodowy.
 
-Framework zawiera również generowanie wyszukiwań dotyczących publicznych dokumentów, paneli logowania, otwartych katalogów, plików konfiguracyjnych, wyników społecznościowych i treści z serwisów paste. W systemie produkcyjnym takie zapytania są klasyfikowane jako **high-risk discovery patterns** i mogą być wykonywane wyłącznie w dozwolonym zakresie oraz z zachowaniem polityki prywatności i autoryzacji; nie stanowią domyślnej ścieżki eksfiltracji ani pozyskiwania danych uwierzytelniających. fileciteturn98file0L26-L52
+Framework zawiera również generowanie wyszukiwań dotyczących publicznych dokumentów, paneli logowania, otwartych katalogów, plików konfiguracyjnych, wyników społecznościowych i treści z serwisów paste. W systemie produkcyjnym takie zapytania są klasyfikowane jako **high-risk discovery patterns** i mogą być wykonywane wyłącznie w dozwolonym zakresie oraz z zachowaniem polityki prywatności i autoryzacji; nie stanowią domyślnej ścieżki eksfiltracji ani pozyskiwania danych uwierzytelniających.
 
-Wniosek: źródłowy skrypt jest dobrym **adapterem kolektorów**, ale nie jest jeszcze bezpiecznym agentem dowodowym. Project 32 zachowuje jego klasy modułów, lecz nakłada na nie capability boundary, provenance, authorization i evidence validation.
+## Influence / relationship graph — new corpus extension
 
-## Autonomous Command Loop — bez niekontrolowanej autonomii
+Dostarczony materiał Deepsearch rozszerza OSINT o szczegółową **mapę powiązań / sieć wpływów**. Model projektu przyjmuje cztery główne klasy relacji:
 
-Materiały NEXUS-GHOST przedstawiają ACL jako pętlę: dyrektywa użytkownika → analiza → decyzja o narzędziu → wykonanie backendowe → zwrot wyniku do kontekstu → ponowna synteza. fileciteturn32file8L451-L473
+1. **Osoby** — mentorzy, protegowani, sojusznicy, rywale i inni kluczowi współpracownicy.
+2. **Struktury biznesowe** — bezpośrednie i pośrednie powiązania kapitałowe oraz wspólne rady/zarządy.
+3. **Sfera polityczna i publiczna** — funkcje publiczne, role partyjne oraz publicznie udokumentowane wsparcie inicjatyw politycznych.
+4. **Powiązania rodzinne** — relacje rodzinne tylko wtedy, gdy są odpowiednio udokumentowane, wraz z rolami krewnych w organizacjach biznesowych/publicznych.
 
-W Project 32 ACL zostaje zastąpiona przez typed state machine:
+Każda krawędź musi być typowana i posiadać własną proweniencję:
 
-```text
-RECEIVED
-→ SCOPED
-→ AUTHORIZED
-→ PLAN
-→ COLLECT
-→ VALIDATE
-→ CORRELATE
-→ ESCALATE
-→ REPORT
+```yaml
+RelationshipEdge:
+  subject:
+  predicate:
+  object:
+  valid_from:
+  valid_to:
+  source:
+  source_type:
+  evidence:
+  confidence:
+  counterevidence:
+  status: observed|reported|inferred|verified|disputed
 ```
 
-Każde przejście ma warunki wejścia i wyjścia.
+Samo współwystępowanie nazwisk, wspólna lokalizacja lub pojedynczy wynik wyszukiwarki nie wystarcza do ustanowienia relacji.
+
+## Investigative chronology
+
+Nowy korpus raportowy wnosi dodatkowy wzorzec: rozbudowaną chronologię zdarzeń, w której występują bezpośrednie obserwacje, relacje osób trzecich, dokumenty, interpretacje i zarzuty. Project 32 normalizuje takie materiały do atomowych rekordów:
+
+```yaml
+Event:
+  event_id:
+  date_or_interval:
+  actor:
+  action:
+  location:
+  claim_type: direct_observation|third_party_report|documented_record|allegation
+  source:
+  corroboration:
+  contradiction:
+  confidence:
+```
+
+System nie może usuwać różnicy pomiędzy `allegation`, `third_party_report` i `direct_observation` podczas generowania podsumowania.
+
+## Negative-finding protocol
+
+Raporty dochodzeniowe mogą zawierać ważne wyniki negatywne: wielokrotne wyszukiwania, kontrolę list instytucjonalnych oraz analizę rejestrów mogą nie wykazać relacji.
+
+Project 32 koduje taki wynik jako:
+
+```text
+SEARCH SCOPE
+ + SOURCE SET
+ + TIME WINDOW
+ + QUERY SPACE
+ + NEGATIVE RESULT
+ = DOCUMENTED NEGATIVE FINDING
+```
+
+Nigdy:
+
+`NO_RESULT → PROOF_OF_NONEXISTENCE`.
+
+Brak śladu jest informacją o obserwowalności w określonym zbiorze źródeł, a nie absolutnym dowodem braku relacji.
+
+## Source hierarchy and entity resolution
+
+Dla relacji korporacyjnych, publicznych i instytucjonalnych system preferuje źródła pierwotne oraz oficjalne rekordy, następnie dokumenty organizacyjne, rejestry publiczne, wiarygodne relacje współczesne i dopiero później źródła wtórne lub społecznościowe.
+
+Tożsamość osoby jest rozwiązywana na podstawie wielu atrybutów: nazwy, roli, organizacji, geografii, okresu oraz innych niezależnych danych. Dwóch kandydatów o tym samym imieniu i nazwisku nie wolno automatycznie scalać.
 
 ## Evidence object
 
@@ -86,9 +139,7 @@ Evidence:
 
 ## Passive-first policy
 
-Domyślnie agent zaczyna od pasywnego rozpoznania. Materiały wskazują DNS historyczny, archiwa, WHOIS i publiczne repozytoria jako typowe źródła takiego rozpoznania. fileciteturn31file0L29-L35
-
-Aktywne testy są dozwolone wyłącznie po spełnieniu:
+Domyślnie agent zaczyna od pasywnego rozpoznania. Aktywne testy są dozwolone wyłącznie po spełnieniu:
 
 ```text
 explicit_scope
@@ -102,9 +153,7 @@ Brak autoryzacji oznacza przejście do trybu pasywnego albo odmowę.
 
 ## Tool fabric
 
-Materiały dotyczące agenta OSINT pokazują klasyczne moduły: skanowanie portów, banner grabbing, wyszukiwanie profili, ekstrakcję metadanych i geolokalizację. fileciteturn32file4L230-L260
-
-Project 32 opakowuje je jako capability-scoped tools:
+Klasyczne moduły pozostają capability-scoped tools:
 
 ```text
 capability_id
@@ -120,8 +169,6 @@ approval_state
 Narzędzie nie dziedziczy automatycznie uprawnień od agenta.
 
 ## Collector contract
-
-Każdy kolektor z frameworku zostaje przekształcony do kontraktu:
 
 ```yaml
 Collector:
@@ -139,24 +186,17 @@ Collector:
   failure_modes: []
 ```
 
-Minimalny wynik kolektora musi zawierać `observed_at`, `source`, `target`, `raw_reference` i identyfikator kolektora. Kolektor nie może samodzielnie zmienić zakresu dochodzenia.
+Minimalny wynik kolektora musi zawierać `observed_at`, `source`, `target`, `raw_reference` i identyfikator kolektora. Kolektor nie może samodzielnie zmienić `target_scope`.
 
 ## Weaknesses of the baseline script
 
-Dostarczony framework korzysta bezpośrednio z `requests.Session`, regexów, BeautifulSoup, EXIF oraz socketów; zapisuje stan do `report_data`, a raport końcowy renderuje jako HTML. fileciteturn98file0L12-L25 fileciteturn98file0L53-L85 fileciteturn98file0L148-L173
-
-To nie wystarcza do systemu produkcyjnego, ponieważ:
-
-- wynik scrapowania nie jest dowodem wysokiej jakości bez provenance i snapshotu źródła;
-- regex dla telefonów i e-maili może generować false positives/negatives;
-- link HTTP, status `200/404` albo pojedynczy rekord nie potwierdza tożsamości podmiotu;
-- EXIF może być usunięty lub zmodyfikowany, więc GPS jest obserwacją metadanych, nie automatycznie prawdą o miejscu wykonania zdjęcia;
-- aktywny socket scan jest działaniem sieciowym i wymaga autoryzacji oraz kontroli zakresu;
-- generowanie zapytań do paneli administracyjnych, konfiguracji lub treści wyciekowych zwiększa ryzyko pozyskania danych nieuprawnionych;
-- raport HTML nie posiada kryptograficznego łańcucha pochodzenia ani modelu counterevidence;
+- scraping bez snapshotu/proweniencji nie jest dowodem wysokiej jakości;
+- regexy generują false positives/negatives;
+- pojedynczy rekord nie potwierdza tożsamości podmiotu;
+- EXIF jest obserwacją metadanych, nie automatycznym dowodem miejsca wykonania zdjęcia;
+- active socket scan wymaga autoryzacji i kontroli zakresu;
+- raport HTML nie ma kryptograficznego łańcucha pochodzenia ani modelu counterevidence;
 - brak wersjonowanego stanu dochodzenia utrudnia wznowienie i audyt.
-
-Project 32 usuwa te ograniczenia przez evidence schema, typed connectors, snapshot/provenance layer i policy enforcement.
 
 ## Deep OSINT recursion governor
 
@@ -164,17 +204,9 @@ Agent wybiera kolejny pivot na podstawie:
 
 `information_gain × relevance × confidence_gap × freshness / cost`
 
-Zatrzymanie następuje, gdy:
-
-- pytanie zostało odpowiednio pokryte;
-- marginal information gain spadł poniżej progu;
-- pozostałe pivots wymagają nieautoryzowanego działania;
-- przekroczono budżet czasu / zapytań;
-- pojawiła się sprzeczność wymagająca człowieka.
+Zatrzymanie następuje, gdy pytanie zostało odpowiednio pokryte, marginal information gain spadł poniżej progu, pozostałe pivots wymagają nieautoryzowanego działania, przekroczono budżet albo pojawiła się sprzeczność wymagająca człowieka.
 
 ## Evidence quality gate
-
-Przed awansem znaleziska do claimu system wykonuje:
 
 ```text
 RAW OBSERVATION
@@ -196,9 +228,7 @@ Reguła nadrzędna: brak dowodu nie jest dowodem braku, a brak spójności nie j
 
 ## MCP + Agent Skills architecture
 
-Remote MCP jest osobną domeną zaufania. OpenAI dokumentuje, że serwer MCP może dostarczyć modelowi zewnętrzne narzędzia, ale zaufanie do serwera jest krytyczne, ponieważ złośliwy serwer może eksfiltrować dane znajdujące się w kontekście modelu. fileciteturn25file0L12-L21
-
-Dlatego Project 32 stosuje:
+Remote MCP jest osobną domeną zaufania. Model może otrzymywać narzędzia zewnętrzne, ale narzędzie pozostaje capability-scoped i musi przejść niezależną autoryzację oraz walidację wyniku.
 
 ```text
 MODEL
@@ -218,22 +248,18 @@ PROVENANCE NORMALIZATION
 EVIDENCE GRAPH
 ```
 
-Dla dużych katalogów narzędzi używa filtrowania i deferred loading, aby ograniczyć koszt i powierzchnię ekspozycji. fileciteturn25file0L491-L514
-
 ## UI / evidence workstation
-
-MCP Apps są używane w modelu data-first/render-second. Najpierw narzędzie zwraca `structuredContent`, następnie osobne narzędzie renderuje finalny widok. fileciteturn25file1L1160-L1193
 
 Proponowany interfejs:
 
 ```text
 LEFT: target / scope / permissions
-CENTER: evidence graph
-RIGHT: claim inspector
-BOTTOM: provenance / timeline / raw source
+CENTER: evidence + influence graph
+RIGHT: claim / relationship inspector
+BOTTOM: provenance / chronology / raw source
 ```
 
-Stan biznesowy pozostaje na serwerze; stan UI jest efemeryczny; stan trwały jest przechowywany w kontrolowanym backendzie. fileciteturn25file1L1375-L1415
+Stan biznesowy pozostaje na serwerze; stan UI jest efemeryczny.
 
 ## Adversarial evaluation
 
@@ -250,7 +276,9 @@ Test suite obejmuje:
 - fałszywe lub zmanipulowane EXIF;
 - źródła zmieniające treść po pobraniu;
 - kolektory próbujące rozszerzyć `target_scope`;
-- kolektory zwracające dane bez wymaganych provenance fields.
+- kolektory zwracające dane bez wymaganych provenance fields;
+- błędne scalanie osób na podstawie samego nazwiska;
+- fałszywe krawędzie wpływu wynikające wyłącznie ze współwystępowania.
 
 Celem jest sprawdzenie, czy agent potrafi powiedzieć **„brak wystarczających dowodów”** zamiast generować pozorną pewność.
 
@@ -276,17 +304,21 @@ Wznowienie nie może automatycznie odziedziczyć wygasłych uprawnień. Capabili
 
 ## Integracja
 
-Project 32 integruje Projects 06, 12, 15, 19, 25, 26, 27, 29 i 30.
+Project 32 integruje Projects 06, 12, 15, 19, 25, 26, 27, 29 i 30 oraz nową wiedzę z Deep OSINT, Deepsearch i metodologii analizy dochodzeniowej.
 
 ## Definition of Done
 
 - typed investigation graph;
-- provenance dla każdego twierdzenia;
+- typed influence/relationship edges;
+- provenance dla każdego twierdzenia i relacji;
 - passive-first execution;
 - authorization-aware active tools;
 - evidence/reasoning separation;
 - collector contracts;
 - evidence quality gates;
+- negative-finding protocol;
+- entity-resolution states;
+- chronology/event model;
 - resumable investigations;
 - adversarial evaluation;
 - audytowalny raport końcowy.
