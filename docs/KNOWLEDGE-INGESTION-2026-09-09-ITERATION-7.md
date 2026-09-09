@@ -31,25 +31,39 @@ The two OmniCore/GCP configuration PDFs were consolidated into one infrastructur
 - `docs/knowledge-base/omniscience-interdisciplinary-research-and-verification-protocol-2026-09-09.md`
 - `docs/knowledge-base/omnicore-gcp-forge-nested-virtualization-and-agent-factory-2026-09-09.md`
 
-## Portfolio mapping
+## Portfolio mapping — corrected after Project Genesis pass
 
-- OMEGA B2B → existing business/strategy, agent-swarm, sovereign/local AI and Project 72 assurance lineages.
-- iCar → device-state/vehicle diagnostics integration opportunity; no numbered project created.
-- Synthetic identity/content → multimodal generation, AI Content, creator-economy and provenance lineages.
-- OSINT automation → Project 32, OSINT/evidence graph and cognitive-security lineages.
-- Chronos UE5 → existing game/phygital/symbolic-interface and evidence-driven narrative lineages.
-- Chronos graphic adaptation → Project 32 evidence methodology plus creative/narrative systems.
-- A1 PDF Editor → professional artifact/document workflow lineage.
-- Omniscience → scientific verification and epistemic-control lineage.
-- OmniCore GCP Forge → OmniCore, AI Foundry, MCP, SemanticFS/PUI and Project 72 runtime-assurance lineage.
+- OMEGA B2B → strengthens Projects 34/45/56/66/67/72 and defensive influence-security Projects 36/43/54/58/72.
+- iCar → strengthens device/edge/multimodal/assurance infrastructure and creates **Project 74 — iCar Agentic Vehicle Diagnostics & Evidence Fabric MAX**.
+- Synthetic identity/content → strengthens Projects 07/22/42/44/46/57; no separate project identity required.
+- OSINT automation → strengthens Projects 30/32/41/48/54/58/72; no separate project identity required.
+- Chronos UE5 → strengthens Projects 40/50/52/57/58/71/72 and becomes implementation lineage for Project 73.
+- Człowiek Roku graphic/game material → strengthens Projects 32/50/52/54/57/58/71/72 and creates **Project 73 — “Człowiek Roku” Evidence-Driven Narrative Noir Game MAX**.
+- A1 PDF Editor → strengthens professional artifact/document workflows; no separate project identity required.
+- Omniscience → strengthens Projects 15/19/38/48/54/58/72; no separate project identity required.
+- OmniCore GCP Forge → strengthens Projects 21/28/31/39/40/61/65/68/72; no separate project identity required.
 
-No new numbered project was justified by this corpus. The material primarily strengthens existing reusable capabilities.
+## Project Genesis outcome
+
+The first ingestion pass was incomplete because it stopped at knowledge consolidation. A second project-impact/genesis pass was therefore executed.
+
+**New projects created:**
+
+- `projekty/73-czlowiek-roku-evidence-driven-noir-game-max.md`
+- `projekty/74-icar-agentic-vehicle-diagnostics-and-evidence-fabric-max.md`
+
+Supporting governance artifacts:
+
+- `docs/PROJECT-GENESIS-2026-09-09-ITERATION-7.md`
+- `docs/PROJECT-EVOLUTION-2026-09-09-ITERATION-7.md`
+
+The canonical portfolio registry was updated to include Projects 73 and 74.
 
 ## Safety and epistemic controls
 
-The OMEGA and OSINT documents contain instructions for coercive manipulation, covert profiling, unauthorized reconnaissance, exploitation and security-control bypass. Those portions are retained only as defensive threat-model context. They are not converted into operational capabilities, attack playbooks or targeting workflows.
+The OMEGA and OSINT documents contain instructions for coercive manipulation, covert profiling, unauthorized reconnaissance, exploitation and security-control bypass. Those portions are retained only as defensive threat-model context. They are not converted into operational attack capabilities, playbooks or targeting workflows.
 
-Synthetic-persona material is separated from deceptive impersonation and covert relationship manipulation. Real-person and institutional claims in the Chronos production material remain attributed, provenance-bound and unverified unless independently established.
+Synthetic-persona material is separated from deceptive impersonation and covert relationship manipulation. Real-person and institutional claims in the Chronos/Człowiek Roku production material remain attributed, provenance-bound and unverified unless independently established.
 
 Technical claims from the GCP, iCar, AI-platform and creator-economy documents remain source-derived until verified against current documentation and real deployments. Generated low-level code remains untrusted until independently compiled and tested.
 
@@ -73,6 +87,18 @@ INTENT
 
 This extends the repository's existing Knowledge → Model → Decision → Implementation → Verification → Evidence → Evolution lifecycle.
 
+## Completion rule
+
+A future ingestion iteration is not complete when files are merely summarized. Completion requires:
+
+1. knowledge extraction;
+2. existing-project impact analysis;
+3. concrete evolution opportunities;
+4. duplicate/lineage check;
+5. project genesis for genuinely new capabilities;
+6. registry update;
+7. verification of all writes.
+
 ## Verification posture
 
-Nine knowledge artifacts plus this ingestion record were committed through GitHub contents operations. No force push was used. No new offensive-security capability was added. Duplicate source lineages were consolidated rather than copied.
+The Iteration 7 corpus now has nine durable knowledge artifacts, two new numbered project artifacts, a Project Genesis decision record, a Project Evolution record and an updated portfolio registry. No force push was used. No new offensive-security capability was added. Duplicate source lineages were consolidated rather than copied.
