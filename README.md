@@ -29,6 +29,9 @@ Source-grounded and research-derived knowledge covering:
 - classification, causal-text analytics, visualization integrity and AI opportunity discovery;
 - Bayesian inference, decision trees, ensemble learning, predictive BI and decision-support architecture;
 - professional artifact generation and evidence-backed document workflows;
+- Omnis language architecture, hybrid memory/type systems, UGR and CIRA;
+- OmniCore learned-kernel, SemanticFS, AI Foundry, WASM/DBT, immutable OS and MeshBus patterns;
+- Digital Human / Personified UI, Edge AI, multimodal interaction and cognitive-sovereignty boundaries;
 - the supplied project-owner PDF corpus.
 
 ### `projekty/`
@@ -84,7 +87,7 @@ Core invariants include:
 
 ## Latest corpus integrations
 
-The September 2026 supplied corpus has been absorbed into:
+The September 2026 supplied corpus has been absorbed into the knowledge base and portfolio, including:
 
 - `docs/knowledge-base/systems-engineering-data-intelligence-ml-foundations-2026-09-09.md`
 - `docs/knowledge-base/machine-learning-statistics-optimization-text-governance-2026-09-09.md`
@@ -92,14 +95,16 @@ The September 2026 supplied corpus has been absorbed into:
 - `docs/knowledge-base/classification-causal-text-analytics-communication-commercialization-2026-09-09.md`
 - `docs/knowledge-base/bayesian-decision-trees-bi-dashboards-and-outcome-economics-2026-09-09.md`
 - `docs/knowledge-base/professional-artifact-and-evidence-compiler.md`
-- `projekty/59-omnicore-telephony-esim-capability-broker-fabric-max.md`
-- `projekty/60-omnicore-systems-engineering-and-intelligence-foundry-max.md`
-- `projekty/61-omnicore-probabilistic-learning-and-optimization-foundry-max.md`
-- `projekty/62-omnicore-data-causal-and-distributed-intelligence-fabric-max.md`
-- `projekty/63-omnicore-decision-intelligence-causal-classification-and-communication-fabric-max.md`
-- `projekty/64-omnicore-bayesian-predictive-bi-decision-fabric-max.md`
+- `docs/knowledge-base/omnis-hybrid-language-and-cira.md`
+- `docs/knowledge-base/omnicore-ai-native-os-learned-kernel-semanticfs.md`
+- `docs/knowledge-base/digital-human-pui-edge-interface.md`
+- `docs/knowledge-base/omnicore-architecture-convergence-2026-09-09.md`
 
-Project 59 provides the governed telecom/eSIM capability plane. Project 60 consolidates systems analysis, data architecture, data mining, ML foundations, mathematical representation, AI-assisted systems engineering and evidence-backed artifact generation. Project 61 extends this into probabilistic learning, statistical evaluation, optimization and text intelligence. Project 62 adds the data-platform, distributed-compute, causal-inference, visualization and evidence-preserving communication plane. Project 63 adds governed decision intelligence spanning classification, clustering, causal-text evidence, visualization, communication and opportunity discovery. Project 64 adds Bayesian predictive reasoning, decision trees/CART, ensemble diagnostics, regression regularization, BI/OLAP integration, visualization QA and explicit model-to-decision boundaries.
+The latest synthesis also adds Project 61 as a convergence layer linking Omnis, CIRA, the learned-kernel research, SemanticFS, AI Foundry, WASM/DBT, immutable release, MeshBus and the Personified UI/Edge interaction stack.
+
+## Portfolio lineage
+
+Project identity is tracked independently of filename duplication. Historical duplicates are preserved rather than silently overwritten, and integration projects are explicitly marked as convergence layers rather than replacements for their source projects.
 
 ## Flagship implementation
 
