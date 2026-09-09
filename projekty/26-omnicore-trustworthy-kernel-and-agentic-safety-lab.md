@@ -337,15 +337,30 @@ AUTHORITATIVE READBACK
 - counterevidence discovery rate;
 - time-to-remediation.
 
-## Definition of Done
+## 15. Continuous Attack-Trajectory Defense
 
-1. Policy surfaces are explicitly modeled.
-2. Security regression tests are versioned.
-3. Untrusted content cannot grant capabilities.
-4. AI remains outside the highest-trust authorization path.
-5. Durable memory writes are typed and auditable.
-6. Generated artifacts require verification before promotion.
-7. All-source fusion produces provenance-rich defensive findings.
-8. Active security testing is authorization- and scope-bound.
-9. Consequential remediation requires explicit policy/human gates.
-10. Every release has measurable security and recovery evidence.
+Extend the project from single-input security to temporal graph analysis:
+
+```text
+INPUT → MEMORY → TOOL → ACTION → STATE CHANGE
+   ↖          ↘       ↗        ↘
+      TRAJECTORY / DEPENDENCY GRAPH
+```
+
+The detector tracks semantic drift, repeated policy probing, capability escalation, memory poisoning, multimodal conflicts and action/claim mismatch across the full interaction trajectory. This is the defensive counterpart of Chain-of-Attack research.
+
+## 16. Endpoint Trust-Boundary Evaluation
+
+Mobile security controls become laboratory scenarios for boundary testing:
+
+`CODE SIGNING → SANDBOX → PERMISSION → IPC → NETWORK → PERSISTENCE → REVOCATION`.
+
+The goal is measurement of containment and recovery, not reproduction of surveillance malware.
+
+## 17. Definition of Done additions
+
+10. Attack trajectories are represented as versioned temporal graphs.
+11. Memory, tool and state transitions are inspected jointly.
+12. Multilingual and encoded transformations are regression-tested.
+13. Endpoint-style trust boundaries have simulated containment tests.
+14. Security recovery works even when the model is uncooperative.
