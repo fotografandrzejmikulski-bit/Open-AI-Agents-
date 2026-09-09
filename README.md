@@ -25,6 +25,7 @@ Source-grounded and research-derived knowledge covering:
 - machine-learning and mathematical foundations;
 - optimization, probability, statistical validation and text mining;
 - data governance and privacy-aware analytical design;
+- causal inference, distributed analytics, data visualization and decision-story compilation;
 - professional artifact generation and evidence-backed document workflows;
 - the supplied project-owner PDF corpus.
 
@@ -85,12 +86,14 @@ The September 2026 supplied corpus has been absorbed into:
 
 - `docs/knowledge-base/systems-engineering-data-intelligence-ml-foundations-2026-09-09.md`
 - `docs/knowledge-base/machine-learning-statistics-optimization-text-governance-2026-09-09.md`
+- `docs/knowledge-base/data-platform-causal-analytics-distributed-compute-2026-09-09.md`
 - `docs/knowledge-base/professional-artifact-and-evidence-compiler.md`
 - `projekty/59-omnicore-telephony-esim-capability-broker-fabric-max.md`
 - `projekty/60-omnicore-systems-engineering-and-intelligence-foundry-max.md`
 - `projekty/61-omnicore-probabilistic-learning-and-optimization-foundry-max.md`
+- `projekty/62-omnicore-data-causal-and-distributed-intelligence-fabric-max.md`
 
-Project 59 provides the governed telecom/eSIM capability plane. Project 60 consolidates systems analysis, data architecture, data mining, ML foundations, mathematical representation, AI-assisted systems engineering and evidence-backed artifact generation. Project 61 extends this into a probabilistic learning, statistical evaluation, optimization and text-intelligence foundry with explicit uncertainty and governance boundaries.
+Project 59 provides the governed telecom/eSIM capability plane. Project 60 consolidates systems analysis, data architecture, data mining, ML foundations, mathematical representation, AI-assisted systems engineering and evidence-backed artifact generation. Project 61 extends this into probabilistic learning, statistical evaluation, optimization and text intelligence. Project 62 adds the data-platform, distributed-compute, causal-inference, visualization and evidence-preserving communication plane.
 
 ## Flagship implementation
 
