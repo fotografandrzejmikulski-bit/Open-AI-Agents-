@@ -1,0 +1,153 @@
+version: 1
+registry_type: canonical_portfolio_snapshot
+as_of: 2026-09-09
+repository: mojealterego/Knowledge-projects
+branch: main
+identity_rule: project-47-lineage-first
+status_legend:
+  OBSERVED: "Present in repository and structurally observed."
+  SOURCE_DERIVED: "Derived from repository knowledge/project documentation."
+  INFERRED: "Engineering conclusion derived from observed evidence."
+  PROPOSED: "Candidate requiring validation before canonical promotion."
+  UNKNOWN: "Not established by available repository evidence."
+
+canonical_project_families:
+  - id: 37
+    title: CogniSync Professional / Sovereign Edge AI family
+    canonical_artifact: projekty/37-sovereign-edge-ai-runtime-and-zero-cost-delivery-fabric-max.md
+    note: "Project identity requires lineage resolution because multiple historical 37/38-era artifacts coexist."
+  - id: 39
+    title: OmniCore Alibaba Cloud Agent Runtime & Cloud Fabric MAX
+    canonical_artifact: projekty/39-omnicore-alibaba-cloud-agent-runtime-and-cloud-fabric-max.md
+  - id: 40
+    title: OmniCore Agentic Development & Visual Intelligence Fabric MAX
+    canonical_artifact: projekty/40-omnicore-agentic-development-and-visual-intelligence-fabric-max.md
+  - id: 41
+    title: OmniCore Repository Intelligence & Multimodal Action Fabric MAX
+    canonical_artifact: projekty/41-omnicore-repository-intelligence-and-multimodal-action-fabric-max.md
+  - id: 42
+    title: Open Creator Layer MAX
+    canonical_artifact: projekty/42-open-creator-layer-engine-on-engine-max.md
+  - id: 43
+    title: Influence Literacy & Human Agency Lab MAX
+    canonical_artifact: projekty/43-influence-literacy-and-human-agency-lab-max.md
+  - id: 44
+    title: AI Content Product Studio MAX
+    canonical_artifact: projekty/44-ai-content-product-studio-max.md
+  - id: 45
+    title: OmniCore Agentic Content & Commerce Factory MAX
+    canonical_artifact: projekty/45-omnicore-agentic-content-commerce-factory-max.md
+  - id: 46
+    title: CogniSync Open Creator Influence & Content Nexus MAX
+    canonical_artifact: projekty/46-cognisync-open-creator-influence-content-nexus-max.md
+  - id: 47
+    title: OmniCore Portfolio Integrity & Project Registry MAX
+    canonical_artifact: projekty/47-omnicore-portfolio-integrity-and-project-registry-max.md
+  - id: 48
+    title: OmniCore Grand Challenge & All-Source Intelligence Foundry MAX
+    canonical_artifact: projekty/48-omnicore-grand-challenge-all-source-intelligence-foundry-max.md
+  - id: 49
+    title: OmniCore Cognitive Sovereignty & Adaptive Intelligence Fabric MAX
+    canonical_artifact: projekty/49-omnicore-cognitive-sovereignty-and-adaptive-intelligence-fabric-max.md
+  - id: 50
+    title: OmniCore Physical Game & Phygital Experience Foundry MAX
+    canonical_artifact: projekty/50-omnicore-physical-game-and-phygital-experience-foundry-max.md
+  - id: 51
+    title: OmniCore Signal, Game Probability & Cognitive Safety Lab MAX
+    canonical_artifact: projekty/51-omnicore-signal-game-probability-and-cognitive-safety-lab-max.md
+  - id: 52
+    title: OmniCore Adaptive Game Designer & Procedural Playtest Foundry MAX
+    canonical_artifact: projekty/52-omnicore-adaptive-game-designer-and-procedural-playtest-foundry-max.md
+  - id: 53
+    title: OmniCore Symbolic Interface & Artifact Compiler MAX
+    canonical_artifact: projekty/53-omnicore-symbolic-interface-and-artifact-compiler-max.md
+  - id: 54
+    title: OmniCore Epistemic Signal & Adversarial Control Fabric MAX
+    canonical_artifact: projekty/54-omnicore-epistemic-signal-and-adversarial-control-fabric-max.md
+  - id: 55
+    title: OmniCore Reproducible Stochastic Integrity & Probability Lab MAX
+    canonical_artifact: projekty/55-omnicore-reproducible-stochastic-integrity-and-probability-lab-max.md
+  - id: 56
+    title: OmniCore AI Commercialization & Outcome Engine MAX
+    canonical_artifact: projekty/56-omnicore-ai-commercialization-and-outcome-engine-max.md
+  - id: 57
+    title: OmniCore Multimodal Intelligence & Cognitive Interface Fabric MAX
+    canonical_artifact: projekty/57-omnicore-multimodal-intelligence-and-cognitive-interface-fabric-max.md
+  - id: 58
+    title: OmniCore Monitorability-Aware Oversight & Verification Fabric MAX
+    canonical_artifact: projekty/58-omnicore-monitorability-aware-oversight-and-verification-fabric-max.md
+  - id: 59
+    title: OmniCore Autonomous Execution & AI-Native Control Fabric MAX
+    canonical_artifact: projekty/59-omnicore-autonomous-execution-and-ai-native-control-fabric-max.md
+  - id: 60
+    title: OmniCore Systems Engineering & Intelligence Foundry / Adversarial Multimodal AI Security & Resilience family
+    artifacts:
+      - projekty/60-omnicore-systems-engineering-and-intelligence-foundry-max.md
+      - projekty/60-omnicore-adversarial-multimodal-ai-security-and-resilience-fabric-max.md
+    status: OBSERVED
+    note: "ID collision; requires Project 47 reconciliation before canonical numbering."
+  - id: 61
+    title: OmniCore Probabilistic Learning & Optimization / Omnis-Learned-Kernel-PUI convergence family
+    artifacts:
+      - projekty/61-omnicore-probabilistic-learning-and-optimization-foundry-max.md
+      - projekty/61-omnicore-convergence-fabric-omnis-learned-kernel-pui-max.md
+    status: OBSERVED
+    note: "ID collision; requires Project 47 reconciliation before canonical numbering."
+  - id: 62
+    title: OmniCore Data, Causal & Distributed Intelligence Fabric MAX
+    canonical_artifact: projekty/62-omnicore-data-causal-and-distributed-intelligence-fabric-max.md
+  - id: 65
+    title: OmniCore Autonomous Systems Convergence & Agentic OS Factory MAX
+    canonical_artifact: projekty/65-omnicore-autonomous-systems-convergence-and-agentic-os-factory-max.md
+  - id: 66
+    title: OmniCore Adaptive Business Model, Strategy & Circular Value Foundry MAX
+    canonical_artifact: projekty/66-omnicore-adaptive-business-model-and-strategy-intelligence-fabric-max.md
+  - id: 67
+    title: OmniCore Strategy / Business-Model Innovation & Experimentation family
+    artifacts:
+      - projekty/67-omnicore-strategy-model-innovation-and-experimentation-engine-max.md
+      - projekty/67-omnicore-adaptive-strategy-business-model-experimentation-fabric-max.md
+    status: OBSERVED
+    note: "ID collision; preserve both until semantic/lineage reconciliation."
+  - id: 68
+    title: OmniCore Constitutional Genesis & Unified Runtime Fabric MAX
+    canonical_artifact: projekty/68-omnicore-constitutional-genesis-and-unified-runtime-fabric-max.md
+  - id: 69
+    title: OmniCore Adversarial Continuity & Mobile AI Defense Fabric MAX
+    canonical_artifact: projekty/69-omnicore-adversarial-continuity-and-mobile-ai-defense-fabric-max.md
+  - id: 70
+    title: OmniCore Stochastic Game Integrity & Auditable RNG Fabric MAX
+    canonical_artifact: projekty/70-omnicore-stochastic-game-integrity-and-auditable-rng-fabric-max.md
+  - id: 71
+    title: OmniCore Physical Artifact Manufacturing & Symbolic Interface Factory MAX
+    canonical_artifact: projekty/71-omnicore-physical-artifact-manufacturing-and-symbolic-interface-factory-max.md
+
+legacy_and_historical:
+  preserve_by_lineage: true
+  do_not_delete_collisions: true
+  canonicalization_authority: Project 47
+
+candidate_next_project:
+  provisional_id: 72
+  title: Cross-Framework Agent Assurance & Runtime Verification Fabric
+  status: PROPOSED
+  rationale:
+    - "Bridges runtime controls, monitorability, adversarial continuity and independent verification already distributed across Projects 58, 60, 68 and 69."
+    - "Targets operationalization rather than another domain-specific convergence specification."
+    - "Candidate scope includes cross-framework trace normalization, policy checkpoint instrumentation, capability verification, trajectory replay, eval/production drift, state consistency and independent postcondition verification."
+  non_duplication_constraint:
+    - 47
+    - 58
+    - 60
+    - 68
+    - 69
+  promotion_gate:
+    - "Compare against existing portfolio capabilities."
+    - "Define concrete implementation boundary and ownership."
+    - "Specify interfaces, threat model, test strategy and measurable value."
+    - "Validate external demand/current ecosystem need before canonical promotion."
+
+next_iteration:
+  required_inputs:
+    - "Additional user-supplied knowledge, links, repositories and documents"
+  processing_contract: "knowledge -> affected projects -> implementation opportunity -> new project candidate -> verification requirement"
