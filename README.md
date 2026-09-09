@@ -1,4 +1,4 @@
-# Open-AI-Agents-
+# Knoledge & projects
 
 Reference repository for the project's **agent engineering knowledge base and project portfolio**.
 
