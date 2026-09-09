@@ -21,6 +21,9 @@ Source-grounded and research-derived knowledge covering:
 - multimodal systems and adaptive reasoning;
 - local/edge AI and sovereign execution;
 - cognitive and influence security;
+- systems engineering, databases, data warehouses and data mining;
+- machine-learning and mathematical foundations;
+- professional artifact generation and evidence-backed document workflows;
 - the supplied project-owner PDF corpus.
 
 ### `projekty/`
@@ -73,6 +76,17 @@ Core invariants include:
 - consequential actions require an explicit policy path;
 - security analysis is stateful across the interaction trajectory;
 - human agency is preserved as a system property.
+
+## Latest corpus integrations
+
+The September 2026 supplied corpus has been absorbed into:
+
+- `docs/knowledge-base/systems-engineering-data-intelligence-ml-foundations-2026-09-09.md`
+- `docs/knowledge-base/professional-artifact-and-evidence-compiler.md`
+- `projekty/59-omnicore-telephony-esim-capability-broker-fabric-max.md`
+- `projekty/60-omnicore-systems-engineering-and-intelligence-foundry-max.md`
+
+Project 59 provides the governed telecom/eSIM capability plane. Project 60 consolidates systems analysis, data architecture, data mining, ML foundations, mathematical representation, AI-assisted systems engineering and evidence-backed artifact generation.
 
 ## Flagship implementation
 
