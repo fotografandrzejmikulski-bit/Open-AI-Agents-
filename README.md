@@ -1,42 +1,46 @@
 # Knowledge & Projects — Omni-Architect Repository
 
-## [2026-09-09 / Iteration 2] — New corpus integration and cross-project evolution
+## [2026-09-09 / Iteration 3] — OSINT network intelligence, TND hypotheses and scientific verification
 
 ### Integrated source-derived knowledge
 
 This iteration incorporated the newly supplied corpus covering:
 
-- Polish enterprise strategy formation, communication, formalization and review;
-- AI business strategy, applications, prediction simulations, project organization and capability/limitations awareness;
-- construction of small-business AI assistants using hierarchical system prompts, knowledge bases, testing, integrations and MCP;
-- local-first / sovereign AI architecture using reproducible development environments, local inference, edge inference, orchestration and cloud fallback;
-- dated Claude/Gemini capability comparison as a model-routing heuristic;
-- representation-level LLM safety and defensive implications of refusal-related low-dimensional behavior;
-- 4D tesseract rotation, projection, hidden-state observability and reduced-order dynamical interpretation;
-- real-world outdoor advertising inventory in Cieszyn/Goleszów;
-- multipanel storyboard and visual narrative artifact structure.
+- Deep OSINT collector architecture: search-query generation, web crawling, contact extraction, EXIF analysis, network reconnaissance and report generation;
+- Deepsearch-style influence mapping across people, business structures, political/public functions and family relationships;
+- investigative evidence methodology including negative findings, chronology, source hierarchy, corroboration and counterevidence;
+- Topological Dynamics of Numbers (TND) / Codex Omega as a speculative mathematical framework involving latent number states, information geometry, Collatz dynamics, prime-knot analogies, resonance cryptography and extensions into biology/consciousness;
+- cross-domain scientific validation patterns for magnetohydrodynamic plasma stability, molecular dynamics/free-energy modeling and high-dimensional non-convex optimization.
 
-### Knowledge artifacts created / evolved
+### Knowledge artifacts created
 
-- `docs/knowledge-base/llm-behavioral-safety-and-representation-level-defense.md`
-- `docs/knowledge-base/four-dimensional-projection-tesseract-dynamics.md`
-- `docs/knowledge-base/visual-commercial-communication-and-storyboard-artifacts.md`
-- `docs/knowledge-base/agentic-influence-routing-sovereign-edge-2026-09-07.md` — expanded with the new assistant, Berkeley AI-business and sovereign-edge material.
-- `docs/knowledge-base/adaptive-business-model-strategy-innovation-governance-2026-09-09-v2.md` remains the strategic knowledge authority and now receives the Grant Thornton evidence through Project 67.
+- `docs/knowledge-base/osint-network-influence-and-investigative-evidence-2026-09-09.md`
+- `docs/knowledge-base/tnd-speculative-mathematical-framework-and-validation-boundary.md`
+- `docs/knowledge-base/cross-domain-scientific-verification-mhd-biophysics-optimization-2026-09-09.md`
 
 ### Projects evolved
 
-- **Project 67 — OmniCore Adaptive Strategy & Business Model Experimentation Fabric MAX**: added a strategy-maturity model separating strategy existence, formalization, communication and execution/feedback; integrated source-derived Polish enterprise evidence and review triggers.
-- **Projects 17/21/24/31/35/36**: their existing multi-model, assistant, MCP and sovereign-edge lineage was strengthened through the expanded knowledge synthesis.
-- **Projects 26/49/54/60/72**: representation-level LLM safety is now explicitly connected to capability isolation and runtime authorization.
-- **Projects 40/41/53/57/72**: 4D projection is captured as a reusable hidden-state/observation-model pattern.
-- **Projects 45/46/56**: visual commercial artifacts and storyboard continuity are now represented as governed artifact capabilities.
+- **Project 32 — Deep OSINT Agent & Zero-Trust Evidence Engine MAX**: expanded with typed influence/relationship graphs, chronology/event records, negative-finding protocol, entity-resolution states, source hierarchy and counterevidence handling.
+- Existing evidence/OSINT, multimodal, scientific-verification and epistemic-control projects now have an explicit linkage to the new artifacts.
 
-No additional numbered project was created in this iteration where existing portfolio projects already covered the relevant capability. The new 4D and visual artifacts are knowledge/architecture extensions, not arbitrary project-number inflation.
+### Epistemic controls
+
+The TND/Codex Omega corpus is stored explicitly as `SOURCE_DERIVED → SPECULATIVE_HYPOTHESIS → NOT_VERIFIED`. Its internal definitions are preserved for research, while claims such as constant-time cryptographic factorization, biological anti-phase pathogen destruction, trauma removal or consciousness transfer are not treated as established scientific results.
+
+The investigative material is treated as methodology and source evidence. Allegations, third-party reports and inferred relationships are never silently converted into verified facts.
+
+### Architecture changes
+
+- OSINT now models influence as typed temporal graph edges rather than generic "connections".
+- Negative search results are represented as bounded observations of a source space, not proofs of nonexistence.
+- Investigative chronology distinguishes direct observation, third-party report, documented record and allegation.
+- Entity resolution explicitly prevents premature merging of same-name people.
+- Scientific hypotheses require governing models, invariants, failure modes, test protocols and measurable acceptance criteria.
+- TND contributes a reusable latent-state/observation abstraction without requiring its physical interpretation to be true.
 
 ### Verification posture
 
-All source-derived numerical claims remain classified as source-derived and time-bounded. In particular, the Grant Thornton percentages and the Claude/Gemini comparison are not promoted to current universal benchmarks. The LLM safety material is stored as defensive architecture knowledge rather than as an operational guide for bypassing safety controls. The tesseract's relativity/fluid interpretations remain explicitly marked as analogies.
+The Deep OSINT implementation remains a collector baseline, not a production evidence engine. Active network operations remain authorization-gated. The scientific corpus is separated into established methodological patterns versus speculative source claims. No new numbered project was created because the reusable capabilities map directly onto Project 32 and existing scientific/epistemic architecture.
 
 ---
 
@@ -99,7 +103,10 @@ The portfolio follows these core invariants:
 - project identity is resolved through lineage rather than filename alone;
 - strategic/business-model assumptions remain distinct from observed outcomes;
 - stochastic anomalies remain hypotheses until replicated and statistically characterized;
-- physical manufacturing claims remain hypotheses until batch-tested.
+- physical manufacturing claims remain hypotheses until batch-tested;
+- OSINT relationships require typed edges, provenance and entity-resolution evidence;
+- negative findings are bounded observations, not proofs of nonexistence;
+- speculative scientific frameworks remain explicitly separated from verified science.
 
 ## Portfolio architecture
 
@@ -241,41 +248,36 @@ For critical systems, counterexamples and failure modes are first-class engineer
 
 ### Knowledge Integrated
 
-The repository contains broad knowledge spanning agent engineering, MCP, coding agents, multimodal systems, security, evidence/OSINT, data/ML/causal analytics, business-model strategy, stochastic integrity, physical artifacts and OmniCore convergence architectures. This iteration additionally formalizes representation-level LLM safety, 4D projection/hidden-state dynamics, visual commercial/storyboard artifacts and new empirical evidence on strategy formalization and communication.
+The repository contains broad knowledge spanning agent engineering, MCP, coding agents, multimodal systems, security, evidence/OSINT, data/ML/causal analytics, business-model strategy, stochastic integrity, physical artifacts and OmniCore convergence architectures. Iteration 3 additionally formalizes OSINT influence graphs and investigative evidence methodology, records TND/Codex Omega as an explicitly speculative research framework, and adds a cross-domain scientific verification pattern for MHD, biophysics and non-convex optimization.
 
 ### Projects Updated
 
-- Project 67 received new strategy-maturity and communication/formalization controls from the supplied Polish enterprise strategy report.
-- Existing assistant, multi-model and sovereign-edge knowledge was deepened with the supplied AI-business and local-first materials.
-- Projects 26/49/54/60/72 now have an explicit representation-level safety defense layer in the knowledge graph.
-- Projects 40/41/53/57/72 gain a reusable reduced-observation/4D projection model.
-- Projects 45/46/56 gain a governed visual commercial/storyboard artifact model.
+- Project 32 gained influence/relationship graphing, chronology, negative-finding, source-hierarchy and entity-resolution controls.
+- Existing scientific verification and epistemic-control lineage is linked to the new TND validation boundary and cross-domain scientific verification artifact.
 
 ### Knowledge Artifacts Created
 
-- `docs/knowledge-base/llm-behavioral-safety-and-representation-level-defense.md`
-- `docs/knowledge-base/four-dimensional-projection-tesseract-dynamics.md`
-- `docs/knowledge-base/visual-commercial-communication-and-storyboard-artifacts.md`
+- `docs/knowledge-base/osint-network-influence-and-investigative-evidence-2026-09-09.md`
+- `docs/knowledge-base/tnd-speculative-mathematical-framework-and-validation-boundary.md`
+- `docs/knowledge-base/cross-domain-scientific-verification-mhd-biophysics-optimization-2026-09-09.md`
 
 ### Architecture Changes
 
-- Strategy maturity now distinguishes existence, formalization, communication and execution/feedback.
-- Model routing is explicitly treated as versioned capability evaluation rather than static vendor ranking.
-- Local-first architecture is represented as edge/local/cloud tiers with explicit total-cost caveats.
-- Representation-level safety is connected to external authorization and capability isolation.
-- Hidden-state projection is formalized as an observation operator over canonical system state.
-- Visual commercial assets distinguish physical evidence, generated creative and measured campaign outcomes.
+- OSINT relationships now have typed temporal edges and independent provenance.
+- Negative findings and narrative chronology are first-class evidence structures.
+- Scientific claims are evaluated through governing models, invariants, failure modes and reproducible tests.
+- TND contributes a reusable latent-state/observation abstraction while its stronger physical claims remain unverified.
 
 ### Security Changes
 
-The assurance architecture preserves capability isolation, fail-closed identity/capability ambiguity, independent authorization, authoritative readback, postcondition verification, provenance preservation and telemetry-as-untrusted-data handling. New representation-level safety knowledge reinforces that model-level behavior must not be the sole authorization boundary.
+Active OSINT operations remain authorization-gated. Personal or reputational allegations from supplied reports are not promoted to verified facts. Network influence inference requires corroboration and explicit identity resolution.
 
 ### Verification
 
-- Newly created knowledge files were committed through GitHub contents operations.
-- Project 67 was reread from its updated branch state after mutation.
-- The root evolution log was updated after the new corpus integration.
-- Source-derived numerical claims remain explicitly time-bounded.
+- Three new knowledge artifacts were committed through GitHub contents operations.
+- Project 32 was updated with the new evidence/influence methodology.
+- Root evolution log was updated after the corpus integration.
+- TND claims are explicitly classified as speculative rather than scientific fact.
 - No force push was used.
 
 ### Known Limitations
@@ -283,5 +285,4 @@ The assurance architecture preserves capability isolation, fail-closed identity/
 - The existing `projekty/README.md` index still requires a separate synchronized update for the newest Project 60–72 inventory.
 - Project 72 remains non-production until its executable Definition of Done is implemented and independently tested.
 - Historical project-number collisions remain governed by Project 47 and are intentionally not destructively renamed.
-- The uploaded Claude/Gemini comparison is dated and is not treated as a current benchmark.
-- The supplied zero-cost/local-first claims are architectural proposals, not guarantees of zero total cost.
+- The Deep OSINT code supplied in the corpus remains a collector baseline and requires production-grade provenance, authorization and verification layers.
