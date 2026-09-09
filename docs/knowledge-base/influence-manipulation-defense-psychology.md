@@ -10,7 +10,7 @@ The source describes manipulation as intentional, concealed influence that can r
 
 This material is archived as a detection and resilience taxonomy. It is **not** converted into instructions for covert persuasion, exploitation, dependency creation or vulnerability targeting.
 
-The source itself emphasizes that manipulation can be planned and hidden and that multiple methods can be combined or sequenced. fileciteturn300file4L47-L59
+The source emphasizes that manipulation can be planned and hidden and that multiple methods can be combined or sequenced.
 
 ## Defensive taxonomy
 
@@ -24,7 +24,7 @@ Detect excessive flattery, approval-seeking pressure and status-based influence.
 
 ### 3. Cognitive dissonance / consistency pressure
 
-The source identifies the tendency to maintain consistency between prior choices, attitudes and behavior as a manipulation surface. fileciteturn307file1L95-L100
+The source identifies the tendency to maintain consistency between prior choices, attitudes and behavior as a manipulation surface.
 
 Defensive control:
 
@@ -39,7 +39,7 @@ Flag selective framing, premature closure and other reasoning shortcuts as possi
 
 ### 5. Group pressure
 
-The source includes group pressure as a distinct manipulation mechanism and connects large-scale group influence with propaganda. fileciteturn307file2L116-L124
+The source includes group pressure as a distinct manipulation mechanism and connects large-scale group influence with propaganda.
 
 Defensive control:
 
@@ -50,7 +50,7 @@ Defensive control:
 
 ### 6. Authority cues
 
-The source identifies invoking authorities and quotations as a manipulation surface. fileciteturn307file3L173-L178
+The source identifies invoking authorities and quotations as a manipulation surface.
 
 Defensive control:
 
@@ -60,7 +60,7 @@ An authority label never substitutes for evidence.
 
 ### 7. Psychological reactance
 
-The source describes the human sense of freedom and autonomous decision-making as a persistent psychological characteristic that can itself become a manipulation surface. fileciteturn307file4L188-L193
+The source describes the human sense of freedom and autonomous decision-making as a persistent psychological characteristic that can itself become a manipulation surface.
 
 Defensive design therefore avoids coercive reverse-psychology patterns and preserves explicit choice.
 
@@ -70,7 +70,7 @@ Detect attempts to convert disagreement into moral condemnation, fear or obligat
 
 ### 9. Text manipulation
 
-The source explicitly discusses disinformation as a strategic form of manipulation and identifies text manipulation as a separate mechanism. fileciteturn307file0L46-L50
+The source explicitly discusses disinformation as a strategic form of manipulation and identifies text manipulation as a separate mechanism.
 
 Defensive pipeline:
 
@@ -78,7 +78,7 @@ Defensive pipeline:
 
 ## Semantic manipulation
 
-The supplied linguistic article demonstrates a related failure mode: a specialist term can be moved into public discourse and assigned a different, rhetorically loaded meaning. It describes this mechanism in relation to the Polish lexical family around "seksualizacja". fileciteturn300file9L38-L50
+The supplied linguistic article demonstrates a related failure mode: a specialist term can be moved into public discourse and assigned a different, rhetorically loaded meaning. It describes this mechanism in relation to the Polish lexical family around "seksualizacja".
 
 OmniCore should therefore distinguish:
 
