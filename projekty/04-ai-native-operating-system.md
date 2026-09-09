@@ -138,3 +138,54 @@ The AI scheduling layer must not obtain arbitrary shell, filesystem, credential 
 ## 8. Long-term direction
 
 Potentially connect this project to the Lechia compiler and Nexus substrate router, creating a stack in which semantic program contracts, runtime policies and heterogeneous execution decisions can share a common machine-readable intermediate representation.
+
+## 9. Constitutional Runtime Upgrade
+
+The unified-system corpus adds an explicit lifecycle state machine:
+
+`INITIALIZING → ACTIVE → DEGRADED → MAINTENANCE → EMERGENCY`.
+
+NPS and AI Foundry are now subordinate to this runtime constitution. A learned component cannot independently transition the system into a more privileged state. Every state transition requires deterministic predicates, watchdogs, cancellation/revocation paths and a recovery policy.
+
+## 10. Learned-Kernel Failure Containment
+
+Extend the scheduler from a single recommender into a bounded controller:
+
+```text
+TELEMETRY
+   ↓
+MODEL PROPOSAL
+   ↓
+SAFETY/Fairness/THERMAL/RESOURCE FILTER
+   ↓
+DETERMINISTIC SCHEDULER
+   ↓
+AUTHORITATIVE OBSERVATION
+```
+
+Track proposal quality separately from executed behavior. An unexpected model recommendation is evidence for evaluation, not permission for execution.
+
+## 11. SemanticFS Boundary
+
+Future integration with SemanticFS must preserve:
+
+`semantic retrieval != authorization`.
+
+Embedding similarity selects candidate objects; capability policy controls whether they may be read or changed.
+
+## 12. Recovery and Self-Healing Boundary
+
+Self-healing is extended to:
+
+`DETECT → ISOLATE → SNAPSHOT/ROLLBACK → VERIFY REPAIR → SANDBOX → TEST → SIGN → STAGED ACTIVATE`.
+
+This applies to generated drivers, services and scheduler policy modules. No model is permitted to modify privileged runtime state and immediately rely on its own output.
+
+## 13. Definition-of-Done additions
+
+- runtime state transitions are deterministic and testable;
+- learned scheduling is bounded and fairness-tested;
+- generated adapters have a reproducible verification trail;
+- recovery does not require model cooperation;
+- SemanticFS never becomes an authorization mechanism;
+- action/state verification remains independent of model explanation.
