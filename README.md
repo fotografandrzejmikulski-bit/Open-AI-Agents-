@@ -1,5 +1,45 @@
 # Knowledge & Projects — Omni-Architect Repository
 
+## [2026-09-09 / Iteration 2] — New corpus integration and cross-project evolution
+
+### Integrated source-derived knowledge
+
+This iteration incorporated the newly supplied corpus covering:
+
+- Polish enterprise strategy formation, communication, formalization and review;
+- AI business strategy, applications, prediction simulations, project organization and capability/limitations awareness;
+- construction of small-business AI assistants using hierarchical system prompts, knowledge bases, testing, integrations and MCP;
+- local-first / sovereign AI architecture using reproducible development environments, local inference, edge inference, orchestration and cloud fallback;
+- dated Claude/Gemini capability comparison as a model-routing heuristic;
+- representation-level LLM safety and defensive implications of refusal-related low-dimensional behavior;
+- 4D tesseract rotation, projection, hidden-state observability and reduced-order dynamical interpretation;
+- real-world outdoor advertising inventory in Cieszyn/Goleszów;
+- multipanel storyboard and visual narrative artifact structure.
+
+### Knowledge artifacts created / evolved
+
+- `docs/knowledge-base/llm-behavioral-safety-and-representation-level-defense.md`
+- `docs/knowledge-base/four-dimensional-projection-tesseract-dynamics.md`
+- `docs/knowledge-base/visual-commercial-communication-and-storyboard-artifacts.md`
+- `docs/knowledge-base/agentic-influence-routing-sovereign-edge-2026-09-07.md` — expanded with the new assistant, Berkeley AI-business and sovereign-edge material.
+- `docs/knowledge-base/adaptive-business-model-strategy-innovation-governance-2026-09-09-v2.md` remains the strategic knowledge authority and now receives the Grant Thornton evidence through Project 67.
+
+### Projects evolved
+
+- **Project 67 — OmniCore Adaptive Strategy & Business Model Experimentation Fabric MAX**: added a strategy-maturity model separating strategy existence, formalization, communication and execution/feedback; integrated source-derived Polish enterprise evidence and review triggers.
+- **Projects 17/21/24/31/35/36**: their existing multi-model, assistant, MCP and sovereign-edge lineage was strengthened through the expanded knowledge synthesis.
+- **Projects 26/49/54/60/72**: representation-level LLM safety is now explicitly connected to capability isolation and runtime authorization.
+- **Projects 40/41/53/57/72**: 4D projection is captured as a reusable hidden-state/observation-model pattern.
+- **Projects 45/46/56**: visual commercial artifacts and storyboard continuity are now represented as governed artifact capabilities.
+
+No additional numbered project was created in this iteration where existing portfolio projects already covered the relevant capability. The new 4D and visual artifacts are knowledge/architecture extensions, not arbitrary project-number inflation.
+
+### Verification posture
+
+All source-derived numerical claims remain classified as source-derived and time-bounded. In particular, the Grant Thornton percentages and the Claude/Gemini comparison are not promoted to current universal benchmarks. The LLM safety material is stored as defensive architecture knowledge rather than as an operational guide for bypassing safety controls. The tesseract's relativity/fluid interpretations remain explicitly marked as analogies.
+
+---
+
 Reference repository for the project's **agent engineering knowledge base, architecture, research and engineered project portfolio**.
 
 This repository is intentionally separated from the **Agents-for-Humans-Hackathon** submission repository. It is the long-lived research and systems-engineering layer; the hackathon repository contains only the CogniSync submission and its proof artifacts.
@@ -201,44 +241,47 @@ For critical systems, counterexamples and failure modes are first-class engineer
 
 ### Knowledge Integrated
 
-The repository already contains broad knowledge spanning agent engineering, MCP, coding agents, multimodal systems, security, evidence/OSINT, data/ML/causal analytics, business-model strategy, stochastic integrity, physical artifacts and OmniCore convergence architectures. A new repository-level knowledge artifact, `docs/knowledge-base/repository-operational-assurance-and-contract-verification.md`, formalizes the reusable operational assurance pattern linking architecture intent to executable contracts and runtime evidence.
+The repository contains broad knowledge spanning agent engineering, MCP, coding agents, multimodal systems, security, evidence/OSINT, data/ML/causal analytics, business-model strategy, stochastic integrity, physical artifacts and OmniCore convergence architectures. This iteration additionally formalizes representation-level LLM safety, 4D projection/hidden-state dynamics, visual commercial/storyboard artifacts and new empirical evidence on strategy formalization and communication.
 
 ### Projects Updated
 
-- Project 72 received a dedicated implementation contract with Definition of Done, security invariants and PL/EN operator-interface requirements.
-- Project 47/58/59 relationships were explicitly reflected in the Project 72 implementation boundary.
-- The portfolio root log now records Project 72 as an operationalization layer rather than another domain-specific convergence project.
-
-### Projects Created
-
-- **Project 72 implementation contract** — `projekty/72-omnicore-cross-framework-agent-assurance-and-runtime-verification-fabric-max/README.md`
+- Project 67 received new strategy-maturity and communication/formalization controls from the supplied Polish enterprise strategy report.
+- Existing assistant, multi-model and sovereign-edge knowledge was deepened with the supplied AI-business and local-first materials.
+- Projects 26/49/54/60/72 now have an explicit representation-level safety defense layer in the knowledge graph.
+- Projects 40/41/53/57/72 gain a reusable reduced-observation/4D projection model.
+- Projects 45/46/56 gain a governed visual commercial/storyboard artifact model.
 
 ### Knowledge Artifacts Created
 
-- **Repository Operational Assurance & Contract Verification** — `docs/knowledge-base/repository-operational-assurance-and-contract-verification.md`
+- `docs/knowledge-base/llm-behavioral-safety-and-representation-level-defense.md`
+- `docs/knowledge-base/four-dimensional-projection-tesseract-dynamics.md`
+- `docs/knowledge-base/visual-commercial-communication-and-storyboard-artifacts.md`
 
 ### Architecture Changes
 
-- Formalized the separation between architecture intent and runtime evidence.
-- Defined a contract hierarchy covering identity, schemas, authorization, state, outcome, evidence and security.
-- Added monitorability as a verification-policy input rather than only a dashboard metric.
-- Defined trajectory-oriented replay and distributional drift analysis as first-class assurance concerns.
+- Strategy maturity now distinguishes existence, formalization, communication and execution/feedback.
+- Model routing is explicitly treated as versioned capability evaluation rather than static vendor ranking.
+- Local-first architecture is represented as edge/local/cloud tiers with explicit total-cost caveats.
+- Representation-level safety is connected to external authorization and capability isolation.
+- Hidden-state projection is formalized as an observation operator over canonical system state.
+- Visual commercial assets distinguish physical evidence, generated creative and measured campaign outcomes.
 
 ### Security Changes
 
-The assurance architecture preserves capability isolation, fail-closed identity/capability ambiguity, independent authorization, authoritative readback, postcondition verification, provenance preservation and telemetry-as-untrusted-data handling.
+The assurance architecture preserves capability isolation, fail-closed identity/capability ambiguity, independent authorization, authoritative readback, postcondition verification, provenance preservation and telemetry-as-untrusted-data handling. New representation-level safety knowledge reinforces that model-level behavior must not be the sole authorization boundary.
 
 ### Verification
 
-- New knowledge artifact was written and reread from `main` after commit.
-- Project 72 implementation README was written and reread from `main` after commit.
-- Current `main` HEAD was re-read and confirmed as commit `84e75a3cf353cd9d6d48aeddef76dbb8937b2661`.
-- GitHub reports no configured commit status checks for that commit, so no passing CI result is claimed.
+- Newly created knowledge files were committed through GitHub contents operations.
+- Project 67 was reread from its updated branch state after mutation.
+- The root evolution log was updated after the new corpus integration.
+- Source-derived numerical claims remain explicitly time-bounded.
 - No force push was used.
 
 ### Known Limitations
 
-- The existing `projekty/README.md` index is still being synchronized with the newer Project 60–72 artifact inventory; two attempted optimistic updates were correctly rejected because the local SHA was stale, so no unsafe overwrite was performed.
-- Project 72 has no executable runtime implementation yet; its new directory currently contains the implementation contract only.
+- The existing `projekty/README.md` index still requires a separate synchronized update for the newest Project 60–72 inventory.
+- Project 72 remains non-production until its executable Definition of Done is implemented and independently tested.
 - Historical project-number collisions remain governed by Project 47 and are intentionally not destructively renamed.
-- Production readiness requires executable tests, at least two materially different adapters, replay, postcondition verification, drift/monitorability metrics and reproducible CI evidence.
+- The uploaded Claude/Gemini comparison is dated and is not treated as a current benchmark.
+- The supplied zero-cost/local-first claims are architectural proposals, not guarantees of zero total cost.
