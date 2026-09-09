@@ -1,5 +1,63 @@
 # Knowledge & Projects — Omni-Architect Repository
 
+## [2026-09-09 / Iteration 11] — Compound reasoning, GEM, Apeiron/AURA lineage and voice-native AI game runtime
+
+### Integrated source-derived knowledge
+
+This iteration incorporated ten newly supplied PDFs covering:
+
+- cache-aware Mega-Prompts, Self-Consistency, explicit context caching, asynchronous fan-out, rate limiting, early exit and semantic aggregation;
+- GEM as a theoretical autonomous cognitive-executive ecosystem using H-MoE, specialist engines, OODA, long-term memory, causal prediction and constitutional/red-team control;
+- Apeiron 1.0 cyber-gnostic decision artifacts using layered physical cards, thermal reveal, checksum and feedback loops;
+- Black Apeiron 2.2 as an evolutionary black-box / cognitive-sovereignty physical artifact with thermal, UV and tactile information layers;
+- AURA: The Collective as a sensory physical card-game architecture with thermochromic, scented, conductive and glow effects;
+- Szept Wyroczni / Project Midas as a voice-first AI-character mobile game architecture with NLP, narrative interaction and Unity implementation.
+
+### Deduplication and lineage
+
+The two GEM concept PDFs were treated as one source lineage because their extracted text is identical. The two similarly named mobile monetization PDFs are near-identical versions of one Szept Wyroczni lineage; the third mobile-game PDF is an expanded/alternative version of that same lineage. Apeiron 1.0 and Black Apeiron 2.2 are evolutionary versions rather than duplicates. AURA, Apeiron and GEM map substantially into existing portfolio projects rather than creating duplicate numbered projects.
+
+### Knowledge artifact created
+
+- `docs/knowledge-base/compound-reasoning-gem-apeiron-aura-voice-game-2026-09-09.md`
+
+### Existing-project evolution identified
+
+- Project 27 — Compound Reasoning & Self-Consistency: explicit-cache lifecycle, asynchronous branch fan-out, rate-limit control, jitter/back-pressure, early exit and semantic/soft consistency.
+- Project 17 — Adaptive Model Router: compound reasoning treated as an explicit execution profile with cache, cost, latency, privacy and verification dimensions.
+- Project 24 — Agentic Prompt Compiler & DSL: structured reasoning protocols and result envelopes reinforce typed prompt-program compilation.
+- Projects 61 / 68 / 72 / 79 — GEM reinforces orchestration, memory, OODA, causal prediction, constitutional control, red teaming and discovery-loop composition.
+- Projects 01 / 05 / 50 / 51 / 52 / 53 / 57 / 71 — Apeiron and AURA reinforce physical/symbolic interfaces, sensory interaction, stochastic integrity, playtesting, multimodal rendering and manufacturing QA.
+
+### New project genesis
+
+**Project 81 — Voice-Narrative AI Game Engine MAX**
+
+A new project was justified because the portfolio did not contain a dedicated runtime for voice-native AI-character games in which probabilistic voice/narrative behavior is strictly separated from authoritative game rules, RNG, economy, progression and consequential state.
+
+The project is derived from the Szept Wyroczni / Project Midas lineage and integrates Projects 17, 24, 27, 50, 51, 52, 57, 61, 68, 71, 72, 73 and 76.
+
+### Safety and epistemic controls
+
+- Condorcet/self-consistency agreement is treated as a signal, not proof; correlated errors remain possible.
+- Historical provider prices and performance estimates in the prompt-optimization report are not current repository facts.
+- GEM remains a theoretical architecture; the corpus does not establish AGI.
+- Apeiron symbolic interpretation is not treated as factual prediction.
+- Covert persuasion, compulsive reinforcement and emotional monetization proposals from AURA/Szept sources are retained as cognitive-safety threat/design-analysis material, not production requirements.
+- Voice-game purchases cannot covertly control AI affection or RNG odds.
+- AI-generated intent/content cannot directly authorize consequential game-state changes.
+- Voice processing is minimized/local-first where feasible and microphone state is explicit.
+
+### Registry
+
+`docs/PORTFOLIO-REGISTRY-2026-09-09.yaml` is now version 8 and includes Project 81. Project 81 remains `PROPOSED / ARCHITECTURE_BASELINE` until its MVP passes the voice → typed intent → authoritative command → state transition → postcondition verification loop under adversarial testing.
+
+### Verification
+
+Source reading, deduplication, full portfolio correlation, knowledge synthesis, Project 81 genesis, ingestion logging and registry update were completed. No force push was used.
+
+---
+
 ## [2026-09-09 / Iteration 4] — Business/marketing strategy, sovereign digital economics, knowledge frontiers, defensive influence analysis and evidence methodology
 
 ### Integrated source-derived knowledge
