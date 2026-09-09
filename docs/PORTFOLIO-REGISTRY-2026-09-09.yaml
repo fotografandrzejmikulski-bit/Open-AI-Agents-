@@ -1,4 +1,4 @@
-version: 5
+version: 6
 registry_type: canonical_portfolio_snapshot
 as_of: 2026-09-09
 repository: mojealterego/Knowledge-projects
@@ -14,7 +14,7 @@ status_legend:
 registry_scope:
   canonical_legacy_sequence: 1-59
   later_artifact_sequence: 60-71
-  architecture_candidates: [72,73,74,75,76,77,78]
+  architecture_candidates: [72,73,74,75,76,77,78,79]
   note: "Snapshot registry. Historical collisions remain governed by Project 47."
 
 portfolio_families:
@@ -111,6 +111,34 @@ project_78:
   source_lineage:
     - docs/knowledge-base/lottery-randomness-audit-and-simulation-2026-09-09.md
   purpose: "Audit lottery randomness and physical-draw hypotheses through reproducible statistical simulation without claiming guaranteed prediction."
+
+project_79:
+  canonical_id: 79
+  title: "OmniDiscovery Autonomous Scientific Discovery Engine MAX"
+  artifact: projekty/79-omnidiscovery-autonomous-scientific-discovery-engine-max.md
+  status: PROPOSED
+  maturity: ARCHITECTURE_BASELINE
+  derived_from: [15,19,26,27,28,31,32,38,41,48,50,54,55,58,60,61,62,65,68,69,70,71,72,73,74,75,76,77,78]
+  source_lineage:
+    - docs/knowledge-base/README.md
+    - docs/knowledge-base/omniscience-interdisciplinary-research-and-verification-protocol-2026-09-09.md
+    - docs/knowledge-base/frontiers-of-knowledge-unresolved-problems-2026-09-09.md
+    - docs/knowledge-base/unsolved-problems-of-science-and-civilization-2026-09-09.md
+    - docs/knowledge-base/data-platform-causal-analytics-distributed-compute-2026-09-09.md
+    - docs/knowledge-base/machine-learning-statistics-optimization-text-governance-2026-09-09.md
+    - docs/knowledge-base/epistemic-signal-control-and-adversarial-evidence-2026-09-08.md
+    - docs/knowledge-base/omnicore-architecture-convergence-2026-09-09.md
+    - docs/knowledge-base/omnicore-unified-system-genesis-and-constitutional-runtime-2026-09-09.md
+    - docs/knowledge-base/omnicore-gcp-forge-nested-virtualization-and-agent-factory-2026-09-09.md
+    - docs/knowledge-base/stability-convergence-mhd-molecular-optimization-2026-09-09.md
+    - docs/knowledge-base/agent-memory.md
+    - docs/knowledge-base/physical-symbolic-artifact-engineering-and-apeiron-2026-09-09.md
+    - docs/knowledge-base/agentic-coding-visual-intelligence-and-multi-model-evaluation-2026-09-08.md
+    - docs/knowledge-base/agentic-automation-sop-hta-wbs.md
+    - docs/knowledge-base/repository-operational-assurance-and-contract-verification.md
+    - docs/knowledge-base/telephony-esim-mcp-and-mobile-identity-fabric.md
+  purpose: "Operate a governed closed-loop discovery system that converts unknowns into competing hypotheses, discriminating experiments, validated observations, independent replications and machine-readable knowledge."
+  breakthrough_claim_boundary: "The potential world-changing contribution is the integrated discovery architecture; no scientific discovery is claimed until the project produces independently replicated evidence."
 
 lineage_policy:
   authority: Project 47
