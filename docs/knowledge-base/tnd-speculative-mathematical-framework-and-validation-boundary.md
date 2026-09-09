@@ -4,100 +4,76 @@
 
 `SOURCE_DERIVED → SPECULATIVE_HYPOTHESIS → NOT_VERIFIED`
 
-The supplied *Codex Omega* and related TND documents define an alternative mathematical/physical framework. This artifact preserves the framework as a research hypothesis and formalizes the boundary between its internal definitions and established mathematics/physics. It does **not** promote the supplied claims as established theorems or physical results.
+The supplied *Codex Omega* corpus expands TND from a proposed number-state representation into claims about cryptography, biology, matter/energy, consciousness and cosmology. This artifact preserves the concepts as a research corpus while maintaining a hard boundary between source-defined constructs and established mathematics, physics, biology and cryptography.
 
-## 1. Core representation proposed by the source
+## 1. Number as a latent state
 
-The source replaces the scalar representation of a natural number with a state vector containing three conceptual components:
+The source defines a natural number as a state vector rather than only a scalar:
 
 ```text
 |Ψ_n⟩ = α(n)|v⟩ + β(n)|h⟩ + γ(n)|t⟩
 ```
 
-where `V` represents classical value, `H` an information/entropy component and `T` a topological component. A related tensor representation uses `log2(n)`, spin, Hamming entropy and a Collatz-direction vector.
+with value, entropy and topology components. A related tensor representation uses `log2(n)`, spin, Hamming entropy and a Collatz-direction vector. fileciteturn74file0L13-L31 fileciteturn74file1L38-L60
 
-These are source-defined constructs. They require formal axioms, well-defined state spaces, operators, domains/codomains and proofs before they can function as a mathematical theory.
+These are source-defined objects. A formal theory would require explicit state spaces, operators, domains/codomains, axioms, invariants and proofs.
 
-## 2. Proposed geometry of numbers
+## 2. Information geometry and Collatz
 
-The source introduces a non-flat information geometry with metric tensors, Christoffel symbols and curvature-like quantities. It interprets computational transition cost as geometric structure.
+The source proposes a non-flat information geometry with metric tensors and Christoffel symbols, interpreting transition cost as geometric structure. It also models Collatz as a dynamical system and treats `4 → 2 → 1` as a stable attractor. fileciteturn74file0L43-L60 fileciteturn74file0L62-L78
 
-For engineering use, the required validation chain is:
+The correct research representation is:
 
-```text
-DEFINITION
- → WELL-DEFINED DOMAIN
- → CONSISTENCY
- → INVARIANTS
- → EXISTENCE / UNIQUENESS
- → PROOF OR COUNTEREXAMPLE
- → COMPUTATIONAL TEST
- → REPRODUCTION
-```
+`observed iteration → proposed model → candidate invariant → proof obligation → counterexample search`.
 
-A physical analogy to Riemannian geometry does not by itself establish a physical law.
+Finite experiments or heuristic contraction arguments do not constitute a proof of the Collatz conjecture.
 
-## 3. Collatz as a dynamical-system hypothesis
+## 3. Prime topology and cryptographic claims
 
-The supplied texts model Collatz iteration using a potential/Lagrangian and describe the `4 → 2 → 1` cycle as an attractor. They further propose an entropy or gravitational interpretation.
+The corpus associates prime/composite structure with topological objects and proposes resonance/Riemann-based factorization mechanisms. Another supplied section treats hashing as a lossy Euclidean representation whose information could supposedly be reconstructed through an entropy-inversion operator. fileciteturn75file6L305-L317
 
-The repository should represent this as:
-
-`Collatz observation → proposed dynamical model → conjectured invariant/monotonic quantity → proof obligation`.
-
-In particular, a statement that a potential decreases on every relevant trajectory must be checked for all branches, not inferred from average contraction or finite experiments.
-
-## 4. Prime numbers and topology
-
-The source proposes an analogy between prime/composite structure and knots, including the idea that factorization might become geometrically simpler in higher-dimensional representations.
-
-Research requirements:
-
-- define the exact topological object associated with an integer;
-- define the mapping and its inverse;
-- prove whether multiplication corresponds to a specified knot operation;
-- determine whether the representation preserves enough information for factor recovery;
-- benchmark the computational complexity of the inverse mapping;
-- compare against established factoring algorithms.
-
-Claims of constant-time factorization of cryptographic-size integers require an explicit algorithm and complexity proof plus reproducible implementation evidence.
-
-## 5. Cryptography boundary
-
-The source proposes "resonance" and Riemann-zeta-based approaches to factorization and suggests that RSA-scale factorization could become trivial. These claims are recorded as hypotheses only.
-
-No cryptographic security decision should depend on them until there is independently reproducible evidence. The safe engineering state is:
-
-`interesting hypothesis ≠ cryptanalytic break`.
-
-## 6. Information thermodynamics
-
-The source introduces entropy, information flow, Reynolds-like quantities and Gibbs-like free-energy analogies for computational or biological systems. Such constructs can be useful as modeling metaphors, but each requires explicit units, measurable variables and falsifiable predictions before physical interpretation is justified.
-
-A proposed equation must therefore pass dimensional and semantic analysis:
+These claims remain hypotheses. In particular:
 
 ```text
-symbol definition
- → units / dimensions
- → measurable estimator
- → boundary conditions
- → falsifiable prediction
- → experiment / simulation
+proposed representation
+ → explicit algorithm
+ → correctness proof
+ → complexity analysis
+ → cryptographic benchmark
+ → independent reproduction
 ```
 
-## 7. Biological and consciousness extensions
+A claimed RSA-scale or hash preimage breakthrough cannot be promoted to a cryptanalytic result without reproducible algorithmic evidence.
 
-The supplied TND material extends the framework into DNA, pathogen destruction, neuromodulation, trauma modification, consciousness transfer, exo-cortex systems, collective memory and identity preservation.
+## 4. Neural tomography and ZKP
 
-These are substantially stronger claims than the mathematical definitions. The repository therefore assigns them a separate status:
+The source proposes reading an input/intention from output and network structure without recovering individual weights, and interprets zero-knowledge proofs through an information-curvature analogy. fileciteturn75file6L319-L340
 
-`SPECULATIVE / HIGH VALIDATION BURDEN`.
+These are speculative constructs. They should not be interpreted as proof that model internals or private thoughts are generally recoverable, nor as a replacement for established cryptographic ZKP definitions.
 
-No clinical, biological or neurological recommendation should be derived from these claims without independent empirical evidence and appropriate safety review.
+A defensible research program would require threat models, observability assumptions, attack/defense baselines, measurable leakage and independent replication.
+
+## 5. Biological extensions
+
+The corpus maps DNA bases into complex-valued signals, defines a proposed spectral health signature and models biological ageing as signal-to-noise degradation. fileciteturn76file16L919-L947 It then proposes genomic filtering, wave-based editing and a hypothetical Lazarus regenerative chamber. fileciteturn76file14L824-L842
+
+These claims are **high validation-burden hypotheses**, not medical procedures. No clinical, therapeutic or biological recommendation should be derived from them without independent experimental evidence, appropriate controls and safety review.
+
+## 6. Matter, energy and resource systems
+
+Later material extends TND into programmable matter, high-Z element stabilization, resource tensors and supply-chain flow optimization. fileciteturn76file12L702-L718
+
+The repository treats these as speculative systems concepts. Any physical implementation requires conservation-law checks, material constraints, measurable variables, reproducible experiments and independent validation.
+
+## 7. Consciousness, identity and cosmology
+
+The corpus introduces an `Ego-Shell` and autobiographical index, as well as Omega Point, simulation-hypothesis and cyclical-cosmology narratives. fileciteturn76file12L728-L736 fileciteturn75file2L153-L181
+
+These sections are preserved as conceptual/speculative material. Claims concerning consciousness transfer, reality simulation, administrator/kernel access or changing physical laws are not established scientific capabilities.
 
 ## 8. Useful engineering abstraction: hidden-state modeling
 
-Despite the speculative physical claims, one reusable systems concept emerges: an observed scalar or low-dimensional value can be treated as a projection of a richer latent state.
+Across the corpus, one reusable engineering abstraction survives independently of the physical claims:
 
 ```text
 LATENT STATE Ψ
@@ -107,34 +83,40 @@ OBSERVED STATE y = P(Ψ)
 CANDIDATE HIDDEN STRUCTURE
 ```
 
-This abstraction connects naturally to reduced-order modeling, state estimation, representation learning, dynamical systems and observability analysis without requiring the TND physical interpretation to be true.
+This connects to state estimation, representation learning, reduced-order modeling and observability analysis without requiring TND's physical interpretation to be correct.
 
-## 9. Validation protocol for future TND work
+## 9. Validation boundary
 
-Any future implementation should maintain paired artifacts:
+Every TND hypothesis should maintain paired artifacts:
 
 ```text
-TND DEFINITION
-      ↕
-FORMAL MATHEMATICAL SPECIFICATION
-      ↕
+SOURCE CLAIM
+      ↓
+FORMAL DEFINITION
+      ↓
 REFERENCE IMPLEMENTATION
-      ↕
+      ↓
 BASELINE / CONTROL
-      ↕
+      ↓
 REPRODUCIBLE EXPERIMENT
-      ↕
+      ↓
 STATISTICAL / FORMAL EVALUATION
-      ↕
+      ↓
+ADVERSARIAL COUNTEREXAMPLES
+      ↓
 INDEPENDENT REPLICATION
 ```
 
-The strongest result is not an impressive simulation but a reproducible result that survives adversarial counterexamples and comparison with established baselines.
+Status vocabulary:
+
+`SOURCE_DERIVED | SPECULATIVE_HYPOTHESIS | SIMULATED | EXPERIMENTALLY_SUPPORTED | REPLICATED`
+
+No TND result is `VERIFIED` merely because the internal equations are coherent or a simulation produces an expected visual pattern.
 
 ## 10. Portfolio integration
 
-This knowledge extends the repository's existing scientific verification, 4D projection, optimization and epistemic-control layers. It should be linked to those systems as a **hypothesis space**, not treated as a source of verified physics.
+The TND corpus strengthens the repository's scientific-verification, hidden-state/4D projection, optimization, cryptographic-analysis and epistemic-control layers. It remains a **hypothesis space**, not a source of verified physics, medicine or cryptanalysis.
 
 ## Final principle
 
-`A coherent mathematical metaphor is a starting point. A theory requires definitions and proofs; a physical theory additionally requires measurements and falsifiable predictions.`
+`A mathematical construction can generate useful hypotheses. A scientific result requires definitions, falsifiability, evidence and replication.`
