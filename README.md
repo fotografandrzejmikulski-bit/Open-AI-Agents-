@@ -23,6 +23,8 @@ Source-grounded and research-derived knowledge covering:
 - cognitive and influence security;
 - systems engineering, databases, data warehouses and data mining;
 - machine-learning and mathematical foundations;
+- optimization, probability, statistical validation and text mining;
+- data governance and privacy-aware analytical design;
 - professional artifact generation and evidence-backed document workflows;
 - the supplied project-owner PDF corpus.
 
@@ -82,11 +84,13 @@ Core invariants include:
 The September 2026 supplied corpus has been absorbed into:
 
 - `docs/knowledge-base/systems-engineering-data-intelligence-ml-foundations-2026-09-09.md`
+- `docs/knowledge-base/machine-learning-statistics-optimization-text-governance-2026-09-09.md`
 - `docs/knowledge-base/professional-artifact-and-evidence-compiler.md`
 - `projekty/59-omnicore-telephony-esim-capability-broker-fabric-max.md`
 - `projekty/60-omnicore-systems-engineering-and-intelligence-foundry-max.md`
+- `projekty/61-omnicore-probabilistic-learning-and-optimization-foundry-max.md`
 
-Project 59 provides the governed telecom/eSIM capability plane. Project 60 consolidates systems analysis, data architecture, data mining, ML foundations, mathematical representation, AI-assisted systems engineering and evidence-backed artifact generation.
+Project 59 provides the governed telecom/eSIM capability plane. Project 60 consolidates systems analysis, data architecture, data mining, ML foundations, mathematical representation, AI-assisted systems engineering and evidence-backed artifact generation. Project 61 extends this into a probabilistic learning, statistical evaluation, optimization and text-intelligence foundry with explicit uncertainty and governance boundaries.
 
 ## Flagship implementation
 
