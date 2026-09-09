@@ -1,144 +1,265 @@
 # 02 — VERICODING AGENT SECURITY LAB
 
 ## Status
-Concept → prototype architecture.
+**Engineering Specification Baseline**
 
-## Purpose
-A research-grade security laboratory for AI-generated software and agents. The project combines the useful engineering ideas found in the supplied material: compile-time architecture enforcement, taint-aware data handling, formal verification, adversarial evaluation, multi-turn attack detection, and explicit human approval boundaries.
+## Mission
+A defensive engineering laboratory and assurance pipeline for AI-generated software and agent runtimes. The system converts security, architecture and verification policies into deterministic gates before code, tools or deployments receive privileged authority.
 
-## Source-derived inputs
-
-The supplied Lechia document proposes compiler-enforced architecture rules, an effect system, dependent-type contracts, compile-time architecture assertions, semantic duplicate detection, complexity limits and taint-aware security typing. It explicitly positions these mechanisms as alternatives to relying only on human discipline and external CI checks. fileciteturn191file3L666-L700 fileciteturn191file3L718-L750
-
-The supplied Chain-of-Attack document describes multi-turn, semantic, contextual and temporal attack chains, emphasizing that single-turn input/output filtering is insufficient against attacks distributed across conversation history. fileciteturn195file7L44-L65
-
-The GCG report describes adversarial suffix generation as an algorithmic rather than purely semantic attack class and motivates defenses against transferable adversarial perturbations. fileciteturn195file9L19-L32 fileciteturn195file9L41-L48
-
-## Core architecture
+## Security model
+Generated artifacts and model outputs are **untrusted candidates**. Authority is granted only after deterministic analysis, policy evaluation, testing and—where configured—formal proof or explicit human approval.
 
 ```text
-Developer Intent
-      ↓
-Typed Project Specification
-      ↓
-AST / IR Normalization
-      ↓
-Architecture Policy Engine
-      ├── effect rules
-      ├── dependency rules
-      ├── complexity rules
-      ├── taint rules
-      └── contract/proof obligations
-      ↓
-Agentic Code Generation / Refactoring
-      ↓
-Adversarial Evaluation Plane
-      ├── multi-turn CoA simulation
-      ├── prompt-injection regression suite
-      ├── adversarial-input fuzzing
-      └── tool-abuse tests
-      ↓
-Formal Verification / Proof Gate
-      ↓
-Human Approval for high-impact changes
-      ↓
-Sandboxed Execution
-      ↓
-Observability + Audit + Reproducible Evaluation
+Intent
+  ↓
+Typed ChangeSpec
+  ↓
+Parse / Normalize
+  ↓
+Static Architecture + Taint + Effect Analysis
+  ↓
+Security Policy Evaluation
+  ↓
+Adversarial Regression
+  ↓
+Proof / Contract Gate
+  ↓
+Approval Gate (risk dependent)
+  ↓
+Sandbox Execution
+  ↓
+Evidence Bundle
+  ↓
+Promotion
 ```
 
-## Maximum-grade design principles
+## Trust boundaries
 
-1. **Never treat model output as executable authority.** Generated code is an untrusted candidate until it passes deterministic validation.
-2. **Architecture is executable policy.** Module boundaries, effects, dependency direction and safety contracts should be machine-checkable.
-3. **Security is stateful.** The security engine evaluates current input plus relevant history and tool state, not only one message.
-4. **Proof before privileged execution.** High-impact mutations require a machine-checkable proof or a deterministic policy result.
-5. **Side effects are capability-scoped.** Read, write, deploy, delete, network and credential capabilities are separated.
-6. **Recovery is part of correctness.** Failed runs must be resumable, observable and reversible where possible.
-7. **Human review is a runtime state.** Approvals create resumable transitions, not informal UI confirmations.
+1. **Model boundary** — generated text/code is untrusted.
+2. **Repository boundary** — repository content may contain hostile instructions or malformed data.
+3. **Tool boundary** — every tool is a separately authorized capability.
+4. **Execution boundary** — generated code runs in an isolated environment.
+5. **Promotion boundary** — production deployment requires an independently evaluated verdict.
+6. **Evidence boundary** — reports refer only to artifacts actually observed by the pipeline.
 
-## Project modules
+## Canonical entities
 
-### A. Lechia-inspired compiler/policy layer
-- Canonical AST representation.
-- Effect annotations: `pure`, `io-db`, `io-file`, `io-network`, `credential`, `deployment`.
-- Dependency graph enforcement.
-- Complexity budgets using cyclomatic and cognitive complexity.
-- Semantic duplication analysis using normalized AST fingerprints and optional embeddings.
-- Taint types for untrusted text, SQL fragments, HTML, shell arguments and tool responses.
-- Contract checking for preconditions/postconditions.
+```ts
+type Risk = 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL';
+type Verdict = 'ALLOW' | 'DENY' | 'REVIEW';
+type Effect =
+  | 'PURE'
+  | 'IO_FILE'
+  | 'IO_DB'
+  | 'IO_NETWORK'
+  | 'CREDENTIAL'
+  | 'DEPLOYMENT';
 
-### B. Agent security gateway
-- Tool registry with risk classification.
-- Per-tool authorization policy.
-- Input/output guardrails.
-- Prompt-injection indicators.
-- Conversation-chain risk score.
-- Tool sequence anomaly detection.
-- Explicit escalation to human review.
+type ChangeSpec = {
+  changeId: string;
+  repository: string;
+  baseRevision: string;
+  candidateRevision: string;
+  requestedCapabilities: string[];
+  affectedModules: string[];
+  environment: 'sandbox' | 'preview' | 'staging' | 'production';
+  risk: Risk;
+};
+```
 
-### C. Adversarial laboratory
-- Multi-turn attack corpus.
-- Stateful chain-of-attack tests.
-- Cross-model regression matrix.
-- Adversarial suffix tests treated as security research fixtures, not as production jailbreak instructions.
-- Tool-call abuse scenarios.
-- Data-exfiltration simulations.
-- Canary secrets and synthetic credentials.
+## Policy engine
 
-### D. Proof gate
-- Formal obligations generated from policy.
-- Lean/SMT-compatible verification boundary.
-- `proof_required=true` for specified capability classes.
-- Block-by-default when verification cannot be established.
+Policies must be explicit, versioned and deterministic where possible.
 
-### E. Sandbox
-- Ephemeral filesystem.
-- No production credentials.
-- Restricted egress.
-- Resource quotas.
-- Deterministic run metadata.
-- Snapshot/resume support.
+### Architecture rules
 
-## Initial API contracts
+- dependency direction is machine-checkable;
+- forbidden imports fail the gate;
+- side effects require declared effect scopes;
+- module and service boundaries are represented in an inspectable graph;
+- complexity budgets can reject changes exceeding configured limits;
+- public interfaces require schema compatibility checks.
+
+### Taint rules
+
+At minimum track:
+
+- untrusted user text;
+- repository content;
+- model output;
+- tool output;
+- credentials/secrets;
+- SQL fragments;
+- shell/process arguments;
+- HTML/markup.
+
+Taint propagation must be conservative; sanitizers and validators are explicit policy operations rather than string-name conventions.
+
+## Agent security gateway
+
+Every capability has a manifest:
+
+```json
+{
+  "tool": "example.write_file",
+  "risk": "HIGH",
+  "effects": ["IO_FILE"],
+  "network": false,
+  "requires_human_approval": true,
+  "allowed_environments": ["sandbox", "preview"]
+}
+```
+
+Authorization evaluates actor, session, requested capability, target environment, policy version and current risk state. A model may request a capability but cannot grant one to itself.
+
+## Stateful security evaluation
+
+Security decisions consider relevant history:
+
+```text
+conversation state
++ tool-call history
++ current request
++ resource sensitivity
++ policy state
++ prior risk signals
+→ current verdict
+```
+
+The system therefore tests multi-step attack chains rather than only isolated prompts. Detection logic should remain explainable through reason codes and trace references.
+
+## Adversarial laboratory
+
+The laboratory contains controlled fixtures for:
+
+- prompt injection;
+- indirect prompt injection from repository/web content;
+- multi-turn escalation;
+- tool misuse;
+- privilege boundary confusion;
+- data exfiltration attempts;
+- malicious file/project content;
+- adversarial-input robustness;
+- unsafe serialization/deserialization paths;
+- authorization bypass regression.
+
+Research-only adversarial methods are represented as non-operational fixtures and evaluation parameters. No test fixture may require compromising an external system.
+
+## Formal verification boundary
+
+For selected high-impact operations, generate proof obligations from policy contracts. A proof result is represented separately from a generic test pass:
+
+```text
+PROOF_NOT_REQUIRED
+PROOF_PENDING
+PROOF_VERIFIED
+PROOF_FAILED
+```
+
+Failure to establish a required proof cannot be converted into `ALLOW` through a model-generated explanation.
+
+## Sandbox contract
+
+The execution environment must provide:
+
+- ephemeral filesystem;
+- isolated process/container boundary;
+- restricted network egress;
+- synthetic credentials/canaries;
+- resource and wall-clock quotas;
+- deterministic run metadata;
+- complete stdout/stderr capture;
+- artifact hash recording;
+- cancellation and cleanup guarantees.
+
+Production credentials are prohibited in adversarial and generated-code test environments.
+
+## API contracts
 
 ### `analyze_project`
-Input: repository metadata, policy profile, target environment.
-Output: architecture graph, violations, proof obligations, risk score.
+Returns normalized architecture graph, policy findings, effects, taint propagation, proof obligations and evidence references.
 
 ### `evaluate_change`
-Input: proposed patch, impacted modules, capability scope.
-Output: deterministic verdict, static findings, required approvals, proof status.
+Returns a deterministic verdict, reason codes, impacted resources, required approvals, policy version and proof state.
 
 ### `run_adversarial_suite`
-Input: suite ID, target model/runtime, isolation profile.
-Output: test results, trace references, regression deltas.
+Returns immutable test-run metadata, per-case verdicts, trace references and regression deltas.
 
 ### `authorize_execution`
-Input: change ID, capability request, actor, environment.
-Output: allow / deny / human-review-required with reason codes.
+Returns `ALLOW | DENY | REVIEW` with policy reason codes. It does not execute the requested capability.
 
-## MVP
+## Evidence bundle
 
-1. TypeScript/Python repository scanner.
-2. AST dependency graph.
-3. Effect/taint rule engine.
-4. Cyclomatic complexity gate.
-5. Tool-risk registry.
-6. Stateful conversation security evaluator.
-7. 25 adversarial regression scenarios.
-8. Sandbox runner.
-9. JSON audit report.
-10. CI integration.
+Every consequential verdict should be reconstructable from:
 
-## Success criteria
+```text
+changeId
+policyVersion
+inputArtifactHashes
+scannerVersion
+suiteVersion
+testRunIds
+proofReferences
+authorizationDecision
+operator/actor
+createdAt
+```
 
-- Every protected tool has a deterministic authorization decision.
-- High-impact changes cannot bypass the proof/approval boundary.
-- Multi-turn attack attempts are evaluated using conversation state.
-- Architecture violations fail before deployment.
-- All test outcomes are reproducible from versioned artifacts.
+No success claim is valid without a corresponding evidence reference.
 
-## Safety boundary
+## Test strategy
 
-This project is explicitly defensive. Adversarial techniques are represented as controlled test classes and regression cases. It does not provide operational instructions for compromising third-party systems or manipulating people.
+### Unit
+Policy predicates, taint propagation, capability matching, effect analysis, schema validation and reason-code generation.
+
+### Property-based
+- authorization is deny-by-default for unknown capabilities;
+- tainted values never bypass required sanitizer contracts;
+- policy evaluation is deterministic for identical inputs;
+- unsupported environment/capability combinations never become allowed.
+
+### Integration
+Repository scan → policy engine → adversarial suite → evidence bundle.
+
+### Regression
+Every vulnerability or bypass discovered in the lab becomes a reproducible fixture with severity and expected verdict.
+
+### E2E
+Generated change → analysis → denied/approved gate → isolated execution → evidence capture.
+
+## Observability
+
+Track:
+
+- verdict distribution;
+- policy violations by rule;
+- false-positive/false-negative review outcomes;
+- adversarial suite failure rate;
+- authorization latency;
+- sandbox failure/cleanup rate;
+- proof verification latency;
+- bypass attempts and blocked capability requests.
+
+Tracing must correlate repository revision, change ID, test suite version and execution trace.
+
+## Deployment model
+
+```text
+local → CI → preview → staging → production
+```
+
+The same policy contracts apply across environments, with increasingly restrictive capability policies toward production. Policy changes are versioned and auditable.
+
+## Failure handling
+
+`detect → classify → localize → reproduce → explain → block/fix → regression test → re-evaluate`.
+
+A scanner or verifier failure is itself a security-relevant state; the pipeline must not silently downgrade `UNKNOWN` to `ALLOW`.
+
+## Definition of Done
+
+The project is **Implementation Ready** when policy schemas, AST/IR normalization, capability manifests, taint/effect rules, adversarial fixtures, sandbox contract, evidence model and executable test specifications are implemented. Production readiness additionally requires validated CI integration, measured false-positive/false-negative behavior, operational runbooks and security review evidence.
+
+## Non-goals
+
+This project is not an offensive exploitation framework and is not a replacement for repository-native secure coding practices. Its purpose is to make generated and agentic changes verifiable before privileged execution.
