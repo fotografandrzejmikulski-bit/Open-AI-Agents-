@@ -34,6 +34,10 @@ Source-grounded and research-derived knowledge covering:
 - Digital Human / Personified UI, Edge AI, multimodal interaction and cognitive-sovereignty boundaries;
 - business-model architecture, strategy/model separation, organizational competencies, experimentation, circular economy and outcome economics;
 - adaptive strategy, business-model innovation, microfoundations, experimentation and circular-value engineering;
+- unified OmniCore genesis/state-machine architecture and constitutional runtime control;
+- adversarial continuity, mobile endpoint security, multilingual/encoded jailbreak defense and temporal attack-trajectory analysis;
+- stochastic game/lottery integrity, auditable RNG, replay and statistical anomaly analysis;
+- physical symbolic artifact engineering, Apeiron/Black Apeiron production, manufacturing QA and phygital state continuity;
 - the supplied project-owner PDF corpus.
 
 ### `projekty/`
@@ -88,7 +92,11 @@ Core invariants include:
 - human agency is preserved as a system property;
 - business-model assumptions are distinct from observed outcomes;
 - strategy is distinct from business-model representation;
-- forecasts are not realized economic value.
+- forecasts are not realized economic value;
+- stochastic anomalies are hypotheses until replicated and statistically characterized;
+- physical manufacturing specifications remain hypotheses until batch-tested;
+- device/client state never overrides the constitutional control plane;
+- trajectory context can raise risk but cannot itself prove maliciousness.
 
 ## Latest corpus integrations
 
@@ -106,8 +114,12 @@ The September 2026 supplied corpus has been absorbed into the knowledge base and
 - `docs/knowledge-base/omnicore-architecture-convergence-2026-09-09.md`
 - `docs/knowledge-base/business-model-strategy-innovation-governance-2026-09-09.md`
 - `docs/knowledge-base/adaptive-strategy-business-model-experimentation-2026-09-09.md`
+- `docs/knowledge-base/omnicore-unified-system-genesis-and-constitutional-runtime-2026-09-09.md`
+- `docs/knowledge-base/adversarial-continuity-mobile-and-llm-security-2026-09-09.md`
+- `docs/knowledge-base/stochastic-game-system-integrity-and-probability-2026-09-09.md`
+- `docs/knowledge-base/physical-symbolic-artifact-engineering-and-apeiron-2026-09-09.md`
 
-The current synthesis adds Project 67 as the executable strategy/model/experimentation layer, extending Project 66's adaptive business-model and circular-value foundation.
+The current synthesis adds Projects 68–71 as original convergence layers for constitutional runtime orchestration, adversarial continuity defense, stochastic integrity, and manufacturing-aware physical/symbolic artifacts.
 
 ## Portfolio lineage
 
