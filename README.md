@@ -32,6 +32,7 @@ Source-grounded and research-derived knowledge covering:
 - Omnis language architecture, hybrid memory/type systems, UGR and CIRA;
 - OmniCore learned-kernel, SemanticFS, AI Foundry, WASM/DBT, immutable OS and MeshBus patterns;
 - Digital Human / Personified UI, Edge AI, multimodal interaction and cognitive-sovereignty boundaries;
+- business-model architecture, strategy/model separation, organizational competencies, experimentation, circular economy and outcome economics;
 - the supplied project-owner PDF corpus.
 
 ### `projekty/`
@@ -40,7 +41,7 @@ Build-oriented project specifications derived from the knowledge base. Projects 
 
 `problem → scope → architecture → contracts → security → verification → evaluation → roadmap`
 
-The portfolio includes agent platforms, security labs, local AI infrastructure, multimodal systems, creative tooling, research orchestration, verified code generation and human-agency protection.
+The portfolio includes agent platforms, security labs, local AI infrastructure, multimodal systems, creative tooling, research orchestration, verified code generation, human-agency protection and business-model experimentation.
 
 ## Evidence discipline
 
@@ -83,7 +84,10 @@ Core invariants include:
 - unknown capability is handled fail-closed;
 - consequential actions require an explicit policy path;
 - security analysis is stateful across the interaction trajectory;
-- human agency is preserved as a system property.
+- human agency is preserved as a system property;
+- business-model assumptions are distinct from observed outcomes;
+- strategy is distinct from business-model representation;
+- forecasts are not realized economic value.
 
 ## Latest corpus integrations
 
@@ -99,8 +103,9 @@ The September 2026 supplied corpus has been absorbed into the knowledge base and
 - `docs/knowledge-base/omnicore-ai-native-os-learned-kernel-semanticfs.md`
 - `docs/knowledge-base/digital-human-pui-edge-interface.md`
 - `docs/knowledge-base/omnicore-architecture-convergence-2026-09-09.md`
+- `docs/knowledge-base/business-model-strategy-innovation-governance-2026-09-09.md`
 
-The latest synthesis also adds Project 61 as a convergence layer linking Omnis, CIRA, the learned-kernel research, SemanticFS, AI Foundry, WASM/DBT, immutable release, MeshBus and the Personified UI/Edge interaction stack.
+The portfolio now includes Project 66 as a convergence layer for adaptive business-model design, strategy delineation, organizational competence mapping, experimentation, circular-value modeling and outcome reconciliation.
 
 ## Portfolio lineage
 
