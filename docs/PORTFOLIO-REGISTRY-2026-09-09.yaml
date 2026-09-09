@@ -1,4 +1,4 @@
-version: 6
+version: 7
 registry_type: canonical_portfolio_snapshot
 as_of: 2026-09-09
 repository: mojealterego/Knowledge-projects
@@ -14,7 +14,7 @@ status_legend:
 registry_scope:
   canonical_legacy_sequence: 1-59
   later_artifact_sequence: 60-71
-  architecture_candidates: [72,73,74,75,76,77,78,79]
+  architecture_candidates: [72,73,74,75,76,77,78,79,80]
   note: "Snapshot registry. Historical collisions remain governed by Project 47."
 
 portfolio_families:
@@ -139,6 +139,21 @@ project_79:
     - docs/knowledge-base/telephony-esim-mcp-and-mobile-identity-fabric.md
   purpose: "Operate a governed closed-loop discovery system that converts unknowns into competing hypotheses, discriminating experiments, validated observations, independent replications and machine-readable knowledge."
   breakthrough_claim_boundary: "The potential world-changing contribution is the integrated discovery architecture; no scientific discovery is claimed until the project produces independently replicated evidence."
+
+project_80:
+  canonical_id: 80
+  title: "OmniCore Self-Evolving Computing Substrate MAX"
+  artifact: projekty/80-omnicore-self-evolving-computing-substrate-max.md
+  status: PROPOSED
+  maturity: ARCHITECTURE_BASELINE
+  derived_from: [59,61,68,72,79]
+  source_lineage:
+    - docs/knowledge-base/omnicore-self-evolving-computing-substrate-2026-09-09.md
+    - docs/knowledge-base/omnicore-architecture-convergence-2026-09-09.md
+    - docs/knowledge-base/omnicore-ai-native-os-learned-kernel-semanticfs.md
+    - docs/knowledge-base/omnicore-gcp-forge-nested-virtualization-and-agent-factory-2026-09-09.md
+  purpose: "Apply governed scientific discovery to the computing substrate itself: generate, test, verify, replicate and safely promote kernel/compiler/driver/runtime variants."
+  breakthrough_claim_boundary: "No self-improving operating system is claimed until independent experiments demonstrate reproducible, generalizable improvements over controlled baselines."
 
 lineage_policy:
   authority: Project 47
