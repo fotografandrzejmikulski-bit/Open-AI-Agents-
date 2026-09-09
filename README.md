@@ -33,6 +33,7 @@ Source-grounded and research-derived knowledge covering:
 - OmniCore learned-kernel, SemanticFS, AI Foundry, WASM/DBT, immutable OS and MeshBus patterns;
 - Digital Human / Personified UI, Edge AI, multimodal interaction and cognitive-sovereignty boundaries;
 - business-model architecture, strategy/model separation, organizational competencies, experimentation, circular economy and outcome economics;
+- adaptive strategy, business-model innovation, microfoundations, experimentation and circular-value engineering;
 - the supplied project-owner PDF corpus.
 
 ### `projekty/`
@@ -104,9 +105,9 @@ The September 2026 supplied corpus has been absorbed into the knowledge base and
 - `docs/knowledge-base/digital-human-pui-edge-interface.md`
 - `docs/knowledge-base/omnicore-architecture-convergence-2026-09-09.md`
 - `docs/knowledge-base/business-model-strategy-innovation-governance-2026-09-09.md`
-- `docs/knowledge-base/adaptive-business-model-strategy-innovation-governance-2026-09-09-v2.md`
+- `docs/knowledge-base/adaptive-strategy-business-model-experimentation-2026-09-09.md`
 
-The portfolio now includes Project 67 as a convergence layer for adaptive business-model design, strategy delineation, organizational competence mapping, experimentation, circular-value modeling and outcome reconciliation.
+The current synthesis adds Project 67 as the executable strategy/model/experimentation layer, extending Project 66's adaptive business-model and circular-value foundation.
 
 ## Portfolio lineage
 
