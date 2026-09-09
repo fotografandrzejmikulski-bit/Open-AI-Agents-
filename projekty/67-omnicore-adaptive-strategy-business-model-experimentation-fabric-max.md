@@ -14,7 +14,35 @@ Organizations often collapse several distinct objects into one narrative:
 
 This makes it difficult to determine what is assumed, what is planned, what is executable, what has been tested and what actually worked.
 
-The source corpus provides a stronger separation. Business models describe value creation/delivery/capture, whereas strategy concerns direction, choices and dynamic adaptation. The sources also emphasize internal/external fit, strategic competencies, experimentation and strategy concretization. fileciteturn132file2L58-L80 fileciteturn132file14L394-L406
+The source corpus provides a stronger separation. Business models describe value creation/delivery/capture, whereas strategy concerns direction, choices and dynamic adaptation. The sources also emphasize internal/external fit, strategic competencies, experimentation and strategy concretization.
+
+## New source-derived evidence: Polish strategy execution gap
+
+The supplied Grant Thornton report adds a measurable empirical signal to the project's strategy-concretization problem. In its survey of medium and large Polish enterprises, 62% reported having a strategy for the coming years, but only 51% reported that the strategy was communicated to employees, particularly management. Only 37% reported that the strategy was both communicated and formalized as an official written document. These figures are retained as source-derived observations from the February 2023 report, not as current 2026 market statistics.
+
+The report frames strategy as a reference point for reorganization, new processes, systems, tools and resources. It also emphasizes continuous monitoring and communication rather than treating strategy as a static document.
+
+A second finding is directly relevant to the adaptive controller: among firms that reported having a strategy, more than 90% said that its assumptions were regularly reviewed and updated, while only 35% planned an accelerated update or publication of a new strategy in the following 12 months under the economic conditions studied.
+
+Engineering consequence:
+
+```text
+STRATEGY EXISTENCE
+      ↓
+STRATEGY COMMUNICATION
+      ↓
+FORMALIZATION
+      ↓
+OWNER / INITIATIVE / METRIC
+      ↓
+MONITORING
+      ↓
+REVIEW TRIGGER
+      ↓
+CONTROLLED UPDATE
+```
+
+The project therefore treats **communication and operational formalization as separate maturity dimensions**, not as implicit properties of strategy existence.
 
 ## System architecture
 
@@ -73,7 +101,9 @@ Defines:
 - initiatives;
 - time horizon;
 - constraints;
-- adaptation rules.
+- adaptation rules;
+- communication status;
+- formalization status.
 
 ### CapabilityGraph
 
@@ -114,6 +144,26 @@ Defines:
 - uncertainty;
 - provenance.
 
+## Strategy maturity dimensions
+
+The new source evidence motivates a four-axis maturity model:
+
+```text
+M1 — EXISTENCE
+     Is a strategic direction explicitly defined?
+
+M2 — FORMALIZATION
+     Is it represented as a durable, reviewable artifact?
+
+M3 — COMMUNICATION
+     Do responsible managers and employees know the relevant choices?
+
+M4 — EXECUTION / FEEDBACK
+     Are owners, initiatives, metrics and review loops connected to outcomes?
+```
+
+A strategy should not receive a high maturity score merely because a document exists.
+
 ## Strategy regime controller
 
 The controller classifies organizational state into bounded regimes:
@@ -128,7 +178,7 @@ RENEWAL / INNOVATION
    OVERLOAD / STRATEGIC DRIFT
 ```
 
-The supplied Obłój material describes simple rules during growth, improvement during maturity and innovation/renewal when routine and scale become limiting. It also highlights cost discipline, customer focus, experimentation, people allocation, clear challenges and learning from major failures. fileciteturn132file5L156-L206
+The supplied Obłój material describes simple rules during growth, improvement during maturity and innovation/renewal when routine and scale become limiting. It also highlights cost discipline, customer focus, experimentation, people allocation, clear challenges and learning from major failures.
 
 The controller does not autonomously change strategic policy. It recommends a regime transition and routes it through governance.
 
@@ -136,9 +186,9 @@ The controller does not autonomously change strategic policy. It recommends a re
 
 A strategy is considered sufficiently concretized only when a strategic intent can be mapped to:
 
-`DOMAIN → CHOICE → CAPABILITY → INITIATIVE → OWNER → METRIC → TIMEBOX → EVIDENCE → OUTCOME`.
+`DOMAIN → CHOICE → CAPABILITY → INITIATIVE → OWNER → METRIC → TIMEBOX → COMMUNICATION → EVIDENCE → OUTCOME`.
 
-This converts the source notion of strategy concretization into an auditable engineering object. Niewiadomski's material explicitly links concretization with identification of business-model micro-foundations and empirical verification of their level, scope and structure. fileciteturn130file1L20-L30
+This converts the source notion of strategy concretization into an auditable engineering object.
 
 ## Experimentation engine
 
@@ -162,7 +212,7 @@ OUTCOME RECONCILIATION
 KEEP / MODIFY / STOP / SCALE
 ```
 
-The source material explicitly identifies experiments and testing as a separate business-model activity and describes aggressive cancellation of failed experiments as a strategic discipline. fileciteturn132file0L16-L24 fileciteturn132file5L72-L81
+The source material explicitly identifies experiments and testing as a separate business-model activity and describes aggressive cancellation of failed experiments as a strategic discipline.
 
 ## Circular-value extension
 
@@ -184,17 +234,15 @@ RECOVERY
 SECONDARY INPUT
 ```
 
-GOZ 2030 describes the circular economy as increasing the circulation and added value of resources while reducing waste, with cooperation and industrial symbiosis across stakeholders as important conditions. fileciteturn124file6L51-L62
-
 The platform therefore evaluates both economic and material-flow outcomes rather than accepting sustainability claims as labels.
 
 ## Family-business governance extension
 
-For family enterprises, the system models ownership, succession, governance, strategic roles and business/family boundaries separately from ordinary customer and market variables. The supplied family-business source explicitly structures these topics across ownership, succession, strategic planning and implementation. fileciteturn130file3L4-L12
+For family enterprises, the system models ownership, succession, governance, strategic roles and business/family boundaries separately from ordinary customer and market variables.
 
 ## Marketing evidence layer
 
-Market and marketing strategy enter the system as dynamic observations. The supplied marketing paper emphasizes changing market conditions, hybrid real/virtual strategies and the importance of timely information and IT capability. fileciteturn124file2L10-L37
+Market and marketing strategy enter the system as dynamic observations.
 
 Therefore:
 
@@ -224,6 +272,8 @@ No state transition may silently promote an assumption into a fact.
 8. Circular-economy claims require measurable flows or documented evidence.
 9. Family ownership/succession constraints are explicit rather than hidden in narrative context.
 10. Dynamic strategy adaptation cannot bypass policy, budget, legal or human-review constraints.
+11. Communication status must not be inferred from document existence.
+12. Strategic review cadence must be driven by explicit triggers and evidence, not by autonomous model preference.
 
 ## Evaluation framework
 
@@ -239,7 +289,9 @@ No state transition may silently promote an assumption into a fact.
 - choice coherence;
 - capability fit;
 - adaptability;
-- implementation concreteness.
+- implementation concreteness;
+- communication coverage;
+- formalization quality.
 
 ### Experiment quality
 - hypothesis falsifiability;
@@ -279,7 +331,7 @@ Typed BusinessModelSpec, StrategySpec, CapabilityGraph, ExperimentSpec and Outco
 Market, customer and internal-signal ingestion with provenance and freshness.
 
 ### G2 — Strategy concretization
-Map strategic intent into owners, initiatives, metrics and timeboxes.
+Map strategic intent into owners, initiatives, metrics, communication status and timeboxes.
 
 ### G3 — Experimentation
 Launch bounded tests with reproducible measurement and stop rules.
@@ -290,12 +342,15 @@ Compare predicted and realized effects.
 ### G5 — Adaptive regimes
 Detect strategic drift, capability bottlenecks and organizational regime transitions.
 
-### G6 — Circular/family extensions
+### G6 — Communication and formalization assurance
+Measure whether strategic choices are documented, communicated to responsible actors and connected to executable initiatives.
+
+### G7 — Circular/family extensions
 Add material-flow and family-governance constraints where applicable.
 
-### G7 — Controlled autonomous recommendation
+### G8 — Controlled autonomous recommendation
 Permit model-driven proposal generation only within the existing policy/capability architecture.
 
 ## Final principle
 
-`A business model explains the value logic. Strategy chooses how to compete and adapt. Operations execute. Experiments test assumptions. Outcomes decide what survives.`
+`A business model explains the value logic. Strategy chooses how to compete and adapt. Operations execute. Communication makes choices actionable. Experiments test assumptions. Outcomes decide what survives.`
