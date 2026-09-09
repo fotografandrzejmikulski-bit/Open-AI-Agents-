@@ -101,54 +101,23 @@ MEASURED OUTCOME
 
 ## Canonical portfolio status
 
-The repository currently contains project specifications through **Project 71**, plus a newly created **Project 72 architecture baseline**. Historical duplicate numeric identifiers are intentionally preserved and reconciled through Project 47 rather than destructively deleted.
+The repository contains project specifications through **Project 71**, plus **Project 72** as an operational-assurance architecture baseline. Historical duplicate numeric identifiers are intentionally preserved and reconciled through Project 47 rather than destructively deleted.
 
-The current observed collision groups include duplicated artifacts around Projects **60, 61 and 67**, in addition to earlier historical numbering collisions documented in Project 47. These are governance concerns and are not resolved by arbitrary renaming.
+The observed collision groups include duplicated artifacts around Projects **60, 61 and 67**, in addition to earlier historical numbering collisions documented in Project 47. These are governance concerns and are not resolved by arbitrary renaming.
 
 ### Project families 37–59
 
-The portfolio already includes:
-
-- **37** — CogniSync Professional / Sovereign Edge AI family
-- **38–44** — sovereign edge, scientific verification, Alibaba/cloud, agentic development, repository intelligence, Open Creator, Influence Literacy and AI Content lineage
-- **45** — OmniCore Agentic Content & Commerce Factory
-- **46** — CogniSync Open Creator Influence & Content Nexus
-- **47** — OmniCore Portfolio Integrity & Project Registry
-- **48** — Grand Challenge & All-Source Intelligence Foundry
-- **49** — Cognitive Sovereignty & Adaptive Intelligence Fabric
-- **50** — Physical Game & Phygital Experience Foundry
-- **51** — Signal, Game Probability & Cognitive Safety Lab
-- **52** — Adaptive Game Designer & Procedural Playtest Foundry
-- **53** — Symbolic Interface & Artifact Compiler
-- **54** — Epistemic Signal & Adversarial Control Fabric
-- **55** — Reproducible Stochastic Integrity & Probability Lab
-- **56** — AI Commercialization & Outcome Engine
-- **57** — Multimodal Intelligence & Cognitive Interface Fabric
-- **58** — Monitorability-Aware Oversight & Verification Fabric
-- **59** — Autonomous Execution & AI-Native Control Fabric
+The portfolio includes sovereign edge, scientific verification, Alibaba/cloud, agentic development, repository intelligence, Open Creator, Influence Literacy, AI Content, content/commerce, portfolio registry, grand-challenge intelligence, cognitive sovereignty, physical/phygital game systems, stochastic integrity, symbolic interfaces, epistemic control, multimodal intelligence, monitorability-aware oversight and autonomous execution/control.
 
 ### Project families 60–71
 
-Later repository artifacts add:
-
-- **60** — Systems Engineering & Intelligence / Adversarial Multimodal Security family
-- **61** — Probabilistic Learning & Optimization / Omnis-Learned-Kernel-PUI convergence family
-- **62** — Data, Causal & Distributed Intelligence Fabric
-- **65** — Autonomous Systems Convergence & Agentic OS Factory
-- **66** — Adaptive Business Model, Strategy & Circular Value Foundry
-- **67** — Strategy / Business-Model Innovation & Experimentation family
-- **68** — Constitutional Genesis & Unified Runtime Fabric
-- **69** — Adversarial Continuity & Mobile AI Defense Fabric
-- **70** — Stochastic Game Integrity & Auditable RNG Fabric
-- **71** — Physical Artifact Manufacturing & Symbolic Interface Factory
-
-Canonical identity must continue to be resolved by Project 47 lineage rules and not inferred from numbering alone.
+Later repository artifacts add systems engineering/intelligence, adversarial multimodal security, probabilistic learning/optimization, Omnis/learned-kernel/PUI convergence, data/causal/distributed intelligence, autonomous systems/agentic OS factory, adaptive business-model strategy, constitutional runtime, adversarial continuity/mobile defense, stochastic game integrity and physical artifact manufacturing/symbolic interfaces. Their canonical identity continues to be resolved by Project 47 lineage rules rather than filenames alone.
 
 ## New engineering evolution — Project 72
 
 **Project 72 — OmniCore Cross-Framework Agent Assurance & Runtime Verification Fabric MAX**
 
-Project 72 is an operationalization layer rather than another domain-specific convergence project. It integrates existing portfolio requirements for:
+Project 72 operationalizes control principles already distributed across Projects 47, 58 and 59 and integrates adjacent security/control capabilities from Projects 60, 68 and 69. Its target is a reusable assurance boundary for:
 
 - framework-neutral event normalization;
 - capability and authorization verification;
@@ -160,7 +129,9 @@ Project 72 is an operationalization layer rather than another domain-specific co
 - production-vs-evaluation drift detection;
 - cross-framework assurance adapters.
 
-Its current status is **PROPOSED → ARCHITECTURE BASELINE**. It is not considered production-ready until its Definition of Done is implemented and independently tested.
+A dedicated implementation contract now exists at `projekty/72-omnicore-cross-framework-agent-assurance-and-runtime-verification-fabric-max/README.md`.
+
+Its current status remains **PROPOSED → ARCHITECTURE BASELINE**. It is not production-ready until its Definition of Done is implemented and independently tested.
 
 ## Evidence classification
 
@@ -230,43 +201,44 @@ For critical systems, counterexamples and failure modes are first-class engineer
 
 ### Knowledge Integrated
 
-The current repository already contains broad knowledge spanning agent engineering, MCP, coding agents, multimodal systems, security, evidence/OSINT, data/ML/causal analytics, business-model strategy, stochastic integrity, physical artifacts and OmniCore convergence architectures.
+The repository already contains broad knowledge spanning agent engineering, MCP, coding agents, multimodal systems, security, evidence/OSINT, data/ML/causal analytics, business-model strategy, stochastic integrity, physical artifacts and OmniCore convergence architectures. A new repository-level knowledge artifact, `docs/knowledge-base/repository-operational-assurance-and-contract-verification.md`, formalizes the reusable operational assurance pattern linking architecture intent to executable contracts and runtime evidence.
 
 ### Projects Updated
 
-The repository has been audited as a portfolio rather than treated as a single application. Project 47 is recognized as the canonical identity/lineage authority.
+- Project 72 received a dedicated implementation contract with Definition of Done, security invariants and PL/EN operator-interface requirements.
+- Project 47/58/59 relationships were explicitly reflected in the Project 72 implementation boundary.
+- The portfolio root log now records Project 72 as an operationalization layer rather than another domain-specific convergence project.
 
 ### Projects Created
 
-- **Project 72 — OmniCore Cross-Framework Agent Assurance & Runtime Verification Fabric MAX**
+- **Project 72 implementation contract** — `projekty/72-omnicore-cross-framework-agent-assurance-and-runtime-verification-fabric-max/README.md`
+
+### Knowledge Artifacts Created
+
+- **Repository Operational Assurance & Contract Verification** — `docs/knowledge-base/repository-operational-assurance-and-contract-verification.md`
 
 ### Architecture Changes
 
-- Added a machine-readable portfolio registry snapshot.
-- Established a repository audit baseline.
-- Added an explicit operational assurance layer candidate spanning existing runtime/security/verification projects.
+- Formalized the separation between architecture intent and runtime evidence.
+- Defined a contract hierarchy covering identity, schemas, authorization, state, outcome, evidence and security.
+- Added monitorability as a verification-policy input rather than only a dashboard metric.
+- Defined trajectory-oriented replay and distributional drift analysis as first-class assurance concerns.
 
 ### Security Changes
 
-The new assurance architecture explicitly preserves capability authorization, independent postcondition verification, trajectory replay, provenance and monitorability-aware escalation.
+The assurance architecture preserves capability isolation, fail-closed identity/capability ambiguity, independent authorization, authoritative readback, postcondition verification, provenance preservation and telemetry-as-untrusted-data handling.
 
 ### Verification
 
-- Repository state and Project 72 artifact were reread after creation.
+- New knowledge artifact was written and reread from `main` after commit.
+- Project 72 implementation README was written and reread from `main` after commit.
+- Current `main` HEAD was re-read and confirmed as commit `84e75a3cf353cd9d6d48aeddef76dbb8937b2661`.
+- GitHub reports no configured commit status checks for that commit, so no passing CI result is claimed.
 - No force push was used.
-- No known secret material was intentionally added.
-- Project 72 is explicitly marked non-production until its Definition of Done is implemented and tested.
 
-### Remaining Risks
+### Known Limitations
 
-- Canonical registry synchronization remains incomplete for all historical/later numeric collision groups.
-- CI/build/test infrastructure for the documentation portfolio requires further repository-level inspection.
-- Project specifications are not equivalent to implemented software; implementation maturity must be established project-by-project.
-- Candidate Project 72 requires external demand/framework coverage validation before being treated as a validated market claim.
-
-## Navigation
-
-- [`docs/knowledge-base/`](docs/knowledge-base) — durable knowledge and research corpus
-- [`projekty/`](projekty) — engineered project portfolio
-- [`docs/REPOSITORY-AUDIT-2026-09-09.md`](docs/REPOSITORY-AUDIT-2026-09-09.md) — repository baseline
-- [`docs/PORTFOLIO-REGISTRY-2026-09-09.yaml`](docs/PORTFOLIO-REGISTRY-2026-09-09.yaml) — machine-readable portfolio registry
+- The existing `projekty/README.md` index is still being synchronized with the newer Project 60–72 artifact inventory; two attempted optimistic updates were correctly rejected because the local SHA was stale, so no unsafe overwrite was performed.
+- Project 72 has no executable runtime implementation yet; its new directory currently contains the implementation contract only.
+- Historical project-number collisions remain governed by Project 47 and are intentionally not destructively renamed.
+- Production readiness requires executable tests, at least two materially different adapters, replay, postcondition verification, drift/monitorability metrics and reproducible CI evidence.
