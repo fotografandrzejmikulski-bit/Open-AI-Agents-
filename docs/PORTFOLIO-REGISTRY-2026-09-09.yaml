@@ -1,4 +1,4 @@
-version: 7
+version: 8
 registry_type: canonical_portfolio_snapshot
 as_of: 2026-09-09
 repository: mojealterego/Knowledge-projects
@@ -14,7 +14,7 @@ status_legend:
 registry_scope:
   canonical_legacy_sequence: 1-59
   later_artifact_sequence: 60-71
-  architecture_candidates: [72,73,74,75,76,77,78,79,80]
+  architecture_candidates: [72,73,74,75,76,77,78,79,80,81]
   note: "Snapshot registry. Historical collisions remain governed by Project 47."
 
 portfolio_families:
@@ -154,6 +154,19 @@ project_80:
     - docs/knowledge-base/omnicore-gcp-forge-nested-virtualization-and-agent-factory-2026-09-09.md
   purpose: "Apply governed scientific discovery to the computing substrate itself: generate, test, verify, replicate and safely promote kernel/compiler/driver/runtime variants."
   breakthrough_claim_boundary: "No self-improving operating system is claimed until independent experiments demonstrate reproducible, generalizable improvements over controlled baselines."
+
+project_81:
+  canonical_id: 81
+  title: "Voice-Narrative AI Game Engine MAX"
+  artifact: projekty/81-voice-narrative-ai-game-engine-max.md
+  status: PROPOSED
+  maturity: ARCHITECTURE_BASELINE
+  derived_from: [17,24,27,50,51,52,57,61,68,71,72,73,76]
+  source_lineage:
+    - docs/knowledge-base/compound-reasoning-gem-apeiron-aura-voice-game-2026-09-09.md
+    - docs/PROJECT-GENESIS-2026-09-09-ITERATION-11-VOICE-NARRATIVE-AI-GAME.md
+  purpose: "Build a voice-native AI-character game runtime that compiles player speech into typed commands while keeping rules, RNG, economy, progression and consequential state authoritative and auditable."
+  breakthrough_claim_boundary: "The project does not claim that covert persuasion, emotional monetization, compulsive design or AI-driven outcomes improve retention; those source proposals are explicitly excluded from the production architecture."
 
 lineage_policy:
   authority: Project 47
