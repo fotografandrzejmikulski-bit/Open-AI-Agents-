@@ -4,7 +4,7 @@
 Create a cross-provider routing layer that chooses the least expensive / lowest-latency execution profile capable of satisfying an evaluated quality threshold, with escalation when uncertainty or verification failure rises.
 
 ## Source-derived basis
-The supplied Gemini performance material emphasizes context caching, batch processing, streaming, asynchronous execution and RAG/tuning as system-level performance levers. fileciteturn74file0L10-L48 The Claude-vs-Gemini comparison is retained only as historical evidence that model specialization can differ by task; it must not be treated as a permanent provider ranking. fileciteturn72file2L7-L20
+The supplied Gemini performance material emphasizes context caching, batch processing, streaming, asynchronous execution and RAG/tuning as system-level performance levers. The Claude-vs-Gemini comparison is retained only as historical evidence that model specialization can differ by task; it must not be treated as a permanent provider ranking.
 
 ## Architecture
 
@@ -83,7 +83,7 @@ STATIC KNOWLEDGE
 CONTEXT BUDGET
 ```
 
-Prefer cache reuse, retrieval and task-focused context before blindly increasing model size. The performance source explicitly highlights caching and efficient execution as optimization levers. fileciteturn74file0L18-L28
+Prefer cache reuse, retrieval and task-focused context before blindly increasing model size. The performance source explicitly highlights caching and efficient execution as optimization levers.
 
 ## Model adapters
 
@@ -125,6 +125,43 @@ Track:
 
 Routing never bypasses policy or safety controls. A cheaper or less constrained provider cannot be selected merely because it produces a result more readily. Provider-specific safety posture remains explicit, versioned and auditable.
 
+## 2026-09-09 evolution — compound reasoning execution profiles
+
+The new Pro Loop material makes compound inference a first-class routing profile rather than merely a property of one model.
+
+A compound route is now conceptually:
+
+```yaml
+compound_profile:
+  base_execution:
+  cache:
+    mode: explicit | implicit | none
+    version:
+    ttl:
+  fanout:
+    max_paths:
+    concurrency_limit:
+    jitter:
+  aggregation:
+    mode: majority | weighted | semantic | critic
+    early_exit:
+  verification_level:
+  cost_budget:
+  latency_budget:
+```
+
+Routing should select this profile when the expected value of additional bounded inference exceeds the cost/latency budget and when the task benefits from disagreement analysis. Explicit cache compatibility is part of provider capability discovery; it is not assumed globally.
+
+The router must also distinguish:
+
+`MODEL ESCALATION` from `COMPUTE ESCALATION`.
+
+A request can remain on the same model while increasing the number of bounded branches, or it can move to a stronger model when compound inference fails its quality gate.
+
+Operational telemetry should include cache hit/miss, branch completion/failure, aggregate disagreement, early-exit reason and cost per verified result.
+
+Historical provider prices in the source report are not used as current routing constants; live pricing and benchmark data remain required.
+
 ## Definition of done
 
-The router is complete when model/provider choice is replaceable, execution profile is explicit, context/cost/latency are measurable, verification is mandatory at the configured assurance level, and no routing decision can weaken authorization or security policy.
+The router is complete when model/provider choice is replaceable, execution profile is explicit, context/cost/latency are measurable, verification is mandatory at the configured assurance level, compound fan-out is rate-limited and observable, and no routing decision can weaken authorization or security policy.
