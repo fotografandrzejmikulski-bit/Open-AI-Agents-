@@ -1,6 +1,6 @@
 # Projects — Expanded Design Lab
 
-This directory contains project artifacts upgraded using the project's accumulated knowledge base: OpenAI Agents SDK, MCP, coding-agent patterns, AI application builders, formal verification, adversarial AI security, distributed execution, multimodal systems, model engineering, adaptive reasoning, research orchestration, prompt optimization, Google AI developer patterns, OmniCore/Nexus systems research, verified code generation, the Sugra data/MCP fabric, Skills, dynamic tool discovery, MCP Apps, sovereign execution, repository intelligence, multimodal world-state control, multi-model evaluation, physical/game-system engineering, probability modeling, and the source materials supplied by the project owner.
+This directory contains project artifacts upgraded using the project's accumulated knowledge base: OpenAI Agents SDK, MCP, coding-agent patterns, AI application builders, formal verification, adversarial AI security, distributed execution, multimodal systems, model engineering, adaptive reasoning, research orchestration, prompt optimization, Google AI developer patterns, OmniCore/Nexus systems research, verified code generation, the Sugra data/MCP fabric, Skills, dynamic tool discovery, MCP Apps, sovereign execution, repository intelligence, multimodal world-state control, multi-model evaluation, physical/game-system engineering, probability modeling, business-model engineering and the source materials supplied by the project owner.
 
 ## Engineering standard
 
@@ -99,6 +99,7 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
 | `60-omnicore-adversarial-multimodal-ai-security-and-resilience-fabric-max.md` | Adversarial multimodal AI security | Integrate GCG, prompt injection, memory poisoning, multimodal attacks, agent-to-agent propagation and resilience gates under a provider-neutral defensive security fabric |
 | `61-omnicore-convergence-fabric-omnis-learned-kernel-pui-max.md` | Omnis + learned-kernel + PUI convergence | Unify hybrid language design, compiler-integrated migration, learned-kernel research, SemanticFS, AI Foundry, WASM/DBT and Personified UI into one guarded systems architecture |
 | `65-omnicore-autonomous-systems-convergence-and-agentic-os-factory-max.md` | Agentic OS factory | Turn hardware/software intent into reproducible, verified, signed and recoverable system artifacts through a multi-agent systems-engineering factory |
+| `66-omnicore-adaptive-business-model-strategy-and-circular-value-foundry-max.md` | Business-model + strategy + circular value engineering | Compile value creation/delivery/capture, organizational capabilities, strategic choices, experiments, circular loops and realized outcomes into versioned, testable business systems |
 
 ## Reconciliation / lineage
 
@@ -106,7 +107,7 @@ Project numbering is a canonical identity problem rather than a filename problem
 
 The sovereign edge specification is the canonical Project 38; the separate scientific-stability artifact remains preserved as historical/research lineage. The original Open Creator, Influence Literacy and AI Content projects are canonicalized as Projects 42, 43 and 44 respectively.
 
-Projects 60 and 61 represent later convergence/security additions derived from supplied source corpora. Project 65 is the end-to-end factory layer that operationalizes the convergence pattern without replacing the underlying research projects.
+Projects 60 and 61 represent later convergence/security additions derived from supplied source corpora. Project 65 is the end-to-end factory layer that operationalizes the convergence pattern without replacing the underlying research projects. Project 66 extends the portfolio into adaptive business-model and strategy engineering, experimentation and circular-value design.
 
 ## Cross-project architecture
 
@@ -117,7 +118,7 @@ USER / OPERATOR
 CANONICAL PROJECT REGISTRY
        │
        ↓
-INTENT / PROBLEM / GAME DESIGN
+INTENT / PROBLEM / GAME / BUSINESS MODEL
        │
        ↓
 CONTEXT COMPILER
@@ -126,6 +127,7 @@ CONTEXT COMPILER
        ├──────────── WORLD STATE GRAPH
        ├──────────── EVIDENCE / UNKNOWNS GRAPH
        ├──────────── GAME / RULE GRAPH
+       ├──────────── BUSINESS MODEL GRAPH
        └──────────── INFLUENCE / HUMAN-AGENCY SIGNALS
        │
        ↓
@@ -135,19 +137,19 @@ EPISTEMIC / REASONING CONTROL
 MODEL / SPECIALIST ROUTER
        │
        ↓
-VERIFIED PLAN / HYPOTHESIS / RULESET
+VERIFIED PLAN / HYPOTHESIS / RULESET / BUSINESS MODEL VARIANT
        │
        ↓
 CAPABILITY BROKER
        │
        ↓
-DETERMINISTIC EXECUTION / SANDBOX / SIMULATION
+DETERMINISTIC EXECUTION / SANDBOX / SIMULATION / EXPERIMENT
        │
        ↓
 AUTHORITATIVE READBACK
        │
        ↓
-POSTCONDITION / POLICY / AGENCY VERIFY
+POSTCONDITION / POLICY / AGENCY / ECONOMIC VERIFY
        │
        ↓
 ARTIFACT + STATE DELTA / EVIDENCE PACKET
@@ -166,6 +168,14 @@ Reasoning depth is a resource to allocate. Fast paths handle low-complexity task
 ## Research doctrine
 
 Research uses source planning, parallel expertise, evidence graphs, adversarial critique, falsification, counterevidence and resumable execution. Unknown is never treated as pass.
+
+## Business-model doctrine
+
+A business model represents how value is created, delivered and captured; strategy represents longer-term goals and choices. The two are linked but not collapsed into one object. fileciteturn124file0L11-L25 fileciteturn124file1L38-L47
+
+Business-model variants are treated as versioned hypotheses. They require explicit assumptions, experiments and comparison with realized outcomes. The SME corpus explicitly organizes work around Business Model Canvas, business-model mechanisms, value proposition, change planning, evaluation and experimentation. fileciteturn124file9L5-L19
+
+Circular-value models represent resource flows and ecosystem cooperation explicitly. The GOZ 2030 material emphasizes circulation of resources, reduced waste and collaboration/industrial symbiosis. fileciteturn124file6L51-L62
 
 ## Game / physical-product doctrine
 
@@ -198,10 +208,10 @@ Reasoning traces are useful evidence when available but are not a security bound
 3. Tool execution is typed and schema-validated.
 4. Action success requires a verified postcondition.
 5. Stale turns cannot overwrite newer committed state.
-6. Multimodal perception is evidence with provenance and uncertainty.
-7. Actual runtime/model identity determines metering.
-8. Multi-model agreement is not proof when assumptions are correlated.
-9. Network proxies are allowlisted and SSRF-resistant.
+6. Knowledge retrieval does not grant capability authority.
+7. Evidence graphs preserve provenance and freshness.
+8. Research uncertainty is explicit and does not silently collapse into fact.
+9. Active scanning requires authorization, scope, expiry and audit.
 10. Secrets remain server-side where possible; clients receive bounded ephemeral credentials.
 11. Repository, world and evidence state are explicit and versioned.
 12. Repository-scale coding follows inspect → modify → test → repair → verify.
@@ -242,12 +252,12 @@ Reasoning traces are useful evidence when available but are not a security bound
 47. Evaluation-aware behavior and monitor-awareness are tested independently from ordinary benchmark performance.
 48. Monitor disagreement and uncertainty are preserved as evidence rather than silently collapsed into a single confidence score.
 49. Revocation and shutdown remain effective without model cooperation.
-50. Generated system artifacts require provenance, reproducibility metadata and a verifiable promotion path.
-51. Generated privileged code remains quarantined until independent build, security and runtime gates pass.
-52. Capability/effect declarations must be consistent between source, compiler IR and runtime grants.
-53. Dependency virtualization never bypasses SBOM, vulnerability, license or capability-isolation checks.
-54. Self-healing operates through versioned replacement and rollback, not unrestricted in-place privileged rewriting.
-55. Hardware documentation is untrusted evidence until authenticated, version-pinned and provenance-tracked.
-56. Cross-device capabilities are explicit, scoped, time-bounded and revocable.
-57. Presentation state cannot mutate authoritative system state without an explicit policy path.
-58. Claims of universal hardware support, zero latency, guaranteed safety or migration speed are engineering hypotheses until measured.
+50. A business model is not a strategy, even when the two share resources and value-capture mechanisms.
+51. Value creation, value delivery and value capture are separately represented.
+52. Business-model variants are reproducible and differ through explicit assumption deltas.
+53. Experiments require baselines, metrics, stopping rules and evidence records.
+54. Predicted economic outcomes are stored separately from realized outcomes.
+55. Organizational capability claims require provenance and maturity evidence.
+56. Competitive advantage is an evaluation result, not an assumption from novelty alone.
+57. Circularity claims require explicit resource-flow or ecosystem-loop evidence.
+58. Strategic adaptation cannot bypass policy, authorization, audit or human-agency controls.
