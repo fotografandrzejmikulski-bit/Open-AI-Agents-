@@ -1,4 +1,4 @@
-version: 2
+version: 3
 registry_type: canonical_portfolio_snapshot
 as_of: 2026-09-09
 repository: mojealterego/Knowledge-projects
@@ -14,8 +14,8 @@ status_legend:
 registry_scope:
   canonical_legacy_sequence: 1-59
   later_artifact_sequence: 60-71
-  new_architecture_candidate: 72
-  note: "This is a snapshot registry. Canonicalization of every historical collision remains governed by Project 47 and must not be inferred from filenames alone."
+  architecture_candidates: [72,73,74]
+  note: "This is a snapshot registry. Canonicalization of historical collisions remains governed by Project 47 and must not be inferred from filenames alone."
 
 portfolio_families:
   - ids: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36]
@@ -81,6 +81,29 @@ project_72:
     - "Measure monitorability degradation and production/evaluation drift."
     - "Validate external demand and framework coverage before commercial claims."
 
+project_73:
+  canonical_id: 73
+  title: “Człowiek Roku” — Evidence-Driven Narrative Noir Game MAX
+  artifact: projekty/73-czlowiek-roku-evidence-driven-noir-game-max.md
+  status: PROPOSED
+  maturity: ARCHITECTURE_BASELINE
+  derived_from: [32,50,52,54,57,58,71,72]
+  source_lineage:
+    - docs/knowledge-base/chronos-czlowiek-roku-graphic-noir-production-bible-2026-09-09.md
+    - docs/knowledge-base/chronos-unreal-engine-5-time-rift-architecture-2026-09-09.md
+  purpose: "Concrete UE5 narrative-game product combining documentary-noir presentation, evidence graphs, temporal investigation, state-driven cinematics and provenance-aware play."
+
+project_74:
+  canonical_id: 74
+  title: iCar Agentic Vehicle Diagnostics & Evidence Fabric MAX
+  artifact: projekty/74-icar-agentic-vehicle-diagnostics-and-evidence-fabric-max.md
+  status: PROPOSED
+  maturity: ARCHITECTURE_BASELINE
+  derived_from: [31,37,40,41,57,58,69,72]
+  source_lineage:
+    - docs/knowledge-base/icar-obd2-mobile-diagnostics-reference-2026-09-09.md
+  purpose: "Governed mobile/edge vehicle-diagnostics platform connecting OBD2 acquisition, evidence normalization, agentic hypotheses, replay and human-reviewed reporting."
+
 lineage_policy:
   authority: Project 47
   rules:
@@ -90,5 +113,5 @@ lineage_policy:
     - "Record collision and ambiguity rather than silently resolving them."
 
 ingress_protocol:
-  sequence: "knowledge -> project impact -> implementation opportunity -> duplicate check -> new project candidate -> verification"
-  next_inputs: "future user-supplied files, links, repositories and research"
+  sequence: "knowledge -> project impact -> existing-project evolution -> duplicate check -> project genesis -> verification -> registry update"
+  required_completion: "An ingestion iteration is incomplete until affected projects and new-project candidates have been evaluated."
