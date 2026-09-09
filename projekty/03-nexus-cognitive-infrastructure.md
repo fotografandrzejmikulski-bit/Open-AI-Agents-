@@ -1,142 +1,250 @@
 # 03 — NEXUS COGNITIVE INFRASTRUCTURE
 
-## Purpose
-A research architecture for an adaptive, heterogeneous AI infrastructure inspired by the supplied Nexus/ASI material, but explicitly separated into verified engineering components and speculative research tracks.
+## Status
+**Engineering / Research Architecture Baseline**
 
-## Evidence classification
+## Mission
+A hardware- and substrate-neutral execution fabric for heterogeneous AI workloads. Practical compute is the mandatory baseline; experimental substrates remain optional research capabilities behind the same typed interface.
 
-The source material proposes heterogeneous compute substrates, thermodynamic sampling, photonic interconnects, NMR quantum systems, biological wetware, Zenoh, MLIR/Mojo, world models, recursive self-improvement and formal verification. These claims are retained as research hypotheses unless independently verified before procurement or production use. The document itself describes the orchestration code as conceptual. fileciteturn191file0L128-L180 fileciteturn191file0L433-L447
+## Architectural invariants
 
-## Architecture
+1. Removing every experimental accelerator must leave the platform operational.
+2. No substrate may bypass authorization, isolation, observability or verification controls.
+3. Scheduling decisions are policy-driven and inspectable.
+4. Workloads and results are addressable by immutable execution identifiers.
+5. Experimental claims are benchmark hypotheses until measured.
+6. Production control logic is never self-modified by an autonomous optimization loop.
 
-```text
-                     NEXUS CONTROL PLANE
-                              │
-              ┌───────────────┼────────────────┐
-              │               │                │
-        Agent Runtime     Policy Engine    Evaluation
-              │               │                │
-              └───────────────┼────────────────┘
-                              │
-                     Substrate Router
-                              │
-        ┌──────────┬──────────┼──────────┬──────────┐
-        │          │          │          │          │
-      CPU/GPU   FPGA       Photonic   Quantum    Research
-      cluster   nodes      accelerator  node      wetware
-        │          │          │          │          │
-        └──────────┴──────────┴──────────┴──────────┘
-                              │
-                     Message / Data Fabric
-                              │
-                   Observability + Audit
-```
-
-## Design rule
-The system must never depend on a speculative substrate for basic safety or correctness. Every accelerator is an optional capability behind a stable interface.
-
-## Stable substrate interface
+## System planes
 
 ```text
-submit(task_spec, input_ref) -> execution_ref
-capabilities() -> capability_manifest
-estimate(task_spec) -> cost_latency_energy_estimate
-execute(execution_ref) -> result_ref
-cancel(execution_ref) -> cancellation_receipt
-health() -> health_report
+CONTROL PLANE
+  policy · scheduler · capability registry · lifecycle
+                    │
+EXECUTION PLANE ────┼──── DATA PLANE
+  CPU/GPU/FPGA      │     datasets · artifacts · streams
+  experimental      │
+  substrates        │
+                    ↓
+             OBSERVABILITY
+          metrics · traces · audit
 ```
+
+## Stable substrate contract
+
+```ts
+interface ComputeSubstrate {
+  capabilities(): Promise<CapabilityManifest>;
+  estimate(task: TaskSpec): Promise<ResourceEstimate>;
+  submit(task: TaskSpec): Promise<ExecutionRef>;
+  execute(ref: ExecutionRef): Promise<ResultRef>;
+  cancel(ref: ExecutionRef): Promise<CancellationReceipt>;
+  health(): Promise<HealthReport>;
+}
+```
+
+Each adapter translates the common contract to a concrete runtime. Substrate-specific behavior must not leak into callers through undocumented exceptions.
+
+## Task specification
+
+```ts
+type TaskSpec = {
+  taskId: string;
+  class: string;
+  inputRefs: string[];
+  latencySloMs?: number;
+  precision?: string;
+  energyBudgetJ?: number;
+  sensitivity: 'public' | 'internal' | 'confidential';
+  verification: 'standard' | 'strict' | 'formal';
+  maxCost?: number;
+};
+```
+
+## Capability manifest
+
+Every substrate declares:
+
+- supported task classes;
+- supported precision/memory profiles;
+- locality and data residency constraints;
+- network behavior;
+- accelerator limits;
+- measured performance range;
+- energy measurement support;
+- supported verification levels;
+- maintenance/health state;
+- trust classification.
+
+An unverified substrate may operate only in an explicit research/quarantine lane.
 
 ## Scheduler
-Use a policy-driven scheduler rather than hard-coding a particular hardware technology.
 
-Decision inputs:
-- task class
-- latency SLO
-- precision requirement
-- energy budget
-- data sensitivity
-- hardware availability
-- confidence/verification requirement
-- cost ceiling
-
-Example routing policy:
+Selection should be deterministic for equal inputs and policy state. Decision function conceptually:
 
 ```text
-ordinary inference       → GPU/CPU
-low-latency vector work  → accelerator
-optimization/search      → specialized solver/experimental substrate
-formal proof             → deterministic verifier
-sensitive data           → approved confidential environment
-unverified substrate     → quarantine/research lane only
+candidate substrates
+→ capability filter
+→ security/data-residency filter
+→ SLO filter
+→ verification filter
+→ cost/energy optimization
+→ health/availability filter
+→ selected execution target
 ```
 
-## Communication fabric
-The source proposes Zenoh/pub-sub and zero-copy principles. Adopt these as an architectural direction, but retain conventional HTTP/gRPC/message-bus fallbacks until measured benchmarks justify replacement. The source specifically describes Zenoh as the distributed communication layer and combines it with MLIR/Mojo for heterogeneous execution. fileciteturn191file0L276-L296
+Do not route workloads based solely on raw benchmark speed. A slower trusted substrate may dominate a faster substrate when data sensitivity, verification level or failure risk differs.
 
-## World-model lane
-A separate research lane evaluates world-model architectures for planning and simulation. Never treat generated predictions as truth; all high-impact actions remain subject to deterministic constraints, verification and human policy.
+## Queueing and admission control
+
+Required controls:
+
+- bounded queues;
+- per-tenant quotas where applicable;
+- deadline-aware scheduling;
+- backpressure;
+- cancellation propagation;
+- retry budgets;
+- idempotent execution semantics;
+- dead-letter handling for permanently failed jobs.
+
+Retries must not silently duplicate non-idempotent side effects.
+
+## Communication fabric
+
+The architecture may support Zenoh, gRPC, message queues or other transports behind a transport interface. Selection is benchmark-driven. Required properties are explicit delivery semantics, bounded retry behavior, trace propagation, authentication and failure detection.
+
+```ts
+interface MessageTransport {
+  publish(event: Envelope): Promise<Receipt>;
+  subscribe(filter: SubscriptionFilter, handler: Handler): Promise<Subscription>;
+  health(): Promise<TransportHealth>;
+}
+```
+
+## Data and artifact model
+
+Large inputs/outputs are referenced by content-addressed artifact IDs rather than copied through orchestration messages when possible. Metadata records provenance, retention policy, sensitivity and checksum.
+
+Result validity requires:
+
+`executionRef + substrateVersion + inputHashes + taskSpecHash + runtimeVersion`.
+
+## Energy-aware execution
+
+Measure where hardware permits:
+
+- joules / inference;
+- joules / successful task;
+- accelerator utilization;
+- thermal throttling;
+- queue latency;
+- cost / successful task;
+- failure/retry energy overhead.
+
+No claimed advantage of photonic, thermodynamic, quantum or biological computation is treated as fact without reproducible measurements against an agreed baseline.
+
+## Experimental research lane
+
+Experimental substrates follow:
+
+```text
+proposal
+→ adapter prototype
+→ isolated benchmark
+→ reliability/security assessment
+→ reproducibility check
+→ canary
+→ explicit promotion decision
+```
+
+Research code cannot become a production dependency merely because it demonstrates a favorable benchmark.
 
 ## Self-improvement lane
 
-RSI experiments operate only on versioned candidates:
+Optimization experiments may generate candidate policies or scheduler variants:
 
 ```text
-Baseline
-  ↓
-Candidate generation
-  ↓
-Static analysis
-  ↓
-Unit/integration/eval suite
-  ↓
-Formal checks where applicable
-  ↓
-Sandbox benchmark
-  ↓
-Canary deployment
-  ↓
-Human approval for privileged promotion
-  ↓
-Versioned release
+baseline
+→ candidate
+→ static checks
+→ workload benchmark
+→ safety/security tests
+→ reproducibility check
+→ sandbox/canary
+→ promotion review
 ```
 
-No direct self-modification of production control logic is permitted.
+The candidate cannot directly rewrite the production control plane.
 
-## Energy-aware execution
-Track:
-- joules / inference
-- joules / successful task
-- accelerator utilization
-- thermal envelope
-- queue latency
-- cost / successful task
+## Security
 
-The source emphasizes thermodynamic and photonic architectures as routes to improved efficiency; these become benchmark dimensions rather than assumed advantages. fileciteturn191file0L137-L156 fileciteturn191file0L157-L180
+- mutual authentication or equivalent workload identity between control and substrate planes;
+- least-privilege substrate credentials;
+- data-residency enforcement;
+- network egress policy;
+- artifact integrity checks;
+- isolation between tenants/tasks where required;
+- audit trail for routing decisions;
+- no secret material in benchmark fixtures.
 
-## Hardware abstraction roadmap
+## Failure model
 
-### Phase 1 — practical
-CPU/GPU + local storage + standard network + observability.
+Known failure classes:
 
-### Phase 2 — heterogeneous
-FPGA and specialized inference/optimization accelerators behind the substrate API.
+```text
+capacity exhaustion
+substrate unavailable
+transport failure
+hardware fault
+thermal throttling
+corrupt artifact
+verification failure
+policy denial
+partial execution
+result timeout
+```
 
-### Phase 3 — experimental
-Photonic, thermodynamic or quantum integrations where accessible and measurable.
+Every failure maps to retry / reroute / quarantine / terminate according to policy. The recovery path is observable and idempotent.
 
-### Phase 4 — research
-Biological/wetware and other non-conventional substrates under separate governance.
+## Test strategy
 
-## Deliverables
-- substrate SDK
-- scheduler
-- capability registry
-- benchmark harness
-- energy telemetry
-- sandboxed RSI research environment
-- policy/proof gate
-- deployment controller
-- reproducible experiment ledger
+### Unit
+Scheduler predicates, capability negotiation, policy filtering, resource estimation and state transitions.
 
-## Success criteria
-The platform remains useful even when every speculative component is disabled. Research additions must improve measured latency, energy, cost, capability or reliability without weakening authorization, isolation or auditability.
+### Property-based
+- unsupported capabilities are never scheduled;
+- sensitivity constraints are never relaxed by fallback;
+- failed cancellation does not create a false success;
+- deterministic scheduler inputs yield deterministic decisions.
+
+### Integration
+Control plane ↔ transport ↔ substrate adapter ↔ artifact store ↔ telemetry.
+
+### Benchmark
+Versioned workload corpus with latency, throughput, accuracy/quality, energy and failure metrics.
+
+### Chaos
+Inject substrate loss, transport delay, stale health data, duplicate messages and corrupted artifacts.
+
+## Observability
+
+Every execution should carry:
+
+`taskId → executionRef → substrateId → adapterVersion → input hashes → resultRef`.
+
+Emit metrics for admission, queueing, execution, retries, reroutes, cancellations, failures, energy and cost.
+
+## Deployment tiers
+
+`local → CI benchmark → isolated research → staging → production`.
+
+Experimental adapters default to isolated research until explicit evidence supports promotion.
+
+## Definition of Done
+
+**Implementation Ready** requires executable contracts for `TaskSpec`, substrate capabilities, scheduling decisions, artifact provenance, retry/cancel semantics, security policy and telemetry. Production requires measured baselines, failure/chaos evidence, security review and an operational runbook.
+
+## Relationship to other portfolio projects
+
+NEXUS provides substrate abstraction and heterogeneous execution concerns. It must not absorb higher-level agent orchestration, portfolio governance or application-domain logic. Those remain separate bounded contexts and integrate through typed capability contracts.
