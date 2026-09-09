@@ -1,4 +1,4 @@
-version: 4
+version: 5
 registry_type: canonical_portfolio_snapshot
 as_of: 2026-09-09
 repository: mojealterego/Knowledge-projects
@@ -14,7 +14,7 @@ status_legend:
 registry_scope:
   canonical_legacy_sequence: 1-59
   later_artifact_sequence: 60-71
-  architecture_candidates: [72,73,74,75,76]
+  architecture_candidates: [72,73,74,75,76,77,78]
   note: "Snapshot registry. Historical collisions remain governed by Project 47."
 
 portfolio_families:
@@ -78,7 +78,6 @@ project_75:
   derived_from: [15,19,22,24,32,42,44,48,54,57,65,72]
   source_lineage:
     - docs/knowledge-base/polish-language-cultural-heritage-and-lexical-intelligence-2026-09-09.md
-  purpose: "Provide a provenance-aware temporal/semantic layer for Polish historical and contemporary language."
 
 project_76:
   canonical_id: 76
@@ -89,7 +88,29 @@ project_76:
   derived_from: [1,7,22,42,44,50,51,52,54,57,65,72]
   source_lineage:
     - docs/knowledge-base/neuro-sync-browser-game-architecture-and-sensory-interface-2026-09-09.md
-  purpose: "Evolve the supplied single-file browser game into a deterministic, accessible sensory narrative runtime."
+
+project_77:
+  canonical_id: 77
+  title: "Principia Mathematica Nova / TRS Formalization & Verification Lab MAX"
+  artifact: projekty/77-principia-mathematica-nova-trs-formalization-and-verification-lab-max.md
+  status: PROPOSED
+  maturity: ARCHITECTURE_BASELINE
+  derived_from: [15,19,27,48,54,58,60,61,72]
+  source_lineage:
+    - docs/knowledge-base/principia-mathematica-nova-trs-speculative-theory-2026-09-09.md
+    - docs/knowledge-base/unsolved-mathematics-and-ai-verification-2026-09-09.md
+  purpose: "Formalize and falsify proposed TRS claims through definitions, counterexamples, independent derivation and machine-checked proof."
+
+project_78:
+  canonical_id: 78
+  title: "Lottery Randomness Audit & Simulation Lab MAX"
+  artifact: projekty/78-lottery-randomness-audit-and-simulation-lab-max.md
+  status: PROPOSED
+  maturity: ARCHITECTURE_BASELINE
+  derived_from: [51,55,61,72]
+  source_lineage:
+    - docs/knowledge-base/lottery-randomness-audit-and-simulation-2026-09-09.md
+  purpose: "Audit lottery randomness and physical-draw hypotheses through reproducible statistical simulation without claiming guaranteed prediction."
 
 lineage_policy:
   authority: Project 47
