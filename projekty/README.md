@@ -96,12 +96,17 @@ Every project is treated as an engineered system, not a prompt-only prototype. T
 | `56-omnicore-ai-commercialization-and-outcome-engine-max.md` | AI commercialization + outcome economics | Convert AI capabilities into governed products/services with measurable value, unit economics, experiments and responsible growth gates |
 | `57-omnicore-multimodal-intelligence-and-cognitive-interface-fabric-max.md` | Multimodal intelligence + physical/cognitive interface | Fuse heterogeneous evidence, symbolic/physical states and agent tools under strict provenance, authorization, privacy and human-agency boundaries |
 | `58-omnicore-monitorability-aware-oversight-and-verification-fabric-max.md` | Monitorability-aware AI oversight | Replace CoT-only oversight with multi-signal monitoring, capability isolation, authoritative state verification and adaptive control when model observability degrades |
+| `60-omnicore-adversarial-multimodal-ai-security-and-resilience-fabric-max.md` | Adversarial multimodal AI security | Integrate GCG, prompt injection, memory poisoning, multimodal attacks, agent-to-agent propagation and resilience gates under a provider-neutral defensive security fabric |
+| `61-omnicore-convergence-fabric-omnis-learned-kernel-pui-max.md` | Omnis + learned-kernel + PUI convergence | Unify hybrid language design, compiler-integrated migration, learned-kernel research, SemanticFS, AI Foundry, WASM/DBT and Personified UI into one guarded systems architecture |
+| `65-omnicore-autonomous-systems-convergence-and-agentic-os-factory-max.md` | Agentic OS factory | Turn hardware/software intent into reproducible, verified, signed and recoverable system artifacts through a multi-agent systems-engineering factory |
 
 ## Reconciliation / lineage
 
 Project numbering is a canonical identity problem rather than a filename problem. The portfolio preserves historical duplicates and maps them through Project 47 instead of silently deleting or overwriting them.
 
 The sovereign edge specification is the canonical Project 38; the separate scientific-stability artifact remains preserved as historical/research lineage. The original Open Creator, Influence Literacy and AI Content projects are canonicalized as Projects 42, 43 and 44 respectively.
+
+Projects 60 and 61 represent later convergence/security additions derived from supplied source corpora. Project 65 is the end-to-end factory layer that operationalizes the convergence pattern without replacing the underlying research projects.
 
 ## Cross-project architecture
 
@@ -237,3 +242,12 @@ Reasoning traces are useful evidence when available but are not a security bound
 47. Evaluation-aware behavior and monitor-awareness are tested independently from ordinary benchmark performance.
 48. Monitor disagreement and uncertainty are preserved as evidence rather than silently collapsed into a single confidence score.
 49. Revocation and shutdown remain effective without model cooperation.
+50. Generated system artifacts require provenance, reproducibility metadata and a verifiable promotion path.
+51. Generated privileged code remains quarantined until independent build, security and runtime gates pass.
+52. Capability/effect declarations must be consistent between source, compiler IR and runtime grants.
+53. Dependency virtualization never bypasses SBOM, vulnerability, license or capability-isolation checks.
+54. Self-healing operates through versioned replacement and rollback, not unrestricted in-place privileged rewriting.
+55. Hardware documentation is untrusted evidence until authenticated, version-pinned and provenance-tracked.
+56. Cross-device capabilities are explicit, scoped, time-bounded and revocable.
+57. Presentation state cannot mutate authoritative system state without an explicit policy path.
+58. Claims of universal hardware support, zero latency, guaranteed safety or migration speed are engineering hypotheses until measured.
