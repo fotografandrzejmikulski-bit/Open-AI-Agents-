@@ -104,8 +104,9 @@ The September 2026 supplied corpus has been absorbed into the knowledge base and
 - `docs/knowledge-base/digital-human-pui-edge-interface.md`
 - `docs/knowledge-base/omnicore-architecture-convergence-2026-09-09.md`
 - `docs/knowledge-base/business-model-strategy-innovation-governance-2026-09-09.md`
+- `docs/knowledge-base/adaptive-business-model-strategy-innovation-governance-2026-09-09-v2.md`
 
-The portfolio now includes Project 66 as a convergence layer for adaptive business-model design, strategy delineation, organizational competence mapping, experimentation, circular-value modeling and outcome reconciliation.
+The portfolio now includes Project 67 as a convergence layer for adaptive business-model design, strategy delineation, organizational competence mapping, experimentation, circular-value modeling and outcome reconciliation.
 
 ## Portfolio lineage
 
