@@ -1,191 +1,302 @@
 # 04 — AI-NATIVE OPERATING SYSTEM
 
-## Purpose
-Prototype the practical portion of the supplied **Kognityczny Stos** thesis: AI should become a controlled optimization layer across the runtime stack without replacing deterministic safety-critical kernel primitives.
+## Status
+**Engineering Specification Baseline — Runtime Research Track**
 
-The source proposes three major layers: Neural Process Scheduling in the kernel, generative AI Foundry capabilities in middleware/drivers, and Perceptual User Interfaces at the interaction layer. fileciteturn195file8L5-L33 fileciteturn195file8L45-L60
+## Mission
+Prototype the practical portion of the Cognitive Stack thesis as a controlled runtime architecture in which learned components optimize scheduling, adapter generation and multimodal interaction while deterministic runtime primitives remain authoritative.
 
-## Principle
-Use AI as a *policy optimizer* and predictor around deterministic mechanisms, not as an unchecked replacement for them.
+## Core invariant
+**AI proposes; deterministic runtime decides.**
 
-## Architecture
+No learned model, generated adapter or perceptual interface may directly grant itself kernel, device, credential, deployment or persistence authority.
 
-```text
-                 AI-NATIVE CONTROL PLANE
-                           │
-       ┌───────────────────┼───────────────────┐
-       │                   │                   │
-   Workload Model      Device Model       User Intent Model
-       │                   │                   │
-       └───────────────────┼───────────────────┘
-                           │
-                Decision / Policy Layer
-                           │
-        ┌──────────────────┼──────────────────┐
-        │                  │                  │
-   Resource Scheduler   Driver Adapter     PUI Layer
-        │                  │                  │
-        └──────────────────┼──────────────────┘
-                           │
-                 Deterministic Runtime
-```
+## Runtime constitution
 
-## 1. Neural Process Scheduling prototype
+System lifecycle:
 
-Collect only the telemetry needed to improve scheduling:
-- CPU/GPU utilization
-- queue depth
-- memory pressure
-- latency target
-- process priority
-- I/O wait
-- power/thermal state
+`INITIALIZING → ACTIVE → DEGRADED → MAINTENANCE → EMERGENCY`
 
-A model predicts a *ranked scheduling recommendation*. The deterministic scheduler remains the authority and rejects actions that violate hard bounds.
+Each transition is governed by deterministic predicates, watchdogs and explicit recovery actions.
 
 ```text
-telemetry → feature window → prediction → policy filter → scheduler
+AI / ML proposals
+       ↓
+policy + capability gate
+       ↓
+deterministic runtime controller
+       ↓
+authoritative state transition
+       ↓
+telemetry / audit
 ```
 
-The supplied source describes NPS as continuous telemetry ingestion, latent encoding, predictive modeling and execution of scheduling decisions. fileciteturn195file8L53-L60
+A model explanation is never considered evidence that a transition is safe.
 
-## 2. AI Foundry
+## Planes
 
-Create a generated-adapter pipeline for application-facing abstractions:
+```text
+CONTROL PLANE
+  policy · scheduler · lifecycle · admission
+
+EXECUTION PLANE
+  processes · services · drivers · device adapters
+
+DATA PLANE
+  telemetry · artifacts · SemanticFS references
+
+INTERACTION PLANE
+  text · speech · vision · accessibility · PUI
+```
+
+## 1. Neural Process Scheduling
+
+### Inputs
+- CPU/GPU utilization;
+- queue depth;
+- memory pressure;
+- latency target;
+- process class/priority;
+- I/O wait;
+- power/thermal state;
+- historical scheduler outcomes.
+
+### Control loop
+
+```text
+telemetry
+→ feature window
+→ model proposal
+→ policy filter
+→ deterministic scheduler
+→ authoritative observation
+→ feedback/eval
+```
+
+The model emits a bounded recommendation, not an executable scheduler operation.
+
+```ts
+type SchedulingProposal = {
+  proposalId: string;
+  modelVersion: string;
+  targetProcess: string;
+  recommendedClass: string;
+  priorityDelta: number;
+  confidence: number;
+  featureHash: string;
+};
+```
+
+### Hard constraints
+
+The policy gate must reject proposals causing:
+
+- starvation beyond configured bounds;
+- unauthorized priority escalation;
+- resource quota violation;
+- thermal envelope violation;
+- fairness degradation beyond threshold;
+- unsafe process isolation changes.
+
+## 2. AI Foundry adapter pipeline
+
+Generated adapters are ordinary untrusted artifacts until verified.
 
 ```text
 hardware specification
-       ↓
-capability schema
-       ↓
-AI-generated adapter candidate
-       ↓
-static compilation/checking
-       ↓
-contract tests
-       ↓
-sandbox benchmark
-       ↓
-registry
+→ capability schema
+→ generated adapter candidate
+→ compile/static analysis
+→ interface/contract tests
+→ sandbox execution
+→ benchmark
+→ signature/provenance record
+→ registry
+→ explicit promotion
 ```
 
-Generated drivers are never auto-promoted to privileged kernel execution.
+### Stable device interface
 
-## 3. Perceptual User Interface
-
-Replace application-specific UI assumptions with a multimodal intent layer:
-- vision
-- speech
-- pointer/gesture signals
-- text
-- accessibility inputs
-
-PUI produces an explicit intent object:
-
-```json
-{
-  "intent": "open_project",
-  "target": "Nexus",
-  "confidence": 0.97,
-  "evidence": ["screen_region", "voice_command"]
+```ts
+interface DeviceAdapter {
+  manifest(): CapabilityManifest;
+  probe(): Promise<DeviceHealth>;
+  prepare(op: DeviceOperation): Promise<PreparedOperation>;
+  execute(op: PreparedOperation): Promise<DeviceResult>;
+  cancel(op: PreparedOperation): Promise<CancelReceipt>;
+  rollback?(checkpoint: CheckpointRef): Promise<RollbackReceipt>;
 }
 ```
 
-Deterministic application logic executes only after authorization and intent validation.
+Generated code cannot be promoted solely because compilation succeeds. Promotion requires test evidence and a reproducible artifact hash.
 
-## 4. Reliability model
+## 3. Perceptual User Interface
 
-Every model-driven decision receives:
-- model/version ID
-- policy version
-- input feature hash
-- confidence estimate
-- deterministic constraints evaluated
-- final action
-- rollback strategy
+PUI normalizes heterogeneous signals into explicit intents.
 
-This makes AI-assisted operating-system behavior auditable.
-
-## 5. MVP
-
-Build a Linux user-space prototype first:
-1. telemetry collector
-2. synthetic workload generator
-3. learning scheduler recommender
-4. deterministic policy gate
-5. benchmark runner
-6. trace/audit recorder
-7. dashboard comparing static scheduler vs AI-assisted scheduler
-
-## 6. Evaluation
-
-Measure:
-- p50/p95/p99 latency
-- throughput
-- fairness
-- starvation
-- energy consumption
-- scheduler overhead
-- prediction calibration
-- behavior under distribution shift
-
-A model that improves mean throughput while producing unacceptable tail latency is a failed policy, not a successful optimization.
-
-## 7. Security
-
-The AI scheduling layer must not obtain arbitrary shell, filesystem, credential or network privileges. The same separation applies to generated adapters and PUI actions.
-
-## 8. Long-term direction
-
-Potentially connect this project to the Lechia compiler and Nexus substrate router, creating a stack in which semantic program contracts, runtime policies and heterogeneous execution decisions can share a common machine-readable intermediate representation.
-
-## 9. Constitutional Runtime Upgrade
-
-The unified-system corpus adds an explicit lifecycle state machine:
-
-`INITIALIZING → ACTIVE → DEGRADED → MAINTENANCE → EMERGENCY`.
-
-NPS and AI Foundry are now subordinate to this runtime constitution. A learned component cannot independently transition the system into a more privileged state. Every state transition requires deterministic predicates, watchdogs, cancellation/revocation paths and a recovery policy.
-
-## 10. Learned-Kernel Failure Containment
-
-Extend the scheduler from a single recommender into a bounded controller:
-
-```text
-TELEMETRY
-   ↓
-MODEL PROPOSAL
-   ↓
-SAFETY/Fairness/THERMAL/RESOURCE FILTER
-   ↓
-DETERMINISTIC SCHEDULER
-   ↓
-AUTHORITATIVE OBSERVATION
+```ts
+type Intent = {
+  intentId: string;
+  action: string;
+  target?: string;
+  confidence?: number;
+  evidenceRefs: string[];
+  source: 'text' | 'voice' | 'vision' | 'gesture' | 'accessibility';
+};
 ```
 
-Track proposal quality separately from executed behavior. An unexpected model recommendation is evidence for evaluation, not permission for execution.
+PUI must preserve uncertainty. A low-confidence recognition must not silently become a destructive action.
 
-## 11. SemanticFS Boundary
+High-impact intents require additional confirmation and capability authorization.
 
-Future integration with SemanticFS must preserve:
+## 4. Authorization boundary
+
+Authorization considers:
+
+`actor + intent + capability + target resource + runtime state + policy version + risk`.
+
+Semantic similarity, model confidence and user-interface recognition are not authorization primitives.
+
+## 5. Learned component lifecycle
+
+Every learned component follows:
+
+`PROPOSED → VALIDATED → CANARY → ACTIVE → DEGRADED/QUARANTINED → RETIRED`.
+
+Required metadata:
+
+- model/component version;
+- training/evaluation dataset reference;
+- policy version;
+- artifact checksum;
+- performance baseline;
+- known limitations;
+- rollback target.
+
+## 6. Failure containment
+
+```text
+DETECT
+  ↓
+ISOLATE COMPONENT
+  ↓
+SNAPSHOT / CHECKPOINT
+  ↓
+RESTORE LAST VERIFIED STATE
+  ↓
+DETERMINISTIC HEALTH CHECK
+  ↓
+TEST
+  ↓
+STAGED REACTIVATION
+```
+
+Recovery must not depend on the failing model cooperating or generating a correct repair.
+
+## 7. SemanticFS boundary
 
 `semantic retrieval != authorization`.
 
-Embedding similarity selects candidate objects; capability policy controls whether they may be read or changed.
+Semantic retrieval may produce candidate resources; authorization independently evaluates whether a resource can be read, modified, executed or exported.
 
-## 12. Recovery and Self-Healing Boundary
+## 8. Resource governance
 
-Self-healing is extended to:
+The runtime requires bounded budgets for:
 
-`DETECT → ISOLATE → SNAPSHOT/ROLLBACK → VERIFY REPAIR → SANDBOX → TEST → SIGN → STAGED ACTIVATE`.
+- CPU;
+- GPU;
+- memory;
+- I/O;
+- network egress;
+- energy where measurable;
+- model inference count;
+- scheduler overhead.
 
-This applies to generated drivers, services and scheduler policy modules. No model is permitted to modify privileged runtime state and immediately rely on its own output.
+A learned policy cannot increase its own budget.
 
-## 13. Definition-of-Done additions
+## 9. Reliability requirements
 
-- runtime state transitions are deterministic and testable;
-- learned scheduling is bounded and fairness-tested;
-- generated adapters have a reproducible verification trail;
-- recovery does not require model cooperation;
-- SemanticFS never becomes an authorization mechanism;
-- action/state verification remains independent of model explanation.
+The MVP must define and measure SLOs for:
+
+- scheduling decision latency;
+- p95/p99 process latency;
+- control-loop overhead;
+- recovery time;
+- false intervention rate;
+- fairness deviation;
+- dropped/failed control events;
+- PUI intent error rates.
+
+Mean throughput alone is insufficient for acceptance.
+
+## 10. Security
+
+- least-privilege model/runtime identities;
+- no production credentials in training or benchmark fixtures;
+- restricted egress for generated components;
+- kernel boundary protected from model-controlled code;
+- signed/versioned promoted artifacts;
+- tamper-evident audit records;
+- explicit data-residency controls for telemetry;
+- adversarial testing of PUI and model-controlled inputs.
+
+## 11. Observability
+
+Every model-driven proposal and consequential decision records:
+
+`proposalId · modelVersion · policyVersion · featureHash · runtimeState · decision · reasonCodes · resultingState`.
+
+Telemetry must separately distinguish:
+
+- model proposal quality;
+- policy rejection;
+- deterministic execution result;
+- post-action outcome.
+
+This prevents success attribution to the model when the actual safety boundary was the deterministic controller.
+
+## 12. Test strategy
+
+### Unit
+State machine, policy predicates, scheduler constraints, capability checks, PUI normalization and rollback logic.
+
+### Property-based
+- forbidden transitions never occur;
+- policy gates never authorize out-of-budget actions;
+- recovery converges to a known safe state;
+- repeated identical inputs do not create nondeterministic authorization results.
+
+### Integration
+Telemetry → model proposal → policy gate → scheduler/runtime → telemetry.
+
+### Performance
+Compare static baseline vs AI-assisted policy using versioned workloads and confidence intervals for measured deltas.
+
+### Chaos / fault injection
+Inject stale telemetry, model timeout, corrupted model artifact, runaway process, thermal pressure, device loss and transport delay.
+
+### Security
+Prompt/model injection, capability confusion, malicious adapter artifact, untrusted telemetry and PUI spoofing.
+
+## 13. MVP delivery sequence
+
+1. Linux user-space telemetry collector.
+2. Synthetic workload generator.
+3. Scheduler recommender.
+4. Deterministic policy gate.
+5. Checkpoint/rollback mechanism.
+6. Trace and audit recorder.
+7. Benchmark harness.
+8. Dashboard comparing baseline vs AI-assisted scheduling.
+9. Generated-adapter sandbox prototype.
+10. PUI intent schema and authorization adapter.
+
+Kernel changes remain a later research step after the user-space control loop demonstrates measurable benefit without compromising safety.
+
+## 14. Definition of Done
+
+**Implementation Ready** requires executable contracts for scheduling proposals, lifecycle states, device adapters, intents, resource budgets, authorization, rollback and telemetry. Advancement toward production requires reproducible benchmark evidence, fault-injection results, security review, operational runbooks and independently verified deployment behavior.
+
+## Long-term integration
+
+The project may integrate with the repository's substrate abstraction, verification/security fabric and runtime assurance projects through typed contracts. It must not duplicate portfolio governance or replace higher-level agent orchestration.
