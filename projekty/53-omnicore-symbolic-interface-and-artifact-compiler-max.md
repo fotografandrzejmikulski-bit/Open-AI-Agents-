@@ -298,7 +298,31 @@ Every symbolic interface candidate is evaluated across:
 - agency preservation;
 - provenance completeness.
 
-## 17. Portfolio integration
+## 17. Manufacturing State Machine Upgrade
+
+The newest Apeiron production corpus adds a hard production lifecycle:
+
+`DESIGN → MATERIAL SAMPLE → PREPRESS → PROTOTYPE → OPTICAL/MECHANICAL QC → BLIND PLAYTEST → RELEASE BATCH`.
+
+Physical parameters such as substrate thickness, transmission, haze and friction are treated as testable requirements, not as assumed truths. Batch measurements are attached to `ArtifactIdentity`.
+
+## 18. Black-Apeiron Concealment Model
+
+Black-box/void aesthetics can be represented as an explicit **reveal state**, but concealment must remain rules-bound:
+
+```text
+HIDDEN STATE
+ ↓
+DEFINED REVEAL CONDITION
+ ↓
+USER-OBSERVABLE REVEAL
+ ↓
+RULE RESOLUTION
+```
+
+No hidden physical or symbolic layer may silently grant authority, change permissions or steer the user through undisclosed behavioral commands.
+
+## 19. Portfolio integration
 
 Project 53 connects:
 
@@ -312,7 +336,8 @@ Project 53 connects:
 - Project 49 — Cognitive Sovereignty;
 - Project 50 — Physical Game & Phygital Experience Foundry;
 - Project 51 — Signal / Probability / Cognitive Safety Lab;
-- Project 52 — Adaptive Game Designer & Procedural Playtest Foundry.
+- Project 52 — Adaptive Game Designer & Procedural Playtest Foundry;
+- Project 71 — Physical Artifact Manufacturing & Symbolic Interface Factory.
 
 ## Definition of Done
 
@@ -326,3 +351,5 @@ Project 53 connects:
 8. Artifact identity links semantics, rules, visuals and manufacturing.
 9. Generated artifacts remain reproducible.
 10. Human review controls final interpretation/product promotion.
+11. Physical reveal conditions are explicit and auditable.
+12. Manufacturing parameters are backed by batch measurements before release.
