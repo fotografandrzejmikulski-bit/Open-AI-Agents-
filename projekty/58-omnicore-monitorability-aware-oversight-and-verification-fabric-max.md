@@ -274,7 +274,23 @@ human review requirement ↑
 | O10 | Postconditions are externally verified |
 | O11 | Oversight intensity adapts monotonically to reduced observability |
 
-## 14. Portfolio integration
+## 14. Mobile/endpoint continuity extension
+
+The latest threat corpus adds endpoint-style controls to the oversight fabric. Model actions that touch mobile or device capabilities are evaluated across:
+
+`SIGNING → SANDBOX → PERMISSION → IPC → NETWORK → STATE CHANGE → REVOCATION`.
+
+This is a defensive evaluation model for detecting persistence, privilege escalation and hidden side effects; it is not a surveillance implementation.
+
+## 15. Trajectory security extension
+
+A multi-turn risk record now preserves a temporal graph of:
+
+`input → memory → tool request → capability decision → action → external state change`.
+
+A benign current turn cannot erase the risk accumulated by prior turns. Conversely, accumulated context does not by itself prove maliciousness; the system retains uncertainty and counterevidence.
+
+## 16. Portfolio integration
 
 Project 58 extends:
 
@@ -287,9 +303,10 @@ Project 58 extends:
 - Project 49 — Cognitive Sovereignty;
 - Project 54 — Epistemic Signal / Adversarial Control;
 - Project 55 — Stochastic Integrity;
-- Project 57 — Multimodal Intelligence / Cognitive Interface Fabric.
+- Project 57 — Multimodal Intelligence / Cognitive Interface Fabric;
+- Project 69 — Adversarial Continuity & Mobile AI Defense.
 
-## 15. Definition of Done
+## 17. Definition of Done
 
 Project 58 is complete when:
 
@@ -301,9 +318,10 @@ Project 58 is complete when:
 - evaluation-aware behavior is tested;
 - monitor disagreement and uncertainty remain visible;
 - the system can stop, revoke or escalate without model cooperation;
+- mobile/device capabilities receive endpoint-style trust-boundary checks;
 - deployment decisions are based on the complete oversight evidence packet rather than a single monitor score.
 
-## 16. Primary source
+## 18. Primary source
 
 OpenAI GPT-6 Astra System Card:
 https://deploymentsafety.openai.com/gpt-6-astra
