@@ -52,6 +52,8 @@ For AI implementation, this becomes a typed state machine rather than an unconst
 
 The supplied assistant guide reinforces a hierarchical system-prompt structure with Role, Goal/Mission, Workflow/Rules and Limitations, plus a knowledge base and explicit testing. It also advocates incremental integration: first define behavior, then connect data sources and tools, then evaluate and monitor.
 
+The supplied guide also identifies a practical small-business progression from knowledge-grounded assistants to app connections and MCP. Its security guidance emphasizes sandbox testing, secret vaulting, audit logs, anonymization and explicit fallback behavior.
+
 The stronger repository interpretation is:
 
 ```text
@@ -85,7 +87,11 @@ Credentials are external secrets. Tool output is data, not authority. Errors tri
 
 ## 5. Multi-model routing
 
-The supplied Claude-vs-Gemini comparison should be treated as a dated heuristic rather than a current benchmark. Its useful architectural conclusion is model specialization: one provider/model may be preferable for long-form reasoning and code maintenance, while another may be preferable for multimodal processing, ecosystem integration or live retrieval.
+The supplied Claude-vs-Gemini comparison is a dated heuristic rather than a current benchmark. Its useful architectural conclusion is model specialization: one provider/model may be preferable for long-form reasoning, writing or code maintenance, while another may be preferable for multimodal processing, ecosystem integration or live retrieval.
+
+The supplied comparison reports Claude as stronger for writing, complex reasoning, refactoring/debugging and long-context work, while it reports Gemini as stronger for Google ecosystem integration, live search, multimodality, speed and some current-data tasks. These claims are preserved as source-derived, time-bounded observations and must not be treated as current universal benchmarks.
+
+The UC Berkeley AI business-program material reinforces a capability-oriented approach: leaders should understand current AI capabilities and limitations, connect technical aspects to business decisions, organize AI application projects and use generative models/simulations for predictions.
 
 Routing therefore uses evaluated capability profiles rather than brand preference:
 
@@ -123,7 +129,9 @@ Any model-specific parameter recommendation remains subject to versioned validat
 
 ## 7. Sovereign edge architecture
 
-The supplied local-first materials propose a stack using reproducible development environments, local inference, edge inference and cloud fallback. The strongest generalization is a three-tier execution topology:
+The supplied local-first materials propose a stack using reproducible development environments, local inference, edge inference and cloud fallback. The supplied architecture combines Project IDX/Nix for reproducibility, Firebase Genkit for orchestration, Ollama for local server inference, browser-side AI for desktop edge execution and Android AICore/MediaPipe for mobile deployment.
+
+The strongest generalization is a three-tier execution topology:
 
 ```text
 EDGE
@@ -135,6 +143,8 @@ CLOUD
 ```
 
 Provider independence is achieved through an adapter/orchestration layer. The claim of literally zero cost is not treated as universal: hardware, storage, bandwidth, maintenance, observability and support remain real costs.
+
+The supplied material also emphasizes typed outputs and observability: TypeScript + Zod can constrain model outputs, while orchestration/tracing makes latency and execution behavior measurable. The proposed Firebase deployment architecture moves AI inference toward the client where practical and reserves backend services for synchronization and application state.
 
 ## 8. Control-plane synthesis
 
@@ -176,3 +186,16 @@ AUDIT / EVALUATION / FEEDBACK
 ```
 
 This synthesis extends Projects 17, 21, 24, 31, 35 and 36 without giving any model direct authority over security policy or user autonomy.
+
+## 9. New reusable invariants from the supplied corpus
+
+1. System prompts define behavioral intent but do not constitute runtime authorization.
+2. Knowledge bases improve grounding only when retrieval, provenance and freshness are controlled.
+3. Tool integrations require explicit schemas, secret isolation, sandbox testing and fallback behavior.
+4. Model selection should be capability- and context-driven rather than vendor-driven.
+5. Local/edge inference can reduce external dependency, but total cost of ownership remains non-zero.
+6. Reproducible development environments are part of AI reliability, not merely developer convenience.
+7. Structured outputs and tracing create a stronger boundary between probabilistic inference and deterministic application logic.
+8. Security evaluation must cover both model behavior and the external capabilities reachable by the model.
+9. Current provider comparisons expire; routing profiles require versioned re-evaluation.
+10. Business AI programs should connect capability understanding to project execution, opportunity discovery, risk assessment and measurable business outcomes.
