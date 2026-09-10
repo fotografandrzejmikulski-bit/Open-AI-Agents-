@@ -1,0 +1,75 @@
+version: 27
+registry_type: canonical_portfolio_snapshot
+as_of: 2026-09-10
+repository: mojealterego/Knowledge-projects
+branch: main
+supersedes: docs/PORTFOLIO-REGISTRY-2026-09-10-v26.yaml
+identity_rule: project-47-lineage-first
+status_legend:
+  OBSERVED: "Present in repository and structurally observed."
+  SOURCE_DERIVED: "Derived from repository knowledge/project documentation."
+  INFERRED: "Engineering conclusion derived from observed evidence."
+  PROPOSED: "Candidate requiring validation before canonical promotion."
+  UNKNOWN: "Not established by available repository evidence."
+
+registry_scope:
+  canonical_legacy_sequence: 1-59
+  later_artifact_sequence: 60-71
+  architecture_candidates: [72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110]
+  inherited_registry: docs/PORTFOLIO-REGISTRY-2026-09-10-v26.yaml
+
+iteration_31:
+  status: COMPLETE
+  source_batch_count: 10
+  unique_source_clusters: 5
+  knowledge_artifact: docs/knowledge-base/2026-09-10-corpus-iteration-31-grand-master-trs-strategy-communication.md
+  ingestion_record: docs/KNOWLEDGE-INGESTION-2026-09-10-ITERATION-31.md
+  evolution_record: docs/PROJECT-EVOLUTION-2026-09-10-ITERATION-31.md
+  genesis_record: docs/PROJECT-GENESIS-2026-09-10-ITERATION-31.md
+  amendments_record: docs/PROJECT-AMENDMENTS-2026-09-10-ITERATION-31.md
+  new_projects: [110]
+  affected_projects: [34,56,77,91,92,94,97,107,110]
+
+  project_110:
+    canonical_id: 110
+    title: "OmniGrand Human & Creative Strategy Intelligence Fabric MAX"
+    artifact: projekty/110-omnigrand-human-creative-strategy-intelligence-fabric-max.md
+    status: PROPOSED
+    maturity: ARCHITECTURE_BASELINE
+    derived_from: [66,67,90,91,92,94,97,107]
+    boundary: "Integrated human/creative strategic-director runtime connecting evidence-aware interpersonal reasoning, communication, emotional narrative, visual direction, photography/editorial systems, retouch QA, marketing strategy and measurable experimentation."
+
+  duplicate_decisions:
+    - "Prompt Grand.pdf and Prompt Grand II.pdf are exact extracted-text duplicates."
+    - "Prompt3.pdf, Promt 5.pdf and Promt4.pdf are exact extracted-text duplicates."
+    - "Raport Matematyczny_ Unifikacja Teorii Rezonansu.PDF and its `(1)` copy are exact extracted-text duplicates."
+    - "Prompt Relacji is a specialized subset of the Grand Master relational-analysis system."
+    - "Raport o Operatorze Rezonansowym TRS is a distinct witness within the P77 TRS lineage, not a new project."
+
+  safety_decisions:
+    - "Named-person ideological/psychological profiling prompts are not operationalized as an invasive capability."
+    - "Relationship inference must preserve fact/hypothesis separation and alternative explanations."
+    - "Persuasion techniques are not treated as covert coercion capability."
+    - "TRS claims remain speculative and require independent formal verification."
+
+portfolio_invariants:
+  - "model capability != authorization"
+  - "memory != authorization"
+  - "approval != execution"
+  - "MCP/capability integration != authorization"
+  - "presentation state != authoritative state"
+  - "sensor inference != psychological ground truth"
+  - "persona != consciousness or legal identity"
+  - "AI self-report != external-state evidence"
+  - "Accessibility/ADB != unrestricted device authority"
+  - "simulation != real-world evidence"
+  - "evidence != inference != hypothesis != verified fact"
+  - "generated code/configuration is untrusted until tested"
+  - "source-reported performance != independently reproduced verification"
+  - "human-like presentation != human status"
+  - "temporal synchronization failure must trigger degraded mode or safe interruption"
+  - "stale state cannot overwrite newer state"
+  - "project identity follows lineage"
+  - "psychological inference != diagnosis"
+  - "ideological attribution requires evidence and appropriate purpose"
+  - "persuasive effectiveness != causal proof"
