@@ -1,0 +1,67 @@
+version: 21
+registry_type: canonical_portfolio_snapshot
+as_of: 2026-09-10
+repository: mojealterego/Knowledge-projects
+branch: main
+supersedes: docs/PORTFOLIO-REGISTRY-2026-09-10-v20.yaml
+identity_rule: project-47-lineage-first
+status_legend:
+  OBSERVED: "Present in repository and structurally observed."
+  SOURCE_DERIVED: "Derived from repository knowledge/project documentation."
+  INFERRED: "Engineering conclusion derived from observed evidence."
+  PROPOSED: "Candidate requiring validation before canonical promotion."
+  UNKNOWN: "Not established by available repository evidence."
+
+registry_scope:
+  canonical_legacy_sequence: 1-59
+  later_artifact_sequence: 60-71
+  architecture_candidates: [72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100]
+  inherited_registry: docs/PORTFOLIO-REGISTRY-2026-09-10-v20.yaml
+
+iteration_25:
+  status: COMPLETE
+  source_batch_count: 10
+  knowledge_artifact: docs/knowledge-base/2026-09-10-corpus-ccr-iii-iv-nexus-omega-godlevel.md
+  ingestion_record: docs/KNOWLEDGE-INGESTION-2026-09-10-ITERATION-25.md
+  evolution_record: docs/PROJECT-EVOLUTION-2026-09-10-ITERATION-25.md
+  genesis_record: docs/PROJECT-GENESIS-2026-09-10-ITERATION-25.md
+  new_projects: [100]
+  affected_projects: [24,27,28,37,40,54,57,59,61,72,80,82,83,87,88,89,90,91,97,98,100]
+
+  project_100:
+    title: "NeXus AI Code OMEGA-X Agentic Development Environment MAX"
+    artifact: projekty/100-nexus-ai-code-omega-x-agentic-development-environment-max.md
+    status: PROPOSED
+    maturity: ARCHITECTURE_BASELINE
+    derived_from: [24,27,28,37,40,54,57,59,61,65,72,80,87,90,91,97,98]
+    boundary: "Concrete VS Code/Electron product shell federating multi-model chat, dual-GGUF management, OCN agent/swarm registry, MCP workspace tools, multimodal sensory/GUI actuation, DGM-H/RSI evolution, training, telemetry and Polish/luxury UI under guarded authorization and verification."
+
+  duplicate_decisions:
+    - "NeXus AI Code / Code2 / Code3 are complementary product-requirement, implementation and design-system snapshots; no duplicate projects."
+    - "OMEGA-X, God-Level/OCAA and Nexus architecture overlap P40/P61/P80/P98/P87/P72; the concrete VS Code/Electron integration boundary justifies P100."
+    - "CCR TOM III and TOM IV continue P82/P89; no new CCR project."
+    - "Druga połowa is a visual source witness for P88; no duplicate."
+    - "Człowiek Roku is a narrative/biographical witness for existing lineages; no duplicate."
+
+  architecture_decisions:
+    - "P100 owns the concrete NeXus AI Code developer product and extension federation."
+    - "P40 remains the provider-neutral agentic development/live-state fabric."
+    - "P61 remains the OmniCore convergence substrate and PUI/runtime architecture."
+    - "P80 remains the self-evolving computing substrate and DGM-H research lineage."
+    - "P87 remains the Nexus hybrid programming language/compiler lineage."
+    - "P98 remains the cross-capability general-intelligence research and verification program."
+    - "CCR light/time/consciousness mechanisms remain fictional canon and game/world-building abstractions."
+
+portfolio_invariants:
+  - "model capability != authorization"
+  - "memory != authorization"
+  - "approval != execution"
+  - "MCP/capability integration != authorization"
+  - "simulation != real-world evidence"
+  - "evidence != inference != hypothesis != verified fact"
+  - "generated code is untrusted until tested"
+  - "stale state cannot overwrite newer state"
+  - "project identity follows lineage"
+  - "UI/voice state != authoritative state"
+  - "fictional CCR mechanisms != empirical physics"
+  - "self-modifying code remains candidate code until verified"
