@@ -1,0 +1,70 @@
+version: 12
+registry_type: canonical_portfolio_snapshot
+as_of: 2026-09-10
+repository: mojealterego/Knowledge-projects
+branch: main
+supersedes: docs/PORTFOLIO-REGISTRY-2026-09-10.yaml
+identity_rule: project-47-lineage-first
+status_legend:
+  OBSERVED: "Present in repository and structurally observed."
+  SOURCE_DERIVED: "Derived from repository knowledge/project documentation."
+  INFERRED: "Engineering conclusion derived from observed evidence."
+  PROPOSED: "Candidate requiring validation before canonical promotion."
+  UNKNOWN: "Not established by available repository evidence."
+
+registry_scope:
+  canonical_legacy_sequence: 1-59
+  later_artifact_sequence: 60-71
+  architecture_candidates: [72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91]
+  inherited_registry: docs/PORTFOLIO-REGISTRY-2026-09-10.yaml
+
+new_projects:
+  project_90:
+    title: "OmniSOP Operational Knowledge & Procedure Compiler MAX"
+    artifact: projekty/90-omnisop-operational-knowledge-procedure-compiler-max.md
+    status: PROPOSED
+    maturity: ARCHITECTURE_BASELINE
+    derived_from: [8,19,24,28,32,47,61,72]
+    source_lineage:
+      - docs/knowledge-base/2026-09-10-corpus-paula-sop-omnicore-persona-legacy-ue5-history-math-vantage.md
+    purpose: "Compile observed work into evidence-linked SOPs, validate them with naive-user testing and detect process drift without silently mutating canonical procedures."
+  project_91:
+    title: "Synthetic Persona & Cognitive Style Engineering Lab MAX"
+    artifact: projekty/91-synthetic-persona-and-cognitive-style-engineering-lab-max.md
+    status: PROPOSED
+    maturity: RESEARCH_ARCHITECTURE_BASELINE
+    derived_from: [8,27,54,61,65,80]
+    source_lineage:
+      - docs/knowledge-base/2026-09-10-corpus-paula-sop-omnicore-persona-legacy-ue5-history-math-vantage.md
+    purpose: "Experimentally engineer and measure persistent model behavior using persona specifications, datasets, post-training, representation analysis and safety regression."
+    boundary: "Persona is behavior, not consciousness; persona never grants authority or capability."
+
+iteration_15:
+  status: COMPLETE
+  source_batch_count: 14
+  knowledge_artifact: docs/knowledge-base/2026-09-10-corpus-paula-sop-omnicore-persona-legacy-ue5-history-math-vantage.md
+  genesis: docs/PROJECT-GENESIS-2026-09-10-ITERATION-15.md
+  ingestion_record: docs/KNOWLEDGE-INGESTION-2026-09-10-ITERATION-15.md
+  evolution_record: docs/PROJECT-EVOLUTION-2026-09-10-ITERATION-15.md
+  new_projects: [90,91]
+  affected_projects: [8,19,32,54,61,75,77,80,87,89]
+  duplicate_decisions:
+    - "Current PaulaAI PDF is an exact normalized-content duplicate of the previously ingested PaulaAI corpus."
+    - "The two synthetic-personality PDFs are highly overlapping (~97.6% normalized text similarity) and are treated as one source family."
+    - "The two SOP PDFs are distinct: compact procedural guide versus comprehensive methodology/report."
+    - "VANTAGE POINT is an image-only UI/code prototype; its scanner is explicitly simulated and is absorbed by Project 32."
+  architecture_decisions:
+    - "PaulaAI Android/mobile expansion remains under Project 08 PAULAOS."
+    - "SOP becomes a distinct process-knowledge compiler lineage: Project 90."
+    - "Synthetic persona becomes a distinct model-engineering/evaluation lineage: Project 91."
+    - "OSINT workstation patterns from VANTAGE POINT strengthen Project 32 without creating a duplicate reconnaissance project."
+    - "OmniCore cloud, kernel and optimization material strengthens Projects 61/80 and Nexus 87."
+    - "CCR UE5 material strengthens Project 89."
+    - "Historical and mathematical material remains research/evidence input, not automatically a new product."
+  safety_boundaries:
+    - "Mobile spyware/stealth material is defensive threat-model knowledge only."
+    - "Active OSINT remains authorization-gated and passive-first."
+    - "Generated code remains untrusted until verification."
+    - "Mathematical experiments do not constitute proofs."
+    - "CCR light/time mechanics are fictional game-world abstractions."
+    - "Persona does not grant authority and does not imply consciousness."
