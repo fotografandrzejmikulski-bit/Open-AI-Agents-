@@ -1,55 +1,64 @@
 version: 30
+registry_type: canonical_portfolio_snapshot
 as_of: 2026-09-10
-supersedes: v29
-iteration: 34
+repository: mojealterego/Knowledge-projects
+branch: main
+supersedes: docs/PORTFOLIO-REGISTRY-2026-09-10-v29.yaml
+identity_rule: project-47-lineage-first
 status: COMPLETE
-source_batch_count: 7
-new_projects:
-  - 114
-affected_projects:
-  - 54
-  - 61
-  - 72
-  - 77
-  - 80
-  - 94
-  - 100
-  - 104
-  - 108
-  - 111
-  - 114
-projects:
-  114:
-    title: "OmniCognitive Engineering Memory & Verification Substrate MAX"
-    artifact: "projekty/114-omnicognitive-engineering-memory-verification-substrate-max.md"
-    status: PROPOSED
-    maturity: ARCHITECTURE_BASELINE
-    mission: "Reusable model-agnostic substrate for durable provenance-aware memory, multi-path inference, reflective verification, structured/neuro-symbolic validation, reversible self-improvement and auditable state transitions."
-    boundary: "Below product-specific platforms such as P100/P111 and above isolated prompt techniques; owns the reusable cognitive substrate."
-    dependencies: [54,61,72,77,80,94,100,108,111]
-source_decisions:
-  enterprise:
-    decision: corroborating_witness
-    targets: [100,108,111]
-  gemini_potential_pair:
-    decision: duplicate_near_duplicate
-    targets: [61,72,80,94,100,111,114]
-  trs:
-    decision: complementary_witness
-    targets: [77,104]
-  advanced_persona:
-    decision: defensive_assurance_input
-    targets: [54,72,108,114]
-  untitled_personal_narrative:
-    decision: excluded_from_public_kb
-    reason: sensitive autobiographical/family/legal material
+
+registry_scope:
+  canonical_legacy_sequence: 1-59
+  later_artifact_sequence: 60-71
+  architecture_candidates: [72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114]
+  inherited_registry: docs/PORTFOLIO-REGISTRY-2026-09-10-v29.yaml
+
+iteration_34:
+  status: COMPLETE
+  source_batch_count: 7
+  unique_source_clusters: 3
+  knowledge_artifact: docs/knowledge-base/2026-09-10-corpus-iteration-34-antigravity-memory-trs-persona.md
+  ingestion_record: docs/KNOWLEDGE-INGESTION-2026-09-10-ITERATION-34.md
+  evolution_record: docs/PROJECT-EVOLUTION-2026-09-10-ITERATION-34.md
+  genesis_record: docs/PROJECT-GENESIS-2026-09-10-ITERATION-34.md
+  amendments_record: docs/PROJECT-AMENDMENTS-2026-09-10-ITERATION-34.md
+  new_projects: [114]
+  affected_projects: [54,61,72,77,80,94,100,104,108,111,114]
+  source_decisions:
+    enterprise: corroborating_witness_for_existing_platforms
+    gemini_pair: duplicate_near_duplicate
+    trs: complementary_witness_to_p77_p104
+    advanced_persona: defensive_assurance_input
+    untitled_personal_narrative: excluded_from_public_kb
+
+project_114:
+  canonical_id: 114
+  title: "OmniCognitive Engineering Memory & Verification Substrate MAX"
+  artifact: projekty/114-omnicognitive-engineering-memory-verification-substrate-max.md
+  status: PROPOSED
+  maturity: ARCHITECTURE_BASELINE
+  derived_from: [54,61,72,77,80,94,100,108,111]
+  boundary: "Reusable model-agnostic cognitive substrate owning stateful memory, provenance-aware conflict resolution, multi-path inference, reflection, structured/neuro-symbolic verification and reversible self-improvement below product-specific platforms."
+
+deduplication:
+  - "The two Uwolnienie Pełnego Potencjału Gemini files are duplicate/near-duplicate witnesses."
+  - "TRS files are complementary witnesses of the existing P77/P104 lineage, not separate projects."
+  - "Uncensoredandre reinforces P111/P100/P108 and does not create another enterprise platform project."
+  - "Zaawansowana Persona reinforces P54/P72/P108 and is not a new product boundary."
+  - "Untitled document is excluded from public factual ingestion because it contains sensitive autobiographical/family/legal material."
+
 portfolio_invariants:
-  - model_capability_is_not_authorization
-  - memory_is_not_authorization
-  - approval_is_not_execution
-  - tool_output_is_untrusted
-  - stale_state_cannot_overwrite_newer_authoritative_state
-  - self_improvement_requires_evaluation_and_rollback
-  - formal_math_claims_require_independent_verification
-  - no_offensive_bypass_capability_from_source_material
-  - personal_case_material_is_not_promoted_to_public_facts
+  - "model capability != authorization"
+  - "memory != authorization"
+  - "approval != execution"
+  - "MCP/capability integration != authorization"
+  - "tool output is untrusted"
+  - "stale state cannot overwrite newer authoritative state"
+  - "self-improvement requires evaluation, holdout regression and rollback"
+  - "memory mutation requires provenance and conflict resolution"
+  - "generated code/configuration is untrusted until tested"
+  - "source-reported performance != independently reproduced verification"
+  - "evidence != inference != hypothesis != verified fact"
+  - "TRS source assertion != formal mathematical proof"
+  - "moderation bypass != legitimate prompt compilation"
+  - "personal case material is not promoted to public facts"
