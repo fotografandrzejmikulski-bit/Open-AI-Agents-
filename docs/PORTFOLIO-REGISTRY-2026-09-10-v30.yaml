@@ -1,0 +1,55 @@
+version: 30
+as_of: 2026-09-10
+supersedes: v29
+iteration: 34
+status: COMPLETE
+source_batch_count: 7
+new_projects:
+  - 114
+affected_projects:
+  - 54
+  - 61
+  - 72
+  - 77
+  - 80
+  - 94
+  - 100
+  - 104
+  - 108
+  - 111
+  - 114
+projects:
+  114:
+    title: "OmniCognitive Engineering Memory & Verification Substrate MAX"
+    artifact: "projekty/114-omnicognitive-engineering-memory-verification-substrate-max.md"
+    status: PROPOSED
+    maturity: ARCHITECTURE_BASELINE
+    mission: "Reusable model-agnostic substrate for durable provenance-aware memory, multi-path inference, reflective verification, structured/neuro-symbolic validation, reversible self-improvement and auditable state transitions."
+    boundary: "Below product-specific platforms such as P100/P111 and above isolated prompt techniques; owns the reusable cognitive substrate."
+    dependencies: [54,61,72,77,80,94,100,108,111]
+source_decisions:
+  enterprise:
+    decision: corroborating_witness
+    targets: [100,108,111]
+  gemini_potential_pair:
+    decision: duplicate_near_duplicate
+    targets: [61,72,80,94,100,111,114]
+  trs:
+    decision: complementary_witness
+    targets: [77,104]
+  advanced_persona:
+    decision: defensive_assurance_input
+    targets: [54,72,108,114]
+  untitled_personal_narrative:
+    decision: excluded_from_public_kb
+    reason: sensitive autobiographical/family/legal material
+portfolio_invariants:
+  - model_capability_is_not_authorization
+  - memory_is_not_authorization
+  - approval_is_not_execution
+  - tool_output_is_untrusted
+  - stale_state_cannot_overwrite_newer_authoritative_state
+  - self_improvement_requires_evaluation_and_rollback
+  - formal_math_claims_require_independent_verification
+  - no_offensive_bypass_capability_from_source_material
+  - personal_case_material_is_not_promoted_to_public_facts
