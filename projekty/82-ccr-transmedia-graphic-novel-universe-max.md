@@ -102,3 +102,8 @@ The adaptation must distinguish original source material, adaptation choices, vi
 
 ## Definition of done
 A volume is validated when its script, art, lettering, continuity, source lineage, print proof and optional digital companion all pass the declared production gates.
+
+## Iteration 25 evolution
+CCR TOM III and the CCR TOM IV extract extend the canon beyond the earlier trilogy framing. The project now treats CCR as a **multi-volume canon** with Oś 18 / 1679 origin, 1983/2016 dual-light motif, 2025 divergence, 2035 Shadow, 2045 memory archive, 2345 Neo-Paris, 2777 Devil Mind and infinity as explicit continuity anchors. The 33-year cycle and 16.5-year breath motif are narrative rules. Bio-photonic, consciousness-transfer and time-transmission mechanisms remain fictional world-building, not scientific claims.
+
+The `Człowiek Roku` work is registered as a grounded narrative/biographical witness for character and 2024–2025 continuity, with its first-person claims kept distinct from independently verified evidence.
