@@ -30,10 +30,8 @@ INTENT + CONTEXT COMPILER
       │
       ▼
 OMNIS FRONTEND + CIRA
-      │
       ▼
 IR / MLIR / WASM / NATIVE TARGET
-      │
       ▼
 OMNICORE RUNTIME
       │
@@ -42,19 +40,14 @@ OMNICORE RUNTIME
       ├── isolated services/drivers
       ├── HAL + DBT
       └── MeshBus / device federation
-      │
       ▼
 CAPABILITY BROKER + POLICY
-      │
       ▼
 SANDBOXED EXECUTION
-      │
       ▼
 AUTHORITATIVE READBACK
-      │
       ▼
 POSTCONDITION / SECURITY / AGENCY VERIFICATION
-      │
       ▼
 SIGNED ARTIFACT / RELEASE / OBSERVABILITY
 ```
@@ -62,29 +55,15 @@ SIGNED ARTIFACT / RELEASE / OBSERVABILITY
 ## Original engineering contributions
 
 ### A. State separation fabric
-The system must distinguish:
-- authoritative state;
-- observed state;
-- retrieval state;
-- model proposal;
-- execution state;
-- presentation state.
-
-No model-generated object may silently become authoritative system state.
+The system must distinguish authoritative state, observed state, retrieval state, model proposal, execution state and presentation state. No model-generated object may silently become authoritative system state.
 
 ### B. Dual compiler/runtime contract
-Omnis compiles user intent into inspectable artifacts. CIRA operates as a refactoring/modernization subsystem. OmniCore executes only artifacts that have passed deterministic gates. This removes the unsafe assumption that a language model can both generate and authorize its own privileged output.
+Omnis compiles user intent into inspectable artifacts. CIRA operates as a refactoring/modernization subsystem. OmniCore executes only artifacts that have passed deterministic gates.
 
 ### C. Learned-kernel containment
-The source proposes neural scheduling and, in some variants, biometric/gaze inputs. Project 61 changes the authority model:
-- model = bounded optimizer/proposal engine;
-- deterministic scheduler constraints = safety authority;
-- fairness/starvation/priority ceilings/watchdogs = mandatory;
-- biometric signals = optional UX/accessibility evidence only;
-- no sensitive signal can grant capability or permission.
+Model = bounded optimizer/proposal engine; deterministic scheduler constraints = safety authority; fairness/starvation/priority ceilings/watchdogs = mandatory. Biometric signals are optional UX/accessibility evidence only; no sensitive signal can grant capability or permission.
 
 ### D. SemanticFS as two-plane architecture
-Semantic retrieval and access control are separate planes:
 `QUERY → SEMANTIC CANDIDATES → PROVENANCE/ACL/CAPABILITY CHECK → READ/MUTATE`.
 
 Embedding similarity never means permission.
@@ -92,17 +71,14 @@ Embedding similarity never means permission.
 ### E. Driver synthesis pipeline
 `DEVICE ENUMERATION → AUTHORITATIVE DATASHEET → STRUCTURED REGISTER MODEL → CODE GENERATION → TYPE/EFFECT CHECK → STATIC ANALYSIS → SANDBOX/HIL → SIGN → STAGED ENABLEMENT → HEALTH READBACK`.
 
-The generated driver remains quarantined until all applicable gates pass.
-
 ### F. Immutable self-repair
-Self-healing is expressed as versioned replacement rather than in-place privileged rewriting:
 `DETECT → ISOLATE → SNAPSHOT → GENERATE → VERIFY → TEST → SIGN → ACTIVATE → VERIFY → ROLLBACK`.
 
 ### G. Personified interface contract
-The Digital Human is a presentation and interaction layer. Character/voice/avatar definitions are versioned assets. Persona modifies presentation and interaction policy but never capability authorization.
+The Digital Human is a presentation and interaction layer. Persona modifies presentation and interaction policy but never capability authorization.
 
 ### H. Edge-first presence
-The source material emphasizes on-device/edge inference, low latency, local RAG and multimodal synchronization. Project 61 adds measurement across the complete pipeline rather than assuming model-token speed equals conversational responsiveness.
+The source material emphasizes on-device/edge inference, low latency, local RAG and multimodal synchronization. Project 61 measures the complete pipeline rather than assuming model-token speed equals conversational responsiveness.
 
 ## Omnis language specification extracted from the sources
 - affine ownership / RAII kernel domain;
@@ -117,34 +93,18 @@ The source material emphasizes on-device/edge inference, low latency, local RAG 
 - structured concurrency;
 - actor-style mutable state isolation;
 - MLIR-based heterogeneous lowering;
-- proposed quantum-classical execution types.
-
-The last item is retained as a research direction; it is not treated as production capability.
+- proposed quantum-classical execution types as research direction only.
 
 ## UGR — Universal Graph Registry
-UGR is modeled as a dependency intelligence layer that can normalize package metadata from multiple ecosystems and build a unified dependency graph. Required controls:
-- provenance;
-- version/compatibility constraints;
-- SBOM;
-- vulnerability/scanning gates;
-- capability sandboxing;
-- license/compliance checks;
-- reproducible lock/resolution state.
+UGR normalizes package metadata from multiple ecosystems and builds a unified dependency graph with provenance, compatibility constraints, SBOM, vulnerability scanning, capability sandboxing, license/compliance checks and reproducible lock/resolution state.
 
 ## CIRA — Compiler-Integrated Refactoring Agent
-CIRA pipeline:
 `SOURCE → AST → CFG/DFG/SEMANTIC GRAPH → MIGRATION PLAN → GENERATED TARGET → BUILD → TEST → EQUIVALENCE/INVARIANT EVIDENCE → SECURITY REVIEW → PROMOTION`.
 
-Formal verification is evidence-producing, not magical. Where equivalence cannot be proved, the migration remains non-authoritative and requires human review or constrained deployment.
+Formal verification is evidence-producing, not magical. Where equivalence cannot be proved, migration remains non-authoritative.
 
 ## PUI / Digital Human safety architecture
-Affective and behavioral adaptation is allowed only for transparent UX/accessibility scenarios. The system must expose:
-- what signals are observed;
-- what adaptations are enabled;
-- how to disable them;
-- what data is retained;
-- how to correct or delete memory;
-- how to revert adaptation.
+Affective and behavioral adaptation is allowed only for transparent UX/accessibility scenarios. The system must expose what signals are observed, what adaptations are enabled, how to disable them, what data is retained, how to correct/delete memory and how to revert adaptation.
 
 No covert dependency loop, hidden persuasion, emotional exploitation or vulnerability targeting is part of the system.
 
@@ -164,7 +124,7 @@ No covert dependency loop, hidden persuasion, emotional exploitation or vulnerab
 | G10 | Signed staged release + rollback |
 
 ## Portfolio integration
-This project supersedes neither the earlier AI-native OS nor Omnis research projects. It is the **convergence layer** that links them and extends Projects 4, 9, 23, 26, 28, 31, 37, 39, 40, 41, 49, 57 and 58.
+This project is the convergence layer linking Projects 4, 9, 23, 26, 28, 31, 37, 39, 40, 41, 49, 57 and 58.
 
 ## Hard invariants
 1. Model output never authorizes privileged execution.
@@ -176,4 +136,63 @@ This project supersedes neither the earlier AI-native OS nor Omnis research proj
 7. Dependency imports are untrusted supply-chain inputs.
 8. Learned scheduling cannot bypass deterministic fairness/safety constraints.
 9. Presentation state never becomes authoritative state.
-10. Claims of performance/readiness are measured on real targets before being promoted to engineering guarantees.
+10. Claims of performance/readiness are measured on real targets before promotion to engineering guarantees.
+
+## Iteration 13 — Android PUI / Godot 4.x / 3DGS implementation branch
+
+The new PUI Launcher report turns the existing conceptual PUI line into a concrete mobile implementation branch. The proposed stack is:
+
+```text
+ANDROID HOME SHELL
+      ↓
+GODOT 4.x
+      ├── visual scene / PUI state
+      ├── GDScript / Compute Shader adaptation
+      └── 3DGS renderer
+      ↓
+KOTLIN ANDROID PLUGIN
+      ├── HOME intent
+      ├── package/app enumeration
+      ├── lifecycle integration
+      └── platform permissions
+      ↓
+SENSOR FUSION
+      ├── IMU / kinematics
+      ├── touch behavior
+      └── application context
+      ↓
+PUI STATE ESTIMATE
+```
+
+The source identifies raw 3DGS as too heavy for an always-on mobile launcher without compression. Therefore the implementation branch adds explicit gates for SOGS/quantized representations, spherical-harmonic reduction, render freezing when obscured, memory bandwidth and battery consumption.
+
+### PUI evidence contract
+
+```yaml
+AffectiveObservation:
+  modality: imu|touch|context|other
+  raw_signal_ref:
+  preprocessing_version:
+  baseline_ref:
+  inferred_state:
+  confidence:
+  uncertainty:
+  retention_policy:
+  consent_scope:
+```
+
+An inferred affective state is never an authorization primitive and cannot change capability, privacy settings or security policy.
+
+### PUI release gates
+
+- real-device 3DGS frame-time benchmark;
+- memory and thermal profile;
+- battery impact with launcher visible and obscured;
+- sensor-fusion calibration and missing-modality behavior;
+- false-positive/false-negative characterization for state inference;
+- disclosure and opt-out UI;
+- local data-retention verification;
+- adaptation reversibility;
+- adversarial testing for covert persuasion and vulnerability targeting.
+
+This branch remains a research/engineering architecture until measurements on real Android devices establish performance claims.
