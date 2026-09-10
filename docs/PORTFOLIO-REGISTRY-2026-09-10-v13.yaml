@@ -1,0 +1,69 @@
+version: 13
+registry_type: canonical_portfolio_snapshot
+as_of: 2026-09-10
+repository: mojealterego/Knowledge-projects
+branch: main
+supersedes: docs/PORTFOLIO-REGISTRY-2026-09-10-v12.yaml
+identity_rule: project-47-lineage-first
+status_legend:
+  OBSERVED: "Present in repository and structurally observed."
+  SOURCE_DERIVED: "Derived from repository knowledge/project documentation."
+  INFERRED: "Engineering conclusion derived from observed evidence."
+  PROPOSED: "Candidate requiring validation before canonical promotion."
+  UNKNOWN: "Not established by available repository evidence."
+
+registry_scope:
+  canonical_legacy_sequence: 1-59
+  later_artifact_sequence: 60-71
+  architecture_candidates: [72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93]
+  inherited_registry: docs/PORTFOLIO-REGISTRY-2026-09-10-v12.yaml
+
+new_projects:
+  project_92:
+    title: "Multimodal Deception Analysis & Investigative Interviewing Lab MAX"
+    artifact: projekty/92-multimodal-deception-analysis-and-investigative-interviewing-lab-max.md
+    status: PROPOSED
+    maturity: RESEARCH_ARCHITECTURE_BASELINE
+    derived_from: [19,32,54,57,72,75,91]
+    source_lineage:
+      - docs/knowledge-base/2026-09-10-corpus-deception-gemini-osint-monetization-depin.md
+    purpose: "Research multimodal behavioral and linguistic signals with baseline calibration, alternative explanations, evidence provenance and uncertainty-aware assessment."
+    boundary: "No single behavioral cue establishes deception, guilt or intent; consequential assessments require corroborating evidence and human review."
+  project_93:
+    title: "Zero-Trust DePIN Hardware Attestation & Physical-Work Fabric MAX"
+    artifact: projekty/93-zerotrust-depin-hardware-attestation-and-physical-work-fabric-max.md
+    status: PROPOSED
+    maturity: ARCHITECTURE_BASELINE
+    derived_from: [31,37,59,60,61,72,80]
+    source_lineage:
+      - docs/knowledge-base/2026-09-10-corpus-deception-gemini-osint-monetization-depin.md
+    purpose: "Connect hardware-rooted identity and attestation with verifiable physical/computational work, anti-gaming controls and reward eligibility."
+    boundary: "Attestation is bounded evidence; token ownership is not proof of work; financial/regulatory readiness is not implied."
+
+iteration_16:
+  status: COMPLETE
+  source_batch_count: 6
+  knowledge_artifact: docs/knowledge-base/2026-09-10-corpus-deception-gemini-osint-monetization-depin.md
+  genesis: docs/PROJECT-GENESIS-2026-09-10-ITERATION-16.md
+  ingestion_record: docs/KNOWLEDGE-INGESTION-2026-09-10-ITERATION-16.md
+  evolution_record: docs/PROJECT-EVOLUTION-2026-09-10-ITERATION-16.md
+  new_projects: [92,93]
+  affected_projects: [31,32,34,54,57,61,66,67,72,75,80,91]
+  duplicate_decisions:
+    - "Advanced web-search and Deep OSINT material is absorbed by Project 32; no duplicate OSINT lineage is created."
+    - "Gemini restriction/jailbreak architecture is absorbed by Projects 54/72/61; no separate Gemini-security project is created."
+    - "The two monetization reports are complementary but substantially overlapping strategic corpora and are absorbed by Projects 34/66/67."
+    - "Deception analysis is sufficiently distinct from generic cognitive security/OSINT to justify Project 92."
+    - "DePIN hardware-attestation plus physical-work economics is sufficiently distinct from generic hardware trust to justify Project 93."
+  architecture_decisions:
+    - "Project 92 uses baseline + multimodal observation + cluster/anomaly + alternative explanations + corroboration, not deterministic lie classification."
+    - "Project 92 preserves Reid as comparative/risk material and uses PEACE as the preferred information-gathering research baseline."
+    - "Project 93 specializes existing hardware-root-of-trust primitives for DePIN evidence and reward integrity."
+    - "Project 93 treats economic rewards as downstream of verified evidence."
+  safety_boundaries:
+    - "Behavioral indicators do not establish deception, guilt, intent or diagnosis."
+    - "Coercive interrogation automation is out of scope."
+    - "OSINT active collection remains authorization-gated and passive-first."
+    - "Jailbreak/prompt-injection material is defensive architecture knowledge, not an instruction set for bypassing safeguards."
+    - "AI monetization forecasts are hypotheses and do not guarantee income or returns."
+    - "DePIN economic mechanisms require anti-gaming tests and jurisdiction-specific review."
