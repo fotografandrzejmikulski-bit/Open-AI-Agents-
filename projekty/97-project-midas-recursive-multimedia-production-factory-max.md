@@ -61,11 +61,32 @@ No irreversible publication should occur solely because a model produced syntact
 - rollback and partial-render recovery tests;
 - outcome A/B testing against a documented baseline.
 
+## Iteration 27 — Local orchestrator + cloud-render adapter
+
+The supplied Locally Uncensored/Google Flow material strengthens P97 with a formal hybrid-render architecture. The durable pattern is:
+
+`NATURAL-LANGUAGE BRIEF → MASTER STRUCTURED OBJECT → ENTITY REGISTRY → SCENE/TIMELINE MATRIX → AUTHORIZED MEDIA API → RENDER → EXTEND/UPSCALE → QA`
+
+The source describes entity-aware scene generation, structured cinematic parameters and asynchronous media operations. It also identifies image prototyping, video generation, clip extension and final upscaling as separable pipeline stages. fileciteturn877file1L47-L80
+
+P97 adopts:
+- entity registry and stable asset references;
+- typed scene/timeline representation;
+- start-frame and continuity metadata;
+- asynchronous render jobs;
+- explicit render status/readback;
+- local-first orchestration with optional cloud rendering;
+- cost/latency-aware render routing;
+- provenance for every generated media artifact.
+
+The source additionally discusses reverse-engineering hidden service endpoints and extracting browser/session authorization material. Those mechanisms are explicitly outside P97. The production adapter uses only documented/authorized access paths and treats credentials as secrets outside generated scene data.
+
 ## Maturity
 Architecture-ready specialization; production-scale economics and content-performance claims are NOT_VERIFIED.
 
 ## Derived from
-P24, P27, P56, P61, P72, P80, P90, P91.
+P24, P27, P56, P61, P72, P80, P90, P91, P100.
 
-## Source witness
-`PROJECT MIDAS.pdf` — 92-page automation blueprint.
+## Source witnesses
+- `PROJECT MIDAS.pdf` — 92-page automation blueprint.
+- `Integracja API z Locally Uncensored.PDF`
