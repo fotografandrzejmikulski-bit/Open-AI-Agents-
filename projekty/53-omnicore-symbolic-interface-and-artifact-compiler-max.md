@@ -3,7 +3,7 @@
 ## Thesis
 Turn symbolic card systems such as Apeiron into a rigorous, engine-neutral interface language in which the same semantic state can be rendered as a physical card, digital interface, game rule, evidence view or decision surface without confusing symbolism with truth.
 
-The core idea extracted from the supplied corpus is that tarot-like systems are not a single universal schema: they are families of symbolic systems with different card counts, hierarchies and correspondences. fileciteturn66file9L420-L440 This makes them useful as a configurable symbolic layer rather than as an immutable canonical ontology.
+The core idea extracted from the supplied corpus is that tarot-like systems are not a single universal schema: they are families of symbolic systems with different card counts, hierarchies and correspondences. This makes them useful as a configurable symbolic layer rather than as an immutable canonical ontology.
 
 ## Core pipeline
 
@@ -54,7 +54,7 @@ CONTEXT
  + OUTCOME / TRAJECTORY
 ```
 
-This is directly compatible with the layered Apeiron interaction grammar, where cards act as context, archetype and modifier layers whose combination creates emergent meaning. fileciteturn64file4L178-L194
+This is directly compatible with the layered Apeiron interaction grammar, where cards act as context, archetype and modifier layers whose combination creates emergent meaning.
 
 ## 3. Deck Variant Compiler
 
@@ -63,6 +63,8 @@ Because historical tarot systems differ structurally, the compiler treats deck d
 ```yaml
 DeckSchema:
   card_count:
+  lineage_id:
+  historical_family:
   major_arcana:
   minor_arcana:
   suits: []
@@ -71,16 +73,10 @@ DeckSchema:
   correspondences: []
   visual_language:
   rule_language:
+  interpretation_mode:
 ```
 
-The compiler can target:
-- 60-card cyberpunk variants;
-- 62-card reduced variants;
-- 78-card systems;
-- expanded variants;
-- completely novel domain-specific decks.
-
-The supplied material documents both a 60-card cyberpunk design and historical 62/97-card variants. fileciteturn66file0L17-L30 fileciteturn66file4L179-L203
+The compiler can target 60-card cyberpunk variants, 62-card reduced variants, 78-card systems, expanded variants and completely novel domain-specific decks.
 
 ## 4. Artifact Compiler
 
@@ -104,9 +100,7 @@ One semantic object produces multiple artifacts without duplicating business log
 
 ## 5. Visual-State Rendering
 
-Glitch, datamoshing, pixel sorting, RGB split and other effects become declarative renderer primitives mapped to explicit semantic states rather than arbitrary decoration. The supplied card specification treats those techniques as meaningful visual encodings. fileciteturn65file2L108-L123
-
-Example:
+Glitch, datamoshing, pixel sorting, RGB split and other effects become declarative renderer primitives mapped to explicit semantic states rather than arbitrary decoration.
 
 ```yaml
 VisualState:
@@ -120,7 +114,7 @@ VisualState:
 
 ## 6. Physical-Layer Compiler
 
-Apeiron's variable white-underprint and tactile/metallic layers demonstrate how the semantic model can cross into manufacturing. fileciteturn64file5L398-L422
+Apeiron's variable white-underprint and tactile/metallic layers demonstrate how the semantic model can cross into manufacturing.
 
 ```yaml
 PhysicalProfile:
@@ -150,23 +144,7 @@ This is especially important for reflective systems based on archetypes, divinat
 
 ## 8. Decision-Support Adapter
 
-Symbolic representations may help users structure reflection:
-
-```text
-QUESTION
- ↓
-STATE PROJECTION
- ↓
-MULTIPLE INTERPRETATIONS
- ↓
-ALTERNATIVES
- ↓
-EVIDENCE CHECK
- ↓
-USER DECISION
-```
-
-The adapter must never present an archetypal or tarot-derived interpretation as an empirical prediction, diagnosis or guaranteed outcome.
+Symbolic representations may help users structure reflection, but tarot-derived interpretation is never emitted as empirical prediction, diagnosis or guaranteed outcome.
 
 ## 9. Phygital State Sync
 
@@ -186,7 +164,7 @@ Duplicate events, stale state and out-of-order updates are rejected or reconcile
 
 ## 10. Accessibility Projection
 
-Every symbolic state receives at least one non-visual representation:
+Every symbolic state receives at least one non-visual representation.
 
 ```yaml
 AccessibilityProjection:
@@ -197,27 +175,13 @@ AccessibilityProjection:
   color_independent_cues: []
 ```
 
-A critical game rule or decision state cannot depend exclusively on color, optical illusion or fine visual detail.
-
 ## 11. Cognitive-Safety Boundary
 
-The source corpus includes designs that embed hidden commands and attempt to use sensory effects to increase dependency. The safe compiler strips those mechanisms from the executable ruleset and preserves them only as threat-model metadata.
-
-```text
-SOURCE PERSUASION MECHANISM
-        ↓
-THREAT CLASS
-        ↓
-DEFENSIVE TEST
-        ↓
-SAFE INTERACTION
-```
-
-The portfolio's existing Influence Security layer already defines system-level detection of hidden objectives, urgency, pressure, personalization and reward-loop risk. fileciteturn56file0L2-L3
+Source designs containing hidden commands or dependency-oriented sensory mechanisms are represented only as threat-model metadata. They are not executable product requirements.
 
 ## 12. Probability Projection
 
-A symbolic card may visualize uncertainty, but probability remains a separate formal layer:
+A symbolic card may visualize uncertainty, but probability remains a separate formal layer.
 
 ```text
 SYMBOLIC REPRESENTATION
@@ -225,27 +189,9 @@ SYMBOLIC REPRESENTATION
 FORMAL PROBABILITY MODEL
 ```
 
-The lottery corpus provides explicit state-space abstractions such as `(m,n,p,q)` and hypergeometric analysis. fileciteturn69file5L31-L47
-
 ## 13. Strategy Projection
 
-Project 53 can expose strategy as a symbolic map while retaining the underlying machine-readable `StrategySpec` from Projects 34 and 48:
-
-```text
-OBJECTIVE
- ↓
-RESOURCES
- ↓
-CAPABILITIES
- ↓
-ACTIVITY SEQUENCE
- ↓
-CONSTRAINTS
- ↓
-MEASUREMENT
-```
-
-The symbol system is a visualization/projection of the strategy state, not a replacement for the strategic model.
+The symbol system is a visualization/projection of the strategic model, not a replacement for it.
 
 ## 14. AI Card / Artifact Generation
 
@@ -265,8 +211,6 @@ SAFETY / ACCESSIBILITY QA
 HUMAN ART-DIRECTION REVIEW
 ```
 
-Generated visual content can vary while the semantic contract remains stable.
-
 ## 15. Artifact Identity
 
 ```yaml
@@ -282,33 +226,15 @@ ArtifactIdentity:
   approval:
 ```
 
-This supports reproduction, revision and physical-batch traceability.
-
 ## 16. Design Evaluation
 
-Every symbolic interface candidate is evaluated across:
-
-- semantic clarity;
-- interpretation diversity;
-- visual readability;
-- accessibility;
-- physical reproducibility;
-- digital consistency;
-- user understanding;
-- agency preservation;
-- provenance completeness.
+Every symbolic interface candidate is evaluated across semantic clarity, interpretation diversity, visual readability, accessibility, physical reproducibility, digital consistency, user understanding, agency preservation and provenance completeness.
 
 ## 17. Manufacturing State Machine Upgrade
 
-The newest Apeiron production corpus adds a hard production lifecycle:
-
 `DESIGN → MATERIAL SAMPLE → PREPRESS → PROTOTYPE → OPTICAL/MECHANICAL QC → BLIND PLAYTEST → RELEASE BATCH`.
 
-Physical parameters such as substrate thickness, transmission, haze and friction are treated as testable requirements, not as assumed truths. Batch measurements are attached to `ArtifactIdentity`.
-
 ## 18. Black-Apeiron Concealment Model
-
-Black-box/void aesthetics can be represented as an explicit **reveal state**, but concealment must remain rules-bound:
 
 ```text
 HIDDEN STATE
@@ -322,34 +248,66 @@ RULE RESOLUTION
 
 No hidden physical or symbolic layer may silently grant authority, change permissions or steer the user through undisclosed behavioral commands.
 
-## 19. Portfolio integration
+## 19. Tarot Lineage & Structural Ontology — Iteration 13
 
-Project 53 connects:
+The new Tarot taxonomy is incorporated as a lineage-aware schema rather than a single canonical Tarot model. The source corpus distinguishes historical families such as Visconti-Sforza, Sola Busca, Minchiate and Tarocchino from Marseille, RWS, Thoth and contemporary experimental systems. It documents meaningful structural variation including 62-, 78-, 79- and 97-card families, different court structures, numbering conventions, correspondences and modern transparent/round/double-sided variants.
 
-- Project 01 — APEIRON Black System;
-- Project 05 — APEIRON Neuroadaptive Interface Safe;
-- Project 22 — Agentic Media Forge;
-- Project 28 — Verified Generation;
-- Project 34 — Venture / Strategy Foundry;
-- Project 36 / 43 — Influence Security;
-- Project 41 — Repository / World / Evidence Intelligence;
-- Project 49 — Cognitive Sovereignty;
-- Project 50 — Physical Game & Phygital Experience Foundry;
-- Project 51 — Signal / Probability / Cognitive Safety Lab;
-- Project 52 — Adaptive Game Designer & Procedural Playtest Foundry;
-- Project 71 — Physical Artifact Manufacturing & Symbolic Interface Factory.
+Project 53 therefore adds:
 
-## Definition of Done
+```yaml
+DeckLineage:
+  lineage_id:
+  parent_lineage:
+  historical_period:
+  region:
+  card_count:
+  major_structure:
+  minor_structure:
+  court_structure:
+  numbering_system:
+  correspondence_systems: []
+  game_context:
+  divinatory_context:
+  visual_grammar:
+  provenance: []
+```
 
-1. Symbolic state is distinct from factual state.
-2. Deck structure is configurable and versioned.
-3. Physical and digital projections share one semantic contract.
-4. Visual effects are declarative and traceable to state.
-5. Probability remains formally separate from symbolism.
-6. Accessibility projections exist for essential state.
-7. Influence mechanisms are defensive-only.
-8. Artifact identity links semantics, rules, visuals and manufacturing.
-9. Generated artifacts remain reproducible.
-10. Human review controls final interpretation/product promotion.
-11. Physical reveal conditions are explicit and auditable.
-12. Manufacturing parameters are backed by batch measurements before release.
+A deck cannot inherit meanings from another deck merely because both are called Tarot. Cross-system mappings require explicit mapping tables and provenance.
+
+## 20. Apeiron 2.0 — 78-card Overlay/Checksum Extension
+
+The new Apeiron source defines a 78-card architecture with technological Minor Arcana domains and a hexadecimal overlay mechanism. Project 53 formalizes the source mechanism as a deterministic symbolic/game layer:
+
+```yaml
+HexOverlay:
+  card_value:
+  stack_values: []
+  modulus: 16
+  overflow_state:
+  remainder:
+  visual_reveal:
+  protocol_step:
+```
+
+The source's `0–F` values, overflow and `FF` critical state are encoded as game/symbolic semantics. They are **not** treated as cryptographic proof, factual truth or empirical prediction. ASCII/steganographic layers are represented as optional declared puzzle states with explicit reveal conditions.
+
+The `Stack Trace` protocol becomes a versioned rule object:
+
+```yaml
+StackTraceProtocol:
+  base_layer:
+  context_layers: []
+  modifier_layers: []
+  resolution_layer:
+  reveal_conditions: []
+  interpretation_rules: []
+```
+
+## 21. Iteration 13 Definition of Done Additions
+
+1. Tarot family identity is explicit and versioned.
+2. Cross-deck semantic mappings are provenance-backed.
+3. Apeiron 78-card HEX/checksum behavior is deterministic and testable.
+4. Overflow/reveal states are rule-defined rather than authority channels.
+5. Historical/divinatory claims remain source-attributed.
+6. Symbolic output cannot be cast into empirical fact without an external evidence layer.
