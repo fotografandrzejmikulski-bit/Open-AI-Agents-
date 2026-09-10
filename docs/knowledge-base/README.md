@@ -1,4 +1,4 @@
-# OpenAI Agents Knowledge Base
+#  Knowledge Base
 
 This directory is the durable project archive for documentation and repository knowledge extracted for building OpenAI-based agents, MCP integrations, coding agents, RAG systems, realtime/voice agents, safety layers, and evaluation harnesses.
 
