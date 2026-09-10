@@ -91,7 +91,7 @@ The persona corpus reinforces instruction hierarchy, structured contracts, promp
 - independent replication of performance claims.
 
 ## Dependencies
-P54, P61, P72, P77, P80, P94, P100, P108, P111, P114.
+P54, P61, P72, P77, P80, P94, P100, P108, P111.
 
 ## Maturity
 ARCHITECTURE_BASELINE
