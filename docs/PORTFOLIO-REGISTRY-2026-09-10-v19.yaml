@@ -1,0 +1,101 @@
+version: 19
+registry_type: canonical_portfolio_snapshot
+as_of: 2026-09-10
+repository: mojealterego/Knowledge-projects
+branch: main
+supersedes: docs/PORTFOLIO-REGISTRY-2026-09-10-v18.yaml
+identity_rule: project-47-lineage-first
+status_legend:
+  OBSERVED: "Present in repository and structurally observed."
+  SOURCE_DERIVED: "Derived from repository knowledge/project documentation."
+  INFERRED: "Engineering conclusion derived from observed evidence."
+  PROPOSED: "Candidate requiring validation before canonical promotion."
+  UNKNOWN: "Not established by available repository evidence."
+
+registry_scope:
+  canonical_legacy_sequence: 1-59
+  later_artifact_sequence: 60-71
+  architecture_candidates: [72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99]
+  inherited_registry: docs/PORTFOLIO-REGISTRY-2026-09-10-v18.yaml
+
+iteration_22:
+  status: COMPLETE
+  source_batch_count: 10
+  knowledge_artifact: docs/knowledge-base/2026-09-10-corpus-omnicore-sovereign-kairos-midas-gem-prism-phantom-cognitive-security.md
+  ingestion_record: docs/KNOWLEDGE-INGESTION-2026-09-10-ITERATION-22.md
+  evolution_record: docs/PROJECT-EVOLUTION-2026-09-10-ITERATION-22.md
+  genesis_record: docs/PROJECT-GENESIS-2026-09-10-ITERATION-22.md
+  new_projects: [96,97,98]
+  affected_projects: [14,17,18,19,24,27,34,37,54,56,61,66,67,72,79,80,87,90,91,92,93,94,95,96,97,98]
+
+  project_96:
+    title: "OmniCore Dynamic Data pSEO Growth Engine MAX"
+    artifact: projekty/96-omnicore-dynamic-data-pseo-growth-engine-max.md
+    status: PROPOSED
+    maturity: ARCHITECTURE_BASELINE
+    derived_from: [34,56,66,67,72,90,61,80]
+    boundary: "Event-driven pSEO, canonical data graph, schema validation, dynamic page-state compilation, freshness/provenance, internal-link graph and controlled publication/rollback."
+
+  project_97:
+    title: "Project MIDAS Recursive Multimedia Production Factory MAX"
+    artifact: projekty/97-project-midas-recursive-multimedia-production-factory-max.md
+    status: PROPOSED
+    maturity: ARCHITECTURE_BASELINE
+    derived_from: [24,27,56,61,72,80,90,91]
+    boundary: "Recursive multimedia production: architect/critic/editor loop, structured scene plans, audiovisual asset resolution, rendering, QA and feedback."
+
+  project_98:
+    title: "GEM General Intelligence Architecture & Verification Lab MAX"
+    artifact: projekty/98-gem-general-intelligence-architecture-lab-max.md
+    status: PROPOSED
+    maturity: ARCHITECTURE_BASELINE
+    derived_from: [14,17,18,19,24,27,54,61,72,79,80,94]
+    boundary: "Cross-capability AGI research and verification: general reasoning, specialist experts, persistent memory, probabilistic forecasting, planning and continuous adversarial assurance."
+
+iteration_23:
+  status: COMPLETE
+  source_batch_count: 10
+  knowledge_artifact: docs/knowledge-base/2026-09-10-corpus-strategy-business-models-mobile-game-iteration-23.md
+  ingestion_record: docs/KNOWLEDGE-INGESTION-2026-09-10-ITERATION-23.md
+  evolution_record: docs/PROJECT-EVOLUTION-2026-09-10-ITERATION-23.md
+  genesis_record: docs/PROJECT-GENESIS-2026-09-10-ITERATION-23.md
+  new_projects: [99]
+  affected_projects: [34,56,66,67,72,86,90,97,99]
+
+  project_99:
+    title: "OmniGame Mobile Product & LiveOps Strategy Engine MAX"
+    artifact: projekty/99-omnigame-mobile-product-liveops-strategy-engine-max.md
+    status: PROPOSED
+    maturity: ARCHITECTURE_BASELINE
+    derived_from: [34,56,66,67,72,86,90,97]
+    boundary: "Game-specific product strategy, value proposition, business-model design, competitive positioning, core-loop/economy modelling, LiveOps, KPI governance, ethical monetization and controlled experimentation."
+
+  duplicate_decisions:
+    - "publikacja_PODR_8.pdf substantially overlaps the supplied small-firm strategy chapter and is treated as corroborating knowledge, not a new project lineage."
+    - "The business-model and strategic-management papers are complementary source witnesses rather than a reason to create generic strategy projects."
+    - "The mobile-game blueprint overlaps P86 at build/delivery level and P97 at multimedia level, but establishes a distinct product/LiveOps strategy boundary for P99."
+    - "Family-business governance material is retained as supporting strategy/governance knowledge; no separate project created."
+    - "Scanned Polowczyk strategy book is retained as supporting source material because machine-readable detailed extraction is unavailable."
+
+  architecture_decisions:
+    - "P86 remains game idea/scenario to engine project and reproducible Android artifact delivery."
+    - "P97 remains recursive multimedia production and audiovisual content QA."
+    - "P34/P56/P66/P67 remain broader commercialization, outcome and strategy experimentation layers."
+    - "P99 owns the specialized game product strategy, LiveOps, economy, KPI and experiment layer."
+    - "Manipulative game-design concepts are negative/evaluation fixtures, not operational requirements."
+
+portfolio_invariants:
+  - "model capability != authorization"
+  - "memory != authorization"
+  - "approval != execution"
+  - "MCP/capability integration != authorization"
+  - "simulation != real-world evidence"
+  - "evidence != inference != hypothesis != verified fact"
+  - "generated code is untrusted until tested"
+  - "stale state cannot overwrite newer state"
+  - "project identity follows lineage"
+  - "strategy != business model != operations"
+  - "product hypothesis != verified market outcome"
+  - "telemetry != causal proof without an appropriate experimental design"
+  - "personalization != permission to manipulate"
+  - "manipulation research is defensive/evaluative, not an authorization to target or control people"
