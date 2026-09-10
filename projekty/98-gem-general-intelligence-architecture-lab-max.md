@@ -66,3 +66,6 @@ P14, P17, P18, P19, P24, P27, P54, P61, P72, P79, P80, P94.
 
 ## Source witnesses
 `Projekt _GEM_ Koncepcja Stworzenia AI Ogólnej.pdf` and the related GEM feasibility material already represented in the repository.
+
+## Iteration 25 evolution
+The God-Level/OCAA and OMEGA-X sources add explicit research tracks for Code World Models, object/meta-level reasoning (MARS), hierarchical memory concepts (R3Mem/Titans), neuro-symbolic verification and AlphaEvolve-style population search. P98 should treat each as an independently testable hypothesis with ablations and reproducible benchmarks. Source claims of absolute reliability, ASI/AGI status or unrestricted self-improvement remain unverified.
