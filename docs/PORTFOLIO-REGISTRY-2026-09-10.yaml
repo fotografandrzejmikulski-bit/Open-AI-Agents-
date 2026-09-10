@@ -1,0 +1,192 @@
+version: 11
+registry_type: canonical_portfolio_snapshot
+as_of: 2026-09-10
+repository: mojealterego/Knowledge-projects
+branch: main
+supersedes: docs/PORTFOLIO-REGISTRY-2026-09-09.yaml
+identity_rule: project-47-lineage-first
+status_legend:
+  OBSERVED: "Present in repository and structurally observed."
+  SOURCE_DERIVED: "Derived from repository knowledge/project documentation."
+  INFERRED: "Engineering conclusion derived from observed evidence."
+  PROPOSED: "Candidate requiring validation before canonical promotion."
+  UNKNOWN: "Not established by available repository evidence."
+
+registry_scope:
+  canonical_legacy_sequence: 1-59
+  later_artifact_sequence: 60-71
+  architecture_candidates: [72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89]
+  inherited_registry: docs/PORTFOLIO-REGISTRY-2026-09-09.yaml
+  note: "Projects 1-85 remain governed by the superseded canonical snapshot; Iteration 14 adds 86-89 and records lineage explicitly."
+
+portfolio_families:
+  - ids: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36]
+    source: projekty/README.md
+    status: OBSERVED
+  - ids: [37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59]
+    source: projekty/README.md
+    status: OBSERVED
+  - ids: [60,61,62,67]
+    status: OBSERVED
+    collision: true
+  - ids: [63,64]
+    status: UNKNOWN
+  - ids: [65,66,68,69,70,71]
+    status: OBSERVED
+
+project_72:
+  canonical_id: 72
+  title: OmniCore Cross-Framework Agent Assurance & Runtime Verification Fabric MAX
+  artifact: projekty/72-omnicore-cross-framework-agent-assurance-and-runtime-verification-fabric-max.md
+  status: PROPOSED
+  maturity: ARCHITECTURE_BASELINE
+
+project_73:
+  canonical_id: 73
+  title: "Człowiek Roku — Evidence-Driven Narrative Noir Game MAX"
+  artifact: projekty/73-czlowiek-roku-evidence-driven-noir-game-max.md
+  status: PROPOSED
+  maturity: MULTI_TARGET_ARCHITECTURE_BASELINE
+  derived_from: [32,50,52,54,57,58,71,72,82]
+  iteration_14_delta: "UE5 + Unity Android + WebGL/Three.js adaptations unified behind shared authoritative narrative/evidence state."
+
+project_74:
+  canonical_id: 74
+  title: iCar Agentic Vehicle Diagnostics & Evidence Fabric MAX
+  artifact: projekty/74-icar-agentic-vehicle-diagnostics-and-evidence-fabric-max.md
+  status: PROPOSED
+
+project_75:
+  canonical_id: 75
+  title: Polish Language Intelligence & Semantic Heritage Engine MAX
+  artifact: projekty/75-polish-language-intelligence-and-semantic-heritage-engine-max.md
+  status: PROPOSED
+  maturity: REGISTER_AWARE_ARCHITECTURE_BASELINE
+  iteration_14_delta: "Youth slang and prison-register source witnesses added as provenance-bound lexical registers."
+
+project_76:
+  canonical_id: 76
+  title: NEURO-SYNC Sensory Browser Game Engine MAX
+  artifact: projekty/76-neuro-sync-sensory-browser-game-engine-max.md
+  status: PROPOSED
+
+project_77:
+  canonical_id: 77
+  title: "Principia Mathematica Nova / TRS Formalization & Verification Lab MAX"
+  artifact: projekty/77-principia-mathematica-nova-trs-formalization-and-verification-lab-max.md
+  status: PROPOSED
+
+project_78:
+  canonical_id: 78
+  title: "Lottery Randomness Audit & Simulation Lab MAX"
+  artifact: projekty/78-lottery-randomness-audit-and-simulation-lab-max.md
+  status: PROPOSED
+
+project_79:
+  canonical_id: 79
+  title: "OmniDiscovery Autonomous Scientific Discovery Engine MAX"
+  artifact: projekty/79-omnidiscovery-autonomous-scientific-discovery-engine-max.md
+  status: PROPOSED
+
+project_80:
+  canonical_id: 80
+  title: "OmniCore Self-Evolving Computing Substrate MAX"
+  artifact: projekty/80-omnicore-self-evolving-computing-substrate-max.md
+  status: PROPOSED
+  iteration_14_delta: "Nexus compiler lineage added as a separately versioned self-evolution target."
+
+project_81:
+  canonical_id: 81
+  title: "Voice-Narrative AI Game Engine MAX"
+  artifact: projekty/81-voice-narrative-ai-game-engine-max.md
+  status: PROPOSED
+
+project_82:
+  canonical_id: 82
+  title: "CCR Transmedia Graphic-Novel Universe MAX"
+  artifact: projekty/82-ccr-transmedia-graphic-novel-universe-max.md
+  status: PROPOSED
+  iteration_14_delta: "Explicit separation of graphic-novel/transmedia canon from Project 89 game implementation."
+
+project_83:
+  canonical_id: 83
+  title: "Baśń o Pornlandii Graphic-Novel & Transmedia World MAX"
+  artifact: projekty/83-basn-o-pornlandii-graphic-novel-transmedia-max.md
+  status: PROPOSED
+
+project_84:
+  canonical_id: 84
+  title: "Aksamitna Sieć: Transparent Social Strategy Game MAX"
+  artifact: projekty/84-aksamitna-siec-transparent-social-strategy-game-max.md
+  status: PROPOSED
+
+project_85:
+  canonical_id: 85
+  title: "NeuroShield Epileptogenesis Research & Verification Lab MAX"
+  artifact: projekty/85-neuroshield-epileptogenesis-research-verification-lab-max.md
+  status: PROPOSED
+
+project_86:
+  canonical_id: 86
+  title: "OmniGame Text-to-Android Factory MAX"
+  artifact: projekty/86-omnigame-text-to-android-factory-max.md
+  status: PROPOSED
+  maturity: ARCHITECTURE_BASELINE
+  derived_from: [7,24,28,33,52,61,65,69,72,80]
+  source_lineage:
+    - docs/knowledge-base/2026-09-10-corpus-osint-gemini-gamefactory-nexus-paulaai-polish-slang.md
+  purpose: "Compile natural-language game scenarios into validated engine projects and reproducible Android APK/AAB artifacts through UGDL and engine adapters."
+
+project_87:
+  canonical_id: 87
+  title: "Nexus Hybrid Programming Language & Compiler MAX"
+  artifact: projekty/87-nexus-hybrid-programming-language-and-compiler-max.md
+  status: PROPOSED
+  maturity: RESEARCH_ARCHITECTURE_BASELINE
+  derived_from: [24,28,61,65,68,80]
+  source_lineage:
+    - docs/knowledge-base/2026-09-10-corpus-osint-gemini-gamefactory-nexus-paulaai-polish-slang.md
+  purpose: "Prototype the proposed Nexus language, compiler, memory/type system, concurrency model and LLVM/MLIR/WASM/native interoperability."
+  breakthrough_claim_boundary: "Nexus is a proposed architecture until executable compiler evidence establishes its safety, performance and interoperability claims."
+
+project_88:
+  canonical_id: 88
+  title: "Druga Połowa Interactive TPP Experience MAX"
+  artifact: projekty/88-druga-polowa-interactive-tpp-experience-max.md
+  status: PROPOSED
+  maturity: ARCHITECTURE_BASELINE
+  derived_from: [50,52,57,72,73,81,86]
+  source_lineage:
+    - docs/knowledge-base/2026-09-10-corpus-osint-gemini-gamefactory-nexus-paulaai-polish-slang.md
+  purpose: "Create a distinct UE5 narrative TPP adaptation of Druga Połowa using time, memory and atmosphere as gameplay systems."
+
+project_89:
+  canonical_id: 89
+  title: "CCR: The Closed Lens Interactive Game MAX"
+  artifact: projekty/89-ccr-the-closed-lens-interactive-game-max.md
+  status: PROPOSED
+  maturity: ARCHITECTURE_BASELINE
+  derived_from: [52,57,61,72,82,86]
+  source_lineage:
+    - docs/knowledge-base/2026-09-10-corpus-osint-gemini-gamefactory-nexus-paulaai-polish-slang.md
+  purpose: "Implement CCR as a UE5 interactive game with CCR Camera, Closed Lens/TimeRift, MemoryParticle and deterministic puzzle state."
+
+iteration_14:
+  status: COMPLETE
+  knowledge_artifact: docs/knowledge-base/2026-09-10-corpus-osint-gemini-gamefactory-nexus-paulaai-polish-slang.md
+  genesis: docs/PROJECT-GENESIS-2026-09-10-ITERATION-14.md
+  ingestion_record: docs/KNOWLEDGE-INGESTION-2026-09-10-ITERATION-14.md
+  evolution_record: docs/PROJECT-EVOLUTION-2026-09-10-ITERATION-14.md
+  source_batch_count: 17
+  new_projects: [86,87,88,89]
+  affected_projects: [8,32,33,52,61,73,75,80,82]
+  duplicate_decisions:
+    - "Two Człowiek Roku book-adaptation PDFs are exact duplicates."
+    - "Two PaulaAI PDFs are exact duplicates."
+    - "The prison-register DOCs are overlapping source witnesses, not separate products."
+  architecture_decisions:
+    - "Gemini is integrated through provider-neutral agent/runtime architecture."
+    - "OSINT active collection is authorization-gated."
+    - "UGDL becomes the game-factory intermediate representation."
+    - "Nexus language identity is separate from OmniCore runtime identity."
+    - "CCR graphic-novel canon and CCR game runtime are separate lineages."
