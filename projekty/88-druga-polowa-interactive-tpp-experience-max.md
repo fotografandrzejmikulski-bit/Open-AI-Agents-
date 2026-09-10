@@ -139,3 +139,6 @@ Winter night, silence, snow, spatial ambience and material response are first-cl
 5. Atmosphere systems survive save/load.
 6. Performance and accessibility are measured rather than assumed.
 7. Project assets remain lineage-separated from other narrative universes.
+
+## Iteration 25 evolution
+Visual inspection of the supplied 5-page `Druga połowa` extract confirms a sequential-art progression from a snowy nocturnal city encounter through recognition/intimacy to a warm domestic morning and a new shared chapter. This is now a direct visual source witness for the atmosphere, pacing, relational-state transitions and contrast between cold exterior and warm interior states. The PDF contains no machine-readable text; the visual evidence is therefore explicitly page-image-derived.
