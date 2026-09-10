@@ -42,7 +42,14 @@ Project 61 converges Omnis, the learned kernel and PUI. Project 68 defines the c
 
 Project 80 creates the missing **self-evolution substrate**: a concrete domain in which Project 79 can operate on the architecture itself while Project 72 prevents the discovery loop from becoming an authority loop.
 
-The source corpus independently supplies the required building blocks: Rust `no_std` kernel prototypes, AI Supervisor scheduling, SemanticFS, HAL/DBT, AI Foundry driver synthesis, Omnis/MLIR, CIRA, MeshBus, 3DGS/PUI and a private QEMU/GPU agent factory. The prototype kernel explicitly separates boot, hardware abstraction, learned scheduling, semantic storage and distributed bus initialization. fileciteturn311file0L10-L30
+## Iteration 12 source reinforcement
+The newly supplied OmniCore documents independently reinforce the existing Project 80 architecture with three important dimensions:
+
+1. **Self-healing loop:** anomaly detection → isolation → restart → candidate repair → verification.
+2. **AI Foundry generation loop:** hardware discovery → authoritative documentation → generated driver candidate → compilation/verification.
+3. **Cross-platform substrate:** Omnis/MLIR, learned scheduling, SemanticFS, heterogeneous execution and PUI are treated as candidate evolutionary surfaces.
+
+The source material remains implementation inspiration and architectural specification, not proof that these capabilities are production-ready. In particular, generated low-level code remains untrusted until compilation, testing and assurance.
 
 ## 1. System architecture
 
@@ -86,21 +93,21 @@ The source corpus independently supplies the required building blocks: Rust `no_
 
 Candidate changes include scheduling policy, memory paths, IPC, interrupt handling and resource allocation.
 
-The AI Supervisor remains a bounded optimizer. Deterministic fairness, watchdogs, resource ceilings, emergency fallback and rollback remain authoritative. The source prototype already treats learned scheduling as a kernel component, but the supplied implementation is a PoC rather than evidence of production viability. fileciteturn311file5L31-L49
+The AI Supervisor remains a bounded optimizer. Deterministic fairness, watchdogs, resource ceilings, emergency fallback and rollback remain authoritative. The source prototype treats learned scheduling as a kernel component, but a prototype is not evidence of production viability.
 
 ### B. Compiler evolution
 
-Omnis uses MLIR to represent hybrid memory semantics, including `LinearRef`, `GcRef` and explicit hybrid scopes. The source material describes lowering and CIRA as an intelligent compiler pass. fileciteturn312file12L522-L568
+Omnis uses MLIR to represent hybrid memory semantics, including `LinearRef`, `GcRef` and explicit hybrid scopes. The source material describes lowering and CIRA as an intelligent compiler pass.
 
 Project 80 lets the discovery loop test compiler transformations against reproducible workloads rather than assuming a transformation is beneficial.
 
 ### C. Hardware / driver evolution
 
-AI Foundry can inspect hardware, retrieve authoritative documentation and propose Rust drivers. The source explicitly presents this as a generation-and-build loop; Project 80 adds mandatory quarantine, compilation, sandbox/QEMU/HIL testing, signing and staged activation. fileciteturn313file15L764-L769
+AI Foundry can inspect hardware, retrieve authoritative documentation and propose Rust drivers. Project 80 adds mandatory quarantine, compilation, sandbox/QEMU/HIL testing, signing and staged activation.
 
 ### D. Distributed substrate evolution
 
-MeshBus exposes a device-level actor model with location transparency and predicted resource-aware task migration. The source describes moving computation from a battery-powered device to a nearby workstation when latency, energy and workload conditions justify it. fileciteturn313file8L413-L439
+MeshBus exposes a device-level actor model with location transparency and predicted resource-aware task migration. Project 80 evaluates such migration experimentally across energy, latency, reliability and consistency dimensions.
 
 ## 3. Engineering Discovery Object
 
@@ -191,11 +198,9 @@ candidate → release: independent assurance + approval policy
 release → active: staged deployment + health verification
 ```
 
-This directly preserves the repository invariant that model output never authorizes privileged execution. Project 61 already defines generated drivers as quarantined until verification and self-repair as versioned replacement with rollback. fileciteturn333file0L2-L2
-
 ## 7. SemanticFS as evolutionary memory
 
-SemanticFS becomes more than a user file system. It stores searchable engineering evidence:
+SemanticFS stores searchable engineering evidence:
 
 ```text
 artifact
@@ -209,7 +214,7 @@ release
 rollback
 ```
 
-Semantic similarity remains discovery only; access still requires provenance, capability and authorization. The source architecture explicitly defines SemanticFS around embeddings/HNSW and natural-language queries. fileciteturn311file0L50-L57
+Semantic similarity remains discovery only; access still requires provenance, capability and authorization.
 
 ## 8. AI Foundry + Omniscience + OmniDiscovery
 
@@ -232,65 +237,21 @@ KNOWLEDGE
                  ↺
 ```
 
-The Omniscience source already separates knowledge injection, multidisciplinary analysis, hypothesis generation, adversarial critique and verification. fileciteturn326file0L2-L2
-
 ## 9. Private experimental forge
 
-The supplied infrastructure material describes a GCP Forge combining nested virtualization, GPU inference, local models, vector retrieval, QEMU/KVM and federated coding agents. These configurations are treated as reference scenarios, not universal requirements. fileciteturn322file0L2-L2
-
-Project 80 uses the Forge as an experimental substrate with this boundary:
-
-```text
-HOST
-  ↓
-L1 BUILD / AGENT ENVIRONMENT
-  ↓
-L2 ISOLATED OMNICORE IMAGE
-  ↓
-TEST / FAULT INJECTION / BENCHMARK
-  ↓
-EVIDENCE
-```
+The experimental Forge may use nested virtualization, GPU inference, local models, vector retrieval, QEMU/KVM and federated coding agents. Such infrastructure is a test substrate, not proof of portability to arbitrary environments.
 
 ## 10. PUI / Human Factor evolution
 
-The source proposes a personified interface using 3D Gaussian Splatting, WebGPU, local SLM inference, episodic memory and an affective loop. fileciteturn313file9L458-L474
-
-Project 80 treats PUI as another measurable subsystem, not as a privileged authority:
-
-- rendering latency;
-- interaction latency;
-- multimodal synchronization;
-- accessibility;
-- adaptation accuracy;
-- privacy;
-- user-visible control of adaptation.
+PUI is another measurable subsystem. Candidate changes are evaluated for rendering latency, interaction latency, multimodal synchronization, accessibility, adaptation accuracy, privacy and user-visible control of adaptation.
 
 Affective or biometric observations cannot silently change capabilities or permissions.
 
 ## 11. Cross-platform invariance
 
-The source proposes one codebase across x86_64 and AArch64, with WASM and binary translation used for portability. fileciteturn313file2L99-L113
-
-Project 80 defines an invariance suite:
-
-```text
-SAME SEMANTIC PROGRAM
-        ↓
- x86_64 | AArch64 | WASM
-        ↓
-COMPARE
-  semantics
-  safety
-  resource profile
-  observable behavior
-```
-
-Portability is accepted only where the behavior has been measured.
+The source proposes one codebase across x86_64 and AArch64, with WASM and binary translation for portability. Project 80 defines an invariance suite comparing semantic behavior, safety, resources and observable behavior across targets.
 
 ## 12. Scientific operating principle
-
-Project 80 adopts Project 79's epistemic discipline:
 
 ```text
 simulation ≠ hardware observation
@@ -376,7 +337,7 @@ It is complete when the system can demonstrate, reproducibly:
 
 ## Evidence boundary
 
-**SOURCE-DERIVED:** the uploaded OmniCore documents describe the kernel, AI Supervisor, SemanticFS, Omnis/MLIR, CIRA, AI Foundry, MeshBus, PUI and private experimental infrastructure. fileciteturn311file2L2-L17
+**SOURCE-DERIVED:** the supplied OmniCore documents describe the kernel, AI Supervisor, SemanticFS, Omnis/MLIR, CIRA, AI Foundry, MeshBus, PUI and self-healing concepts.
 
 **INFERRED:** these components can form a self-evolution architecture only when connected through an experimental controller and strict authority boundaries.
 
