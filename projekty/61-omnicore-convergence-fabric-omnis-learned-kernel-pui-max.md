@@ -196,3 +196,18 @@ An inferred affective state is never an authorization primitive and cannot chang
 - adversarial testing for covert persuasion and vulnerability targeting.
 
 This branch remains a research/engineering architecture until measurements on real Android devices establish performance claims.
+
+## Iteration 26 — AI Launcher evidence integration
+
+The 2025–2026 Android launcher report adds a more explicit contextual-AI branch to the PUI architecture. It describes three evolutionary paths: algorithmic optimization, cloud integration and on-device processing. It specifically identifies UsageStatsManager-derived behavior sequences, sensor/context signals such as GPS, accelerometer, battery state and time-of-day, and LLM-based semantic understanding of notifications/user intent. It also describes NPU-enabled local inference and agentic launchers capable of acting inside applications.
+
+P61 absorbs these findings as engineering requirements rather than as a separate launcher project:
+
+- **context engine:** usage sequence + system context + semantic intent;
+- **local inference path:** quantized GGUF-class/on-device models where hardware permits;
+- **promptless interaction:** intent inference must remain observable and reversible;
+- **adaptive shell:** launcher state is presentation state, never authoritative permission state;
+- **privacy modes:** local-only, hybrid and explicitly consented cloud processing;
+- **evaluation:** latency, battery, thermal load, false positives, false negatives and user override rate.
+
+The source reports that Smart Launcher 6 uses probabilistic/semantic organization and adaptive correction, while Niagara emphasizes a minimal adaptive list and context-sensitive promotion. These are treated as source observations to benchmark, not as proof of universal superiority.
