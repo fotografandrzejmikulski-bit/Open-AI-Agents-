@@ -274,13 +274,35 @@ P100 reaches the next maturity gate only when:
 
 ## Iteration 26 — GGUF Agent Studio / AI App Builder convergence
 
-The supplied GGUF application report provides a concrete local-runtime implementation witness that strengthens P100. Its base architecture is Python + FastAPI + `llama-cpp-python`, with direct GGUF loading, WebSocket streaming, agent definitions, delegation and an Agents Builder. The initial safe workspace exposes `list_files`, `read_file` and `write_file` only inside a bounded workspace, deliberately omitting default shell execution. fileciteturn859file0L11-L29 fileciteturn859file0L95-L103
+The supplied GGUF application report provides a concrete local-runtime implementation witness that strengthens P100. Its base architecture is Python + FastAPI + `llama-cpp-python`, with direct GGUF loading, WebSocket streaming, agent definitions, delegation and an Agents Builder. The initial safe workspace exposes `list_files`, `read_file` and `write_file` only inside a bounded workspace, deliberately omitting default shell execution.
 
-The later implementation record reports a broader Enterprise surface: model routing, multiple models, purpose-specific planning/coding/embedding models, agent graph editing, handoffs, per-agent memory/versioning/tests, Pydantic tool schemas, self-healing tool calls, Docker/Kubernetes sandboxes, RBAC, prompt-injection/PII scanning, signed audit logging, repo ingestion, AST parsing, diff generation, React Flow, Monaco, live task timelines and observability. These are treated as source-reported implementation evidence, not independently reproduced verification. fileciteturn853file9L465-L510 fileciteturn853file10L564-L680
+The later implementation record reports a broader Enterprise surface: model routing, multiple models, purpose-specific planning/coding/embedding models, agent graph editing, handoffs, per-agent memory/versioning/tests, Pydantic tool schemas, self-healing tool calls, Docker/Kubernetes sandboxes, RBAC, prompt-injection/PII scanning, signed audit logging, repo ingestion, AST parsing, diff generation, React Flow, Monaco, live task timelines and observability. These are treated as source-reported implementation evidence, not independently reproduced verification.
 
-The AI App Builder corpus reinforces P100's private/local-first architecture. Its analysis of Lovable and related systems emphasizes Vite/React/TypeScript, Supabase, sandboxed execution, Git as source of truth, MCP, Build/Plan modes, semantic Skills/RAG, RBAC/SSO and self-managed deployment. fileciteturn859file3L585-L620 fileciteturn859file3L725-L754 fileciteturn859file3L773-L796
+The AI App Builder corpus reinforces P100's private/local-first architecture. Its analysis of Lovable and related systems emphasizes Vite/React/TypeScript, Supabase, sandboxed execution, Git as source of truth, MCP, Build/Plan modes, semantic Skills/RAG, RBAC/SSO and self-managed deployment.
 
-P100 therefore treats **GGUF Agent Studio** and **OmniStack AI** as implementation witnesses and architectural inputs, not separate project identities. Their reusable capabilities enter the P100 product surface through the model hub, agent registry, sandbox, repo intelligence, MCP and verification layers.
+P100 therefore treats GGUF Agent Studio and OmniStack AI as implementation witnesses and architectural inputs, not separate project identities.
+
+## Iteration 27 — Lovable / local-first builder / cloud execution convergence
+
+The new Lovable corpus adds a stronger architecture for controlled AI software generation: constrained project DNA, semantic context selection, Git-backed persistence, local-first/BYOK operation, sandboxed builds, structured testing and agent-swarm decomposition. It also reinforces the security boundary around generated database policies: LLM-generated RLS/configuration is proposal data and must be validated by authoritative policy tests before promotion.
+
+P100 adopts these patterns as first-class product capabilities:
+- **Project DNA:** explicit stack/version/schema constraints available to every agent;
+- **semantic context broker:** retrieve only the code/state needed for the current task;
+- **Git authority:** generated changes become candidate diffs until reviewed/tested;
+- **local-first mode:** allow local model/runtime execution where privacy or cost requires it;
+- **sandbox federation:** isolate generated builds and external tool execution;
+- **persistent project memory:** retain architecture rules, failures and accepted decisions;
+- **swarm scheduler:** delegate specialized work while keeping one capability/policy boundary;
+- **security-policy verifier:** generated RLS, IAM and access rules require independent checks.
+
+The supplied Lovable report compares Lovable, Bolt.diy, Libra AI, Dyad and Open-Laudable and documents materially different runtime/storage models. Those comparisons are architectural evidence, not proof that one platform is universally superior. fileciteturn883file3L653-L706 fileciteturn883file3L708-L850
+
+## Iteration 27 — Locally Uncensored / Flow orchestration boundary
+
+The LU/Flow material strengthens P100's multimodal production adapter: natural-language intent can be compiled into a structured master object containing metadata, entity registry and scene/timeline specifications; MCP can expose bounded media operations; and asynchronous orchestration can connect local planning with remote rendering. fileciteturn877file13L571-L598
+
+P100 explicitly rejects credential extraction, hidden-endpoint abuse, CAPTCHA-token harvesting and authentication bypass as product capabilities. Only authorized APIs, explicit credentials, scoped tools, provenance and postcondition verification can enter the execution fabric. The source's descriptions of hidden endpoints and browser-token extraction remain threat-model material, not implementation requirements.
 
 ## Maturity
 Architecture-ready product/integration concept. Source reports of installed extensions, successful builds, latency and RSI remain to be independently reproduced in the repository's verification environment.
@@ -298,3 +320,5 @@ P24, P27, P28, P37, P40, P54, P57, P59, P61, P65, P72, P80, P87, P90, P91, P97, 
 - `Aplikacja GGUF .pdf`
 - `Analiza Repozytoriów i Projekt Aplikacji.PDF`
 - `Architektura własnej platformy typu AI App Builder.PDF`
+- `Kod Lovable.dev i Alternatyw.PDF`
+- `Integracja API z Locally Uncensored.PDF`
