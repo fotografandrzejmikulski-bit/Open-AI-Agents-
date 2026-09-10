@@ -1,0 +1,102 @@
+version: 22
+registry_type: canonical_portfolio_snapshot
+as_of: 2026-09-10
+repository: mojealterego/Knowledge-projects
+branch: main
+supersedes: docs/PORTFOLIO-REGISTRY-2026-09-10-v21.yaml
+identity_rule: project-47-lineage-first
+status_legend:
+  OBSERVED: "Present in repository and structurally observed."
+  SOURCE_DERIVED: "Derived from repository knowledge/project documentation."
+  INFERRED: "Engineering conclusion derived from observed evidence."
+  PROPOSED: "Candidate requiring validation before canonical promotion."
+  UNKNOWN: "Not established by available repository evidence."
+
+registry_scope:
+  canonical_legacy_sequence: 1-59
+  later_artifact_sequence: 60-71
+  architecture_candidates: [72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103]
+  inherited_registry: docs/PORTFOLIO-REGISTRY-2026-09-10-v21.yaml
+
+iteration_25:
+  status: COMPLETE
+  source_batch_count: 10
+  knowledge_artifact: docs/knowledge-base/2026-09-10-corpus-ccr-iii-iv-nexus-omega-godlevel.md
+  ingestion_record: docs/KNOWLEDGE-INGESTION-2026-09-10-ITERATION-25.md
+  evolution_record: docs/PROJECT-EVOLUTION-2026-09-10-ITERATION-25.md
+  genesis_record: docs/PROJECT-GENESIS-2026-09-10-ITERATION-25.md
+  new_projects: [100]
+
+iteration_26:
+  status: COMPLETE
+  source_batch_count: 9
+  knowledge_artifact: docs/knowledge-base/2026-09-10-corpus-iteration-26-android-gguf-appbuilder-unity-security-commerce.md
+  ingestion_record: docs/KNOWLEDGE-INGESTION-2026-09-10-ITERATION-26.md
+  evolution_record: docs/PROJECT-EVOLUTION-2026-09-10-ITERATION-26.md
+  genesis_record: docs/PROJECT-GENESIS-2026-09-10-ITERATION-26.md
+  new_projects: [101,102,103]
+  affected_projects: [24,27,28,34,37,40,54,57,59,61,66,67,72,80,86,88,89,90,91,97,98,100,101,102,103]
+  excluded_sources:
+    - file: account_confirmation.PDF
+      decision: EXCLUDED_FROM_KNOWLEDGE_BASE
+      reason: personal_and_financial_account_identifying_data
+
+  project_101:
+    title: "NeuroMesh AI Asset Safety & Retopology Fabric MAX"
+    artifact: projekty/101-neuromesh-ai-asset-safety-and-retopology-fabric-max.md
+    status: PROPOSED
+    maturity: ARCHITECTURE_BASELINE
+    derived_from: [40,54,59,61,72,80,97,100]
+    boundary: "Defensive Unreal asset ingestion, provenance, safety gating, quarantine, topology analysis and controlled retopology/optimization."
+
+  project_102:
+    title: "OMEGA-X Enterprise Cloud Migration & Compliance Fabric MAX"
+    artifact: projekty/102-omegax-enterprise-cloud-migration-and-compliance-fabric-max.md
+    status: PROPOSED
+    maturity: ARCHITECTURE_BASELINE
+    derived_from: [17,28,34,37,40,54,61,66,67,72,80,90,100]
+    boundary: "Enterprise AWS-to-Alibaba migration fabric covering discovery, IaC translation, AI-assisted migration, data sovereignty, compliance, pilot/canary validation, TCO and rollback."
+
+  project_103:
+    title: "OmniGame Unity Autonomous Production Engine MAX"
+    artifact: projekty/103-omnigame-unity-autonomous-production-engine-max.md
+    status: PROPOSED
+    maturity: ARCHITECTURE_BASELINE
+    derived_from: [40,61,72,80,86,87,88,89,90,97,100]
+    boundary: "Unity-specific narrative/GDD-to-structured-scene compiler and guarded editor executor using MCP/UTCP, prefab persistence, Roslyn in-memory compilation, testing, readback and rollback."
+
+  duplicate_decisions:
+    - "AI digital-product guide remains commercial opportunity knowledge; no project duplicate."
+    - "Android AI launcher remains P57/P61 PUI/Android lineage; no new launcher project."
+    - "GGUF Agent Studio is an implementation witness for P100."
+    - "OmniStack/private AI App Builder is absorbed by P40/P61/P72/P100/P90."
+    - "IBM Cloud game backend is reusable backend/security architecture, not a separate portfolio identity."
+    - "Animal adoption questionnaire is structured-procedure evidence for P90; no autonomous welfare project is created from one form."
+    - "Token manipulation material is retained defensively under P54/P72/P59; no offensive project is created."
+    - "Autonomous Unity production crosses the distinct-boundary threshold and justifies P103."
+    - "P101 and P102 finalize project identities proposed in the immediately preceding source batch but not yet committed to the registry."
+
+  architecture_decisions:
+    - "P61 remains the OmniCore/PUI convergence substrate and now absorbs the contextual AI launcher evidence."
+    - "P100 remains the concrete NeXus AI Code product and now absorbs GGUF Agent Studio and private AI App Builder implementation patterns."
+    - "P101 owns Unreal asset safety/retopology; it does not replace P97 multimedia production or P100 developer tooling."
+    - "P102 owns enterprise cloud migration/compliance; it does not replace P37 sovereign runtime or P66/P67 strategy experimentation."
+    - "P103 owns Unity-specific autonomous production; it does not replace P40 general agentic development or P86/P88/P89 specific game lineages."
+
+portfolio_invariants:
+  - "model capability != authorization"
+  - "memory != authorization"
+  - "approval != execution"
+  - "MCP/UTCP/capability integration != authorization"
+  - "simulation != real-world evidence"
+  - "evidence != inference != hypothesis != verified fact"
+  - "generated code is untrusted until tested"
+  - "generated assets are untrusted until validated"
+  - "stale state cannot overwrite newer state"
+  - "project identity follows lineage"
+  - "UI/voice/launcher state != authoritative state"
+  - "client-side token state != authoritative business state"
+  - "commercial opportunity != verified revenue"
+  - "source-reported implementation != independently reproduced verification"
+  - "self-modifying code remains candidate code until verified"
+  - "animal-welfare screening requires human-reviewable evidence and cannot be reduced to an autonomous verdict"
