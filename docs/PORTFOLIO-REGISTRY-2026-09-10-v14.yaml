@@ -1,0 +1,104 @@
+version: 14
+registry_type: canonical_portfolio_snapshot
+as_of: 2026-09-10
+repository: mojealterego/Knowledge-projects
+branch: main
+supersedes: docs/PORTFOLIO-REGISTRY-2026-09-10-v13.yaml
+identity_rule: project-47-lineage-first
+status_legend:
+  OBSERVED: "Present in repository and structurally observed."
+  SOURCE_DERIVED: "Derived from repository knowledge/project documentation."
+  INFERRED: "Engineering conclusion derived from observed evidence."
+  PROPOSED: "Candidate requiring validation before canonical promotion."
+  UNKNOWN: "Not established by available repository evidence."
+
+registry_scope:
+  canonical_legacy_sequence: 1-59
+  later_artifact_sequence: 60-71
+  architecture_candidates: [72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94]
+  inherited_registry: docs/PORTFOLIO-REGISTRY-2026-09-10-v13.yaml
+
+new_projects:
+  project_92:
+    title: "Multimodal Deception Analysis & Investigative Interviewing Lab MAX"
+    artifact: projekty/92-multimodal-deception-analysis-and-investigative-interviewing-lab-max.md
+    status: PROPOSED
+    maturity: RESEARCH_ARCHITECTURE_BASELINE
+    derived_from: [19,32,54,57,72,75,91]
+  project_93:
+    title: "Zero-Trust DePIN Hardware Attestation & Physical-Work Fabric MAX"
+    artifact: projekty/93-zerotrust-depin-hardware-attestation-and-physical-work-fabric-max.md
+    status: PROPOSED
+    maturity: ARCHITECTURE_BASELINE
+    derived_from: [31,37,59,60,61,72,80]
+  project_94:
+    title: "Omega-Synthetix Adaptive Problem-Solving & Strategic Discovery Fabric MAX"
+    artifact: projekty/94-omega-synthetix-adaptive-problem-solving-and-strategic-discovery-fabric-max.md
+    status: PROPOSED
+    maturity: ARCHITECTURE_BASELINE
+    derived_from: [19,27,34,54,61,63,64,66,67,72,79,80,90,91]
+    source_lineage:
+      - docs/knowledge-base/2026-09-10-corpus-omega-synthetix-omncore-capabilities-influence.md
+    purpose: "Governed uncertainty reduction and problem finding through probabilistic state models, competing hypotheses, specialist multi-agent deliberation, counterfactual simulation and bounded experiments."
+    boundary: "Discovery and recommendation are separated from authorization and execution; simulation is not real-world evidence."
+
+iteration_16:
+  status: COMPLETE
+  source_batch_count: 6
+  knowledge_artifact: docs/knowledge-base/2026-09-10-corpus-deception-gemini-osint-monetization-depin.md
+  genesis: docs/PROJECT-GENESIS-2026-09-10-ITERATION-16.md
+  ingestion_record: docs/KNOWLEDGE-INGESTION-2026-09-10-ITERATION-16.md
+  evolution_record: docs/PROJECT-EVOLUTION-2026-09-10-ITERATION-16.md
+  new_projects: [92,93]
+  affected_projects: [31,32,34,54,57,61,66,67,72,75,80,91]
+
+iteration_17:
+  status: COMPLETE
+  source_batch_count: 10
+  ingestion_record: docs/KNOWLEDGE-INGESTION-2026-09-10-ITERATION-17.md
+  new_projects: []
+  affected_projects: [8,19,27,28,54,61,72,80,87]
+  duplicate_decisions:
+    - "Repeated AI strategy corpus is consolidated rather than duplicated."
+    - "Gemini restriction material reinforces defensive security/assurance lineages."
+    - "Persona variants reinforce Project 91."
+    - "Legacy-language and model-optimization material reinforces Projects 28/61/80/87."
+
+iteration_18:
+  status: COMPLETE
+  source_batch_count: 9
+  knowledge_artifact: docs/knowledge-base/2026-09-10-corpus-omega-synthetix-omncore-capabilities-influence.md
+  genesis: docs/PROJECT-GENESIS-2026-09-10-ITERATION-18.md
+  ingestion_record: docs/KNOWLEDGE-INGESTION-2026-09-10-ITERATION-18.md
+  evolution_record: docs/PROJECT-EVOLUTION-2026-09-10-ITERATION-18.md
+  new_projects: [94]
+  affected_projects: [19,27,34,54,61,63,64,66,67,72,79,80,87,90,91]
+  duplicate_decisions:
+    - "Two OmniCore AI-Native prototype variants are treated as corroborating/near-duplicate source witnesses."
+    - "OmniCore Rust/MLIR/QEMU and Master Implementation Guide material is absorbed by Projects 61/80."
+    - "OmniCore language/hybrid-language material is absorbed by Projects 61/80/87."
+    - "Claude capability inventory is retained as a capability taxonomy, not a project."
+    - "Recursive influence engineering is retained as defensive cognitive-security knowledge under Project 54."
+    - "Omega-Synthetix is sufficiently distinct from Project 67 because it targets general problem finding and uncertainty reduction, not only business-model experimentation."
+  architecture_decisions:
+    - "Project 94 models uncertainty before recommending action."
+    - "Project 94 uses competing hypotheses and structured specialist roles rather than single-model consensus."
+    - "Project 94 treats simulation and digital-twin output as model evidence requiring external verification."
+    - "Project 94 is an advisory/discovery layer and does not become an authorization layer."
+  safety_boundaries:
+    - "Covert influence techniques are not operationalized for manipulation or consent bypass."
+    - "Synthetic personas are not treated as proof of real-person behavior without validation."
+    - "AI recommendations remain proposals until authorized."
+    - "High-consequence actions require policy, capability authorization and postcondition verification."
+    - "Source claims about superiority or performance remain unverified until independently tested."
+
+portfolio_invariants:
+  - "model capability != authorization"
+  - "memory != authorization"
+  - "approval != execution"
+  - "MCP/capability integration != authorization"
+  - "simulation != real-world evidence"
+  - "evidence != inference != hypothesis != verified fact"
+  - "generated code is untrusted until tested"
+  - "stale state cannot overwrite newer state"
+  - "project identity follows lineage"
