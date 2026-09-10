@@ -17,6 +17,7 @@ Primary repository inputs:
 - `docs/knowledge-base/chronos-unreal-engine-5-time-rift-architecture-2026-09-09.md`
 - `docs/knowledge-base/case-record-evidence-chronology-and-claim-separation-2026-09-09.md`
 - `docs/knowledge-base/osint-agent-automation-defensive-architecture-2026-09-09.md`
+- `docs/knowledge-base/2026-09-10-corpus-apeiron-casino-ccr-pornlandia-omnicore-neuroshield.md`
 
 Portfolio integrations:
 
@@ -29,6 +30,20 @@ Portfolio integrations:
 - Project 58 — Monitorability-Aware Oversight & Verification Fabric
 - Project 71 — Physical Artifact Manufacturing & Symbolic Interface Factory
 - Project 72 — Cross-Framework Agent Assurance & Runtime Verification Fabric
+- Project 82 — CCR Transmedia Graphic-Novel Universe MAX
+
+## CCR relationship
+The newly ingested CCR adaptation establishes a larger graphic-novel/transmedia lineage in which „Ludzie Roku” is one component of the trilogy. Project 73 remains the **game-specific** implementation, while Project 82 owns the complete graphic-novel/transmedia production system.
+
+Shared material must therefore use explicit lineage tags:
+
+```text
+CCR SOURCE
+ ├── GRAPHIC-NOVEL / TRANSMEDIA → Project 82
+ └── INTERACTIVE GAME / EVIDENCE NOIR → Project 73
+```
+
+This prevents the same narrative corpus from being mistaken for two unrelated source universes while preserving independent product requirements.
 
 ## Product thesis
 The central gameplay loop is not simply:
