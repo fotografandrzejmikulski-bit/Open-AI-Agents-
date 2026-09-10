@@ -1,0 +1,73 @@
+version: 25
+registry_type: canonical_portfolio_snapshot
+as_of: 2026-09-10
+repository: mojealterego/Knowledge-projects
+branch: main
+supersedes: docs/PORTFOLIO-REGISTRY-2026-09-10-v24.yaml
+identity_rule: project-47-lineage-first
+status_legend:
+  OBSERVED: "Present in repository and structurally observed."
+  SOURCE_DERIVED: "Derived from repository knowledge/project documentation."
+  INFERRED: "Engineering conclusion derived from observed evidence."
+  PROPOSED: "Candidate requiring validation before canonical promotion."
+  UNKNOWN: "Not established by available repository evidence."
+
+registry_scope:
+  canonical_legacy_sequence: 1-59
+  later_artifact_sequence: 60-71
+  architecture_candidates: [72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108]
+  inherited_registry: docs/PORTFOLIO-REGISTRY-2026-09-10-v24.yaml
+
+iteration_29:
+  status: COMPLETE
+  source_batch_count: 10
+  knowledge_artifact: docs/knowledge-base/2026-09-10-corpus-iteration-29-redteam-pathfinder-omega-lovable-gqp-photo.md
+  ingestion_record: docs/KNOWLEDGE-INGESTION-2026-09-10-ITERATION-29.md
+  evolution_record: docs/PROJECT-EVOLUTION-2026-09-10-ITERATION-29.md
+  genesis_record: docs/PROJECT-GENESIS-2026-09-10-ITERATION-29.md
+  new_projects: [108]
+  affected_projects: [54,61,71,72,100,102,104,106,107,108]
+
+  project_108:
+    title: "OmniRedTeam LLM Security Validation Workbench MAX"
+    artifact: projekty/108-omniredteam-llm-security-validation-workbench-max.md
+    status: PROPOSED
+    maturity: ARCHITECTURE_BASELINE
+    derived_from: [54,60,61,72,100]
+    boundary: "Dedicated defensive operator-facing LLM security validation: structured test cases, local-model/runtime telemetry, sandboxed execution, replay, regression and evidence."
+
+  duplicate_decisions:
+    - "Projekt Geodezyjnej Przewagi Kwantowej and Projekt Geodezyjnej Przewagi Kwantowej(1) have different binary hashes but identical extracted-text hashes and are treated as one GQP witness lineage."
+    - "Odzyskiwanie danych Motorola G54.PDF is a repeat witness already represented by P106."
+    - "OMEGA-X pitch deck reinforces the existing P100/P102 lineage rather than creating a second OMEGA-X project."
+    - "Lovable independent-app plan reinforces P100/P102 and is not a separate product identity."
+    - "Omni Red-Team and Pathfinder are related but materially different implementation witnesses; their combination exposes a dedicated security-validation product gap, producing P108."
+    - "PIB-CA is a material/process reference and strengthens P71/P107 rather than creating a standalone photographic-material project."
+
+  safety_decisions:
+    - "Poradnik.pdf is excluded from public KB/project operationalization because it contains illegal-drug synthesis instructions."
+    - "Promp3.pdf is excluded from public KB/project operationalization because it requests sensitive ideological profiling of a named person."
+    - "Mobile forensic bypass/authentication references remain defensive threat-model material only."
+    - "Undocumented Lovable endpoint/token extraction remains defensive threat-model material only."
+    - "Synthetic/generated documentary imagery remains distinguishable from documentary evidence."
+
+portfolio_invariants:
+  - "model capability != authorization"
+  - "memory != authorization"
+  - "approval != execution"
+  - "MCP/capability integration != authorization"
+  - "UI perception != authoritative state"
+  - "ADB/accessibility != unrestricted device authority"
+  - "simulation != real-world evidence"
+  - "evidence != inference != hypothesis != verified fact"
+  - "generated code/configuration is untrusted until tested"
+  - "forensic exploit reference != operational capability"
+  - "raw acquisition != decrypted evidence"
+  - "synthetic documentary image != documentary fact"
+  - "commercial opportunity != verified revenue"
+  - "source-reported implementation != independently reproduced verification"
+  - "scientific proposal != demonstrated physical effect"
+  - "stale state cannot overwrite newer state"
+  - "project identity follows lineage"
+  - "security prototype defaults are not production security guarantees"
+  - "absolute-security claims require independent verification"
