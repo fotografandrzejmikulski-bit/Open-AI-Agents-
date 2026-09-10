@@ -1,4 +1,4 @@
-version: 9
+version: 10
 registry_type: canonical_portfolio_snapshot
 as_of: 2026-09-10
 repository: mojealterego/Knowledge-projects
@@ -15,7 +15,7 @@ registry_scope:
   canonical_legacy_sequence: 1-59
   later_artifact_sequence: 60-71
   architecture_candidates: [72,73,74,75,76,77,78,79,80,81,82,83,84,85]
-  note: "Snapshot registry. Historical collisions remain governed by Project 47."
+  note: "Snapshot registry. Historical collisions remain governed by Project 47. Iteration 13 created no new canonical project."
 
 portfolio_families:
   - ids: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36]
@@ -113,6 +113,7 @@ project_78:
   source_lineage:
     - docs/knowledge-base/lottery-randomness-audit-and-simulation-2026-09-09.md
     - docs/knowledge-base/2026-09-10-corpus-apeiron-casino-pornlandia-omnicore-neuroshield.md
+    - docs/knowledge-base/2026-09-10-corpus-prompts-lotto-pui-tarot-apeiron-privacy.md
   purpose: "Audit lottery and casino randomness, house-edge and physical-draw hypotheses through reproducible statistical simulation without claiming guaranteed prediction."
 
 project_79:
@@ -140,7 +141,7 @@ project_80:
   derived_from: [59,61,68,72,79]
   source_lineage:
     - docs/knowledge-base/omnicore-self-evolving-computing-substrate-2026-09-09.md
-    - docs/knowledge-base/2026-09-10-corpus-apeiron-casino-ccr-pornlandia-omnicore-neuroshield.md
+    - docs/knowledge-base/2026-09-10-corpus-apeiron-casino-pornlandia-omnicore-neuroshield.md
   purpose: "Apply governed scientific discovery to the computing substrate itself: generate, test, verify, replicate and safely promote kernel/compiler/driver/runtime variants."
   breakthrough_claim_boundary: "No self-improving operating system is claimed until independent experiments demonstrate reproducible, generalizable improvements over controlled baselines."
 
@@ -201,9 +202,34 @@ project_85:
   maturity: RESEARCH_ARCHITECTURE_BASELINE
   derived_from: [15,19,27,48,54,58,61,72,79]
   source_lineage:
-    - docs/knowledge-base/2026-09-10-corpus-apeiron-casino-ccr-pornlandia-omnicore-neuroshield.md
+    - docs/knowledge-base/2026-09-10-corpus-apeiron-casino-pornlandia-omnicore-neuroshield.md
   purpose: "Evaluate disease-modifying hypotheses for epileptogenesis through target validation, biomarker research, delivery feasibility, safety assessment and independent replication."
   breakthrough_claim_boundary: "The project is not a clinical protocol or established therapy; no efficacy or safety claim is made without appropriate biomedical evidence and oversight."
+
+iteration_13:
+  status: COMPLETE_NO_NEW_PROJECT
+  knowledge_artifact: docs/knowledge-base/2026-09-10-corpus-prompts-lotto-pui-tarot-apeiron-privacy.md
+  genesis: docs/PROJECT-GENESIS-2026-09-10-ITERATION-13.md
+  ingestion_record: docs/KNOWLEDGE-INGESTION-2026-09-10-ITERATION-13.md
+  source_batch:
+    - Promp3.pdf
+    - Prompt Deepsearch 1.pdf
+    - Prompt6.pdf
+    - Promt 5.pdf
+    - Promt4.pdf
+    - Przegląd Systemów Gier Lotto(1).pdf
+    - PUI Launcher z Godot i 3DGS (1).pdf
+    - Rodzaje Kart Tarota_ Kompleksowy Przegląd(1).pdf
+    - Rozbudowa Systemu Apeiron do 78 Kart(1).pdf
+    - souhlas_marketing_sk.pdf
+  affected_projects: [53,54,57,61,71,78]
+  new_projects: []
+  decisions:
+    - "Prompt6 and Promt 5 are duplicates; the whole dossier family remains under defensive OSINT/evidence architecture."
+    - "Lottery material extends Project 78; no prediction project is created."
+    - "PUI/3DGS extends Projects 57/61; no duplicate runtime is created."
+    - "Tarot/Apeiron extends Projects 53/71; no new symbolic-card project is created."
+    - "Marketing consent becomes a governance test fixture, not legal advice or a new product."
 
 lineage_policy:
   authority: Project 47
