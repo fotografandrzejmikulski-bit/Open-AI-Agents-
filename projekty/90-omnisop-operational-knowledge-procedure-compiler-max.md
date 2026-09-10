@@ -1,0 +1,177 @@
+# Project 90 — OmniSOP Operational Knowledge & Procedure Compiler MAX
+
+## Status
+PROPOSED → ARCHITECTURE BASELINE → PROJECT GENESIS 2026-09-10
+
+## Mission
+Build a provenance-aware system that converts observed human work into validated, versioned and executable Standard Operating Procedures (SOPs), then continuously detects process drift and proposes controlled procedure updates.
+
+The project is not a generic document generator. Its canonical object is an **operational procedure** with prerequisites, ordered actions, evidence, exceptions, risks, validation status and version history.
+
+## Source-derived foundation
+The supplied SOP material describes recording a real process, imposing a stable structure, using one action per step, adding screenshots and warnings, and validating the result with a user unfamiliar with the task. fileciteturn489file2L10-L37
+
+The larger report frames SOP as a formalized organizational algorithm connecting strategy and execution and combines process engineering, cognitive considerations, documented information, multimodal AI and agent orchestration. fileciteturn489file3L18-L28
+
+## Canonical pipeline
+```text
+WORK / SCREEN / VOICE OBSERVATION
+        ↓
+EVENT + ACTION EXTRACTION
+        ↓
+CONTEXT / INTENT INTERVIEW
+        ↓
+PROCESS GRAPH
+        ↓
+SOP IR
+        ↓
+DRAFT + SCREENSHOT / EVIDENCE LINKS
+        ↓
+NAIVE-USER VALIDATION
+        ↓
+RISK / COMPLIANCE REVIEW
+        ↓
+VERSIONED SOP RELEASE
+        ↓
+PROCESS DRIFT DETECTION
+        ↓
+CHANGE PROPOSAL
+        ↺
+```
+
+## SOP Intermediate Representation
+```yaml
+SOP:
+  id:
+  version:
+  purpose:
+  scope:
+  owner:
+  prerequisites: []
+  steps:
+    - id:
+      action:
+      actor:
+      input:
+      expected_state:
+      evidence_ref:
+      warning:
+      exception_paths: []
+  outputs: []
+  risks: []
+  controls: []
+  validation:
+    naive_user_test:
+    reviewer:
+    date:
+  provenance: []
+  supersedes:
+```
+
+## Observation model
+The recorder must distinguish visible UI actions from inferred intent. A click is evidence of a click; it is not automatically evidence of why the operator clicked it.
+
+```yaml
+Observation:
+  timestamp:
+  modality: screen|voice|text|camera
+  actor:
+  action:
+  visible_state:
+  source_ref:
+  confidence:
+  inferred_intent:
+  inference_basis:
+```
+
+## Process graph
+Each procedure is represented as a directed graph rather than only a linear document. This permits branching, exception handling, prerequisites, loops and recovery paths.
+
+```text
+START
+ ↓
+PRECONDITION
+ ↓
+ACTION
+ ↓
+EXPECTED STATE?
+ ├── YES → NEXT STEP
+ └── NO  → TROUBLESHOOT / ESCALATE
+```
+
+## Validation gates
+1. **G0 — Source completeness:** every step has an observation or explicitly declared source.
+2. **G1 — Structural completeness:** purpose, scope, prerequisites, procedure and troubleshooting exist.
+3. **G2 — Action granularity:** one operational action per step where practical.
+4. **G3 — Evidence linkage:** important UI states have screenshots/video/source references.
+5. **G4 — Naive-user test:** an unfamiliar operator can complete the task without hidden coaching.
+6. **G5 — Risk review:** ambiguous, irreversible or privileged actions are explicitly marked.
+7. **G6 — Version release:** owner, version and provenance are recorded.
+
+## Continuous change detection
+The system compares a released SOP with later process observations:
+
+```text
+CURRENT SOP
+    ↕
+OBSERVED PROCESS
+    ↓
+DIFF
+    ↓
+SEMANTIC IMPACT
+    ↓
+CHANGE PROPOSAL
+    ↓
+REVALIDATION
+    ↓
+NEW VERSION
+```
+
+No observed deviation automatically overwrites the canonical procedure. The system must determine whether the deviation is operator error, legitimate process change, environmental variation or evidence of an obsolete SOP.
+
+## Agent topology
+- **Observer** — records multimodal process evidence.
+- **Process Analyst** — constructs the process graph.
+- **SOP Compiler** — emits the SOP IR and human-readable procedure.
+- **Evidence Linker** — attaches screenshots, recordings and source references.
+- **Risk Reviewer** — detects unsafe, irreversible and authorization-sensitive actions.
+- **Validation Agent** — orchestrates naive-user and regression tests.
+- **Drift Monitor** — compares future observations against released SOP versions.
+- **Human Approver** — owns release of consequential procedure changes.
+
+## Security and privacy
+Screen recordings and process traces may contain credentials, personal information or proprietary material. The architecture therefore requires local redaction where practical, retention policies, access controls, provenance and explicit publication boundaries.
+
+Credentials must never become durable SOP content. A procedure may say **where a credential is required** without recording the secret itself.
+
+## Integration
+- Project 08 — personal/agentic context and approval architecture.
+- Project 19 — research and evidence orchestration.
+- Project 24 — agent/tool infrastructure.
+- Project 28 — verified code/document generation.
+- Project 32 — evidence/provenance methodology.
+- Project 47 — project identity and registry integrity.
+- Project 61 — Omnis/CIRA/PUI convergence.
+- Project 72 — runtime/agent assurance.
+
+## Hard invariants
+1. Observation is not intent.
+2. Generated procedure is not validated procedure.
+3. Semantic similarity cannot grant access to source material.
+4. Credentials and secrets are never persisted as procedure content.
+5. A process deviation cannot silently mutate the canonical SOP.
+6. Human approval remains the authority for consequential release.
+7. Every released SOP is versioned and rollback-capable.
+8. Source evidence and generated prose remain distinguishable.
+
+## Definition of Done
+- multimodal process observation;
+- process graph + SOP IR;
+- provenance-linked generated instructions;
+- screenshot/evidence binding;
+- naive-user validation workflow;
+- risk and authorization annotations;
+- versioned release/rollback;
+- process-drift detection;
+- auditable change proposals;
+- reusable agent/tool interface.
