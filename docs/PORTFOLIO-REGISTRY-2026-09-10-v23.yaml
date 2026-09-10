@@ -1,0 +1,83 @@
+version: 23
+registry_type: canonical_portfolio_snapshot
+as_of: 2026-09-10
+repository: mojealterego/Knowledge-projects
+branch: main
+supersedes: docs/PORTFOLIO-REGISTRY-2026-09-10-v22.yaml
+identity_rule: project-47-lineage-first
+status_legend:
+  OBSERVED: "Present in repository and structurally observed."
+  SOURCE_DERIVED: "Derived from repository knowledge/project documentation."
+  INFERRED: "Engineering conclusion derived from observed evidence."
+  PROPOSED: "Candidate requiring validation before canonical promotion."
+  UNKNOWN: "Not established by available repository evidence."
+
+registry_scope:
+  canonical_legacy_sequence: 1-59
+  later_artifact_sequence: 60-71
+  architecture_candidates: [72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104]
+  inherited_registry: docs/PORTFOLIO-REGISTRY-2026-09-10-v22.yaml
+
+iteration_27:
+  status: COMPLETE
+  source_batch_count: 10
+  knowledge_artifact: docs/knowledge-base/2026-09-10-corpus-iteration-27-gqp-asi-ibm-lu-lovable-osint-commerce.md
+  ingestion_record: docs/KNOWLEDGE-INGESTION-2026-09-10-ITERATION-27.md
+  evolution_record: docs/PROJECT-EVOLUTION-2026-09-10-ITERATION-27.md
+  genesis_record: docs/PROJECT-GENESIS-2026-09-10-ITERATION-27.md
+  new_projects: [104]
+  affected_projects: [19,32,34,48,56,61,66,67,72,77,79,80,87,90,92,95,97,100,102,104]
+
+  project_104:
+    title: "GQP Geodesic Quantum Computing Validation Lab MAX"
+    artifact: projekty/104-gqp-geodesic-quantum-computing-validation-lab-max.md
+    status: PROPOSED
+    maturity: ARCHITECTURE_BASELINE
+    derived_from: [48,61,77,79,80,87,95]
+    boundary: "Falsifiable GQP research program covering formalization, classical/quantum baselines, resource estimation, hardware-test specifications, geodesic/GIS benchmarks and independent replication."
+
+  evolution_decisions:
+    - "P61 absorbs home-ASI compute, thermal, interconnect and bounded-RSI architecture; no separate ASI project."
+    - "P97 absorbs authorized local-orchestrator/cloud-render patterns from LU/Flow; hidden endpoint and credential extraction remain excluded."
+    - "P100 absorbs Lovable/local-first AI builder patterns and LU/Flow structured media orchestration."
+    - "P102 absorbs IBM Cloud Zero Trust middleware, IAM, Secrets Manager, IaC and resiliency patterns."
+    - "P32/P19 absorb Deepsearch relationship-graph methodology; no specific entity relationship is inferred."
+    - "P34/P56/P66/P67 absorb the high-level adult livestream commercialization pattern; no explicit sexual-performance operations project is created."
+    - "P77/P79/P80 absorb GQP as scientific-method/compute lineage, while P104 owns the concrete GQP validation program."
+
+  duplicate_decisions:
+    - "The two GQP documents are overlapping/corroborating variants of one proposed research lineage."
+    - "Lovable and AI App Builder material is implementation evidence for P100, not a new generic builder project."
+    - "LU/Flow is an integration branch for P97/P100, not a separate project."
+    - "Home ASI remains P61/P80/P37."
+    - "IBM Cloud remains a reusable enterprise infrastructure pattern inside P102/P72/P100."
+    - "Deepsearch remains OSINT methodology inside P32/P19."
+    - "The adult livestream business plan remains commercial opportunity knowledge inside P34/P56/P66/P67."
+    - "The legal/case documents are excluded from the public knowledge base and do not generate a project."
+
+  excluded_sources:
+    - file: "Do złożenia .pdf"
+      decision: EXCLUDED_FROM_PUBLIC_KNOWLEDGE_BASE
+      reason: "Legal/case allegations and named individuals; not treated as verified evidence."
+    - file: "downloadfile.PDF"
+      decision: EXCLUDED_FROM_PUBLIC_KNOWLEDGE_BASE
+      reason: "Personal legal document containing identifying information."
+
+portfolio_invariants:
+  - "model capability != authorization"
+  - "memory != authorization"
+  - "approval != execution"
+  - "MCP/UTCP/capability integration != authorization"
+  - "simulation != real-world evidence"
+  - "evidence != inference != hypothesis != verified fact"
+  - "generated code/configuration is untrusted until tested"
+  - "generated assets are untrusted until validated"
+  - "hidden endpoint or credential extraction != authorized integration"
+  - "stale state cannot overwrite newer state"
+  - "project identity follows lineage"
+  - "UI/voice/launcher state != authoritative state"
+  - "commercial opportunity != verified revenue"
+  - "source-reported implementation != independently reproduced verification"
+  - "scientific proposal != demonstrated physical effect"
+  - "legal allegation != established fact"
+  - "self-modifying code remains candidate code until verified"
