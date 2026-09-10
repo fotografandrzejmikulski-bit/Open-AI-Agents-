@@ -1,0 +1,71 @@
+version: 26
+registry_type: canonical_portfolio_snapshot
+as_of: 2026-09-10
+repository: mojealterego/Knowledge-projects
+branch: main
+supersedes: docs/PORTFOLIO-REGISTRY-2026-09-10-v25.yaml
+identity_rule: project-47-lineage-first
+status_legend:
+  OBSERVED: "Present in repository and structurally observed."
+  SOURCE_DERIVED: "Derived from repository knowledge/project documentation."
+  INFERRED: "Engineering conclusion derived from observed evidence."
+  PROPOSED: "Candidate requiring validation before canonical promotion."
+  UNKNOWN: "Not established by available repository evidence."
+
+registry_scope:
+  canonical_legacy_sequence: 1-59
+  later_artifact_sequence: 60-71
+  architecture_candidates: [72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109]
+  inherited_registry: docs/PORTFOLIO-REGISTRY-2026-09-10-v25.yaml
+
+iteration_30:
+  status: COMPLETE
+  source_batch_count: 1
+  knowledge_artifact: docs/knowledge-base/2026-09-10-corpus-iteration-30-digital-human-autonomous-presence.md
+  ingestion_record: docs/KNOWLEDGE-INGESTION-2026-09-10-ITERATION-30.md
+  evolution_record: docs/PROJECT-EVOLUTION-2026-09-10-ITERATION-30.md
+  genesis_record: docs/PROJECT-GENESIS-2026-09-10-ITERATION-30.md
+  new_projects: [109]
+  affected_projects: [54,57,61,72,81,91,97,100,105,108,109]
+
+  project_109:
+    canonical_id: 109
+    title: "OmniDigital Human Autonomous Presence Runtime MAX"
+    artifact: projekty/109-omnidigital-human-autonomous-presence-runtime-max.md
+    status: PROPOSED
+    maturity: ARCHITECTURE_BASELINE
+    derived_from: [57,61,81,91,97,100,105]
+    boundary: "Persistent embodied real-time digital presence: avatar, cognition, memory, voice, synchronized animation, affective perception and authorized system agency."
+
+  duplicate_decisions:
+    - "3DGS/WebGPU is a renderer/component boundary, not a separate project identity."
+    - "Local SLM/NPU, RAG, Character Cards, TTS, Audio2Face/Live2D and affective sensing are components or extensions of existing lineages."
+    - "Voice-native character interaction is already owned by P81; P109 owns the broader embodied runtime beyond games."
+    - "Persona/cognitive style is already owned by P91; P109 owns embodied deployment and live continuity."
+    - "Android perception/actuation is already owned by P105; P109 consumes it through explicit authorization and verification."
+
+  safety_decisions:
+    - "No covert surveillance or hidden sensor activation is introduced."
+    - "No unauthorized device control is introduced."
+    - "Voice cloning is consent-governed."
+    - "Affective inference is probabilistic, uncertainty-bearing and non-authoritative."
+    - "Anthropomorphic presentation is never treated as authority, identity or evidence."
+
+portfolio_invariants:
+  - "model capability != authorization"
+  - "memory != authorization"
+  - "approval != execution"
+  - "MCP/capability integration != authorization"
+  - "presentation state != authoritative state"
+  - "sensor inference != psychological ground truth"
+  - "persona != consciousness or legal identity"
+  - "AI self-report != external-state evidence"
+  - "Accessibility/ADB != unrestricted device authority"
+  - "simulation != real-world evidence"
+  - "evidence != inference != hypothesis != verified fact"
+  - "generated code/configuration is untrusted until tested"
+  - "source-reported performance != independently reproduced verification"
+  - "human-like presentation != human status"
+  - "temporal synchronization failure must trigger degraded mode or safe interruption"
+  - "stale state cannot overwrite newer state"
+  - "project identity follows lineage"
