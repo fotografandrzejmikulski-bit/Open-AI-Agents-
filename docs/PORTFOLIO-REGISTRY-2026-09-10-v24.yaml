@@ -1,0 +1,87 @@
+version: 24
+registry_type: canonical_portfolio_snapshot
+as_of: 2026-09-10
+repository: mojealterego/Knowledge-projects
+branch: main
+supersedes: docs/PORTFOLIO-REGISTRY-2026-09-10-v23.yaml
+identity_rule: project-47-lineage-first
+status_legend:
+  OBSERVED: "Present in repository and structurally observed."
+  SOURCE_DERIVED: "Derived from repository knowledge/project documentation."
+  INFERRED: "Engineering conclusion derived from observed evidence."
+  PROPOSED: "Candidate requiring validation before canonical promotion."
+  UNKNOWN: "Not established by available repository evidence."
+
+registry_scope:
+  canonical_legacy_sequence: 1-59
+  later_artifact_sequence: 60-71
+  architecture_candidates: [72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107]
+  inherited_registry: docs/PORTFOLIO-REGISTRY-2026-09-10-v23.yaml
+
+iteration_28:
+  status: COMPLETE
+  source_batch_count: 10
+  knowledge_artifact: docs/knowledge-base/2026-09-10-corpus-iteration-28-mas-mobile-forensics-lumen-ai-builders.md
+  ingestion_record: docs/KNOWLEDGE-INGESTION-2026-09-10-ITERATION-28.md
+  evolution_record: docs/PROJECT-EVOLUTION-2026-09-10-ITERATION-28.md
+  genesis_record: docs/PROJECT-GENESIS-2026-09-10-ITERATION-28.md
+  new_projects: [105,106,107]
+  affected_projects: [7,19,31,32,34,37,48,54,57,59,60,61,72,79,80,86,91,97,100,105,106,107]
+
+  project_105:
+    title: "OmniMobile MAS Android Agent Control Fabric MAX"
+    artifact: projekty/105-omnimobile-mas-android-agent-control-fabric-max.md
+    status: PROPOSED
+    maturity: ARCHITECTURE_BASELINE
+    derived_from: [8,37,57,61,72,86,100]
+    boundary: "Multimodal Android GUI perception, multi-agent planning, authorized actuation and authoritative postcondition verification."
+
+  project_106:
+    title: "Android Mobile Forensics & Data Recovery Validation Lab MAX"
+    artifact: projekty/106-android-mobile-forensics-validation-lab-max.md
+    status: PROPOSED
+    maturity: ARCHITECTURE_BASELINE
+    derived_from: [31,32,54,59,60,72]
+    boundary: "Lawful mobile forensic acquisition, FBE/TEE/Keystore analysis, artifact integrity, recoverability experiments and reproducible evidence reporting."
+
+  project_107:
+    title: "LUMEN Documentary Photography Intelligence Lab MAX"
+    artifact: projekty/107-lumen-documentary-photography-intelligence-lab-max.md
+    status: PROPOSED
+    maturity: ARCHITECTURE_BASELINE
+    derived_from: [7,19,57,82,83,89,91,97]
+    boundary: "Photographic-language intelligence, documentary/street/photojournalism semantics, optics, film/sensor grammar, prompt compilation and provenance."
+
+  duplicate_decisions:
+    - "Kod Lovable.dev i Alternatyw(1) is a corroborating/duplicate Lovable lineage and is absorbed by P100/P72/P07."
+    - "META AGENT pair is text-identical in extraction and treated as one curriculum witness."
+    - "MAS pair is not byte-identical and is retained as two witnesses of one P105 lineage."
+    - "Android forensic GitHub + Motorola G54 documents are complementary witnesses of one P106 lineage."
+    - "Generic agent maximization is absorbed by P100/P61/P72."
+    - "Microgrants is financing/opportunity knowledge, not a technical project."
+
+  source_safety_decisions:
+    - "Android bypass/credential-extraction references remain defensive threat-model material only."
+    - "ADB/accessibility control requires explicit authorization and does not imply unrestricted device authority."
+    - "Generated documentary imagery must not be represented as authentic documentary evidence."
+    - "Historical photographic references are descriptive visual-language inputs, not false attribution mechanisms."
+    - "External microgrant application instructions are source-specific and are not repository policy."
+
+portfolio_invariants:
+  - "model capability != authorization"
+  - "memory != authorization"
+  - "approval != execution"
+  - "MCP/capability integration != authorization"
+  - "UI perception != authoritative state"
+  - "ADB/accessibility != unrestricted device authority"
+  - "simulation != real-world evidence"
+  - "evidence != inference != hypothesis != verified fact"
+  - "generated code/configuration is untrusted until tested"
+  - "forensic exploit reference != operational capability"
+  - "raw acquisition != decrypted evidence"
+  - "synthetic documentary image != documentary fact"
+  - "commercial opportunity != verified revenue"
+  - "source-reported implementation != independently reproduced verification"
+  - "scientific proposal != demonstrated physical effect"
+  - "stale state cannot overwrite newer state"
+  - "project identity follows lineage"
