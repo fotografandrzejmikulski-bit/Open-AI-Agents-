@@ -1,0 +1,119 @@
+version: 29
+registry_type: canonical_portfolio_snapshot
+as_of: 2026-09-10
+repository: mojealterego/Knowledge-projects
+branch: main
+supersedes: docs/PORTFOLIO-REGISTRY-2026-09-10-v28.yaml
+identity_rule: project-47-lineage-first
+status_legend:
+  OBSERVED: "Present in repository and structurally observed."
+  SOURCE_DERIVED: "Derived from repository knowledge/project documentation."
+  INFERRED: "Engineering conclusion derived from observed evidence."
+  PROPOSED: "Candidate requiring validation before canonical promotion."
+  UNKNOWN: "Not established by available repository evidence."
+
+registry_scope:
+  canonical_legacy_sequence: 1-59
+  later_artifact_sequence: 60-71
+  architecture_candidates: [72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113]
+  inherited_registry: docs/PORTFOLIO-REGISTRY-2026-09-10-v28.yaml
+
+iteration_33:
+  status: COMPLETE
+  source_batch_count: 10
+  unique_source_clusters: 4
+  knowledge_artifact: docs/knowledge-base/2026-09-10-corpus-iteration-33-trs-visual-companion-agent-platform.md
+  ingestion_record: docs/KNOWLEDGE-INGESTION-2026-09-10-ITERATION-33.md
+  evolution_record: docs/PROJECT-EVOLUTION-2026-09-10-ITERATION-33.md
+  genesis_record: docs/PROJECT-GENESIS-2026-09-10-ITERATION-33.md
+  amendments_record: docs/PROJECT-AMENDMENTS-2026-09-10-ITERATION-33.md
+  new_projects: [112,113]
+  affected_projects: [77,97,100,102,104,105,107,108,111,112,113]
+
+  project_112:
+    canonical_id: 112
+    title: "OmniCompanion Sovereign Edge & Cognitive Relationship Platform MAX"
+    artifact: projekty/112-omnicompanion-sovereign-edge-cognitive-relationship-platform-max.md
+    status: PROPOSED
+    maturity: ARCHITECTURE_BASELINE
+    derived_from: [61,72,100,105,111]
+    boundary: "Android-first companion product with sovereign edge inference/rendering, long-horizon memory metabolism, multimodal presence, privacy controls and portable identity continuity."
+
+  project_113:
+    canonical_id: 113
+    title: "OmniVisual Prompt Compiler & Virtual Art Direction Engine MAX"
+    artifact: projekty/113-omnivisual-prompt-compiler-virtual-art-direction-engine-max.md
+    status: PROPOSED
+    maturity: ARCHITECTURE_BASELINE
+    derived_from: [7,57,72,97,107,108,111]
+    boundary: "Operational compiler/director translating human visual intent and photographic semantics into structured, model-specific image/video generation specifications with entity provenance, validation and replay."
+
+  project_77:
+    canonical_id: 77
+    title: "Principia Mathematica Nova / TRS Formalization & Verification Lab MAX"
+    status: PROPOSED
+    amendment: "Expanded by the three-volume Ontologia Liczby i Geometrii corpus; claims remain hypotheses pending independent formal verification."
+
+  project_107:
+    canonical_id: 107
+    title: "LUMEN Documentary Photography Intelligence Lab MAX"
+    status: PROPOSED
+    amendment: "Expanded with studio/fashion/portrait optics, lighting, posing, scenography and generative prompt-engineering vocabulary."
+
+  project_100:
+    canonical_id: 100
+    title: "NeXus AI Code OMEGA-X Agentic Development Environment MAX"
+    status: PROPOSED
+    amendment: "Reinforced by Antigravity persistent memory/CWM/RSI patterns and Locally Uncensored local-model multimodal developer-environment patterns."
+
+  project_111:
+    canonical_id: 111
+    title: "OmniEnterprise Agentic Platform & Autonomous Development Studio MAX"
+    status: PROPOSED
+    amendment: "Reinforced as enterprise control-plane integration target for local models, persistent memory, multimodal generation and bounded autonomous development."
+
+  duplicate_decisions:
+    - "The three Ontologia Liczby i Geometrii files are separate volumes of one TRS lineage, not three projects."
+    - "The two Nano Banana/Virtual Art Director files are related variants/witnesses of one visual prompt-engineering lineage, not two projects."
+    - "Antigravity material remains within P100/P111; no separate project is required."
+    - "Locally Uncensored remains within P100/P111/P108; no separate project is required."
+    - "Fine-art nude/boudoir material is consolidated into P107/P113 as bounded photographic knowledge; no standalone sexual-content project is created."
+    - "P112 is distinct from P105 because it owns companion-product continuity and cognitive relationship architecture rather than generic Android device control."
+    - "P113 is distinct from P107/P97 because it owns the executable visual-prompt compilation layer rather than photographic research or end-to-end multimedia production."
+
+  safety_decisions:
+    - "TRS assertions about RH, P != NP, Hodge and BSD remain source claims/hypotheses, not repository-verified proofs."
+    - "Moderation-bypass, CAPTCHA/token extraction, hidden-endpoint abuse and policy-evasion instructions are not operationalized."
+    - "Persona != consciousness or legal identity."
+    - "Memory != authorization."
+    - "MCP/capability integration != authorization."
+    - "Generated prompts/configurations remain untrusted until validation."
+    - "Companion psychological inference is not treated as diagnosis or ground truth."
+    - "Source-reported latency, market forecasts and hardware claims require independent benchmarking."
+
+portfolio_invariants:
+  - "model capability != authorization"
+  - "memory != authorization"
+  - "approval != execution"
+  - "MCP/capability integration != authorization"
+  - "presentation state != authoritative state"
+  - "sensor inference != psychological ground truth"
+  - "persona != consciousness or legal identity"
+  - "AI self-report != external-state evidence"
+  - "Accessibility/ADB != unrestricted device authority"
+  - "simulation != real-world evidence"
+  - "evidence != inference != hypothesis != verified fact"
+  - "generated code/configuration is untrusted until tested"
+  - "source-reported performance != independently reproduced verification"
+  - "human-like presentation != human status"
+  - "temporal synchronization failure must trigger degraded mode or safe interruption"
+  - "stale state cannot overwrite newer state"
+  - "project identity follows lineage"
+  - "psychological inference != diagnosis"
+  - "ideological attribution requires evidence and appropriate purpose"
+  - "persuasive effectiveness != causal proof"
+  - "tenant isolation is an authoritative boundary"
+  - "registry promotion requires policy and verification gates"
+  - "TRS source assertion != formal mathematical proof"
+  - "moderation bypass != legitimate prompt compilation"
+  - "portable companion identity != unrestricted personal-data export"
