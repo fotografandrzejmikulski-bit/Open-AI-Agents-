@@ -211,3 +211,21 @@ P61 absorbs these findings as engineering requirements rather than as a separate
 - **evaluation:** latency, battery, thermal load, false positives, false negatives and user override rate.
 
 The source reports that Smart Launcher 6 uses probabilistic/semantic organization and adaptive correction, while Niagara emphasizes a minimal adaptive list and context-sensitive promotion. These are treated as source observations to benchmark, not as proof of universal superiority.
+
+## Iteration 27 — Home-compute / sovereign ASI architecture integration
+
+The supplied home-ASI report strengthens P61's edge-first architecture with a system-level resource model: compute density, unified/discrete memory trade-offs, aggressive quantization, liquid cooling, high-speed interconnects, local inference, distributed model execution, Zenoh and bounded recursive self-improvement. It explicitly treats residential high-density compute as a thermodynamic and infrastructure problem rather than merely a model-selection problem. The report also proposes SNN/JEPA and 1-bit research directions.
+
+P61 absorbs these as measurable subsystem requirements:
+- power/thermal budget as first-class scheduler inputs;
+- memory bandwidth and capacity as model-placement constraints;
+- local/cloud split selected by privacy, latency and resource budgets;
+- Zenoh/device federation treated as transport, never authorization;
+- RSI operates through candidate generation, verification and rollback;
+- no claim of ASI is inferred from cluster size or model capability alone.
+
+The supplied report cites external market and technology sources and makes strong future-oriented claims; those claims remain source-derived hypotheses until reproduced. The report's own architecture is useful as a design witness, not as proof of achieved ASI.
+
+## Iteration 27 — GQP integration boundary
+
+GQP material is connected to P61 only at the substrate/interface level: heterogeneous compute, GIS/geodesic workloads, quantum-classical execution and visualization. Scientific claims are delegated to P104, which owns the falsification and hardware-validation program. P61 must not convert speculative GQP claims into runtime guarantees.
