@@ -1,0 +1,83 @@
+version: 17
+registry_type: canonical_portfolio_snapshot
+as_of: 2026-09-10
+repository: mojealterego/Knowledge-projects
+branch: main
+supersedes: docs/PORTFOLIO-REGISTRY-2026-09-10-v16.yaml
+identity_rule: project-47-lineage-first
+status_legend:
+  OBSERVED: "Present in repository and structurally observed."
+  SOURCE_DERIVED: "Derived from repository knowledge/project documentation."
+  INFERRED: "Engineering conclusion derived from observed evidence."
+  PROPOSED: "Candidate requiring validation before canonical promotion."
+  UNKNOWN: "Not established by available repository evidence."
+
+registry_scope:
+  canonical_legacy_sequence: 1-59
+  later_artifact_sequence: 60-71
+  architecture_candidates: [72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95]
+  inherited_registry: docs/PORTFOLIO-REGISTRY-2026-09-10-v16.yaml
+
+iteration_19:
+  status: COMPLETE
+  source_batch_count: 10
+  knowledge_artifact: docs/knowledge-base/2026-09-10-corpus-omnicore-omnis-omniscience-security-math-growth-iteration-19.md
+  ingestion_record: docs/KNOWLEDGE-INGESTION-2026-09-10-ITERATION-19.md
+  evolution_record: docs/PROJECT-EVOLUTION-2026-09-10-ITERATION-19.md
+  genesis_record: docs/PROJECT-GENESIS-2026-09-10-ITERATION-19.md
+  new_projects: []
+  affected_projects: [19,27,34,54,61,63,64,66,67,72,77,79,80,87,90,91,94]
+
+iteration_20:
+  status: COMPLETE
+  source_batch_count: 9
+  knowledge_artifact: docs/knowledge-base/2026-09-10-corpus-google-prompt-cognitive-sovereign-monetization.md
+  ingestion_record: docs/KNOWLEDGE-INGESTION-2026-09-10-ITERATION-20.md
+  evolution_record: docs/PROJECT-EVOLUTION-2026-09-10-ITERATION-20.md
+  genesis_record: docs/PROJECT-GENESIS-2026-09-10-ITERATION-20.md
+  new_projects: []
+  affected_projects: [14,17,18,19,24,27,28,34,37,54,61,66,67,72,79,80,86,87,90,91,94]
+  duplicate_decisions:
+    - "Google AI pair and Extreme Monetization pair are corroborating/near-duplicate variants."
+    - "Prompt, cognitive, sovereign and assistant material reinforces existing lineages."
+
+iteration_21:
+  status: COMPLETE
+  source_batch_count: 9
+  knowledge_artifact: docs/knowledge-base/2026-09-10-corpus-omni-entity-ablation-llm-security-omniconvergence-monetization.md
+  ingestion_record: docs/KNOWLEDGE-INGESTION-2026-09-10-ITERATION-21.md
+  evolution_record: docs/PROJECT-EVOLUTION-2026-09-10-ITERATION-21.md
+  genesis_record: docs/PROJECT-GENESIS-2026-09-10-ITERATION-21.md
+  new_projects: [95]
+  affected_projects: [24,31,34,37,54,59,60,61,66,67,72,80,87,90,93,95]
+  project_95:
+    title: "Omni-Entity Sovereign Network & Cyber-Resilience Fabric MAX"
+    artifact: projekty/95-omni-entity-sovereign-network-resilience-fabric-max.md
+    status: PROPOSED
+    maturity: ARCHITECTURE_BASELINE
+    derived_from: [31,37,54,59,60,61,72,80,93]
+    boundary: "Entity/network-level resilience, distributed connectivity, cryptographic identity, admission/revocation, defensive detection, recovery and evidence continuity."
+  duplicate_decisions:
+    - "Two OmniCore technology reports are overlapping/corroborating variants."
+    - "Gemini vulnerability and Chain-of-Attack reports reinforce the existing defensive security lineage."
+    - "Abliteration/refusal material reinforces mechanistic safety research under 54/72; no unrestricted bypass capability is created."
+    - "AI-native static-code architecture reinforces 61/80 rather than creating another OmniCore project."
+    - "Intent verification reinforces 24/54/72/90."
+    - "200 Ways to Make Money with AI reinforces 34/66/67."
+    - "Omni-Entity establishes a distinct network/entity resilience boundary and justifies Project 95."
+  architecture_decisions:
+    - "P37 remains sovereign edge runtime/delivery."
+    - "P93 remains node-level hardware/work attestation."
+    - "P95 owns distributed entity/network resilience and continuity."
+    - "Protocol recommendations remain candidates until benchmarked in a controlled testbed."
+
+portfolio_invariants:
+  - "model capability != authorization"
+  - "memory != authorization"
+  - "approval != execution"
+  - "MCP/capability integration != authorization"
+  - "simulation != real-world evidence"
+  - "evidence != inference != hypothesis != verified fact"
+  - "generated code is untrusted until tested"
+  - "stale state cannot overwrite newer state"
+  - "project identity follows lineage"
