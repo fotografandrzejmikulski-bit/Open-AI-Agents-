@@ -143,6 +143,40 @@ Persist:
 
 A failed experiment is retained as learning rather than silently erased.
 
+## Iteration 24 — Business-Model & Strategy Extensions
+
+The new corpus strengthens P99 with a more explicit distinction and coupling between **business model, strategy, resources/competences, operations and measurable outcomes**.
+
+### A. Business model as an integrated system
+The corpus describes business models through interconnected components covering value offered, target market, product scope, pricing, revenue sources, required activities, organizational capabilities and durability of competitive advantage. The model is therefore represented as a dynamic system rather than a static canvas.
+
+P99 consequence: every Business Model Canvas version must have an explicit dependency graph linking its elements and a change history showing how market or capability changes affect the model.
+
+### B. Strategy vs business model
+The corpus contains several scholarly interpretations, but consistently treats the two concepts as closely related rather than identical. Drzewiecki emphasizes different levels of generality, element sets and intended use; both can support strategic planning and both can be iterative. The implementation model should therefore preserve two separate versioned objects with typed links rather than collapsing them into one record.
+
+### C. Resource and competence layer
+Key organizational competences are treated as strategic assets that can be rare, difficult to substitute and difficult to imitate. P99 therefore adds a capability map between product hypotheses and execution: each proposed game feature or LiveOps capability should identify required capabilities, bottlenecks, dependencies and whether the capability is actually evidenced.
+
+### D. Adaptive strategy modes
+The corpus includes classical, adaptive, shaping, visionary and survival approaches depending on environmental predictability, organizational influence and resource constraints. P99 may use these as strategy-mode hypotheses for LiveOps and product planning, but must not infer that a mode is correct without evidence about the operating environment.
+
+### E. Real + virtual + hybrid market strategy
+The marketing corpus extends the Ansoff matrix to virtual products and virtual markets and emphasizes interaction between traditional, digital and social channels. P99 therefore supports real, digital and hybrid channel/product configurations and tracks channel-specific evidence rather than treating online activity as a separate universe.
+
+### F. Performance measurement discipline
+The corpus warns against overreliance on short-term sales and financial results while neglecting customer satisfaction, loyalty, operational service quality and customer/brand/project value. P99 consequently separates financial KPIs from customer, product, operational and capability indicators and requires multi-horizon evaluation.
+
+### G. Strategy-to-experiment loop
+Drzewiecki explicitly describes strategy and business-model construction as iterative processes involving identification/creation, description, implementation, verification and improvement. P99 now treats this as a first-class lifecycle rather than an optional workflow:
+
+`CREATE → DESCRIBE → IMPLEMENT → VERIFY → IMPROVE → VERSION`
+
+### H. New governance invariant
+`business-model coherence != business-model validity`
+
+A logically coherent model can still fail in the market. Coherence is tested internally; validity requires external or measured evidence.
+
 ## Integration with portfolio
 - **P24** — structured intent/prompt compilation.
 - **P27** — compound reasoning and disagreement-driven escalation.
@@ -164,7 +198,9 @@ A failed experiment is retained as learning rather than silently erased.
 - simulation ≠ real-world evidence;
 - paid randomness requires auditable rules;
 - stale telemetry cannot overwrite newer product state;
-- consequential releases require authorization and postcondition verification.
+- consequential releases require authorization and postcondition verification;
+- business-model coherence ≠ business-model validity;
+- capability/resource assumptions must remain distinct from observed capability evidence.
 
 ## Verification program
 1. **Market hypothesis tests** — validate segment and value-proposition assumptions.
@@ -177,6 +213,8 @@ A failed experiment is retained as learning rather than silently erased.
 8. **Cost tests** — compare content, acquisition and infrastructure costs with contribution outcomes.
 9. **Cross-device QA** — integrate with P86 build artifacts.
 10. **Evidence ledger audit** — verify that strategic claims can be traced to source evidence or measured outcomes.
+11. **Capability-fit tests** — verify that required organizational/technical competences exist or have an explicit acquisition plan.
+12. **Multi-horizon KPI review** — compare short-term financial outcomes with retention, satisfaction, operational quality and strategic capability indicators.
 
 ## Maturity
 Architecture-ready concept. No claim of global hit status, specific revenue, retention, addiction, conversion uplift or market dominance is verified.
@@ -195,3 +233,12 @@ P34, P56, P66, P67, P72, P86, P90, P97.
 - `model-biznesowy-a-strategia-i-zarzadzanie-strategiczne-16stgybpjs.pdf`
 - `Stawka-większa-niż-biznes-Peter-MAY-Adrianna-LEWANDOWSKA.pdf`
 - `JanPolowczykSkutecznestrategiebiznesowe2008.pdf`
+- `Drzewiecki_Model_Biznesu_a_Strategia_Organizacji_P_251102_065553.pdf`
+- `BCPS_30987_-_Model-biznesowy---ws_0000.pdf`
+- `art_34-39_Siwak.pdf`
+- `20-Marcin-Kardas-Pojęcia-i-typy-modeli-biznesu-Klincewicz-Krzysztof-red-Zarzadzanie-organizacje-i-organizowanie.pdf`
+- `09.pdf`
+- `adminojs,+Administrator+czasopisma,+PEFIM_2015_n63_s31.pdf`
+- `BAŚŃ O PORNLANDI.pdf`
+- `CCR TOM I Jak przetrwać w dziwnym świecie po przeniesieniu się do alternatywnej osi czasu.pdf`
+- `CCR TOM II Oś Czasu w Alternatywnych światach.pdf`
