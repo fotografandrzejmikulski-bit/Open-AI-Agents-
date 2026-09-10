@@ -1,6 +1,6 @@
-version: 8
+version: 9
 registry_type: canonical_portfolio_snapshot
-as_of: 2026-09-09
+as_of: 2026-09-10
 repository: mojealterego/Knowledge-projects
 branch: main
 identity_rule: project-47-lineage-first
@@ -14,7 +14,7 @@ status_legend:
 registry_scope:
   canonical_legacy_sequence: 1-59
   later_artifact_sequence: 60-71
-  architecture_candidates: [72,73,74,75,76,77,78,79,80,81]
+  architecture_candidates: [72,73,74,75,76,77,78,79,80,81,82,83,84,85]
   note: "Snapshot registry. Historical collisions remain governed by Project 47."
 
 portfolio_families:
@@ -59,7 +59,9 @@ project_73:
   artifact: projekty/73-czlowiek-roku-evidence-driven-noir-game-max.md
   status: PROPOSED
   maturity: ARCHITECTURE_BASELINE
-  derived_from: [32,50,52,54,57,58,71,72]
+  derived_from: [32,50,52,54,57,58,71,72,82]
+  source_lineage:
+    - docs/knowledge-base/2026-09-10-corpus-apeiron-casino-ccr-pornlandia-omnicore-neuroshield.md
 
 project_74:
   canonical_id: 74
@@ -110,7 +112,8 @@ project_78:
   derived_from: [51,55,61,72]
   source_lineage:
     - docs/knowledge-base/lottery-randomness-audit-and-simulation-2026-09-09.md
-  purpose: "Audit lottery randomness and physical-draw hypotheses through reproducible statistical simulation without claiming guaranteed prediction."
+    - docs/knowledge-base/2026-09-10-corpus-apeiron-casino-pornlandia-omnicore-neuroshield.md
+  purpose: "Audit lottery and casino randomness, house-edge and physical-draw hypotheses through reproducible statistical simulation without claiming guaranteed prediction."
 
 project_79:
   canonical_id: 79
@@ -120,23 +123,11 @@ project_79:
   maturity: ARCHITECTURE_BASELINE
   derived_from: [15,19,26,27,28,31,32,38,41,48,50,54,55,58,60,61,62,65,68,69,70,71,72,73,74,75,76,77,78]
   source_lineage:
-    - docs/knowledge-base/README.md
     - docs/knowledge-base/omniscience-interdisciplinary-research-and-verification-protocol-2026-09-09.md
     - docs/knowledge-base/frontiers-of-knowledge-unresolved-problems-2026-09-09.md
-    - docs/knowledge-base/unsolved-problems-of-science-and-civilization-2026-09-09.md
-    - docs/knowledge-base/data-platform-causal-analytics-distributed-compute-2026-09-09.md
-    - docs/knowledge-base/machine-learning-statistics-optimization-text-governance-2026-09-09.md
-    - docs/knowledge-base/epistemic-signal-control-and-adversarial-evidence-2026-09-08.md
     - docs/knowledge-base/omnicore-architecture-convergence-2026-09-09.md
-    - docs/knowledge-base/omnicore-unified-system-genesis-and-constitutional-runtime-2026-09-09.md
-    - docs/knowledge-base/omnicore-gcp-forge-nested-virtualization-and-agent-factory-2026-09-09.md
-    - docs/knowledge-base/stability-convergence-mhd-molecular-optimization-2026-09-09.md
-    - docs/knowledge-base/agent-memory.md
     - docs/knowledge-base/physical-symbolic-artifact-engineering-and-apeiron-2026-09-09.md
-    - docs/knowledge-base/agentic-coding-visual-intelligence-and-multi-model-evaluation-2026-09-08.md
-    - docs/knowledge-base/agentic-automation-sop-hta-wbs.md
-    - docs/knowledge-base/repository-operational-assurance-and-contract-verification.md
-    - docs/knowledge-base/telephony-esim-mcp-and-mobile-identity-fabric.md
+    - docs/knowledge-base/2026-09-10-corpus-apeiron-casino-ccr-pornlandia-omnicore-neuroshield.md
   purpose: "Operate a governed closed-loop discovery system that converts unknowns into competing hypotheses, discriminating experiments, validated observations, independent replications and machine-readable knowledge."
   breakthrough_claim_boundary: "The potential world-changing contribution is the integrated discovery architecture; no scientific discovery is claimed until the project produces independently replicated evidence."
 
@@ -149,9 +140,7 @@ project_80:
   derived_from: [59,61,68,72,79]
   source_lineage:
     - docs/knowledge-base/omnicore-self-evolving-computing-substrate-2026-09-09.md
-    - docs/knowledge-base/omnicore-architecture-convergence-2026-09-09.md
-    - docs/knowledge-base/omnicore-ai-native-os-learned-kernel-semanticfs.md
-    - docs/knowledge-base/omnicore-gcp-forge-nested-virtualization-and-agent-factory-2026-09-09.md
+    - docs/knowledge-base/2026-09-10-corpus-apeiron-casino-ccr-pornlandia-omnicore-neuroshield.md
   purpose: "Apply governed scientific discovery to the computing substrate itself: generate, test, verify, replicate and safely promote kernel/compiler/driver/runtime variants."
   breakthrough_claim_boundary: "No self-improving operating system is claimed until independent experiments demonstrate reproducible, generalizable improvements over controlled baselines."
 
@@ -167,6 +156,54 @@ project_81:
     - docs/PROJECT-GENESIS-2026-09-09-ITERATION-11-VOICE-NARRATIVE-AI-GAME.md
   purpose: "Build a voice-native AI-character game runtime that compiles player speech into typed commands while keeping rules, RNG, economy, progression and consequential state authoritative and auditable."
   breakthrough_claim_boundary: "The project does not claim that covert persuasion, emotional monetization, compulsive design or AI-driven outcomes improve retention; those source proposals are explicitly excluded from the production architecture."
+
+project_82:
+  canonical_id: 82
+  title: "CCR Transmedia Graphic-Novel Universe MAX"
+  artifact: projekty/82-ccr-transmedia-graphic-novel-universe-max.md
+  status: PROPOSED
+  maturity: ARCHITECTURE_BASELINE
+  derived_from: [19,32,50,52,54,57,71,72,73]
+  source_lineage:
+    - docs/knowledge-base/2026-09-10-corpus-apeiron-casino-ccr-pornlandia-omnicore-neuroshield.md
+  purpose: "Transform the CCR trilogy into a production-grade multi-timeline graphic-novel and optional transmedia/AR universe with explicit canon, visual grammar, provenance and production QA."
+  breakthrough_claim_boundary: "Artistic and scientific language used by the fictional universe is not automatically evidence of real-world scientific validity."
+
+project_83:
+  canonical_id: 83
+  title: "Baśń o Pornlandii Graphic-Novel & Transmedia World MAX"
+  artifact: projekty/83-basn-o-pornlandii-graphic-novel-transmedia-max.md
+  status: PROPOSED
+  maturity: ARCHITECTURE_BASELINE
+  derived_from: [19,32,50,52,54,57,71,72]
+  source_lineage:
+    - docs/knowledge-base/2026-09-10-corpus-apeiron-casino-ccr-pornlandia-omnicore-neuroshield.md
+  purpose: "Create a distinct dystopian graphic-novel and transmedia world in which architecture, gesture, silence, materiality and controlled intimacy form an integrated visual narrative system."
+  breakthrough_claim_boundary: "OSINT-derived author statements remain source-attributed unless independently established; literary themes are not treated as factual allegations."
+
+project_84:
+  canonical_id: 84
+  title: "Aksamitna Sieć: Transparent Social Strategy Game MAX"
+  artifact: projekty/84-aksamitna-siec-transparent-social-strategy-game-max.md
+  status: PROPOSED
+  maturity: ARCHITECTURE_BASELINE
+  derived_from: [50,51,52,54,57,71,72]
+  source_lineage:
+    - docs/knowledge-base/2026-09-10-corpus-apeiron-casino-ccr-pornlandia-omnicore-neuroshield.md
+  purpose: "Develop a premium physical social-strategy game using transparent influence, negotiation, asymmetric powers and a mechanically auditable physical uncertainty device."
+  breakthrough_claim_boundary: "Covert persuasion, subliminal commands, compulsive-use optimization and exploitative monetization are excluded from the production architecture."
+
+project_85:
+  canonical_id: 85
+  title: "NeuroShield Epileptogenesis Research & Verification Lab MAX"
+  artifact: projekty/85-neuroshield-epileptogenesis-research-verification-lab-max.md
+  status: PROPOSED
+  maturity: RESEARCH_ARCHITECTURE_BASELINE
+  derived_from: [15,19,27,48,54,58,61,72,79]
+  source_lineage:
+    - docs/knowledge-base/2026-09-10-corpus-apeiron-casino-ccr-pornlandia-omnicore-neuroshield.md
+  purpose: "Evaluate disease-modifying hypotheses for epileptogenesis through target validation, biomarker research, delivery feasibility, safety assessment and independent replication."
+  breakthrough_claim_boundary: "The project is not a clinical protocol or established therapy; no efficacy or safety claim is made without appropriate biomedical evidence and oversight."
 
 lineage_policy:
   authority: Project 47
