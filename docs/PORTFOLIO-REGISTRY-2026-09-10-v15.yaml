@@ -1,0 +1,63 @@
+version: 15
+registry_type: canonical_portfolio_snapshot
+as_of: 2026-09-10
+repository: mojealterego/Knowledge-projects
+branch: main
+supersedes: docs/PORTFOLIO-REGISTRY-2026-09-10-v14.yaml
+identity_rule: project-47-lineage-first
+status_legend:
+  OBSERVED: "Present in repository and structurally observed."
+  SOURCE_DERIVED: "Derived from repository knowledge/project documentation."
+  INFERRED: "Engineering conclusion derived from observed evidence."
+  PROPOSED: "Candidate requiring validation before canonical promotion."
+  UNKNOWN: "Not established by available repository evidence."
+
+registry_scope:
+  canonical_legacy_sequence: 1-59
+  later_artifact_sequence: 60-71
+  architecture_candidates: [72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94]
+  inherited_registry: docs/PORTFOLIO-REGISTRY-2026-09-10-v14.yaml
+
+iteration_19:
+  status: COMPLETE
+  source_batch_count: 10
+  knowledge_artifact: docs/knowledge-base/2026-09-10-corpus-omnicore-omnis-omniscience-security-math-growth-iteration-19.md
+  ingestion_record: docs/KNOWLEDGE-INGESTION-2026-09-10-ITERATION-19.md
+  evolution_record: docs/PROJECT-EVOLUTION-2026-09-10-ITERATION-19.md
+  genesis_record: docs/PROJECT-GENESIS-2026-09-10-ITERATION-19.md
+  new_projects: []
+  affected_projects: [19,27,34,54,61,63,64,66,67,72,77,79,80,87,90,91,94]
+  duplicate_decisions:
+    - "OmniCore prototype and feasibility material reinforce Projects 61/80; prototype code is not production evidence."
+    - "Omnis, SemanticFS, PUI and hybrid-memory material reinforce Projects 61/80/87."
+    - "UGR/CIRA migration material reinforces the existing UGR/CIRA and Nexus compiler lineage."
+    - "Omniscience and multi-expert research material reinforces Projects 19/27/79/94."
+    - "Open mathematics reinforces Projects 77/79; computation is not silently promoted to proof."
+    - "Gemini bypass/security material remains defensive threat-model knowledge under 54/72."
+    - "Sovereign AI implementation material reinforces local-first and sovereign-edge architecture."
+    - "Zero-budget growth material reinforces 34/66/67; coercive dark-pattern capabilities are excluded."
+    - "No Project 95 is justified."
+  architecture_decisions:
+    - "Project 94 remains the generalized problem-discovery and uncertainty-reduction boundary."
+    - "Project 67 remains the business-model/strategy experimentation boundary."
+    - "OmniCore convergence remains in 61/80 rather than being split into repeated projects."
+    - "UGR/CIRA remains a reusable migration/engineering capability rather than a duplicate project."
+  safety_boundaries:
+    - "Model capability != authorization."
+    - "Memory != authorization."
+    - "Simulation != real-world evidence."
+    - "Generated code is untrusted until tested."
+    - "Security bypass descriptions are defensive threat-model inputs only."
+    - "Covert influence and consent-bypass techniques are not operationalized."
+    - "AI recommendations remain proposals until authorized."
+
+portfolio_invariants:
+  - "model capability != authorization"
+  - "memory != authorization"
+  - "approval != execution"
+  - "MCP/capability integration != authorization"
+  - "simulation != real-world evidence"
+  - "evidence != inference != hypothesis != verified fact"
+  - "generated code is untrusted until tested"
+  - "stale state cannot overwrite newer state"
+  - "project identity follows lineage"
