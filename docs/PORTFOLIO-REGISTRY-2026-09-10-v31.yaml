@@ -1,0 +1,100 @@
+version: 31
+registry_type: canonical_portfolio_snapshot
+as_of: 2026-09-10
+repository: mojealterego/Knowledge-projects
+branch: main
+supersedes: docs/PORTFOLIO-REGISTRY-2026-09-10-v30.yaml
+identity_rule: project-47-lineage-first
+status: COMPLETE
+
+registry_scope:
+  canonical_legacy_sequence: 1-59
+  later_artifact_sequence: 60-71
+  architecture_candidates: [72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114]
+  inherited_registry: docs/PORTFOLIO-REGISTRY-2026-09-10-v30.yaml
+
+iteration_35:
+  status: COMPLETE
+  source_batch_count: 3
+  unique_source_clusters: 3
+  knowledge_artifact: docs/knowledge-base/2026-09-10-corpus-iteration-35-mcp-agent-engineering-trs-computational.md
+  ingestion_record: docs/KNOWLEDGE-INGESTION-2026-09-10-ITERATION-35.md
+  evolution_record: docs/PROJECT-EVOLUTION-2026-09-10-ITERATION-35.md
+  genesis_record: docs/PROJECT-GENESIS-2026-09-10-ITERATION-35.md
+  amendments_record: docs/PROJECT-AMENDMENTS-2026-09-10-ITERATION-35.md
+  new_projects: []
+  affected_projects: [10,26,37,54,61,72,77,81,82,83,86,89,90,94,97,100,104,105,108,111,114]
+
+  decisions:
+    mcp_servers: corroborating_witness_absorb
+    agent_engineering: corroborating_witness_absorb
+    trs_computational: complementary_witness_to_p77_p104
+    standalone_mcp_project: rejected_duplicate_overlap
+
+  mcp_architecture:
+    context_and_memory: [Sequential_Thinking, Memory, Context7, documentation_search]
+    repository_and_workflow: [GitHub, GitLab, Linear, Jira, Confluence, Notion, Slack]
+    local_navigation: [Filesystem, Ripgrep, Notes]
+    execution_isolation: [E2B_Firecracker, Docker_Podman, WebAssembly]
+    desktop_integration: [Tauri, Electron, IPC_CDP, accessibility_selectors]
+    governance: capability_policy_least_privilege_credential_isolation_postconditions
+
+  agent_architecture:
+    core_patterns: [Reflection, Tool_Use, Planning, Multi_Agent_Collaboration]
+    system_engineering: [AIOS, GEAK, KernelBench, Rust_Migration]
+    game_engineering: [Unity_Behavior, Ludus, Unakin, Goose]
+    creative_engineering: [MetaGPT, multi_agent_creative_workflows, MAP_Elites]
+
+  trs_validation_objects:
+    - 8x8 diffusion/transition matrix B
+    - claimed Q = sqrt(B) relation
+    - resonance operator H_Omega
+    - spectral/self-adjointness assertions
+    - claimed geometric links between RH, P != NP and Hodge-type statements
+
+  project_impact:
+    P10: "Capability gateway and local-first integration strengthened."
+    P26: "Trustworthy kernel/tool boundary and isolation requirements strengthened."
+    P37: "Sovereign edge capability and sandbox integration patterns strengthened."
+    P61: "MCP capability-bus composition and authoritative state boundaries strengthened."
+    P72: "MCP-specific runtime assurance and tool-confusion test cases added."
+    P77: "New TRS computational witness and formalization backlog objects added."
+    P81: "Agentic game engineering patterns reinforced."
+    P82: "Multi-agent creative production patterns reinforced."
+    P83: "Multi-agent creative production patterns reinforced."
+    P86: "Agentic game/mobile production patterns reinforced."
+    P89: "Interactive game agent workflows reinforced."
+    P90: "SOP compilation expanded with tool preconditions, postconditions and rollback semantics."
+    P94: "Reflection, optimization and search-loop patterns reinforced."
+    P97: "Multi-agent multimedia production and verification patterns reinforced."
+    P100: "AIOS/GEAK/MetaGPT/MCP development patterns integrated as architecture witnesses."
+    P104: "TRS numerical and operator claims added as validation targets."
+    P105: "Goose/mobile agent and MCP-controlled device workflows reinforced."
+    P108: "MCP injection, confused-deputy, sandbox escape and credential-isolation tests expanded."
+    P111: "Enterprise MCP routing, isolated execution and multi-agent control-plane patterns reinforced."
+    P114: "Tool-result provenance and MCP-aware cognitive substrate boundaries strengthened."
+
+  duplicate_decisions:
+    - "The MCP server catalog does not justify a new project because MCP capability-gateway ownership is already distributed across existing runtime, assurance, sovereign-edge and platform lineages."
+    - "AIOS, GEAK, MetaGPT and game-agent patterns reinforce existing projects rather than creating duplicate verticals."
+    - "The TRS report is a complementary witness to P77/P104, not an independently verified mathematical proof."
+
+portfolio_invariants:
+  - "model capability != authorization"
+  - "memory != authorization"
+  - "approval != execution"
+  - "MCP/capability integration != authorization"
+  - "tool output is untrusted"
+  - "credentials remain outside model-controlled execution where possible"
+  - "sandbox security requires empirical escape testing"
+  - "stale state cannot overwrite newer authoritative state"
+  - "self-improvement requires evaluation, holdout regression and rollback"
+  - "memory mutation requires provenance and conflict resolution"
+  - "generated code/configuration is untrusted until tested"
+  - "source-reported performance != independently reproduced verification"
+  - "evidence != inference != hypothesis != verified fact"
+  - "TRS source assertion != formal mathematical proof"
+  - "formal operator claims require domain and self-adjointness checks"
+  - "simulation/numerical evidence != proof of a mathematical conjecture"
+  - "moderation bypass != legitimate prompt compilation"
+  - "project identity follows lineage"
