@@ -1,0 +1,75 @@
+version: 16
+registry_type: canonical_portfolio_snapshot
+as_of: 2026-09-10
+repository: mojealterego/Knowledge-projects
+branch: main
+supersedes: docs/PORTFOLIO-REGISTRY-2026-09-10-v15.yaml
+identity_rule: project-47-lineage-first
+status_legend:
+  OBSERVED: "Present in repository and structurally observed."
+  SOURCE_DERIVED: "Derived from repository knowledge/project documentation."
+  INFERRED: "Engineering conclusion derived from observed evidence."
+  PROPOSED: "Candidate requiring validation before canonical promotion."
+  UNKNOWN: "Not established by available repository evidence."
+
+registry_scope:
+  canonical_legacy_sequence: 1-59
+  later_artifact_sequence: 60-71
+  architecture_candidates: [72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94]
+  inherited_registry: docs/PORTFOLIO-REGISTRY-2026-09-10-v15.yaml
+
+iteration_19:
+  status: COMPLETE
+  source_batch_count: 10
+  knowledge_artifact: docs/knowledge-base/2026-09-10-corpus-omnicore-omnis-omniscience-security-math-growth-iteration-19.md
+  ingestion_record: docs/KNOWLEDGE-INGESTION-2026-09-10-ITERATION-19.md
+  evolution_record: docs/PROJECT-EVOLUTION-2026-09-10-ITERATION-19.md
+  genesis_record: docs/PROJECT-GENESIS-2026-09-10-ITERATION-19.md
+  new_projects: []
+  affected_projects: [19,27,34,54,61,63,64,66,67,72,77,79,80,87,90,91,94]
+  duplicate_decisions:
+    - "OmniCore prototype and feasibility material reinforce Projects 61/80; prototype code is not production evidence."
+    - "Omnis, SemanticFS, PUI and hybrid-memory material reinforce Projects 61/80/87."
+    - "UGR/CIRA migration material reinforces the existing UGR/CIRA and Nexus compiler lineage."
+    - "Omniscience and multi-expert research material reinforces Projects 19/27/79/94."
+    - "Open mathematics reinforces Projects 77/79; computation is not silently promoted to proof."
+    - "Gemini bypass/security material remains defensive threat-model knowledge under 54/72."
+    - "Sovereign AI implementation material reinforces local-first and sovereign-edge architecture."
+    - "Zero-budget growth material reinforces 34/66/67; coercive dark-pattern capabilities are excluded."
+    - "No Project 95 is justified."
+
+iteration_20:
+  status: COMPLETE
+  source_batch_count: 9
+  knowledge_artifact: docs/knowledge-base/2026-09-10-corpus-google-prompt-cognitive-sovereign-monetization.md
+  ingestion_record: docs/KNOWLEDGE-INGESTION-2026-09-10-ITERATION-20.md
+  evolution_record: docs/PROJECT-EVOLUTION-2026-09-10-ITERATION-20.md
+  genesis_record: docs/PROJECT-GENESIS-2026-09-10-ITERATION-20.md
+  new_projects: []
+  affected_projects: [14,17,18,19,24,27,28,34,37,54,61,66,67,72,79,80,86,87,90,91,94]
+  duplicate_decisions:
+    - "Google AI reports are consolidated as ecosystem/capability knowledge; no standalone Google-specific project is justified."
+    - "The two Google AI PDFs are corroborating/near-duplicate variants."
+    - "The two Extreme Monetization PDFs are corroborating/near-duplicate variants."
+    - "Prompt-engineering material reinforces Projects 24 and 90 rather than creating a generic prompt project."
+    - "The two Encyklopedia Umysłu AI documents reinforce reasoning/evaluation lineages."
+    - "Sovereign/local-first architecture reinforces Projects 37/61/80."
+    - "Create own AI Assistant reinforces P61/P90/P91 and MCP capability integration."
+    - "No Project 95 is justified."
+  architecture_decisions:
+    - "Reasoning depth, latency, cost, privacy and consequence remain separable routing dimensions."
+    - "Prompt specifications should be treated as structured, evaluable programs where appropriate."
+    - "Cognitive/emergence claims require explicit metrics and replication."
+    - "Edge/local-first inference is a deployment strategy, not proof of zero operating cost."
+    - "Sovereign economics remain an experimental strategy layer requiring adversarial and legal validation."
+
+portfolio_invariants:
+  - "model capability != authorization"
+  - "memory != authorization"
+  - "approval != execution"
+  - "MCP/capability integration != authorization"
+  - "simulation != real-world evidence"
+  - "evidence != inference != hypothesis != verified fact"
+  - "generated code is untrusted until tested"
+  - "stale state cannot overwrite newer state"
+  - "project identity follows lineage"
