@@ -127,3 +127,6 @@ The camera system uses on-demand capture rather than unnecessary continuous rend
 6. Visual/audio presentation is separated from authoritative game state.
 7. Target-hardware performance is measured.
 8. Narrative canon references are lineage-bound to Project 82.
+
+## Iteration 25 evolution
+CCR TOM III and TOM IV are now explicit canon witnesses for P89's authored timeline system. Add continuity anchors for 1679, 1983, 2016, 2025, 2035, 2045, 2135, 2345, 2378, 2387, 2777 and infinity. The 33-year cycle, 16.5-year breath, CCR-Rebuild, Memory Archive and Devil Mind are narrative state concepts. Their light/time/consciousness mechanisms remain fictional game abstractions and must not be presented as real physics.
