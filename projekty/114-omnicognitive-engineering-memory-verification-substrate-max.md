@@ -50,6 +50,40 @@ PROMOTION / ROLLBACK
 - **Durable State Machine:** resumable tasks, checkpoints and event history.
 - **Tool Boundary:** MCP/tool calls treated as untrusted capability surfaces with least privilege and sandboxing.
 
+## Iteration 36 — MCP selective-context and agentic workflow convergence
+
+The supplied MCP corpus strengthens P114's context and tool boundary. It identifies Sequential Thinking as a decomposition/reflection surface, Memory MCP as persistent graph memory, documentation-oriented retrieval such as Context7 as grounding, GitHub MCP as repository control-plane integration, Filesystem MCP as bounded storage access and Ripgrep MCP as high-selectivity code retrieval. The engineering implication is that P114 should prefer **selective retrieval** over indiscriminate context loading. fileciteturn16file0L34-L64 fileciteturn16file0L67-L79 fileciteturn16file0L95-L116
+
+New runtime contract:
+
+```text
+TASK
+ ↓
+CONTEXT BROKER
+ ├─ MEMORY
+ ├─ CURRENT DOCUMENTATION
+ ├─ REPOSITORY SEARCH / RIPGREP
+ └─ AUTHORITATIVE STATE
+ ↓
+DECOMPOSE / PLAN
+ ↓
+CAPABILITY BROKER
+ ↓
+SANDBOXED TOOL EXECUTION
+ ↓
+AUTHORITATIVE READBACK
+ ↓
+POSTCONDITION VERIFICATION
+ ↓
+MEMORY / EVIDENCE UPDATE
+```
+
+The agent-engineering corpus reinforces reflection, tool use, planning/decomposition and multi-agent collaboration as recurring workflow primitives. P114 therefore models them as explicit state transitions and contracts rather than prompt-only behavior. fileciteturn19file5L194-L225
+
+## Iteration 36 — sandbox and desktop execution boundary
+
+The MCP material describes E2B-style sandboxes, Docker, WebAssembly/WASI and Electron/Tauri/CDP/IPC execution surfaces. P114 treats these as **capability surfaces**, not authority sources. A sandbox completion, emitted GUI event or browser action is only an observation until authoritative readback confirms the requested postcondition. fileciteturn19file2L80-L106 fileciteturn19file8L313-L328
+
 ## Source-derived design evidence
 The Enterprise blueprint specifies PostgreSQL/pgvector, Redis/BullMQ, Temporal durable workflows, Human-in-the-Loop signals, Firecracker/gVisor isolation, MCP routing, ephemeral agent identity and an Agent-Native IDE. fileciteturn1039file0L117-L226
 
@@ -76,15 +110,21 @@ The persona corpus reinforces instruction hierarchy, structured contracts, promp
 - self-modification requires evaluation and rollback;
 - no secret extraction or prompt-leakage capability;
 - no undocumented endpoint abuse;
-- no absolute-security claim without empirical evidence.
+- no absolute-security claim without empirical evidence;
+- selective retrieval must preserve provenance and freshness metadata;
+- sandbox success does not constitute real-world execution evidence;
+- GUI/browser event emission does not constitute successful state transition evidence.
 
 ## Verification plan
 - memory consistency/provenance tests;
 - conflict-resolution determinism;
 - retrieval relevance and stale-memory suppression;
+- selective-context vs full-context ablation tests;
 - multi-path reasoning ablations;
 - verifier/reviser error-detection benchmarks;
 - structured-schema conformance;
+- sandbox escape and confused-deputy tests;
+- GUI/browser authoritative-readback tests;
 - crash recovery and rollback;
 - self-improvement holdout/regression suite;
 - tool-injection/confused-deputy tests through P108;
