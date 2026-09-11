@@ -1,7 +1,7 @@
 # Project 117 — NeXus Mobile Multimodal Agent Runtime MAX
 
 ## Status
-PROPOSED → ARCHITECTURE BASELINE — 2026-09-11
+PROPOSED → ARCHITECTURE BASELINE → PACKAGE-ANATOMY EVIDENCE — 2026-09-11
 
 ## Mission
 Build the mobile execution substrate for the NeXus ecosystem: a guarded Android capability plane combining device perception, camera/audio input, screen/UI semantics, touch/gesture actuation, mobile-world context, static APK/XAPK/BAPK inspection and authoritative verification.
@@ -16,11 +16,15 @@ P117 therefore becomes the mobile equivalent of the desktop/world-control bounda
 
 ## Source-derived inputs
 
-The NeXus corpus specifies camera and desktop vision, microphone/STT/TTS, mouse/keyboard hands, Rust + Zenoh low-latency transport, Android automation, MCP and multi-panel agent control. The new binary corpus adds APK/XAPK/BAPK artifacts from visual-editing, AI and navigation-oriented applications. The uploaded binaries are treated as untrusted research inputs; their internal structure was not decoded in this iteration.
+The NeXus corpus specifies camera and desktop vision, microphone/STT/TTS, mouse/keyboard hands, Rust + Zenoh low-latency transport, Android automation, MCP and multi-panel agent control. The new binary corpus adds APK/XAPK/BAPK artifacts from visual-editing, AI and navigation-oriented applications. The uploaded binaries are treated as untrusted research inputs.
 
-Public documentation for TomTom 9.41.0 provides an external example of a split Android navigation bundle with a base APK, architecture splits and DPI splits, plus location, traffic, Bluetooth, Android Auto and overlay capabilities. This is architectural comparison material, not a claim about the exact uploaded binary. citeturn4search0
+A newly supplied `manifest.json` provides directly observed package anatomy for a Touch Retouch 4.23 XAPK: package `com.touch.retouch.removeobject.photo`, version code 58, min SDK 22, target SDK 30, total bundle size 6,511,836 bytes, with a base APK plus language/resource splits and an `arm64_v8a` ABI split. The manifest also declares camera, storage, internet/network, wake-lock and boot-completed permissions. fileciteturn70file0L1-L1
 
-Public descriptions of Android retouch applications provide external feature-pattern evidence for object removal, people/background removal, watermark cleanup, tracking, cutout/paste/clone and enhancement workflows. These patterns inform UX requirements without copying proprietary implementation. citeturn3search0turn3search2turn3search5
+This manifest is stronger evidence than the previous filename-only observation and is now the canonical package-anatomy witness for this iteration. The individual split APKs are still treated as untrusted binary artifacts; their internal DEX/resource/native contents are not asserted without direct decoding.
+
+Public documentation for TomTom 9.41.0 provides an external example of a split Android navigation bundle with a base APK, architecture splits and DPI splits, plus location, traffic, Bluetooth, Android Auto and overlay capabilities. This is architectural comparison material, not a claim about the exact uploaded binary.
+
+Public descriptions of Android retouch applications provide external feature-pattern evidence for object removal, people/background removal, watermark cleanup, tracking, cutout/paste/clone and enhancement workflows. These patterns inform UX requirements without copying proprietary implementation.
 
 ## Canonical architecture
 
@@ -98,6 +102,28 @@ STATIC RISK REPORT
     ↓
 READ-ONLY ARTIFACT LEDGER
 ```
+
+### Package split model learned from the new manifest
+
+The inspection model must distinguish at least three split classes:
+
+1. **Functional/base package** — the primary application APK.
+2. **Locale/resource splits** — language or locale-specific APKs such as `config.ru`, `config.my`, `config.zh`, `config.vi`, `config.ko`, `config.th`, `config.tr`, `config.pt` and other declared locales.
+3. **Device-configuration splits** — ABI and density variants such as `config.arm64_v8a` and `config.xxxhdpi`.
+
+The package ledger therefore records a normalized relation:
+
+```text
+XAPK
+ ├── BASE
+ ├── LOCALE SPLITS[*]
+ ├── ABI SPLITS[*]
+ └── DENSITY / DEVICE SPLITS[*]
+```
+
+The exact uploaded manifest declares 20 split configurations, including locale, ABI and density variants, and identifies the base APK separately. fileciteturn70file0L1-L1
+
+This becomes a P117 design requirement: package intelligence must reason about the **bundle graph**, not treat every APK file as an independent application.
 
 The parser must never execute package code during inspection.
 
@@ -218,23 +244,25 @@ The exact visual tokens remain owned by the NeXus design-system contract rather 
 2. Manifest/resource/DEX/native-library inventory tests.
 3. Hash/signature evidence recording.
 4. Permission and component risk classification.
-5. Device screen observation replay.
-6. UI-tree versus screenshot consistency tests.
-7. Touch/gesture readback tests.
-8. App launch/readback tests.
-9. Camera/microphone authorization tests.
-10. Location-context freshness tests.
-11. P116 image import/export round-trip tests.
-12. Offline/reconnect recovery tests.
-13. Android-version and ABI matrix.
-14. Sandboxed test-device execution for agent-generated actions.
-15. Full intent → action → readback → verification replay.
+5. Split-graph reconstruction: base/locale/ABI/density/device configuration.
+6. Device screen observation replay.
+7. UI-tree versus screenshot consistency tests.
+8. Touch/gesture readback tests.
+9. App launch/readback tests.
+10. Camera/microphone authorization tests.
+11. Location-context freshness tests.
+12. P116 image import/export round-trip tests.
+13. Offline/reconnect recovery tests.
+14. Android-version and ABI matrix.
+15. Sandboxed test-device execution for agent-generated actions.
+16. Full intent → action → readback → verification replay.
 
 ## 11. Definition of Done
 
 P117 advances beyond architecture baseline when:
 
 - package inspection is reproducible and read-only;
+- XAPK/APK split graphs are reconstructed deterministically;
 - Android capability contracts are typed and authorization-aware;
 - device observations carry provenance/freshness;
 - consequential actions have authoritative readback;
@@ -246,8 +274,9 @@ P117 advances beyond architecture baseline when:
 ## Evidence classification
 
 - NeXus source requirements: **SOURCE-DERIVED**;
-- uploaded binary filenames/sizes: **OBSERVED**;
-- uploaded binary internals: **NOT OBSERVED in this iteration**;
+- uploaded `manifest.json`: **OBSERVED / DIRECTLY PARSED SOURCE**;
+- uploaded split APK filenames and sizes: **OBSERVED**;
+- uploaded binary internals beyond the manifest: **NOT OBSERVED in this iteration**;
 - TomTom bundle/feature facts: **EXTERNAL-VERIFIED CONTEXT**;
 - Retouch feature patterns: **EXTERNAL-VERIFIED CONTEXT**;
 - P117 architecture: **SYNTHESIS / IMPLEMENTATION TARGET**.
