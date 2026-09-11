@@ -1,0 +1,86 @@
+version: 40
+date: 2026-09-11
+trigger: visual-corpus-osint-provider-turbovec-ai-tools
+source_class: user-supplied-discovery-plus-external-verified-spot-checks
+knowledge_artifact: docs/knowledge-base/2026-09-11-images-ai-tools-osint-turbovec.md
+
+source_audit:
+  supplied_images: 10
+  reviewed_images: 10
+  completeness: 1.0
+  volatile_claims_not_promoted: true
+
+project_updates:
+  - id: P32
+    impact: high
+    changes:
+      - phone-number-osint-capability-family
+      - phone-evidence-object
+      - identity-candidate-separation
+      - passive-first-lookup-policy
+      - privacy-and-reassignment-tests
+    status: architecture-enhanced-not-verified
+
+  - id: P100
+    impact: high
+    changes:
+      - typed-provider-registry
+      - connected-vs-authorized-vs-allowed-state-separation
+      - bulk-provider-test-evidence
+      - reusable-skill-catalog
+      - skill-risk-and-compatibility-metadata
+    status: architecture-enhanced-not-verified
+
+  - id: P113
+    impact: medium-high
+    changes:
+      - live-google-multimodal-adapter-matrix
+      - model-lifecycle-state
+      - deprecation-aware-routing
+      - capability-to-model-resolution
+    status: architecture-enhanced-not-verified
+
+  - id: P114
+    impact: medium-high
+    changes:
+      - turbovec-low-bit-memory-candidate
+      - stable-external-vector-identity
+      - filtered-semantic-retrieval
+      - local-memory-benchmark-backlog
+    status: candidate-backend-not-verified
+
+  - id: P33
+    impact: medium
+    changes:
+      - reference-to-implementation-to-skills-to-motion-qa-assembly-line
+    status: reinforced
+
+  - id: P97
+    impact: medium
+    changes:
+      - multimodal-tool-landscape-discovery
+    status: reinforced
+
+new_projects: []
+
+security_invariants:
+  - lookup-result-is-not-identity-proof
+  - provider-connected-is-not-authorization
+  - installed-skill-is-not-authority
+  - infographic-model-id-is-not-current-production-truth
+  - vector-slot-is-not-memory-identity
+  - generated-output-is-not-verified-state
+  - external-benchmark-is-not-local-benchmark-evidence
+
+verification_gaps:
+  - p32-phone-intelligence-precision-and-privacy-tests
+  - p100-provider-registry-runtime-tests
+  - p100-skill-risk-compatibility-tests
+  - p113-live-model-registry-tests
+  - p114-turbovec-vs-existing-index-benchmark
+  - p114-stable-vector-id-tests
+  - root-readme-sync-pending
+
+project_genesis_decision:
+  new_project: false
+  rationale: The 10-image corpus strengthens existing OSINT, developer-control-plane, visual-compilation, cognitive-memory and app-builder projects without establishing a distinct project boundary.
