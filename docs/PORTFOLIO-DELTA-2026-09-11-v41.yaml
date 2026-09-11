@@ -1,0 +1,69 @@
+schema: portfolio-delta/v1
+version: v41
+date: 2026-09-11
+trigger: user_supplied_visual_web_design_agentic_coding_corpus
+source_count: 10
+analysis:
+  reviewed: 10
+  external_verification: true
+  new_numbered_project: false
+  root_readme_sync: pending
+changes:
+  - project: P100
+    impact: high
+    change: web_design_reference_to_code_extension
+    artifacts:
+      - projekty/100-nexus-ai-code-web-design-reference-to-code-extension.md
+    capabilities:
+      - design_reference_graph
+      - reference_to_code_compilation
+      - frontend_skill_contract
+      - 21st_dev_adapter
+      - webflow_reference_adapter
+      - dom_html_capture_boundary
+      - harness_neutral_agent_adapter
+      - visual_regression_gate
+  - project: P40
+    impact: high
+    change: visual_intelligence_and_multimodal_reference_pipeline_reinforced
+  - project: P33
+    impact: medium_high
+    change: reference_driven_app_builder_and_visual_qa_reinforced
+  - project: P16
+    impact: medium_high
+    change: reference_to_code_prompt_and_skill_evaluation_domain
+  - project: P28
+    impact: medium
+    change: frontend_verification_and_artifact_assurance_extension
+  - project: P72
+    impact: medium
+    change: visual_runtime_assurance_extension
+knowledge_base:
+  added:
+    - docs/knowledge-base/2026-09-11-web-design-agentic-coding-reference-corpus.md
+  evolution_record:
+    - docs/PROJECT-EVOLUTION-2026-09-11-ITERATION-44.md
+canonical_pipeline:
+  - visual_discovery
+  - reference_capture
+  - provenance_usage_check
+  - design_signal_extraction
+  - design_specification
+  - skill_agent_resolution
+  - reference_to_code_compilation
+  - motion_integration
+  - build_test
+  - visual_regression
+  - accessibility_performance
+  - security_supply_chain_gate
+  - artifact_provenance
+  - promotion
+security_invariants:
+  - screenshot_is_not_source_code
+  - copied_html_is_not_redistribution_permission
+  - component_prompt_is_not_trusted_code
+  - installed_skill_is_not_authority
+  - connected_provider_is_not_authorization
+  - generated_render_is_not_verified_render
+  - visual_similarity_is_not_legal_equivalence
+status: architecture_enhanced_implementation_not_verified
