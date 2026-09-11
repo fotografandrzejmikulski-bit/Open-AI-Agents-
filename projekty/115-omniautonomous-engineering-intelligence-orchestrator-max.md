@@ -58,6 +58,8 @@ Use P114 as the substrate for episodic, semantic, procedural and test-time memor
 
 A CWM-compatible adapter predicts relevant execution-state changes before physical execution. A bounded MCTS or equivalent planner can explore candidate trajectories where simulation fidelity is sufficient.
 
+Simulation output is advisory. It is never execution evidence and cannot satisfy a postcondition by itself.
+
 ### 3. Engineering mutation
 
 Generators may produce code, configuration, tests or skills. Every generated artifact is untrusted until it passes the applicable execution and verification gates.
@@ -81,6 +83,70 @@ Adapters can expose authorized capabilities for Cursor, Unity, Unreal Engine and
 ### 8. Evidence
 
 Every autonomous cycle should be replayable from an evidence packet containing task identity, model/runtime versions, retrieved memory references, generated artifacts, tool calls, observations, test results, verification results, decision and rollback information.
+
+## Audit-grade contracts — Iteration 36
+
+P115 now treats the lifecycle as a set of explicit state transitions rather than an informal agent loop.
+
+### Authoritative state
+
+The orchestrator must distinguish:
+
+- requested intent;
+- compiled task graph;
+- retrieved memory snapshot;
+- simulated trajectory;
+- generated candidate;
+- sandbox execution state;
+- observed runtime state;
+- verification verdict;
+- candidate lesson;
+- promoted state;
+- rollback state.
+
+Only authoritative readback may establish the resulting runtime state. UI state, model claims, simulation predictions and tool responses are observations or proposals until validated.
+
+### Evidence packet minimum
+
+Each autonomous cycle should persist a deterministic correlation identifier and:
+
+```text
+cycle_id
+parent_cycle_id
+project_id
+intent_hash
+task_graph_hash
+memory_snapshot_hash
+model_runtime_identity
+tool_capability_snapshot
+candidate_artifact_hash
+sandbox_identity
+execution_trace_hash
+test_result_hash
+verification_result_hash
+reflection_hash
+promotion_decision
+postcondition_result
+rollback_reference
+```
+
+The packet is evidence of the process and its observations; it is not itself proof that an engineering claim is true.
+
+### Promotion gate
+
+Promotion is allowed only when all applicable gates succeed:
+
+`authorization ∧ execution_success ∧ tests_pass ∧ verification_pass ∧ holdout_pass ∧ postcondition_pass ∧ evidence_complete`.
+
+Unknown authorization, incomplete evidence, failed verification or ambiguous postconditions fail closed.
+
+### Memory and skill promotion
+
+Reflection may propose a lesson, but a lesson becomes durable only after:
+
+`candidate → provenance check → contradiction check → holdout regression → versioned promotion`.
+
+A promoted lesson must be reversible and attributable to the cycle that created it.
 
 ## Safety and assurance
 
@@ -115,7 +181,11 @@ Refusal-vector, CAST and ablation material from the source is restricted to defe
 9. MCP authorization tests;
 10. failure injection;
 11. resource and latency budgets;
-12. end-to-end autonomous-cycle audit.
+12. end-to-end autonomous-cycle audit;
+13. evidence-packet schema conformance;
+14. fail-closed testing for missing or ambiguous authority;
+15. deterministic postcondition/readback tests;
+16. cross-cycle stale-state and supersession tests.
 
 ## Exit criterion
 
