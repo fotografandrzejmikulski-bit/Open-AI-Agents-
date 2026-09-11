@@ -1,0 +1,56 @@
+version: 31
+registry_type: canonical_portfolio_snapshot
+as_of: 2026-09-12
+repository: mojealterego/Knowledge-projects
+branch: main
+supersedes: docs/PORTFOLIO-REGISTRY-2026-09-10-v30.yaml
+identity_rule: project-47-lineage-first
+status: COMPLETE
+
+registry_scope:
+  canonical_legacy_sequence: 1-59
+  later_artifact_sequence: 60-71
+  architecture_candidates: [72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115]
+  inherited_registry: docs/PORTFOLIO-REGISTRY-2026-09-10-v30.yaml
+
+iteration_35:
+  status: COMPLETE
+  source_reference_count: 26
+  unique_source_clusters: 3
+  knowledge_artifact: docs/knowledge-base/2026-09-12-corpus-iteration-35-privacy-identity-voip-video-generation.md
+  ingestion_record: docs/KNOWLEDGE-INGESTION-2026-09-12-ITERATION-35.md
+  evolution_record: docs/PROJECT-EVOLUTION-2026-09-12-ITERATION-35.md
+  genesis_record: docs/PROJECT-GENESIS-2026-09-12-ITERATION-35.md
+  amendments_record: docs/PROJECT-AMENDMENTS-2026-09-12-ITERATION-35.md
+  new_projects: [115]
+  affected_projects: [37,54,61,72,95,97,100,105,108,111,112,113,115]
+
+project_115:
+  canonical_id: 115
+  title: "OmniPrivacy Identity Relay & Disposable Communications Fabric MAX"
+  artifact: projekty/115-omniprivacy-identity-relay-disposable-communications-fabric-max.md
+  status: PROPOSED
+  maturity: ARCHITECTURE_BASELINE
+  derived_from: [37,54,61,72,95,100,105,108,111,112]
+  boundary: "Provider-neutral privacy and identity-separation fabric owning alternate phone/email/VoIP identities, lifecycle, routing, consent, retention, revocation, provenance and defensive abuse controls."
+
+source_decisions:
+  communication_privacy: new_project_boundary
+  voip: corroborating_and_architecture_input
+  disposable_email: privacy_pattern_and_lifecycle_input
+  romantut1988_repositories: market_and_benchmark_corpus; no operational verification-abuse automation
+  video_generation_topics: evolution_input_for_p97_p113
+
+portfolio_invariants:
+  - "communication alias != authoritative identity"
+  - "memory != authorization"
+  - "capability integration != authorization"
+  - "provider claim != independent benchmark"
+  - "temporary channel != anonymity guarantee"
+  - "caller-ID spoofing/fraud automation is defensive threat-model input only"
+  - "bulk account activation and anti-abuse bypass are not operationalized"
+  - "stale routing state cannot overwrite newer authoritative state"
+  - "revocation must propagate to provider adapters where supported"
+  - "identity lifecycle changes require audit/provenance"
+  - "generated code/configuration remains untrusted until tested"
+  - "image/video topic freshness is discovery evidence, not production verification"
