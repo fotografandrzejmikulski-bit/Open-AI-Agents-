@@ -1,0 +1,66 @@
+schema: portfolio-delta/v1
+date: 2026-09-11
+iteration: 48
+source_batch:
+  type: uploaded_images
+  count: 10
+  exact_duplicates: 0
+  themes:
+    - ai-coding-tools
+    - osint-reconnaissance
+    - json
+    - git-internals
+    - ethical-security-learning
+    - web-security
+    - authentication
+    - network-security
+    - sql
+    - zero-trust
+new_numbered_project: false
+mappings:
+  P100:
+    - ai coding capability selection
+    - Git provenance
+    - JSON schema contracts
+    - web security policy controls
+    - authentication/authorization lifecycle
+    - network and Zero Trust controls
+    - SQL verification
+    - DevSecOps end-to-end chain
+  P117:
+    - repository provenance
+    - structured agent messages
+    - authn/authz lifecycle
+    - network trust boundaries
+    - deployment verification
+  P119:
+    - structured observation/decision contracts
+    - local capability authorization
+    - network security model
+    - Zero Trust controls
+  P32:
+    - OSINT reconnaissance taxonomy
+    - passive-first collection
+    - target authorization boundary
+    - provenance/confidence metadata
+    - recon result vs identity proof
+  database-substrate:
+    - query-plan evidence
+    - workload benchmarking
+    - structured-data vs trusted-state separation
+architecture:
+  capability_chain: "DISCOVER -> SELECT ADAPTER -> AUTHENTICATE -> AUTHORIZE -> READ STATE -> PLAN -> EXECUTE -> TEST -> BUILD -> PROVENANCE -> DEPLOY -> OBSERVE -> VERIFY -> PROMOTE/ROLLBACK"
+invariants:
+  - "authenticated != authorized"
+  - "token-valid != action-allowed"
+  - "valid JSON != trusted instruction"
+  - "recon result != identity proof"
+  - "tool availability != authorization"
+  - "working-tree view != canonical history"
+  - "SQL success != query optimality"
+  - "TLS/VPN != complete Zero Trust"
+  - "artifact != verified runtime state"
+evidence_policy:
+  volatile_infographic_claims: unverified_without_independent_source
+  security_tool_use: authorized_targets_only
+  ranking_claims: not_treated_as_benchmarks
