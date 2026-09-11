@@ -1,0 +1,46 @@
+iteration: 39
+date: 2026-09-11
+trigger: fable-storyworld-mobile-corpus
+source_package: com.fableapp
+
+new_projects:
+  - id: P118
+    name: NeXus StoryWorld Generator & Cinematic Narrative Runtime MAX
+    status: proposed-architecture-baseline
+    rationale:
+      - persistent storyworld state is a distinct domain
+      - multimodal continuity spans narrative, image, voice, music and video
+      - composes P100, P116, P117 and multimedia substrate without replacing them
+
+existing_project_upgrades:
+  P100:
+    - StoryWorld capability-broker adapter
+    - selective StoryWorld context projection
+    - continuity results treated as observations, not model authority
+  P116:
+    - Character Reference Contract
+    - reusable visual-continuity bridge
+    - explicit consent/provenance for real-person references
+  P117:
+    - multimodal story-production app verification class
+    - media-generation/readback workflows
+    - stronger permission-as-capability separation
+
+knowledge:
+  - docs/knowledge-base/2026-09-11-fable-storyworld-mobile-corpus.md
+  - canonical-concept: StoryWorld State
+
+security:
+  - uploaded APKs remain untrusted
+  - manifest permissions are metadata, not authorization
+  - personal photos, memories and voices require provenance/consent
+  - consequential generation/export/publication requires readback and verification
+
+verification:
+  manifest: observed-directly
+  icon: observed-visual-asset
+  apk-internals: not-asserted
+  public-product-capabilities: externally-verified-context
+  architecture: synthesis-target
+
+root_readme: PENDING
