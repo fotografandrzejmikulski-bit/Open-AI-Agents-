@@ -1,0 +1,45 @@
+version: 32
+registry_type: canonical_portfolio_snapshot
+as_of: 2026-09-11
+repository: mojealterego/Knowledge-projects
+branch: main
+supersedes: docs/PORTFOLIO-REGISTRY-2026-09-11-v31.yaml
+identity_rule: project-47-lineage-first
+status: COMPLETE
+
+iteration_36:
+  status: COMPLETE
+  purpose: repository-wide governance and architecture audit
+  audit_artifact: docs/REPOSITORY-AUDIT-2026-09-11.md
+  changed_projects: [115]
+  unchanged_but_affected_lineages: [61,72,80,94,100,108,111,114]
+  findings:
+    - README portfolio summary is behind the canonical registry
+    - project topology is flat Markdown rather than per-project directories
+    - architecture-to-runtime verification remains the dominant maturity gap
+    - P115 is the canonical cross-project autonomous engineering orchestration boundary
+  decisions:
+    topology_migration: "defer destructive migration; preserve lineage and compatibility"
+    autonomous_engineering: "do not create duplicate project; P115 owns lifecycle orchestration"
+    evidence: "require replayable evidence packets and explicit postconditions"
+    self_improvement: "require holdout regression, provenance and deterministic rollback"
+    simulation: "advisory only; never execution evidence"
+
+project_115:
+  canonical_id: 115
+  title: "OmniAutonomous Engineering Intelligence Orchestrator MAX"
+  status: PROPOSED
+  maturity: ARCHITECTURE_BASELINE
+  iteration_36_update: "Added authoritative-state taxonomy, evidence-packet minimum, fail-closed promotion gate, reversible memory/skill promotion and deterministic replay/postcondition requirements."
+
+portfolio_invariants:
+  - "model capability != authorization"
+  - "memory != policy"
+  - "MCP capability != authorization"
+  - "simulation != execution evidence"
+  - "generated artifact != trusted artifact"
+  - "reflection != truth"
+  - "evidence != inference != hypothesis != verified fact"
+  - "promotion requires applicable authorization, execution, tests, verification, holdout, postcondition and evidence gates"
+  - "rollback must be deterministic and auditable"
+  - "stale state cannot silently overwrite newer authoritative state"
