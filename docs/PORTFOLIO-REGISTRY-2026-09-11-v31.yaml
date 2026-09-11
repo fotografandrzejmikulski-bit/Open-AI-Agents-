@@ -1,0 +1,63 @@
+version: 31
+registry_type: canonical_portfolio_snapshot
+as_of: 2026-09-11
+repository: mojealterego/Knowledge-projects
+branch: main
+supersedes: docs/PORTFOLIO-REGISTRY-2026-09-10-v30.yaml
+identity_rule: project-47-lineage-first
+status: COMPLETE
+
+registry_scope:
+  canonical_legacy_sequence: 1-59
+  later_artifact_sequence: 60-71
+  architecture_candidates: [72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115]
+  inherited_registry: docs/PORTFOLIO-REGISTRY-2026-09-10-v30.yaml
+
+iteration_35:
+  status: COMPLETE
+  source_batch_count: 1
+  unique_source_clusters: 1
+  source_description: "Autonomous engineering intelligence architecture report for Google Antigravity, covering persistent memory, Titans, R3Mem, CWM, MCTS, AlphaEvolve, MARS, neuro-symbolic verification, procedural skills and MCP integrations."
+  knowledge_artifact: docs/knowledge-base/2026-09-11-corpus-iteration-35-autonomous-engineering-antigravity-memory-cwm-rsi-neurosymbolic.md
+  ingestion_record: docs/KNOWLEDGE-INGESTION-2026-09-11-ITERATION-35.md
+  evolution_record: docs/PROJECT-EVOLUTION-2026-09-11-ITERATION-35.md
+  genesis_record: docs/PROJECT-GENESIS-2026-09-11-ITERATION-35.md
+  amendments_record: docs/PROJECT-AMENDMENTS-2026-09-11-ITERATION-35.md
+  new_projects: [115]
+  affected_projects: [61,72,80,94,100,108,111,114,115]
+  source_decisions:
+    autonomous_engineering: "new orchestration boundary; create P115"
+    memory: "strengthens P114; no duplicate memory project"
+    cwm_mcts_rsi: "strengthens P80/P94/P100/P115"
+    neurosymbolic_verification: "strengthens P72/P108/P114/P115"
+    mcp: "strengthens P100/P111/P115; capability is not authorization"
+    refusal_ablation: "defensive security research only; not operationalized"
+    benchmarks: "source-reported until independently reproduced"
+
+project_115:
+  canonical_id: 115
+  title: "OmniAutonomous Engineering Intelligence Orchestrator MAX"
+  artifact: projekty/115-omniautonomous-engineering-intelligence-orchestrator-max.md
+  status: PROPOSED
+  maturity: ARCHITECTURE_BASELINE
+  derived_from: [80,94,100,108,111,114]
+  boundary: "Orchestrates persistent memory, simulation, planning, generation, sandbox execution, testing, formal verification, reflection, skill learning, regression and reversible promotion into one autonomous engineering lifecycle across authorized development environments."
+
+deduplication:
+  - "The source's individual memory, CWM, RSI, verification and MCP mechanisms map to existing lineages and are not duplicated as standalone projects."
+  - "P115 is distinct because it owns the cross-project autonomous engineering lifecycle orchestration boundary."
+
+portfolio_invariants:
+  - "model capability != authorization"
+  - "memory != authorization"
+  - "approval != execution"
+  - "MCP/capability integration != authorization"
+  - "tool output is untrusted"
+  - "simulation != execution evidence"
+  - "generated code/configuration is untrusted until tested"
+  - "self-improvement requires evaluation, holdout regression and rollback"
+  - "memory mutation requires provenance and conflict resolution"
+  - "reflection output is a candidate lesson, not authoritative truth"
+  - "source-reported performance != independently reproduced verification"
+  - "evidence != inference != hypothesis != verified fact"
+  - "moderation bypass != legitimate engineering capability"
