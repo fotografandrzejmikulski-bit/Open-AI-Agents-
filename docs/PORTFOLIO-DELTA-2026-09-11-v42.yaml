@@ -1,0 +1,97 @@
+version: 42
+registry_type: portfolio_delta
+as_of: 2026-09-11
+repository: mojealterego/Knowledge-projects
+branch: main
+supersedes: docs/PORTFOLIO-DELTA-2026-09-11-v41.yaml
+trigger: 10-image-ai-cloud-memory-security-api-auth-corpus
+
+source_audit:
+  images_reviewed: 10
+  status: complete
+  treatment: architectural_reference_and_capability_taxonomy
+  volatile_product_lists_promoted_to_facts: false
+
+updates:
+  - project: P100
+    impact: HIGH
+    action: extend
+    artifact: projekty/100-nexus-ai-code-security-auth-api-cloud-tooling-extension.md
+    themes:
+      - typed_provider_capability_registry
+      - API_contracts
+      - AuthN_AuthZ
+      - credential_boundaries
+      - web_security_baseline
+      - security_tool_adapters
+      - cloud_capability_abstraction
+
+  - project: P40
+    impact: HIGH
+    action: extend
+    artifact: projekty/40-omnicore-agentic-development-visual-intelligence-fabric-security-identity-cloud-extension.md
+    themes:
+      - capability_state_machine
+      - identity_delegation
+      - network_capability_firewall
+      - API_execution_semantics
+      - security_observations
+      - multicloud_substrate_neutrality
+      - memory_tiers
+
+  - project: P28
+    impact: HIGH
+    action: extend
+    artifact: projekty/28-omnicore-ai-foundry-api-security-identity-verification-extension.md
+    themes:
+      - API_contract_testing
+      - AuthN_AuthZ_testing
+      - security_analysis
+      - dependency_checks
+      - artifact_promotion_gate
+
+  - project: P37
+    impact: MEDIUM-HIGH
+    action: extend
+    artifact: projekty/37-sovereign-edge-ai-multimodel-agent-fabric-multicloud-substrate-extension.md
+    themes:
+      - provider_neutral_cloud_contracts
+      - local_edge_cloud_routing
+      - sovereignty_constraints
+
+  - project: P114
+    impact: MEDIUM
+    action: extend
+    artifact: projekty/114-omnicognitive-engineering-memory-verification-substrate-memory-hierarchy-extension.md
+    themes:
+      - ephemeral_memory
+      - durable_memory
+      - provenance_promotion
+      - stable_identity
+
+  - project: P39
+    impact: MEDIUM
+    action: reinforce_by_reference
+    notes: AWS remains external comparison material; Alibaba Cloud remains the concrete project substrate.
+
+  - project: P33
+    impact: MEDIUM
+    action: reinforce
+    themes:
+      - secure_generated_app_defaults
+      - API_auth_observability
+
+  - project: P16
+    impact: MEDIUM
+    action: reinforce
+    themes:
+      - reusable_security_patterns
+      - API_design_prompts
+      - developer_resource_discovery
+
+project_genesis:
+  new_numbered_project: false
+  rationale: Existing control-plane, verified-code, cloud-fabric, memory and application-builder projects already own the relevant boundaries.
+
+readme_sync: PENDING
+verification_status: architecture_enhanced_implementation_not_yet_verified
