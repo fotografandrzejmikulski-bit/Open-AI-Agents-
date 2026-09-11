@@ -1,0 +1,48 @@
+iteration: 40
+date: 2026-09-11
+trigger: omni-mas-local-android-runtime
+
+new_projects:
+  - id: P119
+    name: OmniMAS Local Android Agent Runtime MAX
+    status: source-ingested-architecture-baseline
+    rationale:
+      - concrete local Android multi-agent runtime boundary
+      - Planner/Grounding/Executor/Supervisor lifecycle is independently reusable
+      - composes P100 and P117 without replacing their orchestration/security ownership
+
+existing_project_upgrades:
+  P100:
+    - local Android execution adapter
+    - route mobile intent through capability authorization
+    - treat runtime results as observations requiring verification
+  P117:
+    - concrete Planner/Grounding/Executor/Supervisor mobile profile
+    - AccessibilityService capability contract
+    - NotificationListenerService capability contract
+    - local Ollama execution profile
+    - supervisor-driven readback/replan verification
+  P116:
+    - no ownership change; P119 may execute bounded photo workflows through P117
+  P118:
+    - no ownership change; P119 may execute bounded StoryWorld/media workflows through P117
+
+knowledge:
+  - docs/knowledge-base/2026-09-11-omni-mas-local-android-runtime.md
+  - canonical-pattern: Planner -> Grounding -> Executor -> Supervisor
+
+security:
+  - accessibility and notification access are privileged capabilities
+  - model plans are untrusted proposals
+  - UI events are not authoritative success evidence
+  - no undocumented OEM intents or private settings manipulation
+  - no credential extraction or authentication bypass
+  - local LLM does not bypass authorization boundaries
+
+verification:
+  source_configuration: observed-directly
+  runtime_kotlin: not-included-in-intake
+  build_execution: not-independently-reproduced
+  architecture: synthesis-target
+
+root_readme: PENDING
