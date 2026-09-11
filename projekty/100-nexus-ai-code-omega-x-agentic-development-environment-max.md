@@ -304,11 +304,46 @@ The LU/Flow material strengthens P100's multimodal production adapter: natural-l
 
 P100 explicitly rejects credential extraction, hidden-endpoint abuse, CAPTCHA-token harvesting and authentication bypass as product capabilities. Only authorized APIs, explicit credentials, scoped tools, provenance and postcondition verification can enter the execution fabric. The source's descriptions of hidden endpoints and browser-token extraction remain threat-model material, not implementation requirements.
 
+## Iteration 36 — MCP selective-context, sandbox and desktop-control convergence
+
+The supplied MCP corpus adds a concrete context-efficiency layer to P100. Sequential Thinking is treated as a decomposition/reflection capability; Memory MCP as persistent graph memory; documentation servers such as Context7 as current grounding; GitHub MCP as repository control-plane access; Filesystem MCP as bounded file capability; and Ripgrep MCP as a high-selectivity retrieval accelerator. P100 should therefore route context through a **semantic context broker** instead of loading large repository regions indiscriminately. fileciteturn16file0L34-L64 fileciteturn16file0L67-L79 fileciteturn16file0L95-L116
+
+The execution fabric is extended with an explicit capability taxonomy:
+
+```text
+READ CONTEXT
+  ↓
+PLAN / DECOMPOSE
+  ↓
+AUTHORIZE CAPABILITY
+  ↓
+SANDBOX / MCP / BROWSER / DESKTOP
+  ↓
+AUTHORITATIVE READBACK
+  ↓
+POSTCONDITION VERIFY
+  ↓
+ARTIFACT LEDGER
+```
+
+E2B-style sandboxes, Docker, WebAssembly/WASI and Electron/Tauri/CDP/IPC are treated as bounded execution substrates. The fact that an MCP server can expose a capability does not grant authorization to use it, and emitting a GUI/browser event is not sufficient evidence that the requested application state changed. fileciteturn19file2L80-L106 fileciteturn19file8L313-L328
+
+### New P100 requirements
+
+- selective context retrieval with provenance/freshness metadata;
+- explicit tool side-effect declarations;
+- per-capability authorization and quota;
+- sandbox identity and lifecycle tracking;
+- browser/desktop action readback;
+- MCP tool-result classification as observation rather than authority;
+- regression tests for confused-deputy and stale-context behavior;
+- PL/EN UI localization remains a product invariant.
+
 ## Maturity
 Architecture-ready product/integration concept. Source reports of installed extensions, successful builds, latency and RSI remain to be independently reproduced in the repository's verification environment.
 
 ## Derived from
-P24, P27, P28, P37, P40, P54, P57, P59, P61, P65, P72, P80, P87, P90, P91, P97, P98.
+P24, P27, P28, P37, P40, P54, P57, P59, P61, P65, P72, P80, P87, P90, P91, P97, P98, P114.
 
 ## Primary source witnesses
 - `NeXus AI Code.md`
@@ -322,3 +357,5 @@ P24, P27, P28, P37, P40, P54, P57, P59, P61, P65, P72, P80, P87, P90, P91, P97, 
 - `Architektura własnej platformy typu AI App Builder.PDF`
 - `Kod Lovable.dev i Alternatyw.PDF`
 - `Integracja API z Locally Uncensored.PDF`
+- `Zaawansowane Serwery MCP dla Agentów AI.PDF`
+- `Zaawansowani Agenci AI: Tworzenie Oprogramowania i Procesy Kreatywne.PDF`
