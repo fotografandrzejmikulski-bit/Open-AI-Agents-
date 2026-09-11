@@ -1,0 +1,83 @@
+version: 38
+date: 2026-09-11
+trigger: github-devsecops-agent-engineering-corpus
+source_class: external-verified-reference
+knowledge_artifact: docs/knowledge-base/2026-09-11-github-devsecops-agent-engineering-corpus.md
+
+project_updates:
+  - id: P100
+    name: NeXus AI Code OMEGA-X Agentic Development Environment MAX
+    impact: high
+    changes:
+      - codespaces-devcontainer-reproducibility
+      - codeql-sast-gates
+      - artifact-digest-provenance
+      - github-app-least-privilege
+      - github-control-plane-projects-actions-packages
+      - marketplace-capability-packaging
+      - electron-security-hardening
+      - npm-supply-chain-governance
+    status: architecture-enhanced-not-verified
+
+  - id: P117
+    name: NeXus Mobile Multimodal Agent Runtime MAX
+    impact: medium-high
+    changes:
+      - reproducible-android-build-boundary
+      - kotlin-codeql-security-gate
+      - apk-aab-digest-provenance
+      - deployment-to-runtime-readback
+    status: architecture-enhanced-not-verified
+
+  - id: P119
+    name: OmniMAS Local Android Agent Runtime MAX
+    impact: high
+    changes:
+      - kotlin-implementation-evidence-corrected
+      - codeql-sast-release-gate
+      - dependency-governance
+      - reproducible-build-requirement
+      - artifact-provenance
+      - deployment-readback
+      - node-identity-toctou-risk-recorded
+      - notification-selective-projection-requirement
+    status: architecture-baseline-evolved
+
+  - id: P72
+    name: OmniCore Cross-Framework Agent Assurance & Runtime Verification Fabric MAX
+    impact: medium
+    changes:
+      - artifact-identity
+      - provenance-chain
+      - security-evidence
+      - promotion-gates
+    status: reinforced
+
+  - id: P114
+    name: reusable cognitive memory and verification substrate
+    impact: medium
+    changes:
+      - evidence-chain-and-promotion-boundary-reinforcement
+    status: reinforced
+
+new_projects: []
+
+security_invariants:
+  - capability-is-not-authorization
+  - mcp-exposure-is-not-authorization
+  - model-output-is-not-authorization
+  - build-success-is-not-deployment-proof
+  - artifact-digest-is-required-for-release-identity
+  - runtime-readback-is-required-for-consequential-state
+  - external-documentation-does-not-prove-local-implementation
+
+verification_gaps:
+  - codeql-not-yet-run-or-recorded-for-portfolio
+  - artifact-provenance-enforcement-not-yet-verified
+  - p119-node-id-stability-needs-tests
+  - p119-notification-redaction-needs-tests
+  - p119-standalone-supervisor-module-not-yet-present
+
+project_genesis_decision:
+  new_project: false
+  rationale: Cross-cutting DevSecOps and agent-control-plane capabilities fit existing P72/P100/P117/P119/P114 boundaries.
