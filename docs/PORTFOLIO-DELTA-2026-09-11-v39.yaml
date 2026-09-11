@@ -1,0 +1,84 @@
+version: 39
+date: 2026-09-11
+trigger: complete-github-corpus-link-audit
+source_class: external-verified-reference
+knowledge_artifact: docs/knowledge-base/2026-09-11-github-devsecops-agent-engineering-corpus.md
+
+source_audit:
+  supplied_urls: 38
+  audited_urls: 38
+  completeness: 1.0
+  bounded_sources:
+    - learn.github.com
+    - www.github.careers/careers-home
+    - github.com/orgs/github/repositories query-filter variants
+
+project_updates:
+  - id: P100
+    impact: high
+    changes:
+      - agentic-workflow-reference-patterns
+      - workflow-firewall-and-mcp-gateway-reference
+      - official-github-mcp-server-compatibility
+      - artifact-attestation
+      - npm-provenance-and-trusted-publishing
+      - electron-forge-fiddle-release-controls
+      - typed-roadmap-state
+      - community-feedback-triage-loop
+    status: architecture-enhanced-not-verified
+
+  - id: P117
+    impact: high
+    changes:
+      - mobile-marketplace-capability-metadata
+      - kotlin-java-codeql-gate
+      - dependency-supply-chain-policy
+      - apk-aab-digest-attestation-provenance
+      - deployment-device-readback
+    status: architecture-enhanced-not-verified
+
+  - id: P119
+    impact: high
+    changes:
+      - mobile-ci-capability-permissioning
+      - github-agent-to-mobile-authorization-boundary
+      - artifact-attestation-provenance
+      - dependency-governance
+      - release-readback
+    status: architecture-baseline-evolved
+
+  - id: P72
+    impact: medium
+    changes:
+      - evidence-provenance-promotion-reinforcement
+    status: reinforced
+
+  - id: P114
+    impact: medium
+    changes:
+      - credential-evidence-and-promotion-boundary-reinforcement
+    status: reinforced
+
+new_projects: []
+
+security_invariants:
+  - model-output-is-not-authorization
+  - mcp-exposure-is-not-authorization
+  - marketplace-installation-is-not-trust
+  - ci-success-is-not-deployment-proof
+  - artifact-digest-is-release-identity
+  - provenance-attestation-is-evidence-not-authority
+  - external-documentation-does-not-prove-local-implementation
+  - retrieval-failure-is-bounded-uncertainty
+
+verification_gaps:
+  - portfolio-codeql-execution-not-yet-verified
+  - artifact-attestation-enforcement-not-yet-verified
+  - p119-node-id-stability-tests-pending
+  - p119-notification-redaction-tests-pending
+  - p119-standalone-supervisor-module-absent
+  - root-readme-sync-pending
+
+project_genesis_decision:
+  new_project: false
+  rationale: Complete corpus is cross-cutting DevSecOps, agentic-control-plane, documentation, mobile-release and assurance knowledge that fits P72/P100/P117/P119/P114.
