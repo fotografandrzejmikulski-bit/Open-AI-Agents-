@@ -1,0 +1,37 @@
+schema: portfolio-delta/v1
+date: 2026-09-11
+iteration: 49
+source_batch:
+  type: uploaded_images
+  count: 2
+  themes:
+    - tcp-udp
+    - kubernetes
+    - container-orchestration
+    - deployment-reconciliation
+new_numbered_project: false
+mappings:
+  P100:
+    - transport capability metadata
+    - Kubernetes controlled deployment substrate
+    - digest-bound rollout provenance
+    - reconciliation separated from authorization
+  P117:
+    - transport/failure semantics
+    - pod/container runtime isolation
+    - health/readiness evidence
+    - rollback/promotion gates
+  P119:
+    - explicit network capability semantics
+    - reachability vs authorization
+    - network/workload Zero Trust boundaries
+cross_cutting:
+  - "desired state -> control plane -> workload -> observe -> actual state -> drift -> reconcile"
+  - "network reachability != authorization"
+  - "transport reliability != application correctness"
+  - "reconciliation != authorization"
+  - "successful rollout != verified business correctness"
+evidence_policy:
+  diagrams: conceptual_architecture_only
+  performance_claims: require_workload_specific_benchmark
+  deployment_claims: require_runtime_readback
