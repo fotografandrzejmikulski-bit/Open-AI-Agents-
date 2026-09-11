@@ -2,250 +2,70 @@
 
 ## Corpus status
 
-`SOURCE INGESTED → EXTERNAL-VERIFIED REFERENCE KNOWLEDGE → PROJECT IMPACT ANALYSIS`
-
-This artifact consolidates the GitHub/GitHub-adjacent links supplied for study. It records reusable engineering principles and their impact on the portfolio. External documentation is treated as reference evidence; it does not prove that an equivalent feature is already implemented in `Knowledge-projects`.
-
-## Source families
-
-- GitHub Docs repository and contribution model.
-- GitHub repositories, organization/project/package surfaces and repository query patterns.
-- GitHub Codespaces and dev-container configuration/security.
-- GitHub Artifact Metadata and artifact provenance concepts.
-- GitHub CodeQL, code scanning, CLI, query packs and model packs.
-- GitHub Apps / short-lived installation tokens and least-privilege permissions.
-- Official Model Context Protocol repository/specification.
-- GitHub Marketplace Apps and Actions.
-- GitHub Community as a feedback/discovery loop.
-- GitHub public roadmap as a product-planning reference model.
-- npm documentation and dependency/package governance.
-- Electron security guidance.
-- Open Source Guides and repository/project presentation patterns.
-
-## 1. GitHub as an engineering control plane
-
-GitHub should be modeled as more than source hosting. The useful control-plane surfaces are:
-
-```text
-REPOSITORY
- ├── SOURCE
- ├── ISSUES / DISCUSSION
- ├── PROJECTS
- ├── ACTIONS / CI
- ├── CODE SECURITY
- ├── PACKAGES / ARTIFACTS
- ├── CODESPACES
- ├── APPS / INTEGRATIONS
- └── RELEASE / PROVENANCE
-```
-
-For the portfolio, this reinforces the separation between source truth, planning state, CI evidence, artifacts and deployed runtime state.
-
-## 2. Codespaces / environment-as-code
-
-GitHub Codespaces is a dedicated, configurable development environment. Repository-level dev-container configuration can define the working environment so a new environment contains the required project setup. Security guidance emphasizes isolated environments, trusted repositories, dependency hygiene and development environment secrets.
-
-Reusable principle:
-
-`BUILD ENVIRONMENT = VERSIONED PROJECT ARTIFACT`
-
-This is applicable to P100 and the wider repository verification fabric. It should not be confused with production runtime isolation.
-
-## 3. CodeQL as code-as-data security analysis
-
-CodeQL treats supported source code as queryable data. The workflow is conceptually:
-
-```text
-SOURCE
-  ↓
-CODEQL DATABASE
-  ↓
-QUERIES / QUERY PACKS / MODELS
-  ↓
-FINDINGS
-  ↓
-SARIF / CODE-SCANNING ALERTS
-```
-
-GitHub documentation explicitly lists Java/Kotlin among supported compiled languages, alongside C/C++, C#, Go, JavaScript/TypeScript, Python, Ruby, Rust and Swift. GitHub Actions workflows are also analyzable.
-
-CodeQL packs separate reusable queries, libraries and model packs. Query packs bundle compiled queries and dependencies for more consistent execution. Model packs can extend analysis for frameworks not recognized by default, where supported.
-
-Reusable principle:
-
-`SECURITY ANALYSIS = QUERYABLE EVIDENCE, NOT A VAGUE CHECKMARK`
-
-The repository should distinguish CodeQL configuration, CodeQL execution, findings and remediation evidence.
-
-## 4. Artifact provenance and digest discipline
-
-The supplied GitHub Artifact Metadata reference establishes a useful artifact-lifecycle model: artifacts should be associated with identity, digest and provenance/deployment context rather than being treated as anonymous build outputs.
-
-Portfolio implication:
-
-```text
-SOURCE COMMIT
-    ↓
-BUILD
-    ↓
-ARTIFACT DIGEST
-    ↓
-PROVENANCE
-    ↓
-ENVIRONMENT / DEPLOYMENT RECORD
-    ↓
-RUNTIME VERIFICATION
-```
-
-A passing build is not proof that the deployed artifact is the artifact that was built, nor that the runtime behaves as intended.
-
-## 5. GitHub Apps and least privilege
-
-GitHub App installation-token patterns reinforce short-lived, scoped credentials and least-privilege permissions. The agent architecture should therefore prefer capability-scoped, expiring credentials over broad persistent tokens where an integration supports them.
-
-This strengthens the repository invariant:
-
-`CAPABILITY ≠ AUTHORIZATION ≠ CREDENTIAL`
-
-A tool can exist, an agent can request it, and a credential can be technically capable of performing it without any of those facts alone authorizing the action.
-
-## 6. MCP standardization
-
-The official Model Context Protocol repository provides the specification, schema and documentation. MCP should be treated as a capability integration protocol with explicit client/server roles, capability negotiation, typed tools/resources/prompts and versioned protocol contracts.
-
-The important portfolio rule remains:
-
-`MCP EXPOSURE → CAPABILITY DISCOVERY → POLICY/AUTHORIZATION → EXECUTION`
-
-not:
-
-`MCP TOOL EXISTS → AGENT MAY EXECUTE`
-
-Tool schemas and annotations are useful for interoperability and reasoning, but untrusted metadata must not become the sole security authority.
-
-## 7. Marketplace / ecosystem architecture
-
-GitHub Marketplace demonstrates a distribution layer for Apps and Actions. For agent systems this suggests a separation between:
-
-- capability implementation;
-- packaging;
-- discovery/installation;
-- permission grant;
-- runtime authorization;
-- versioning;
-- security evidence.
-
-An installable agent/tool is not automatically trusted merely because it is discoverable through a marketplace.
-
-## 8. Electron security
-
-Electron guidance materially strengthens P100 because P100 is explicitly an Electron/VS Code-oriented product concept.
-
-Relevant controls include:
-
-- current Electron/runtime versions;
-- context isolation;
-- sandboxing;
-- restrictive Content Security Policy;
-- HTTPS/WSS for remote content;
-- no insecure content mixed into privileged windows;
-- restricted navigation and window creation;
-- sender validation for IPC;
-- minimal preload/API exposure;
-- dependency scrutiny;
-- avoiding unsafe external-command/browser bridges;
-- treating remote content as untrusted.
-
-The desktop UI is therefore a security boundary, not merely a presentation layer.
-
-## 9. npm dependency governance
-
-The npm corpus strengthens dependency governance as part of the software supply chain. Dependency selection, update policy, package provenance and security review belong in the engineering lifecycle rather than being deferred to deployment.
-
-Reusable principle:
-
-`DEPENDENCY GRAPH = PART OF THE ARTIFACT'S SECURITY CONTEXT`
-
-## 10. Documentation as an agent-readable system
-
-GitHub Docs and related documentation patterns show that documentation can expose structured, machine-consumable information for AI agents. For this repository, project READMEs, knowledge artifacts and machine-readable portfolio deltas should therefore preserve explicit terminology, evidence classes, contracts and lifecycle states.
-
-Documentation is an engineering interface:
-
-`HUMAN READER ↔ DOCUMENTATION ↔ AGENT CONTEXT COMPILER`
-
-## 11. Feedback and roadmap loops
-
-GitHub Community and public-roadmap structures provide a useful product-learning model:
-
-```text
-USER / DEVELOPER SIGNAL
-      ↓
-ISSUE / DISCUSSION / FEEDBACK
-      ↓
-TRIAGE
-      ↓
-ROADMAP / PROJECT
-      ↓
-IMPLEMENTATION
-      ↓
-RELEASE
-      ↓
-OBSERVED OUTCOME
-      ↺
-```
-
-This is relevant to P100 and future agent-product governance but does not imply that every GitHub workflow should be copied literally.
-
-## 12. Portfolio impact
-
-### P100 — NeXus AI Code OMEGA-X
-
-Highest-impact project. The corpus strengthens:
-
-- Codespaces/dev-container reproducible development environments;
-- CodeQL/SAST security gates for supported languages, especially TypeScript/JavaScript/Rust/Kotlin/Java paths;
-- artifact digest/provenance and deployment records;
-- GitHub App least-privilege credential adapters;
-- GitHub Projects/Issues/Actions/Packages as an integrated engineering control plane;
-- MCP capability/authorization separation;
-- Marketplace-style capability packaging and discovery;
-- Electron security hardening;
-- npm dependency/supply-chain governance.
-
-No new project is required because these are direct extensions of P100's existing developer-environment/control-plane mission.
-
-### P117 — NeXus Mobile Multimodal Agent Runtime MAX
-
-The corpus strengthens the release and verification boundary:
-
-`Android source → reproducible build → SAST/CodeQL → signed/digested artifact → deployment record → device/runtime readback`.
-
-CodeQL is directly relevant to Java/Kotlin analysis. Artifact provenance is relevant to APK/AAB release identity. Codespaces are useful as a reproducible development option but are not part of the mobile runtime itself.
-
-### P119 — OmniMAS Local Android Agent Runtime MAX
-
-The supplied Kotlin implementation now supersedes the earlier intake assumption that Kotlin implementation files were absent. The runtime has direct implementation evidence for Planner/LLM decisioning, Grounding, Execution, task memory, notification capture and the mission loop.
-
-The external GitHub corpus adds:
-
-- CodeQL/SAST as a future CI gate;
-- reproducible build configuration;
-- dependency governance;
-- APK/AAB digest and provenance requirements;
-- separation of build evidence from deployment/runtime evidence.
-
-It does not prove that these controls are currently implemented.
-
-### P114 / assurance lineage
-
-The corpus reinforces reusable assurance concepts already represented in P114/P72: evidence chains, artifact identity, security scanning and promotion gates should remain separate from model output and UI state.
-
-### No new numbered project
-
-No distinct project is justified by this corpus. The material is predominantly cross-cutting DevSecOps/control-plane knowledge and maps cleanly into P72/P100/P117/P119/P114.
-
-## 13. Canonical engineering lifecycle added to the knowledge graph
+`38/38 SOURCES AUDITED → EXTERNAL-VERIFIED REFERENCE KNOWLEDGE → PORTFOLIO IMPACT`
+
+The supplied GitHub/GitHub-adjacent URL corpus was audited link-by-link. Each URL is classified below as engineering input, portfolio/governance input, discovery context, or no material engineering delta. Failed dynamic pages are recorded as such rather than silently inferred.
+
+## High-value findings added by the complete audit
+
+1. GitHub's current organization surface exposes an integrated control plane spanning repositories, Projects, Packages, Actions, Codespaces, code security, MCP Registry and agentic workflows. The live repository index also surfaces `gh-aw`, `gh-aw-actions`, `gh-aw-firewall`, `gh-aw-mcpg`, `artifact-attestations-opa-provider`, `copilot-sdk`, `redacting-logger`, CodeQL and the official GitHub MCP Server. These are reference patterns, not proof that equivalent components exist locally.
+2. GitHub's official organization page identifies `github-mcp-server` as its official MCP Server. This strengthens the existing P100/P72 distinction between MCP capability exposure and authorization rather than creating a new project.
+3. The GitHub Community repository index explicitly contains onboarding checklists for Code Security, Secret Protection and GitHub Advanced Security, reinforcing a checklist/evidence-gate layer around security enablement.
+4. Marketplace is not only a discovery catalog: current listings demonstrate integrations for CI/CD, code review, visual testing, backups, quality/security and mobile delivery. The architectural lesson is capability packaging + permissioning + evidence, not indiscriminate installation.
+5. GitHub's public roadmap uses explicit release phases (`exploring`, `in design`, `preview`, `ga`) plus feature-area/SKU/deployment labels. This is useful as a typed lifecycle model for project roadmap evidence.
+6. GitHub's public organization profile demonstrates a bounded presentation layer: profile README, pinned repositories and organization metadata. This is relevant to repository presentation, not core runtime engineering.
+7. GitHub Community discussions are a live feedback/incident signal surface; the current page includes Actions failures, Packages issues and programming help. This supports a feedback→triage→change→verification loop.
+8. The NASA Ingenuity case study provides concrete evidence that dependency graphs extend far beyond direct dependencies: the project depended on thousands of open-source contributors and layered dependencies. This strengthens dependency provenance and SBOM-style thinking.
+9. Electron's current site exposes Forge, Fiddle, security documentation and current stable runtime information. P100 should treat Electron version, packaging toolchain and security checklist as release inputs, not merely UI implementation details.
+10. npm's current documentation explicitly covers audit reports, provenance statements, OIDC trusted publishing, staged publishing, ECDSA registry signatures, 2FA and malware reporting. This materially strengthens P100's package-supply-chain controls.
+11. npm's current access-token documentation adds an important credential rule: token scope is bounded by user permission, organization access does not itself grant package publishing, and CI/CD publishing should prefer trusted publishing where possible.
+12. GitHub Careers was audited as organizational/process context, not product-engineering evidence. It reinforces ownership, shipping-to-learn, architecture briefs, CI/CD, operational excellence and cross-functional product engineering as process patterns, but it does not justify a portfolio project.
+13. GitHub Learn / Well-Architected pages were reachable only through partial/dynamic rendering in this audit. Search indexing confirms a Well-Architected library and checklist structure, but the complete page content was not reliably retrievable; therefore no detailed framework claims are promoted to verified knowledge.
+
+## Link-by-link audit
+
+| # | Supplied URL / source | Classification | Portfolio effect |
+|---:|---|---|---|
+| 1 | `github.com/github/docs` | GitHub Docs open-source repo/contribution model | P100 documentation-as-interface; governance evidence |
+| 2 | `github.com/orgs/github/repositories` | Live organization repository inventory | P100 discovery; agentic/DevSecOps reference patterns |
+| 3 | `github.com/orgs/github/projects?query=is:open` | Live project/planning surface | P100 roadmap/project-control adapter |
+| 4 | `github.com/orgs/github/packages` | Live package/artifact surface | P100 artifact/package control plane |
+| 5 | `docs.github.com/.../artifact-metadata` | Artifact metadata/provenance API | P100/P117/P119 release identity |
+| 6 | `learn.github.com/well-architected/` | Well-Architected landing/dynamic source | P100 governance model; detailed claims bounded |
+| 7 | `learn.github.com/` | GitHub Learn platform | P100 knowledge/learning discovery; no new runtime |
+| 8 | `docs.npmjs.com/` | npm registry/CLI/security docs | P100 dependency and publishing governance |
+| 9 | `electronjs.org/` | Electron platform + Forge/Fiddle/security | P100 desktop runtime and packaging hardening |
+| 10 | `codeql.github.com/docs/` | CodeQL reference docs | P100/P117/P119 SAST evidence gates |
+| 11 | `github.com/open-source/sponsors` | Sponsor/distribution/community surface | governance/distribution only |
+| 12 | `github.com/github` | GitHub organization profile | P100 ecosystem reference; official MCP Server identified |
+| 13 | `github.com/opensource.guide` | Open Source Guides repo | repository governance/documentation practice |
+| 14 | `github.com/readme/featured/nasa-ingenuity-helicopter` | open-source dependency case study | dependency/provenance/SBOM reasoning |
+| 15 | `github.com/orgs/github/repositories?q=template:true archived:false` | repository discovery filter | P100 template/environment discovery |
+| 16 | `github.com/orgs/github/repositories?q=archived:true` | archive inventory filter | lifecycle/retirement metadata; no new project |
+| 17 | `github.com/orgs/github/repositories?q=fork:true archived:false` | fork inventory filter | lineage/source-origin metadata |
+| 18 | `github.com/orgs/github/repositories?q=mirror:false fork:false archived:false` | source-of-truth inventory filter | repository lineage policy |
+| 19 | `github.com/orgs/github/repositories?q=visibility:public archived:false` | public repository filter | visibility/classification policy |
+| 20 | `github.com/github/roadmap` | typed public roadmap | P100 roadmap state machine |
+| 21 | `github.careers/careers-home` | organizational/process source | engineering-process principles only |
+| 22 | `docs.github.com/.../customizing-your-organizations-profile` | organization presentation docs | repository presentation/profile layer |
+| 23 | `docs.github.com/.../github-terms-of-service` | contractual/legal source | operational/legal boundary; no runtime feature |
+| 24 | `github.com/orgs/community/discussions` | live feedback/incident surface | P100 feedback→triage loop |
+| 25 | `github.com/orgs/community/repositories` | Community repo inventory | security onboarding/checklist patterns |
+| 26 | `github.com/mcp` | MCP ecosystem/discovery URL | MCP capability ecosystem reference; no authority upgrade |
+| 27 | `github.com/community/community` | community repository | feedback taxonomy + product signal |
+| 28 | `github.com/community` | community landing | discovery/support only |
+| 29 | `github.com/explore` | topic/collection discovery repo | capability/research discovery |
+| 30 | `github.com/topics` | topic discovery surface | agent research/discovery input |
+| 31 | `github.com/collections` | curated collection discovery | research/discovery input |
+| 32 | `github.com/resources/events` | event/webinar discovery | knowledge acquisition only |
+| 33 | `github.com/sponsors/explore` | sponsor discovery | ecosystem/governance only |
+| 34 | `github.com/marketplace` | marketplace catalog | P100 capability packaging/discovery/trust model |
+| 35 | `github.com/marketplace?type=apps` | Apps catalog | P100 install/permission/version/security boundary |
+| 36 | `github.com/marketplace?type=actions&category=mobile` | mobile Actions catalog | P117 CI/CD/mobile release ecosystem |
+| 37 | `github.com/features/ai/github-app` | GitHub Copilot App / agentic development surface | P100 agentic developer-workflow reference |
+| 38 | `github.com/codespaces` | Codespaces entry/auth surface | P100 reproducible dev-environment pattern |
+
+## Canonical engineering synthesis
 
 ```text
 INTENT
@@ -262,13 +82,15 @@ TEST
  ↓
 SAST / CODEQL
  ↓
-BUILD
+DEPENDENCY / SUPPLY-CHAIN CHECK
+ ↓
+BUILD ENVIRONMENT IDENTITY
  ↓
 ARTIFACT DIGEST
  ↓
-PROVENANCE
+PROVENANCE / ATTESTATION
  ↓
-DEPLOY
+DEPLOYMENT RECORD
  ↓
 AUTHORITATIVE READBACK
  ↓
@@ -277,13 +99,32 @@ VERIFY
 AUDIT / RELEASE EVIDENCE
 ```
 
-This is an engineering synthesis from the supplied sources and existing repository doctrine, not a claim that the entire lifecycle is already automated.
+## Project impact
+
+### P100 — NeXus AI Code OMEGA-X
+
+Highest impact. Absorb Codespaces/dev-container reproducibility, CodeQL, npm provenance/trusted publishing, artifact attestations, GitHub Projects/Actions/Packages, official GitHub MCP integration, Marketplace capability packaging, agentic-workflow/firewall/gateway reference patterns, Electron hardening and typed roadmap/feedback states.
+
+### P117 — NeXus Mobile Multimodal Agent Runtime MAX
+
+Strengthen Android release assurance with Kotlin/Java SAST, mobile Actions patterns, APK/AAB digest/provenance, deployment records and device readback. Marketplace mobile Actions are ecosystem evidence only.
+
+### P119 — OmniMAS Local Android Agent Runtime MAX
+
+Strengthen CI/release controls: Kotlin/Java CodeQL, reproducible environment, dependency policy, artifact digest/provenance, device deployment/readback and selective notification projection. No new Android privilege is inferred from GitHub sources.
+
+### P72 / P114
+
+Strengthen reusable assurance semantics: artifact identity, evidence chain, provenance, credential boundaries and promotion gates.
+
+### New project decision
+
+**No new numbered project.** The complete corpus is still cross-cutting and fits existing control-plane, mobile-release and assurance boundaries.
 
 ## Evidence boundaries
 
-- GitHub documentation claims: **EXTERNAL-VERIFIED CONTEXT**.
-- MCP specification concepts: **EXTERNAL-VERIFIED CONTEXT**.
-- Project mappings: **INFERRED / ARCHITECTURE SYNTHESIS**.
-- P100/P117/P119 implementation status: must be supported by repository/source evidence independently of the external documentation.
-- CodeQL execution in this repository: **NOT VERIFIED by this corpus**.
-- Artifact provenance implementation in this repository: **NOT VERIFIED by this corpus**.
+- External documentation/page content: **EXTERNAL-VERIFIED CONTEXT**.
+- Dynamic/failed retrieval: **BOUNDED / NOT FULLY RETRIEVED**.
+- Portfolio mappings: **ARCHITECTURE SYNTHESIS**.
+- Existing project implementation: requires independent repository/source evidence.
+- CodeQL, provenance, attestations and trusted publishing are **requirements**, not claims of current local implementation.
