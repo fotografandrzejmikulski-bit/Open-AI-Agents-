@@ -1,25 +1,25 @@
 # Project 119 — OmniMAS Local Android Agent Runtime MAX
 
 ## Status
-SOURCE INGESTED → ARCHITECTURE BASELINE — 2026-09-11
+SOURCE INGESTED → ARCHITECTURE BASELINE → KOTLIN IMPLEMENTATION EVIDENCE — 2026-09-11
 
 ## Mission
 Build a local-first Android multi-agent runtime in which a Planner, Grounding layer, Executor and Supervisor cooperate over device UI state, with local LLM inference and explicit verification.
 
 ## Source implementation witness
-The supplied README describes the runtime as `Planner → Grounding → Executor → Supervisor`, with optional local Ollama at `127.0.0.1:11434`. ADB/Termux is explicitly outside the production core and may be used only for debugging. fileciteturn78file0L3-L5
+The supplied README describes the runtime as `Planner → Grounding → Executor → Supervisor`, with optional local Ollama at `127.0.0.1:11434`. ADB/Termux is explicitly outside the production core and may be used only for debugging.
 
-Declared modules are AccessibilityService for UI perception/action, NotificationListenerService for authorized local notifications, Planner, Grounding, Executor, Supervisor and task-local Memory. fileciteturn78file0L7-L14
+Declared modules are AccessibilityService for UI perception/action, NotificationListenerService for authorized local notifications, Planner, Grounding, Executor, Supervisor and task-local Memory.
 
-The source explicitly rejects undocumented Samsung intents, a fictitious ADB Burst Mode, private system-setting manipulation and embedding API keys in the application. fileciteturn78file0L16-L18
+The source explicitly rejects undocumented Samsung intents, a fictitious ADB Burst Mode, private system-setting manipulation and embedding API keys in the application.
 
 ## Android platform evidence
 
-The supplied manifest defines `MainActivity`, an exported launcher activity, a non-exported `OmniAccessibilityService` protected by `BIND_ACCESSIBILITY_SERVICE`, and a non-exported `OmniNotificationListener` protected by `BIND_NOTIFICATION_LISTENER_SERVICE`. fileciteturn78file1L8-L35
+The supplied manifest defines `MainActivity`, an exported launcher activity, a non-exported `OmniAccessibilityService` protected by `BIND_ACCESSIBILITY_SERVICE`, and a non-exported `OmniNotificationListener` protected by `BIND_NOTIFICATION_LISTENER_SERVICE`.
 
-The accessibility configuration requests window-content retrieval and gesture execution, and observes window-state/content changes plus view-click/focus events. fileciteturn78file2L1-L8
+The accessibility configuration requests window-content retrieval and gesture execution, and observes window-state/content changes plus view-click/focus events.
 
-The Android project is named `OmniMAS-Local-Android`, uses an `:app` module, Android Gradle Plugin 8.13.0 and Kotlin Android plugin 2.2.21. The app module declares namespace/application ID `pl.omnimas.local`, compile/target SDK 36 and min SDK 28. Dependencies include AndroidX Core/Activity/Lifecycle, Jetpack Compose Material 3, coroutines, OkHttp 5.1.0 and JSON processing. fileciteturn79file0L10-L16 fileciteturn79file1L27-L30 fileciteturn79file2L41-L67
+The Android project is named `OmniMAS-Local-Android`, uses an `:app` module, Android Gradle Plugin 8.13.0 and Kotlin Android plugin 2.2.21. The app module declares namespace/application ID `pl.omnimas.local`, compile/target SDK 36 and min SDK 28. Dependencies include AndroidX Core/Activity/Lifecycle, Jetpack Compose Material 3, coroutines, OkHttp 5.1.0 and JSON processing.
 
 ## Canonical architecture
 
@@ -36,7 +36,7 @@ EXECUTOR
     ↓
 ACCESSIBILITY ACTION
     ↓
-READBACK
+AUTHORITATIVE READBACK
     ↓
 SUPERVISOR
     ├── VERIFY
@@ -49,41 +49,37 @@ SUPERVISOR
 
 Planner converts an operator task into bounded executable intent. Local Ollama is the source-described LLM path. Networked providers are not implied by this artifact.
 
+The supplied Kotlin implementation confirms that planning and per-step action decisions are implemented in `LocalLlmClient`. The planner constrains missions to bounded Android steps and explicitly disallows financial operations, data deletion, password handling and irreversible communications without separate confirmation. The decision contract returns only bounded action types: `CLICK`, `TYPE`, `SCROLL`, `BACK`, `HOME`, `DONE`.
+
 ## 2. Grounding
 
 Grounding converts the current Android accessibility/UI observation into a semantic representation suitable for planning. Raw UI events remain observations; they are not authoritative proof of final application state.
 
+The supplied `GroundingAgent` recursively captures visible UI nodes with bounds, text/description, role/class name, resource ID, clickability, editability and enabled state. Node coordinates are derived from accessibility bounds.
+
 ## 3. Executor
 
-Executor owns bounded UI actions such as clicks, text entry, gestures and navigation. Accessibility gesture capability is directly evidenced by the service configuration. fileciteturn78file2L3-L6
+Executor owns bounded UI actions such as clicks, text entry, gestures and navigation. Accessibility gesture capability is directly evidenced by the service configuration.
+
+The supplied `ExecutionAgent` confirms bounded execution through `ACTION_CLICK`, `ACTION_SET_TEXT`, global BACK/HOME actions and gesture-based scrolling. `DONE` terminates the current mission path.
 
 ## 4. Supervisor
 
-Supervisor verifies postconditions and triggers re-planning when the observed state does not satisfy the intended outcome. This maps directly onto the repository doctrine:
+The current implementation does not contain a standalone `Supervisor` class. Supervision is presently embodied by the mission loop in `OmniAccessibilityService`: it captures fresh UI state, asks the local decision model for an action, executes it, stores successful actions, waits for state change and checks the declared `expectedNow` postcondition before proceeding or replanning.
 
-`OBSERVE → PLAN → AUTHORIZE → ACT → READBACK → VERIFY`.
+This is therefore **supervision-by-orchestration**, not yet a separately testable Supervisor module. The architecture retains the Supervisor boundary as a target component.
 
 ## 5. Notification boundary
 
-Notification access is an independent capability and must remain disabled unless explicitly authorized. The manifest declares a dedicated notification-listener service rather than exposing it as an ordinary exported component. fileciteturn78file1L27-L35
+Notification access is an independent capability and must remain disabled unless explicitly authorized. The manifest declares a dedicated notification-listener service rather than exposing it as an ordinary exported component.
+
+The supplied `OmniNotificationListener` extracts notification title/text and stores up to 100 notification items in an in-memory synchronized deque. This confirms a concrete local notification context path, but also creates a privacy requirement: notification projection to the LLM must be selective, redacted and task-scoped.
 
 ## 6. Local-first LLM boundary
 
-The source specifies Ollama as a local endpoint and notes that localhost access from a separate Android process may require runtime-specific adaptation. fileciteturn78file0L25-L30
+The source specifies Ollama as a local endpoint and notes that localhost access from a separate Android process may require runtime-specific adaptation.
 
-The architecture therefore treats the LLM provider as an adapter:
-
-```text
-LOCAL TASK
-   ↓
-LLM ADAPTER
-   ├── Ollama / local
-   └── future explicitly authorized provider
-   ↓
-PLAN
-```
-
-No API secret belongs in the Android client.
+The supplied Kotlin client confirms the endpoint `http://127.0.0.1:11434` and a default local model `deepseek-r1:1.5b`. The client uses Ollama `/api/generate` for planning and action decisions. No API secret belongs in the Android client.
 
 ## 7. Relationship to P117
 
@@ -108,22 +104,52 @@ P119 LOCAL ANDROID RUNTIME
           ↓
 PLANNER → GROUNDING → EXECUTOR
           ↓
-SUPERVISOR / READBACK
+SUPERVISION / READBACK
           ↓
 P117 ARTIFACT LEDGER
 ```
 
 The local runtime is therefore an execution substrate, not a second global orchestration authority.
 
-## 9. UX / design-system requirements
+## 9. GitHub / DevSecOps integration learned from the supplied GitHub corpus
 
-The supplied Android theme currently uses a Material Light NoActionBar theme, sans font and white status/navigation bars. fileciteturn78file3L1-L6
+The GitHub reference corpus strengthens P119's **engineering and release boundary**, not its Android privilege model.
+
+Required lifecycle:
+
+```text
+ANDROID SOURCE
+   ↓
+REPRODUCIBLE BUILD ENVIRONMENT
+   ↓
+TEST / LINT / SECURITY ANALYSIS
+   ↓
+CODEQL / SAST WHERE SUPPORTED
+   ↓
+APK/AAB ARTIFACT
+   ↓
+DIGEST + PROVENANCE RECORD
+   ↓
+DEPLOYMENT / DEVICE TEST
+   ↓
+AUTHORITATIVE RUNTIME READBACK
+```
+
+GitHub Codespaces/dev containers are treated as reproducible development-environment patterns, not as a production execution dependency. GitHub documentation describes Codespaces as dedicated configurable development environments and recommends repository-defined dev-container configuration; its security model emphasizes isolation, trusted repositories, dependency hygiene and development secrets rather than hard-coded credentials.
+
+CodeQL is relevant to the Kotlin/Android source because GitHub supports Java/Kotlin analysis. CodeQL represents code as a queryable database and can produce SARIF results for code-scanning workflows. This becomes a future P119 CI security gate, not evidence that CodeQL has already run on this repository.
+
+Artifact provenance/digest tracking becomes a release requirement for APK/AAB outputs. A successful build is not equivalent to a verified deployment.
+
+## 10. UX / design-system requirements
+
+The supplied Android theme currently uses a Material Light NoActionBar theme, sans font and white status/navigation bars.
 
 This is accepted as source implementation evidence, but it does **not** replace the NeXus product design contract. A future P119 product shell should inherit P100's design system while preserving Android accessibility conventions.
 
-The supplied strings identify the product as `OmniMAS Local` and describe it as a local Android UI automation agent controlled by the user. fileciteturn78file4L1-L4
+The supplied strings identify the product as `OmniMAS Local` and describe it as a local Android UI automation agent controlled by the user.
 
-## 10. Security doctrine
+## 11. Security doctrine
 
 - Accessibility and notification access are privileged capabilities and require explicit user authorization.
 - Model output is an untrusted plan, not authorization.
@@ -135,35 +161,43 @@ The supplied strings identify the product as `OmniMAS Local` and describe it as 
 - API credentials remain outside the APK.
 - Notification content is sensitive context and must be selectively projected to the planner.
 - Task memory is scoped to the current task unless an explicit persistent-memory policy exists.
+- Generated APK/AAB artifacts require digest/provenance records before promotion.
+- CI security results are evidence inputs, not authorization by themselves.
 
-## 11. Verification program
+## 12. Verification program
 
 1. Accessibility-service enable/disable tests.
 2. UI-tree grounding determinism tests.
-3. Click/type/gesture action readback tests.
-4. Supervisor replan tests after failed postconditions.
-5. Notification authorization and redaction tests.
-6. Ollama connectivity/error/recovery tests.
-7. Offline operation tests.
-8. Android-version compatibility tests.
-9. Foreground/background lifecycle tests.
-10. Capability-policy enforcement tests.
-11. Prompt-injection resistance for hostile UI text.
-12. Task-memory isolation tests.
-13. End-to-end `intent → plan → ground → act → readback → verify` replay.
+3. Node identity/TOCTOU tests across changing UI snapshots.
+4. Click/type/gesture action readback tests.
+5. Supervisor/replan tests after failed postconditions.
+6. Notification authorization and redaction tests.
+7. Ollama connectivity/error/recovery tests.
+8. Offline operation tests.
+9. Android-version compatibility tests.
+10. Foreground/background lifecycle tests.
+11. Capability-policy enforcement tests.
+12. Prompt-injection resistance for hostile UI text.
+13. Task-memory isolation tests.
+14. End-to-end `intent → plan → ground → act → readback → verify` replay.
+15. CodeQL/SAST CI validation for supported Kotlin/Java paths.
+16. Reproducible build and dependency-lock validation.
+17. APK/AAB digest and provenance verification.
+18. Deployment/device test with post-deployment readback.
 
 ## Definition of Done
 
-P119 advances beyond architecture baseline when the supplied runtime builds reproducibly, local LLM connectivity is observable, accessibility actions are bounded by policy, every consequential action has authoritative readback, supervisor replanning is deterministic under test, notification data is permission-scoped, and P117/P100 integration passes end-to-end verification.
+P119 advances beyond architecture baseline when the supplied runtime builds reproducibly, local LLM connectivity is observable, accessibility actions are bounded by policy, every consequential action has authoritative readback, supervision/replanning is deterministic under test, notification data is permission-scoped, node identity remains valid across action execution, release artifacts carry verifiable digests/provenance, and P117/P100 integration passes end-to-end verification.
 
 ## Evidence classification
 
-- supplied README: **OBSERVED / SOURCE-DERIVED**;
-- Gradle configuration: **OBSERVED / SOURCE-DERIVED**;
-- Android manifest/accessibility XML: **OBSERVED / SOURCE-DERIVED**;
-- theme/strings: **OBSERVED / SOURCE-DERIVED**;
-- missing Kotlin implementation files: **NOT OBSERVED in this intake**;
-- architecture above: **SYNTHESIS / IMPLEMENTATION TARGET**.
+- supplied README/Gradle/manifest/XML: **OBSERVED / SOURCE-DERIVED**;
+- supplied Kotlin implementation: **OBSERVED / DIRECT SOURCE IMPLEMENTATION EVIDENCE**;
+- local Ollama and action schemas: **OBSERVED / DIRECT SOURCE IMPLEMENTATION EVIDENCE**;
+- current supervision: **OBSERVED / ORCHESTRATION-LEVEL IMPLEMENTATION**, not standalone Supervisor;
+- GitHub Codespaces/CodeQL/provenance patterns: **EXTERNAL-VERIFIED CONTEXT / ENGINEERING REQUIREMENTS**;
+- architecture above: **SYNTHESIS / IMPLEMENTATION TARGET**;
+- CodeQL execution, reproducible release and artifact provenance in P119: **NOT YET VERIFIED**.
 
 ## Dependencies
 
