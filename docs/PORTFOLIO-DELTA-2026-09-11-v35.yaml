@@ -1,0 +1,80 @@
+schema: portfolio-evolution-delta/v1
+iteration: 38
+date: 2026-09-11
+base_commit: 9fd555e07df47af064d358ded3568b8ebcf6baf7
+status: ARCHITECTURE_BASELINE
+
+sources:
+  - NeXus AI Code.md
+  - NeXus AI Code2.md
+  - NeXus AI Code3.md
+  - Architektura i Rozwój Systemu Nexus AI Code.md
+  - Android APK/XAPK/BAPK corpus uploaded 2026-09-11
+
+knowledge:
+  added:
+    - docs/knowledge-base/2026-09-11-corpus-nexus-mobile-apk-visual.md
+  classification:
+    nexus_requirements: SOURCE_DERIVED
+    nexus_implementation_report: SOURCE_REPORTED
+    binary_metadata: OBSERVED
+    binary_internal_structure: NOT_OBSERVED
+    tomtom_context: EXTERNAL_VERIFIED_CONTEXT
+    retouch_context: EXTERNAL_VERIFIED_CONTEXT
+    synthesis: ARCHITECTURE_TARGET
+
+projects_updated:
+  - id: 100
+    action: architecture_evolution
+    changes:
+      - Mobile Capability Plane
+      - Android device/app perception and bounded actuation
+      - mobile context and static package inspection inputs
+  - id: 116
+    action: architecture_evolution
+    changes:
+      - mobile visual-production adapter
+      - smart mask/object removal/tracking patterns
+      - reversible edit graph and EXIF/provenance requirements
+      - P117 device boundary
+
+projects_created:
+  - id: 117
+    name: NeXus Mobile Multimodal Agent Runtime MAX
+    path: projekty/117-nexus-mobile-multimodal-agent-runtime-max/README.md
+    status: PROPOSED/ARCHITECTURE_BASELINE
+    domain: android-mobile-agent-runtime
+    dependencies: [40,57,61,72,97,100,114,116]
+
+binary_intake:
+  artifacts: 6
+  executed: false
+  readable_internal_content: false
+  large_files_over_materialization_limit: 2
+  exact_manifest_dex_resource_tree_verified: false
+
+security_changes:
+  - Uploaded binaries remain untrusted inputs.
+  - Static package inspection is read-only and sandboxed.
+  - Mobile permissions are capability-scoped.
+  - No license bypass, credential extraction or authentication bypass is added.
+  - Mobile execution requires authoritative readback.
+
+verification:
+  completed:
+    - corpus inventory
+    - NeXus source synthesis
+    - P100/P116 impact analysis
+    - P117 genesis
+    - external TomTom 9.41.0 bundle cross-check
+    - external Retouch feature-pattern cross-check
+  pending:
+    - exact binary static extraction
+    - Android emulator/device E2E
+    - package-parser implementation
+    - P100/P116/P117 integration tests
+    - independent reproduction of NeXus runtime claims
+
+readme_sync:
+  status: PENDING
+  reason: root README is a large historical document; no destructive full-content replacement was performed without a complete readback.
