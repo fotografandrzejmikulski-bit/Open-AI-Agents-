@@ -1,7 +1,7 @@
 # Project 119 — OmniMAS Local Android Agent Runtime MAX
 
 ## Status
-SOURCE INGESTED → ARCHITECTURE BASELINE → KOTLIN IMPLEMENTATION EVIDENCE — 2026-09-11
+SOURCE INGESTED → ARCHITECTURE BASELINE → KOTLIN IMPLEMENTATION EVIDENCE → COMPLETE GITHUB RELEASE-AUDIT INTEGRATION — 2026-09-11
 
 ## Mission
 Build a local-first Android multi-agent runtime in which a Planner, Grounding layer, Executor and Supervisor cooperate over device UI state, with local LLM inference and explicit verification.
@@ -111,7 +111,7 @@ P117 ARTIFACT LEDGER
 
 The local runtime is therefore an execution substrate, not a second global orchestration authority.
 
-## 9. GitHub / DevSecOps integration learned from the supplied GitHub corpus
+## 9. GitHub / DevSecOps integration learned from the complete supplied corpus audit
 
 The GitHub reference corpus strengthens P119's **engineering and release boundary**, not its Android privilege model.
 
@@ -126,22 +126,36 @@ TEST / LINT / SECURITY ANALYSIS
    ↓
 CODEQL / SAST WHERE SUPPORTED
    ↓
+DEPENDENCY / SUPPLY-CHAIN CHECK
+   ↓
 APK/AAB ARTIFACT
    ↓
-DIGEST + PROVENANCE RECORD
+DIGEST + ATTESTATION / PROVENANCE
    ↓
 DEPLOYMENT / DEVICE TEST
    ↓
 AUTHORITATIVE RUNTIME READBACK
 ```
 
-GitHub Codespaces/dev containers are treated as reproducible development-environment patterns, not as a production execution dependency. GitHub documentation describes Codespaces as dedicated configurable development environments and recommends repository-defined dev-container configuration; its security model emphasizes isolation, trusted repositories, dependency hygiene and development secrets rather than hard-coded credentials.
+GitHub Codespaces/dev containers are treated as reproducible development-environment patterns, not as a production execution dependency.
 
 CodeQL is relevant to the Kotlin/Android source because GitHub supports Java/Kotlin analysis. CodeQL represents code as a queryable database and can produce SARIF results for code-scanning workflows. This becomes a future P119 CI security gate, not evidence that CodeQL has already run on this repository.
 
+The npm corpus adds dependency audit, provenance, trusted publishing and credential-scope concepts to the release boundary, but npm is not itself a runtime dependency of the Android agent.
+
 Artifact provenance/digest tracking becomes a release requirement for APK/AAB outputs. A successful build is not equivalent to a verified deployment.
 
-## 10. UX / design-system requirements
+The current GitHub ecosystem also exposes mobile CI/CD Actions through Marketplace. Such integrations must be treated as typed, permissioned capabilities with version/provenance metadata and post-deployment readback rather than trusted-by-installation.
+
+## 10. Agentic GitHub boundary
+
+Current GitHub organization sources expose agentic-workflow, MCP gateway, workflow-firewall, artifact-attestation and Copilot Agent SDK reference projects. P119 does not inherit their authority. If P119 is ever controlled from a GitHub-side agent, the boundary remains:
+
+`agent intent → capability policy → mobile authorization → bounded action → device readback`.
+
+MCP exposure or GitHub workflow availability never authorizes an Android action by itself.
+
+## 11. UX / design-system requirements
 
 The supplied Android theme currently uses a Material Light NoActionBar theme, sans font and white status/navigation bars.
 
@@ -149,7 +163,7 @@ This is accepted as source implementation evidence, but it does **not** replace 
 
 The supplied strings identify the product as `OmniMAS Local` and describe it as a local Android UI automation agent controlled by the user.
 
-## 11. Security doctrine
+## 12. Security doctrine
 
 - Accessibility and notification access are privileged capabilities and require explicit user authorization.
 - Model output is an untrusted plan, not authorization.
@@ -163,8 +177,9 @@ The supplied strings identify the product as `OmniMAS Local` and describe it as 
 - Task memory is scoped to the current task unless an explicit persistent-memory policy exists.
 - Generated APK/AAB artifacts require digest/provenance records before promotion.
 - CI security results are evidence inputs, not authorization by themselves.
+- GitHub Marketplace, MCP and agentic workflows are capabilities, not Android authorization authorities.
 
-## 12. Verification program
+## 13. Verification program
 
 1. Accessibility-service enable/disable tests.
 2. UI-tree grounding determinism tests.
@@ -182,8 +197,10 @@ The supplied strings identify the product as `OmniMAS Local` and describe it as 
 14. End-to-end `intent → plan → ground → act → readback → verify` replay.
 15. CodeQL/SAST CI validation for supported Kotlin/Java paths.
 16. Reproducible build and dependency-lock validation.
-17. APK/AAB digest and provenance verification.
+17. APK/AAB digest and provenance/attestation verification.
 18. Deployment/device test with post-deployment readback.
+19. Mobile CI/CD capability permission and version/provenance validation.
+20. GitHub-agent-to-mobile authorization boundary test, if such integration is enabled.
 
 ## Definition of Done
 
@@ -195,9 +212,9 @@ P119 advances beyond architecture baseline when the supplied runtime builds repr
 - supplied Kotlin implementation: **OBSERVED / DIRECT SOURCE IMPLEMENTATION EVIDENCE**;
 - local Ollama and action schemas: **OBSERVED / DIRECT SOURCE IMPLEMENTATION EVIDENCE**;
 - current supervision: **OBSERVED / ORCHESTRATION-LEVEL IMPLEMENTATION**, not standalone Supervisor;
-- GitHub Codespaces/CodeQL/provenance patterns: **EXTERNAL-VERIFIED CONTEXT / ENGINEERING REQUIREMENTS**;
+- GitHub Codespaces/CodeQL/provenance/npm/Marketplace patterns: **EXTERNAL-VERIFIED CONTEXT / ENGINEERING REQUIREMENTS**;
 - architecture above: **SYNTHESIS / IMPLEMENTATION TARGET**;
-- CodeQL execution, reproducible release and artifact provenance in P119: **NOT YET VERIFIED**.
+- CodeQL execution, reproducible release, attestations and artifact provenance in P119: **NOT YET VERIFIED**.
 
 ## Dependencies
 
