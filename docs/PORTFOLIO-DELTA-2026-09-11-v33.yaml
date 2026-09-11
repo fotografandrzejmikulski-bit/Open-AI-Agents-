@@ -1,0 +1,70 @@
+schema: portfolio-evolution-delta/v1
+iteration: 36
+date: 2026-09-11
+base_registry: docs/PORTFOLIO-REGISTRY-2026-09-10-v30.yaml
+identity_rule: project-47-lineage-first
+status: ARCHITECTURE_BASELINE
+
+sources:
+  - Zaawansowane Serwery MCP dla Agentów AI.PDF
+  - Zaawansowani Agenci AI: Tworzenie Oprogramowania i Procesy Kreatywne.PDF
+  - Zaawansowany Raport Obliczeniowy TRS.PDF
+  - WDA Photo Agent 2.0 implementation bundle
+
+knowledge:
+  added:
+    - docs/knowledge-base/2026-09-11-corpus-mcp-agents-trs-wda.md
+  classification:
+    mcp: SOURCE_DERIVED
+    autonomous_agent_patterns: SOURCE_DERIVED
+    wda_implementation: OBSERVED/SOURCE_DERIVED
+    trs_framework: SOURCE_DERIVED/SPECULATIVE
+    trs_claims_about_open_problems: UNVERIFIED
+
+projects_updated:
+  - id: 100
+    path: projekty/100-nexus-ai-code-omega-x-agentic-development-environment-max.md
+    changes:
+      - selective-context broker
+      - MCP capability taxonomy
+      - sandbox/browser/desktop execution boundary
+      - authoritative readback requirements
+      - GUI event is not execution evidence
+  - id: 114
+    path: projekty/114-omnicognitive-engineering-memory-verification-substrate-max.md
+    changes:
+      - selective retrieval
+      - decomposition/reflection state transitions
+      - sandbox and GUI readback verification
+      - stale-context and confused-deputy tests
+
+projects_created:
+  - id: 116
+    name: WDA Photo Agent MAX
+    path: projekty/116-wda-photo-agent-max/README.md
+    status: PROPOSED/ARCHITECTURE_BASELINE/IMPLEMENTATION_INGESTED
+    domain: multimodal-photographic-production
+    dependencies: [40, 57, 72, 97, 100, 114]
+
+security_changes:
+  - MCP is capability integration, not authorization.
+  - Tool results are observations, not authority.
+  - Sandbox completion requires authoritative readback.
+  - Provider credentials remain server-side.
+  - Hidden endpoint abuse and credential extraction are excluded.
+  - Speculative TRS claims cannot enter VERIFIED state without independent proof.
+
+verification:
+  completed:
+    - uploaded WDA server syntax check
+    - uploaded WDA client syntax check
+    - local normalized WDA health endpoint smoke test
+  pending:
+    - provider contract tests
+    - WDA browser E2E
+    - MCP scope and sandbox tests
+    - TRS independent mathematical verification
+
+readme_sync:
+  status: PENDING
+  reason: main README is a large historical document requiring full-content replacement through the GitHub contents API; no destructive rewrite was performed without the complete source payload.
