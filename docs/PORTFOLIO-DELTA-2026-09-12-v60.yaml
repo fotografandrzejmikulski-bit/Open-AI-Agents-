@@ -1,0 +1,71 @@
+version: "2026-09-12-v60"
+iteration: 63
+change_type: new_project
+project: P120
+title: "AegisFleet — Autonomous Logistics & Crisis Coordination"
+status: "CONCEPT / ARCHITECTURE-READY / PROTOTYPE CLAIMS REQUIRE VERIFICATION"
+source:
+  type: "user-provided grant application + technical PoC"
+  date: "2026-09-12"
+  evidence_class: "source-reported"
+changes:
+  - target: P120
+    type: create
+    additions:
+      - "CALL-E voice execution via MCP"
+      - "goal-driven fleet crisis coordination"
+      - "plan/authorize/run control boundary"
+      - "typed JSON Schema result contracts"
+      - "unknown as first-class state"
+      - "evidence/provenance attached to consequential results"
+      - "idempotent goal runs"
+      - "terminal webhook/event deduplication"
+      - "ERP write/readback/postcondition verification boundary"
+      - "bounded multi-agent logistics roles"
+  - target: P100
+    type: strengthen
+    additions:
+      - "voice capability as enterprise actuation surface"
+      - "MCP capability versus authorization separation"
+      - "event trust boundary and replay handling"
+      - "ERP postcondition verification"
+      - "fleet-domain agent orchestration"
+  - target: voice-agent-knowledge
+    type: strengthen
+    additions:
+      - "phone/telephony consequential actions"
+      - "structured result extraction"
+      - "server-side credential boundary"
+      - "escalation/tracing"
+  - target: P115
+    type: integrate
+    additions:
+      - "communication identity separation where required"
+  - target: P119
+    type: integrate
+    additions:
+      - "mobile field endpoint/action/readback patterns"
+  - target: P32
+    type: integrate
+    additions:
+      - "phone intelligence under authorization/privacy constraints"
+invariants:
+  - "VOICE != AUTHORITY"
+  - "MCP != AUTHORIZATION"
+  - "CALL PLAN != APPROVAL"
+  - "TRANSCRIPT != FACT"
+  - "SCHEMA VALIDITY != TRUTH"
+  - "WEBHOOK != TRUSTED INPUT"
+  - "CALL COMPLETION != BUSINESS COMPLETION"
+  - "ERP WRITE != VERIFIED STATE"
+  - "AUTONOMY != UNBOUNDED ACTION"
+  - "LOWER COST != PROVEN ROI"
+verification_required:
+  - "CALL-E SDK/API semantics"
+  - "authentication/OAuth behavior"
+  - "webhook authenticity and event contract"
+  - "Idempotency-Key semantics and enforcement"
+  - "resultSchema/recipient_result_schema behavior"
+  - "taskCompleted semantics"
+  - "Devpost track/deadline/prize claims"
+  - "production telephony/privacy/compliance requirements"
