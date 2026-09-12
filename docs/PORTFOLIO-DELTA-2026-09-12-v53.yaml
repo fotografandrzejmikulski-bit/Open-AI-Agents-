@@ -1,0 +1,35 @@
+version: 53
+date: 2026-09-12
+trigger: uploaded-ai-work-tools-competitive-substitution-corpus
+classification: discovery-oriented-secondary-evidence
+new_projects: []
+updated_projects:
+  - id: 100
+    changes:
+      - capability substitution graph
+      - typed work-graph routing model
+      - meeting/transcription evidence loop
+      - app-builder and agentic-coding convergence
+      - automation authorization/readback contract
+      - marketing/SEO measurement loop
+  - id: 113
+    changes:
+      - provider-neutral capability abstraction reinforced
+  - id: 30
+    changes:
+      - marketing and SEO represented as measurable outcome workflows
+  - id: 114
+    changes:
+      - provenance requirements reinforced for generated, transcribed and analytics-derived records
+knowledge_artifact: docs/knowledge-base/2026-09-12-corpus-ai-work-tools-competitive-substitution.md
+evolution_record: docs/PROJECT-EVOLUTION-2026-09-12-ITERATION-56.md
+status: architecture_enhanced_implementation_not_verified
+invariants:
+  - listed_is_not_verified
+  - alternative_is_not_equivalent
+  - free_is_not_unrestricted
+  - connected_is_not_authorized
+  - transcription_is_not_verified_decision
+  - course_is_not_competence
+  - generation_is_not_qa
+  - analytics_is_not_attribution
