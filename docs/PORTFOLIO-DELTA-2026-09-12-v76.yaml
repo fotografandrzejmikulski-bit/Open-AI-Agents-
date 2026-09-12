@@ -1,0 +1,66 @@
+schema: portfolio-delta/v1
+date: 2026-09-12
+iteration: 81
+source_batch:
+  type: architecture_corpus
+  name: cinematrix-cloud-gpu-render-farm
+  evidence_class: source_derived
+primary_project: P97
+classification: existing_project_extension
+new_standalone_project: false
+extension: CineMatrix Cloud GPU Render Fabric
+capabilities:
+  - distributed_gpu_render_scheduling
+  - vram_aware_worker_placement
+  - horizontal_render_scaling
+  - worker_capability_leases
+  - shared_artifact_storage_contract
+  - atomic_artifact_publication
+  - distributed_job_idempotency
+  - worker_health_and_heartbeat
+  - gpu_oom_recovery
+  - cloud_burst_execution
+  - provider_neutral_gpu_worker_adapter
+  - comfyui_workflow_provenance
+  - render_cost_throughput_accounting
+mappings:
+  P97:
+    - distributed render execution plane
+    - cloud-burst scheduling
+    - worker/job lifecycle
+    - GPU-aware resource allocation
+    - render artifact provenance
+  P113:
+    - Shot IR remains canonical input to render jobs
+    - worker output remains candidate until visual QA
+  P114:
+    - provenance
+    - artifact verification
+    - memory/state continuity
+  P100:
+    - capability leases
+    - sandbox/network boundary
+    - credential isolation
+    - policy and release controls
+architecture:
+  modes:
+    - local
+    - hybrid
+    - cloud_farm
+  control_plane: local_orchestrator
+  execution_plane: gpu_worker_pool
+  shared_storage: provider_neutral_contract
+verification:
+  provider_claims: require_current_verification
+  gpu_performance: require_workload_specific_benchmark
+  vram_requirements: require_workflow_specific_benchmark
+  render_correctness: require_vlm_and_continuity_qa
+  artifact_integrity: hash_and_atomic_publication_required
+  worker_authority: capability_lease_required
+invariants:
+  - cloud_compute_is_not_authority
+  - worker_reachability_is_not_authorization
+  - render_success_is_not_cinematic_correctness
+  - parallelism_is_not_linear_speedup
+  - shared_storage_is_not_immutable_provenance
+  - cloud_capacity_is_not_unbounded_budget
