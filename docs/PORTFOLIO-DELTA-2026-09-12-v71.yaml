@@ -1,0 +1,53 @@
+version: v71
+date: 2026-09-12
+primary_project: P100
+classification: existing_project_extension
+new_standalone_project: false
+extension: Agentic RAG Architecture
+agentic_rag_pipeline:
+  - task_goal
+  - retrieval_plan
+  - useful_data_fetch
+  - semantic_vector_search
+  - evidence_set
+  - reasoning_planning
+  - policy_capability_check
+  - controlled_memory_write
+  - produce_verify
+  - feedback_adaptation
+rag_primitives:
+  - rag-task-goal
+  - retrieval-plan
+  - retrieval-source-record
+  - semantic-search-result
+  - evidence-set
+  - rag-reasoning-trace
+  - memory-write-candidate
+  - memory-provenance-record
+  - rag-evaluation-record
+  - adaptation-feedback-record
+  - retrieval-policy
+  - rag-context-freshness
+implementation_stages:
+  - define_purpose_and_scope
+  - system_prompt_and_guardrails
+  - model_context_cost_latency_configuration
+  - external_tools_mcp_and_apis
+  - memory
+  - orchestration
+  - ui_or_api
+  - testing_and_evals
+verification:
+  source_derived_architecture: true
+  vendor_model_status_independently_verified: false
+  retrieval_is_not_truth: true
+  memory_write_requires_provenance: true
+  self_correction_is_not_proof: true
+  adaptive_feedback_cannot_grant_privileges: true
+security_invariants:
+  - autonomy_is_not_authority
+  - retrieval_does_not_override_policy
+  - memory_does_not_override_policy
+  - tool_access_does_not_imply_authorization
+  - durable_memory_requires_controlled_promotion
+  - generated_results_require_readback_and_verification
