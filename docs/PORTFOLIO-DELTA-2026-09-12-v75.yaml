@@ -1,0 +1,39 @@
+version: v75
+date: 2026-09-12
+primary_project: P121
+classification: existing_project_extension
+new_standalone_project: false
+trigger: expanded_infrasentinel_hackathon_architecture
+extension: InfraSentinel Cloud Memory, MCP Federation, Agent Registry, Manager View & Neuro-Symbolic Verification
+capabilities:
+  - episodic_semantic_procedural_memory
+  - temporal_vector_memory_provenance
+  - cloud_data_mcp_federation
+  - specialist_agent_registry
+  - manager_mission_view
+  - durable_approval_projection
+  - local_cloud_model_routing
+  - skill_provenance_lifecycle
+  - neuro_symbolic_verification
+  - counterexample_driven_repair
+  - bounded_lora_adaptation
+  - typed_infrastructure_action_contracts
+  - independent_tool_argument_validation
+security_invariants:
+  - mcp_is_not_authorization
+  - memory_is_not_authority
+  - skill_is_not_authorization
+  - model_output_is_not_authorization
+  - guardrails_are_not_complete_security
+  - formal_check_is_not_whole_system_proof
+  - sandbox_success_is_not_production_safety
+  - command_success_is_not_remediation_success
+  - remediation_success_requires_postcondition_verification
+verification:
+  exact_vendor_model_api_package_claims: source_derived
+  competition_pricing_deadline_claims: source_derived
+  architecture_patterns: reusable_candidates
+  privileged_shell_string: disallowed_as_final_production_contract
+  destructive_substring_filter: insufficient_security_boundary
+  production_mutation: requires_authorization_readback_and_postcondition_test
+  lora_hyperparameters: require_empirical_evaluation
