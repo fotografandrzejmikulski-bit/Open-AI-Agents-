@@ -1,0 +1,36 @@
+version: v80
+date: 2026-09-12
+iteration: 85
+project_added:
+  id: P125
+  name: Prawda czy Wyzwanie: Android Ultimate Chaos
+  path: projekty/125-prawda-czy-wyzwanie-android-ultimate-chaos.md
+classification: dedicated_android_game
+implementation:
+  stack: Kotlin + Jetpack Compose
+  architecture: offline_first_typed_state
+  build_substrate: P86
+product_strategy: P99
+features:
+  - players_2_to_20
+  - truth_dare
+  - procedural_multi_engine_generation
+  - persistent_no_repeat_deck
+  - intensity_levels
+  - timer
+  - dice_series
+  - scoring_leaderboard
+  - wildcard
+  - custom_content
+  - audio_tts
+  - dynamic_cards
+  - offline_first
+  - safety_pause
+verification:
+  - reproducible_android_build
+  - install_smoke_test
+  - runtime_readback
+  - release_evidence
+integrations:
+  - P86
+  - P99
