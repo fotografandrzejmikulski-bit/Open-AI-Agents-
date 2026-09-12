@@ -1,35 +1,49 @@
 version: 53
 date: 2026-09-12
-trigger: uploaded-ai-work-tools-competitive-substitution-corpus
+trigger: uploaded-ai-prompting-social-analytics-project-ideas-corpus
 classification: discovery-oriented-secondary-evidence
 new_projects: []
 updated_projects:
   - id: 100
     changes:
+      - structured prompt compiler contract
       - capability substitution graph
       - typed work-graph routing model
       - meeting/transcription evidence loop
+      - social-media production and measurement loop
+      - analytics evidence contract
       - app-builder and agentic-coding convergence
       - automation authorization/readback contract
       - marketing/SEO measurement loop
+      - project-idea intake and merge/reject gate
   - id: 113
     changes:
-      - provider-neutral capability abstraction reinforced
+      - provider-neutral prompt abstraction
+      - role/output/examples/constraints/style/audience fields formalized
+      - static tool/model graphics excluded from runtime authority
   - id: 30
     changes:
       - marketing and SEO represented as measurable outcome workflows
+      - social/analytics discovery treated as evidence acquisition
   - id: 114
     changes:
       - provenance requirements reinforced for generated, transcribed and analytics-derived records
-knowledge_artifact: docs/knowledge-base/2026-09-12-corpus-ai-work-tools-competitive-substitution.md
+      - dashboard screenshots excluded as authoritative raw-data evidence
+knowledge_artifact: docs/knowledge-base/2026-09-12-corpus-ai-prompting-tools-analytics-project-ideas.md
 evolution_record: docs/PROJECT-EVOLUTION-2026-09-12-ITERATION-56.md
 status: architecture_enhanced_implementation_not_verified
 invariants:
   - listed_is_not_verified
   - alternative_is_not_equivalent
   - free_is_not_unrestricted
+  - cheaper_is_not_equivalent
   - connected_is_not_authorized
+  - prompt_hack_is_not_guaranteed_behavior
+  - chain_of_thought_is_not_required_evidence
+  - dashboard_is_not_raw_data
+  - metric_is_not_causality
+  - analytics_is_not_business_outcome
+  - project_idea_is_not_market_validation
   - transcription_is_not_verified_decision
   - course_is_not_competence
   - generation_is_not_qa
-  - analytics_is_not_attribution
