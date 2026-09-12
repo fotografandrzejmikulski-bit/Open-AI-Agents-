@@ -1,0 +1,54 @@
+id: p100-ag-architect-01-mcp-dgm-hermes
+iteration: 71
+date: 2026-09-12
+trigger: "AG-ARCHITECT-01 node specification with MCP federation, DGM-H and Agent Hermes"
+new_project: false
+project: P100
+project_path: "projekty/100-nexus-ai-code-omega-x-agentic-development-environment-max.md"
+extension_path: "projekty/100-nexus-ai-code-antigravity-agent-architect-mcp-dgm-hermes-extension-2026-09-12.md"
+category: "specialist agent node / MCP federation / evolutionary engineering / persistent operations"
+status: architecture-integrated
+node:
+  id: AG-ARCHITECT-01
+  role: "principal Antigravity-oriented architect"
+  mode: "governed research and engineering"
+capability_domains:
+  - "MCP cognition/documentation/memory"
+  - "GitHub/project management/communication"
+  - "filesystem and selective retrieval"
+  - "sandboxed code execution"
+  - "Rust/native compilation"
+  - "Electron/Tauri runtime inspection"
+  - "Android/Flutter/Expo runtime testing"
+  - "Unity/Godot game-engine integration"
+  - "Figma/design-system grounding"
+  - "API/database testing"
+  - "DGM-H evolutionary candidates"
+  - "Hermes operational and procedural-memory adapter"
+  - "scientific research evidence classification"
+control_lifecycle: "OBSERVE → PLAN → AUTHORIZE → ACT → READBACK → VERIFY"
+new_primitives:
+  - mcp-capability-manifest
+  - isolated-mcp-session
+  - tool-schema-conformance-gate
+  - runtime-introspection-adapter
+  - design-grounding-adapter
+  - evolutionary-candidate-lineage
+  - bounded-meta-optimizer
+  - procedural-skill-candidate
+  - memory-curation-proposal
+  - cross-channel-operator-gateway
+  - physics-evidence-classifier
+security_invariants:
+  - "MODEL_OUTPUT != AUTHORIZATION"
+  - "MCP_SERVER != TRUSTED_CAPABILITY"
+  - "TOOL_RESULT != POSTCONDITION"
+  - "DGM_CANDIDATE != PRODUCTION_CODE"
+  - "AUTO_CREATED_SKILL != ACTIVE_PERMISSION"
+  - "SIMULATION != EXPERIMENTAL_EVIDENCE"
+verification_status:
+  supplied_mcp_code: "conceptual scaffolding; malformed/incomplete fragments require hardening"
+  listed_mcp_servers: "candidate integration catalog; connector-by-connector verification required"
+  dgm_h: "research pattern; sandbox and promotion gates required"
+  hermes: "optional adapter; implementation claims require independent verification"
+  physics: "evidence-classified research only"
