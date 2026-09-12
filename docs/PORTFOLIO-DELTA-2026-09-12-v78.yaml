@@ -1,0 +1,50 @@
+version: v78
+date: 2026-09-12
+iteration: 83
+change_type: new_standalone_project
+source_batch: podcast-collaborative-agents-behavioral-dialogue
+projects:
+  - id: P123
+    name: Podcast Agent Factory MAX
+    status: added
+    role: end-to-end multi-agent podcast production
+    agents: 13
+    core_pipeline: "IDEA → RESEARCH → STORY → PERSONA → DIALOGUE → ACOUSTIC → VOICE → EDIT → FACT CHECK → QA → APPROVAL → PUBLISH → ANALYTICS"
+    benchmark: Kuba-Marta behavioral dialogue pair
+  - id: P100
+    name: NeXus AI Code / OMEGA-X
+    status: integration
+    role: agent runtime, control plane, policy, provenance, sandbox and verification
+  - id: P07
+    name: Agentic Creative Studio
+    status: integration
+    role: creative artifact graph and multimodal production
+  - id: P114
+    name: TurboVec
+    status: optional_integration
+    role: semantic memory and lineage-aware retrieval
+  - id: P97
+    name: CineMatrix
+    status: optional_integration
+    role: video/visual companion production
+  - id: P113
+    name: OmniVisual Prompt Compiler
+    status: optional_integration
+    role: visual prompt and model routing
+architecture_invariants:
+  - "MODEL OUTPUT != AUTHORIZATION"
+  - "PERSONA STATE != FACT"
+  - "GENERATED VOICE != IDENTITY PROOF"
+  - "PUBLISH API ACCESS != USER AUTHORIZATION"
+  - "PLATFORM SUCCESS != PUBLICATION VERIFICATION"
+verification:
+  - research evidence and claim ledger
+  - persona/dialogue continuity
+  - acoustic timeline validity
+  - voice/take consistency
+  - independent fact-check
+  - safety/policy gate
+  - technical audio QA
+  - human approval before consequential publication
+  - publication readback and postcondition verification
+new_standalone_project: true
