@@ -1,50 +1,51 @@
-id: p100-enterprise-control-plane-extension
+id: p100-antigravity-2-control-plane-extension
 iteration: 70
 date: 2026-09-12
-trigger: "Enterprise distributed agent platform implementation plan"
+trigger: "Google Antigravity 2.0 strategic architecture benchmark"
 new_project: false
 project: P100
 project_path: "projekty/100-nexus-ai-code-omega-x-agentic-development-environment-max.md"
-extension_path: "projekty/100-nexus-ai-code-enterprise-control-plane-extension-2026-09-12.md"
-category: "enterprise agent platform / agentic development control plane"
+extension_path: "projekty/100-nexus-ai-code-antigravity-2-0-remote-control-genui-agent-factory-extension.md"
+category: "agentic control plane / remote control / GenUI / agent factory"
 status: architecture-integrated
+external_benchmark:
+  product: "Google Antigravity 2.0"
+  verified_surfaces:
+    - "standalone agent command center"
+    - "synchronous and asynchronous agents"
+    - "parallel subagents"
+    - "skills and MCP servers"
+    - "Chrome/browser interaction"
+    - "artifacts and implementation plans"
+    - "project-scoped permissions and settings"
+    - "Git worktrees and Git-native review"
+    - "Remote Control from web/mobile browsers"
 architecture:
-  frontend: "React 19 SPA + existing desktop shell"
-  identity: "Keycloak / OIDC human identity"
-  policy: "Permit.io or internal PDP behind capability broker"
-  orchestration: "Temporal durable workflows"
-  agent_identity: "ephemeral scope-bound capability leases"
-  registry_memory: "PostgreSQL + pgvector with tenant-aware retrieval"
-  execution: "Firecracker / gVisor / other governed sandbox substrates"
-  tools: "MCP with explicit side-effect, authorization and postcondition contracts"
-  builder: "Agents Builder meta-agent"
-  validation: "bounded Ralph loop + schema/policy/adversarial verification"
-  approval: "human approval envelope bound to immutable candidate digest"
-  promotion: "idempotent promotion + authoritative readback"
-canonical_lifecycle: "INTENT → REQUIREMENTS → DRAFT → SCHEMA → TOOL PLAN → VALIDATE → SANDBOX → REVIEW → PROMOTE → READBACK"
-new_primitives:
-  - enterprise-agent-candidate
-  - approval-envelope
-  - ephemeral-agent-capability-lease
-  - policy-decision-record
-  - durable-human-approval
-  - bounded-ralph-loop
-  - sandbox-attestation
-  - idempotent-agent-promotion
-  - tenant-aware-vector-retrieval
-  - search-intent-policy-router
-  - authoritative-registry-readback
+  mission_graph: "projection of agent/task/capability/artifact/authorization/evidence relationships"
+  genui: "versioned structured decision surface with explicit authorization metadata"
+  artifact_plane: "plans, diffs, screenshots, recordings, tests and annotations"
+  remote_control: "bounded status/artifact/approval/steering/termination surface"
+  agent_registry: "project-scoped versioned agent packages with provenance"
+  agent_factory: "candidate generation + schema/static/sandbox/policy validation before activation"
+  approval_security: "task/artifact/policy version binding + expiry + replay protection"
+protocols:
+  a2ui: "adapter strategy; v0.8 treated as legacy, current documentation points to v0.9.1"
 security_invariants:
   - "MODEL_OUTPUT != AUTHORIZATION"
   - "MCP_CAPABILITY != PERMISSION"
-  - "TEMPORAL_DURABILITY != TRUST"
-  - "JSON_VALIDITY != CORRECTNESS"
-  - "SANDBOX_PASS != PRODUCTION_APPROVAL"
   - "UI_STATE != AUTHORITATIVE_STATE"
   - "TOOL_RESULT != POSTCONDITION"
-  - "HUMAN_APPROVAL != PERMANENT_PRIVILEGE"
-  - "STALE_APPROVAL != VALID_APPROVAL"
-verification_status:
-  source_architecture: "accepted as supplied architecture"
-  bootstrap_code: "conceptual only; requires production hardening and syntax/type correction"
-  external_provider_claims: "not independently verified"
+  - "HOT_RELOAD != AUTHORIZATION"
+  - "REMOTE_TRANSPORT != EXECUTION_AUTHORITY"
+new_primitives:
+  - mission-graph-projection
+  - versioned-genui-decision-surface
+  - artifact-review-plane
+  - remote-control-capability-gate
+  - generated-agent-provenance
+  - remote-approval-freshness
+verification:
+  source_report: "architecture proposal"
+  official_antigravity_docs: "externally verified"
+  p100_implementation: "design requirement; implementation verification pending"
+  dedicated_flutter_mobile_app: "not required as first remote-control surface"
