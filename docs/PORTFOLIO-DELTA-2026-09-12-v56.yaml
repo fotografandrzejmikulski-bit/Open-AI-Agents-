@@ -1,0 +1,48 @@
+portfolio_delta:
+  date: 2026-09-12
+  version: v56
+  status: applied
+  decision: NO_NEW_PROJECT
+  corpus:
+    - https://fakedetail.com/fake-facebook-chat-generator
+    - supplied_llm_safety_and_adversarial_math
+  changes:
+    - project: P108
+      action: extend
+      additions:
+        - adversarial_transformation_registry
+        - safety_configuration_matrix
+        - semantic_preservation_measurement
+        - refusal_boundary_regression
+        - synthetic_evidence_fixtures
+    - project: P54
+      action: extend
+      additions:
+        - hypothesis_to_controlled_test_to_observation_to_metric chain
+        - bounded_interpretation_of_attack_results
+    - project: P72
+      action: extend
+      additions:
+        - safety_configuration_as_verification_input
+        - adversarial_safety_regression_gate
+    - project: P30/P32
+      action: extend
+      additions:
+        - synthetic_chat_mockup_provenance
+        - screenshot_authenticity_classification
+    - project: P100
+      action: extend
+      additions:
+        - experiment_manifest_and_artifact_provenance_for_security_jobs
+  invariants:
+    - SAFETY_THRESHOLD != ADVERSARIAL_ROBUSTNESS
+    - VISUAL_FIDELITY != EVENT_AUTHENTICITY
+    - SCREENSHOT != PRIMARY_EVIDENCE
+    - ATTACK_SUCCESS != UNIVERSAL_MODEL_FAILURE
+    - SYNTHETIC_ARTIFACT != OBSERVED_EVENT
+    - TOOL_RESULT != AUTHORITY
+  source_quality:
+    fakedetail: capability_and_ux_witness
+    google_gemini_docs: canonical_safety_setting_reference
+    academic_research: adversarial_evaluation_reference
+  new_project: false
