@@ -1,0 +1,49 @@
+iteration: 62
+date: 2026-09-12
+source: user_provided_neurosymbolic_swarm_rsi_ocn_corpus
+decision: NO_NEW_PROJECT
+new_project_required: false
+portfolio_delta:
+  p100:
+    status: strengthened
+    additions:
+      - neuro-symbolic reasoning capability
+      - capability-aware multi-agent swarm orchestration
+      - typed dependency DAG
+      - SKILL_TOOL registry separation
+      - OCN agent package validation concept
+      - sandboxed RSI candidate evaluation
+      - domain directors
+  p86:
+    status: strengthened
+    additions:
+      - Director plus domain-swarm game-production architecture
+      - dependency-aware build graph
+      - QA/build swarm integration
+  p114:
+    status: strengthened
+    additions:
+      - semantic fact layer above vector memory
+      - certainty and bitemporal provenance integration
+  p118:
+    status: strengthened
+    additions:
+      - narrative/audio/asset swarm orchestration
+      - controlled agent/persona state
+  p119:
+    status: strengthened
+    additions:
+      - local model to symbolic interpretation to policy to device-action loop
+knowledge_base:
+  added:
+    - docs/knowledge-base/2026-09-12-corpus-neurosymbolic-reasoning-swarm-orchestration-rsi-ocn.md
+invariants:
+  - VECTOR SIMILARITY != LOGICAL TRUTH
+  - CERTAINTY != VERIFICATION
+  - SKILL != TOOL
+  - GENERATED TOOL != TRUSTED TOOL
+  - TASK COMPLETION != TASK CORRECTNESS
+  - SELF-IMPROVEMENT != SELF-AUTHORIZATION
+  - SANDBOX PASS != ALIGNMENT PROOF
+  - FITNESS SCORE != INTELLIGENCE
+  - ARCHITECTURAL COMPLEXITY != AGI
