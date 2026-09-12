@@ -1,0 +1,47 @@
+version: v70
+date: 2026-09-12
+primary_project: P100
+classification: existing_project_extension
+new_standalone_project: false
+extension: Agentic AI Seven-Pillar Cognitive Engineering
+seven_pillars:
+  - autonomy
+  - goal_directed_planning
+  - communication_collaboration
+  - reasoning_decision_making
+  - tool_environment_interaction
+  - memory_learning
+  - safety_alignment_evaluation
+cognitive_frameworks:
+  - SWOT
+  - Eisenhower Matrix
+  - Fishbone/Ishikawa
+  - MECE
+  - First Principles
+  - OODA
+engineering_competencies:
+  - prompt_engineering
+  - ai_workflow
+  - multi_agent_systems
+  - rag
+  - multimodal_ai
+  - fine_tuning_ai_assistants
+  - voice_ai_avatars
+  - ai_tool_stacking
+  - ai_video_generation
+  - saas_development
+  - llm_observability
+  - technology_intelligence
+verification:
+  source_derived: true
+  current_vendor_status_verified: false
+  current_pricing_verified: false
+  framework_effectiveness_empirically_verified: false
+  autonomy_is_authority: false
+security_invariants:
+  - autonomy_is_not_authority
+  - reasoning_framework_is_not_authorization
+  - memory_does_not_override_policy
+  - tool_access_does_not_imply_authorization
+  - generated_artifacts_require_independent_verification
+  - education_does_not_grant_production_privileges
