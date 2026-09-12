@@ -1,0 +1,25 @@
+id: trsr6k
+iteration: 68
+date: 2026-09-12
+trigger: "TRS rigorization and critical evaluation of proposed Millennium-problem unification"
+new_project: false
+primary_project: P77
+integrations:
+  - project: P77
+    delta: "Adds bibliographic verification, formal type/domain checks, counterexample gates and ten explicit proof-obligation families for the TRS/RH/P-vs-NP/Hodge/BSD program."
+new_primitives:
+  - trs-bibliographic-verification
+  - trs-proof-obligation-registry
+  - trs-global-embedding-gate
+  - trs-complexity-geometry-lower-bound-gate
+  - trs-rh-operator-domain-gate
+  - trs-prismatic-hodge-gate
+  - trs-bsd-sha-finiteness-gate
+  - trs-equation-type-check
+external_evidence:
+  gnandi_2024: "bibliographically confirmed as a 2024 preprint; local Kähler/Fisher representation only"
+  alasli_2026: "arXiv:2603.22211 confirmed as a 2026 preprint; source witness, not established P-vs-NP resolution"
+  abbas_2024: "2024 Cairo/B-matrix publications confirmed; stronger TRS universal claims remain unverified"
+  maclean_resonance_form_bsd: "not independently confirmed in this pass"
+status: architecture-integrated
+verification: "TRS remains speculative/research-level; no Millennium Problem is marked solved."
