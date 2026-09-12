@@ -1,0 +1,22 @@
+iteration: 67
+date: 2026-09-12
+trigger: expanded IBM Cloud Zenoh DGM RSI native-app-factory corpus
+new_project: false
+integrations:
+  - project: P100
+    delta: MCP-to-Zenoh capability boundary; transport/provenance preservation; RSI promotion governance
+  - project: P86
+    delta: explicit multi-platform native build capabilities and host/toolchain constraints
+  - project: P119
+    delta: CoALA memory taxonomy; bitemporal reconstruction; HRR/vector-symbolic indexing; Merkle/Bloom/CRDT synchronization
+  - project: P121
+    delta: Zenoh as data plane only; independent authorization and postcondition verification
+new_primitives:
+  - bitemporal-memory
+  - hrr-vector-symbolic-indexing
+  - merkle-dag-lineage
+  - bloom-candidate-membership
+  - crdt-conflict-tolerant-merge
+  - mcp-zenoh-gateway-contract
+status: architecture-integrated
+verification: vendor-specific latency, overhead, availability and SLA claims remain unverified source assertions
