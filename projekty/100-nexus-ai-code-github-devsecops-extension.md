@@ -4,7 +4,7 @@
 
 **P100 — NeXus AI Code OMEGA-X Agentic Development Environment MAX**
 
-This extension records the GitHub corpus and the 2026-09-12 database/DevOps/Git/network-security corpus integration without creating a second product identity.
+This extension records the GitHub corpus, database/DevOps/Git/network-security corpora and the 2026-09-12 AI-tool/provider/education corpus without creating a second product identity.
 
 ## New control-plane layer
 
@@ -16,6 +16,10 @@ PROJECT / REPOSITORY CONTEXT
 GIT / ISSUES / PROJECTS / ACTIONS / PACKAGES / MCP
       ↓
 AGENTIC WORKFLOW / FIREWALL / GATEWAY CAPABILITIES
+      ↓
+CAPABILITY / PROVIDER / SKILL REGISTRY
+      ↓
+POLICY + AUTHORIZATION
       ↓
 CI + TEST + CODEQL / SAST + DEPENDENCY POLICY
       ↓
@@ -45,9 +49,133 @@ AUDIT / PROMOTION / ROLLBACK
 - MCP Registry / official GitHub MCP Server compatibility without granting implicit authority;
 - typed roadmap states and feedback/triage signals.
 
+## AI capability/provider registry
+
+The 2026-09-12 AI-tool corpus broadens the registry from individual model providers to workflow capabilities. Categories observed in the supplied material include:
+
+- chat / reasoning;
+- research;
+- presentations;
+- image generation;
+- video generation/editing;
+- speech / audio / TTS;
+- writing / copywriting;
+- email assistance;
+- meeting notes / transcription;
+- coding assistance;
+- spreadsheet assistance;
+- data visualization / analytics;
+- scheduling;
+- workflow automation;
+- knowledge management;
+- graphic design;
+- sales / outreach;
+- social media;
+- SEO / marketing;
+- web development;
+- 3D creative tooling;
+- education / courses.
+
+The static infographics are **capability-discovery sources**, not canonical pricing, availability, ranking or model registries. Names, free/paid status, product scope and model capabilities must be verified before runtime selection.
+
+Canonical selection contract:
+
+```text
+CAPABILITY INTENT
+ ↓
+CAPABILITY MATCH
+ ↓
+PROVIDER / TOOL DISCOVERY
+ ↓
+LIFECYCLE + HEALTH CHECK
+ ↓
+ACCESS / COST CHECK
+ ↓
+AUTHORIZATION
+ ↓
+POLICY
+ ↓
+EXECUTION
+ ↓
+OUTPUT QA
+ ↓
+PROVENANCE
+```
+
+Mandatory state separation:
+
+`CONNECTED ≠ HEALTHY ≠ AVAILABLE ≠ AUTHORIZED ≠ ALLOWED`
+
+A tool appearing in a directory or infographic never grants execution authority.
+
+## Workflow composition
+
+The new corpus reinforces a compositional model rather than a single-tool model:
+
+```text
+RESEARCH
+  ↓
+WRITING / SYNTHESIS
+  ↓
+DESIGN / IMAGE
+  ↓
+VIDEO / AUDIO
+  ↓
+DISTRIBUTION / MARKETING
+  ↓
+ANALYTICS
+  ↓
+FEEDBACK
+  ↓
+ITERATION
+```
+
+P100 should therefore represent a workflow as a typed DAG with capability requirements, provider candidates, cost budget, latency target, data sensitivity, authorization state and evidence requirements.
+
+## AI tool substitution / fallback
+
+Paid-vs-free lists are useful for discovering alternative providers but are not evidence that two tools are functionally equivalent.
+
+Fallback selection must compare:
+
+```text
+semantic capability
++ input/output modality
++ quality threshold
++ context / file limits
++ integration requirements
++ privacy / data residency
++ latency
++ cost
++ licensing
++ provenance
+```
+
+A cheaper or free provider must not be substituted silently when the task's quality, privacy or authorization requirements would change.
+
+## Education and capability development
+
+The supplied Google/Meta/Microsoft course graphics add a training dimension to P100. Course catalogs can be represented as capability-development resources:
+
+```text
+SKILL GAP
+ ↓
+LEARNING RESOURCE DISCOVERY
+ ↓
+COURSE / MODULE
+ ↓
+ASSESSMENT
+ ↓
+EVIDENCE OF COMPETENCE
+ ↓
+SKILL REGISTRY UPDATE
+```
+
+Course titles, ratings, enrollment counts and durations from static graphics are discovery metadata only and require current verification before being used for planning.
+
 ## Database / query-performance contract
 
-The 2026-09-12 database corpus adds a data-plane verification layer:
+The database corpus adds a data-plane verification layer:
 
 ```text
 QUERY
@@ -103,7 +231,7 @@ CI/CD success is evidence about configured checks, not proof of production corre
 
 ## Network / Zero Trust contract
 
-The 2026-09-12 network corpus strengthens P100's capability-policy boundary:
+The network corpus strengthens P100's capability-policy boundary:
 
 - TCP/UDP semantics are transport properties, not application correctness guarantees;
 - TLS protects transport confidentiality/integrity but does not grant application authorization;
@@ -120,21 +248,48 @@ OPEN PORT ≠ TRUSTED SERVICE
 TLS ≠ AUTHORIZATION
 VPN ≠ ZERO TRUST
 NAT ≠ SECURITY CONTROL
+PROXY ≠ TRUST BOUNDARY
 ```
 
 ## Port observation contract
 
 Common ports such as HTTP/HTTPS, SSH, database, Kubernetes API, container runtime, metrics and CI services may be used as discovery hints. Port-number mappings are never treated as authoritative service/version/vulnerability evidence. Service identity requires protocol-level or configuration evidence and independent verification.
 
-## Complete-audit findings
+## AI security / pentesting contract
 
-The supplied GitHub organization surface exposes repositories and services relevant to the P100 mission, including GitHub Agentic Workflows (`gh-aw`), shared agentic workflow actions, an agentic workflow firewall, an MCP gateway, artifact-attestation policy integration, a Copilot Agent SDK, CodeQL, a redacting logger and the official GitHub MCP Server. These are external reference patterns. They are **not** evidence that P100 already implements equivalent components.
+Security-agent capabilities discovered in static lists remain unverified until independently checked. Every security testing capability must carry:
 
-The GitHub Copilot App demonstrates a current agentic developer workflow in which agents operate across repository work. P100 therefore preserves an explicit distinction between agent planning, GitHub capability invocation, authorization and postcondition verification.
+- authorized target scope;
+- test environment classification;
+- authorization state;
+- allowed operation class;
+- rate/concurrency limits;
+- sensitive-data policy;
+- evidence requirements;
+- stop conditions;
+- remediation/retest path.
+
+Default execution model:
+
+```text
+AUTHORIZED SCOPE
+ ↓
+PASSIVE ENUMERATION
+ ↓
+CONTROLLED TEST PLAN
+ ↓
+BOUNDED / SANDBOXED TEST
+ ↓
+OBSERVATION
+ ↓
+FINDING + PROVENANCE
+ ↓
+REMEDIATION
+ ↓
+RETEST
+```
 
 ## CodeQL contract
-
-CodeQL is an evidence-producing security-analysis capability, not a generic security checkbox.
 
 ```text
 CODE
