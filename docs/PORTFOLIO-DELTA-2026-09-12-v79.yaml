@@ -1,0 +1,30 @@
+version: v79
+date: 2026-09-12
+iteration: 84
+project_added:
+  id: P124
+  name: Cognitive Dissonance Marketing Agent MAX
+  path: projekty/124-cognitive-dissonance-marketing-agent-max.md
+classification: dedicated_reusable_agent
+integrations:
+  - P100
+  - P07
+  - P110
+  - P113
+  - P123
+capabilities:
+  - narrative_marketing
+  - emotional_campaign_architecture
+  - cognitive_dissonance_engine
+  - cliffhanger_engine
+  - visual_prompt_compilation
+  - creative_continuity
+  - claims_integrity
+  - campaign_qa
+  - ab_experimentation
+  - campaign_evolution
+governance:
+  - emotional_intensity_is_not_deception
+  - model_output_is_not_authorization
+  - unsupported_claims_blocked
+  - consequential_publication_requires_human_approval
