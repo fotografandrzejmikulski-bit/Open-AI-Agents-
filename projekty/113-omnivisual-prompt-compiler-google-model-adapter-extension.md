@@ -70,6 +70,20 @@ OUTPUT QA
 PROVENANCE
 ```
 
+## AI capability hierarchy
+
+The 2026-09-12 corpus includes a teaching taxonomy that nests Artificial Intelligence, Machine Learning, Neural Networks, Deep Learning and Generative AI. P113 may use this as an educational classification layer, but not as a rigid ontology of all modern AI systems.
+
+```text
+AI
+ └── MACHINE LEARNING
+      └── NEURAL NETWORKS
+           └── DEEP LEARNING
+                └── GENERATIVE AI
+```
+
+This layer is separate from the runtime model registry: conceptual taxonomy explains capabilities; live metadata determines what an endpoint actually supports.
+
 ## Pipeline
 
 ```text
@@ -119,6 +133,7 @@ Provider fallback is valid only when semantic capability, quality, modality, pri
 - Model shutdown/deprecation must invalidate stale adapter entries rather than silently falling back.
 - Static tool rankings and free/paid labels are discovery metadata, not routing authority.
 - A tool being listed in an infographic does not establish API access, current availability or account authorization.
+- Educational taxonomies must not be confused with current vendor capability registries.
 
 ## Status
 `ARCHITECTURE ENHANCED — LIVE MODEL REGISTRY REQUIRED`
