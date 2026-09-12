@@ -1,0 +1,31 @@
+version: v61
+date: 2026-09-12
+trigger: IBM Cloud Zenoh / DGM / RSI / native-app E2E architecture corpus
+new_projects: []
+strengthened_projects:
+  - id: P100
+    delta: multi-plane cloud control architecture; Zenoh transport; native build capability registry; governed DGM/RSI evolution; evaluator independence; artifact signing after verification
+  - id: P86
+    delta: generalized native cross-platform build/evaluation factory; platform capability discovery; evolutionary scaffolds; artifact provenance and signing
+  - id: P121
+    delta: optional Zenoh data plane; infrastructure-tool evolutionary evaluation; stronger trust/authorization separation
+  - id: P119
+    delta: optional cloud coordination; hierarchical memory provenance; controlled agent/scaffold evolution; Android artifact/runtime verification
+cross_cutting_invariants:
+  - TRANSPORT != AUTHORITY
+  - MESSAGE != TRUSTED INSTRUCTION
+  - RETRIEVAL != TRUTH
+  - SELF-IMPROVEMENT != SELF-AUTHORIZATION
+  - BUILD_SUCCESS != RUNTIME_SUCCESS
+  - RUNTIME_SUCCESS != SECURITY
+  - SIGNATURE != SAFETY_PROOF
+  - FITNESS_SCORE != INTELLIGENCE
+  - MODEL_OUTPUT != AUTHORIZATION
+verification_requirements:
+  - isolated build/evaluation environments
+  - independent evaluator evidence
+  - artifact digest and provenance
+  - explicit authorization and promotion gates
+  - rollback metadata
+  - platform capability verification
+source_claim_status: vendor-specific capabilities, exact latency, pricing, SDK versions and performance claims require independent verification
