@@ -1,0 +1,65 @@
+version: "2026-09-12-v55"
+input: "8 uploaded AI-tool/workforce/training/marketing infographics"
+decision:
+  new_project: false
+  rationale: "Shared capability/provider/skill/workflow graph is the correct integration boundary."
+knowledge_base:
+  - "docs/knowledge-base/2026-09-12-corpus-ai-tools-workforce-training-landscape-2.md"
+project_impacts:
+  P100:
+    level: "high"
+    changes:
+      - "cost-aware provider routing"
+      - "total-cost-of-ownership model"
+      - "skill/capability separation"
+      - "human review boundary"
+      - "fallback equivalence testing"
+      - "typed workflow DAG reinforcement"
+      - "AI-at-work curriculum representation"
+  P113:
+    level: "medium"
+    changes:
+      - "broader multimodal capability taxonomy"
+      - "provider-neutral application landscape"
+  P114:
+    level: "medium"
+    changes:
+      - "volatile provider fact provenance"
+      - "discovery-source evidence classification"
+  P30:
+    level: "medium"
+    changes:
+      - "marketing stack decomposition"
+      - "SEO/research/content/distribution/measurement loop"
+new_ontology:
+  - "JOB_TO_BE_DONE"
+  - "CAPABILITY"
+  - "SKILL"
+  - "PROVIDER"
+  - "TOOL"
+  - "WORKFLOW"
+  - "HUMAN_REVIEW_BOUNDARY"
+  - "TOTAL_COST"
+  - "CURRICULUM_ITEM"
+  - "VERIFIED_COMPETENCE"
+  - "DISCOVERY_EVIDENCE"
+invariants:
+  - "FREE != UNRESTRICTED"
+  - "CHEAPER != EQUIVALENT"
+  - "ALTERNATIVE != EQUIVALENT"
+  - "LISTED != AVAILABLE"
+  - "AVAILABLE != AUTHORIZED"
+  - "SKILL != TOOL"
+  - "TOOL != WORKFLOW"
+  - "AI_OUTPUT != VERIFIED_OUTCOME"
+source_policy:
+  type: "infographic"
+  authority: "discovery_only"
+  runtime_use: "requires independent verification"
+backlog:
+  - "Add TCO and switching-cost fields to provider records"
+  - "Add tool-independent skill assessments"
+  - "Add human_review_boundary to workflow nodes"
+  - "Add fallback_equivalence_test"
+  - "Add curriculum_item object"
+  - "Version volatile provider facts with observation timestamps"
