@@ -1,0 +1,44 @@
+portfolio_delta: v58
+iteration: 61
+date: 2026-09-12
+source: AutoSEO / getautoseo.com
+new_projects: []
+project_updates:
+  - project: P100
+    impact: high
+    additions:
+      - autonomous SEO capability class
+      - AI Search Visibility metrics and evidence contract
+      - competitor query/topic gap workflow
+      - publishing authorization gate
+      - backlink/mention risk model
+      - outcome and causality verification
+  - project: P97
+    impact: high
+    additions:
+      - research-to-publication closed loop
+      - SEO/AIO content-factory integration
+  - project: portfolio-web-builder-layer
+    impact: medium_high
+    additions:
+      - site/entity/topic graph to SEO/AIO compiler path
+      - structured content cluster generation
+      - observed visibility feedback loop
+  - project: marketing-business-layer
+    impact: medium
+    additions:
+      - productized autonomous growth pattern
+      - vendor-claim evidence discipline
+new_invariants:
+  - AI_SEARCH_VISIBILITY != CLASSIC_SERP_RANKING
+  - MODEL_CITATION != AUTHORITY_PROOF
+  - SHARE_OF_MODEL != UNIVERSAL_STANDARD
+  - BACKLINK_AUTOMATION != SAFE_BY_DEFAULT
+  - CONTENT_VOLUME != TOPICAL_AUTHORITY
+  - TRAFFIC != REVENUE
+  - VENDOR_CASE_STUDY != INDEPENDENT_BENCHMARK
+  - AUTONOMOUS_PUBLISHING != AUTHORIZATION
+  - AUTOPILOT != UNSUPERVISED_AUTHORITY
+architecture:
+  autonomous_seo_loop: OBSERVE -> PLAN -> AUTHORIZE -> ACT -> READBACK -> VERIFY
+  strategic_model: BUSINESS -> RESEARCH -> TOPIC_GRAPH -> CONTENT -> PUBLISH -> AUTHORITY -> MEASURE -> ITERATE
