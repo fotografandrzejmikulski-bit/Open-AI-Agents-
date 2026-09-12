@@ -1,0 +1,59 @@
+schema: portfolio-delta/v1
+date: 2026-09-12
+iteration: 86
+source_batch: disposable-email-mask-privacy-relay
+classification: existing_project_extension
+new_standalone_project: false
+primary_project: P115
+extension: Disposable Email, Persistent Mask & Platform Alias Capability Model
+source_classes:
+  - 10_minute_mail_disposable_mailbox
+  - firefox_relay_persistent_mask
+  - apple_hide_my_email_platform_alias
+capability_classes:
+  - disposable_endpoint
+  - persistent_forwarding_mask
+  - platform_integrated_alias
+capability_dimensions:
+  - mailbox_ttl
+  - forwarding_target
+  - send_reply_capability
+  - account_dependency
+  - revocation_mode
+  - retention_policy
+  - platform_binding
+  - attachment_policy
+  - tracker_handling
+  - promotional_filtering
+canonical_model:
+  - identity_id
+  - channel
+  - provider
+  - endpoint
+  - mode
+  - owner
+  - purpose
+  - ttl
+  - forwarding_target
+  - send_policy
+  - retention
+  - revocation
+  - provenance
+  - audit
+security_invariants:
+  - alias_is_not_anonymity
+  - temporary_is_not_untraceable
+  - forwarding_is_not_end_to_end_confidentiality
+  - provider_privacy_claim_is_not_independent_audit
+  - disposable_mailbox_is_not_account_recovery
+  - mask_is_not_identity_verification_bypass
+  - received_message_is_not_trusted_content
+verification:
+  vendor_features: official_current_docs
+  provider_availability: live_verification_required
+  privacy_claims: source_derived_unless_independently_audited
+  market_demand: not_established_by_this_corpus
+integrations:
+  - P100
+  - P108
+  - P114
