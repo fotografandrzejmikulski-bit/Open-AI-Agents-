@@ -1,0 +1,38 @@
+portfolio_delta: v67
+date: 2026-09-12
+primary_project: P100
+source: antigravity-2.0-agent-platform-engineering-deep-dive
+classification: existing_project_extension
+new_standalone_project: false
+changes:
+  - project_security_context
+  - plugin_skill_supply_chain
+  - progressive_context_loader
+  - hook_policy_interceptor
+  - mcp_capability_lease
+  - antigravity_sdk_runtime_bridge
+  - bounded_subagent_delegation
+  - scheduled_task_governance
+  - artifact_verification_provenance
+  - model_version_lifecycle_provenance
+verification:
+  official_sources_checked: true
+  source_date: 2026-09-12
+  current_model_state_note: Gemini_3.8_Flash_via_ADC_recorded_for_AGY_Enterprise
+  unverified_source_claims_preserved:
+    - exact_2026_06_18_migration_deadline
+    - CLI_implementation_language
+    - exact_OS_sandbox_backend_matrix
+    - complete_hook_precedence_model
+    - absolute_zero_overhead_security_claims
+security_invariants:
+  - PROJECT_SCOPE_NE_AUTHORIZATION
+  - PLUGIN_MANIFEST_NE_TRUST
+  - SKILL_INSTRUCTION_NE_PERMISSION
+  - MCP_CAPABILITY_NE_PERMISSION
+  - HOOK_ALLOW_NE_FINAL_AUTHORIZATION
+  - SUBAGENT_NE_INDEPENDENT_AUTHORITY
+  - SDK_RUNTIME_NE_POLICY_BYPASS
+  - SCHEDULED_TASK_NE_UNBOUNDED_PERSISTENCE
+  - ARTIFACT_NE_VERIFIED_RUNTIME
+  - TOOL_RESULT_NE_POSTCONDITION
