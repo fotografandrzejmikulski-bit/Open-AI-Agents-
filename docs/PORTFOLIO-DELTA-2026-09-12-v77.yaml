@@ -1,0 +1,65 @@
+schema: portfolio-delta/v1
+date: 2026-09-12
+iteration: 82
+source_batch:
+  type: current_product_documentation_and_education
+  name: google-flow-dialogflow-cx-google-cloud-node-google-ai-learning
+  evidence_class: mixed_official_secondary_educational
+classification: existing_project_extensions
+new_standalone_project: false
+projects:
+  P97:
+    extension: Google Flow / Veo cinematic production adapter
+    capabilities:
+      - text_frame_ingredient_reference_video_generation
+      - model_specific_video_feature_routing
+      - flow_agent_creative_orchestration_benchmark
+      - project_asset_character_scene_mapping
+      - edit_history_and_frame_lineage
+      - scenebuilder_sequence_assembly_benchmark
+      - credit_aware_generation_routing
+      - provider_data_policy_classification
+  P113:
+    extension: Google Flow / Veo live capability adapter
+    capabilities:
+      - live_model_feature_matrix
+      - first_frame_and_last_frame_capability_flags
+      - ingredients_reference_capability_flags
+      - video_editing_and_extension_flags
+      - model_resolution_cost_metadata
+      - reference_lineage_compilation
+  P100:
+    extension: Google Flow / Dialogflow CX / Google Cloud SDK capability plane
+    capabilities:
+      - google_cloud_nodejs_service_adapter_registry
+      - dialogflow_cx_flow_state_graph_adapter
+      - generated_flow_tool_candidate_lifecycle
+      - provider_agent_confirmation_benchmark
+      - api_iam_authentication_separation
+      - provider_data_classification
+      - runtime_readback_and_provenance
+  P21:
+    extension: Google Flow / Dialogflow CX / Cloud Node.js service fabric
+    capabilities:
+      - google_cloud_service_surface_registry
+      - explicit_conversational_state_graphs
+      - multimodal_creative_provider_surface
+      - google_cloud_nodejs_runtime_adapters
+      - cross_provider_governance
+security_invariants:
+  - flow_tool_code_is_not_trusted_code
+  - shared_tool_link_is_not_trust
+  - flow_project_state_is_not_canonical_project_state
+  - google_cloud_sdk_is_not_authority
+  - api_enabled_is_not_user_authorized
+  - agent_confirmation_is_not_complete_security
+  - generation_success_is_not_cinematic_correctness
+verification:
+  google_product_capabilities: current_official_docs
+  model_feature_support: live_registry_required
+  credit_costs: live_verification_required
+  account_access: live_verification_required
+  atlascloud_claims: secondary_source_only
+  coursera_material: educational_reference_only
+  generated_flow_tools: sandbox_and_provenance_required
+  dialogflow_flow_changes: runtime_readback_required
