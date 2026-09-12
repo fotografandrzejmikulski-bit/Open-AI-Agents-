@@ -1,0 +1,36 @@
+version: v72
+date: 2026-09-12
+primary_project: P100
+classification: existing_project_extension
+new_standalone_project: false
+extension: AI Tool Market Intelligence — Automation, Vibe Coding & Monetization Signals
+signal_families:
+  - ai_tool_market
+  - workflow_automation
+  - agentic_vibe_coding
+  - ai_learning_progression
+  - epistemic_hallucination_discipline
+  - prompt_strategy
+  - monetization_opportunity
+workflow_model:
+  - capability
+  - pain_point
+  - repeatable_workflow
+  - agent_or_automation
+  - service_or_product
+  - distribution
+  - recurring_value
+  - measurement
+engineering_invariants:
+  - generated_patch_is_not_verified_patch
+  - running_app_is_not_proof_of_correctness
+  - deployed_is_not_safe
+  - agent_capability_is_not_authority
+  - secrets_require_configuration_isolation
+  - automation_requires_failure_handling
+verification:
+  tool_catalog_claims_source_derived: true
+  current_product_status_verified: false
+  income_claims_verified: false
+  prompt_effectiveness_verified: false
+  market_demand_proven_by_recurrence: false
