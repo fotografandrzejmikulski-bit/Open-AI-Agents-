@@ -8,6 +8,52 @@
 
 Convert large AI-tool catalogs into a governed capability intelligence layer rather than a static directory.
 
+## New corpus integration — automation, vibe coding and monetization
+
+The 2026-09-12 infographic corpus adds three useful signal families.
+
+### Automation engineering signals
+
+Candidate workflow-design heuristics:
+
+- start with small bounded automations;
+- use generic HTTP/API integration as a reusable capability;
+- define narrow industry-specific pain/outcome statements;
+- build explicit boundaries;
+- design for API outages, schema changes and malformed input;
+- favor recurring optimization and maintenance workflows where the economics support them;
+- validate proposed automation by using the workflow internally.
+
+These are heuristics, not guarantees of profitability or reliability.
+
+### Vibe-coding signals
+
+Candidate development practices:
+
+`TEMPLATE/REPO → AGENTIC EDITING → LOCAL RUN → TEST → ITERATE → VERSION → DEPLOY → VERIFY`
+
+The source's practices around templates, agent mode, task isolation, local testing, error feedback, restore points, secret protection, frequent commits, early deployment and prompt/build records are normalized into P100 engineering controls.
+
+Critical P100 distinction:
+
+`GENERATED PATCH ≠ VERIFIED PATCH`
+
+`RUNNING APP ≠ CORRECT APP`
+
+`DEPLOYED ≠ SAFE`
+
+`AGENT CAPABILITY ≠ AUTHORITY`
+
+### Monetization signals
+
+The source lists freelance, remote, microtask, testing, gig, e-commerce, teaching, affiliate, consulting, creative/content, software, agency and business-service opportunities.
+
+P100 converts this into:
+
+`CAPABILITY → PAIN POINT → REPEATABLE WORKFLOW → AGENT/AUTOMATION → SERVICE/PRODUCT → DISTRIBUTION → RECURRING VALUE → MEASUREMENT`
+
+Income claims remain unverified; the architectural value is opportunity modeling.
+
 ## Architecture
 
 ```text
@@ -78,15 +124,15 @@ Required evaluation dimensions:
 
 ## Workflow opportunity detection
 
-The system should identify recurring multi-tool chains, including:
-
-`RESEARCH → WRITING → DESIGN → VIDEO → DISTRIBUTION → SALES → ANALYTICS`
-
-`MEETING → TRANSCRIPTION → KNOWLEDGE → TASKS → SCHEDULING → FOLLOW-UP`
+The corpus reinforces detection of recurring fragmented chains such as:
 
 `IDEA → WEBSITE → CONTENT → SEO → SOCIAL → LEADS → CRM → ANALYTICS`
 
-Repeated fragmentation across a workflow is a candidate signal for a vertical agent or integrated product.
+`RESEARCH → RAG → WRITING → DESIGN → VIDEO → DISTRIBUTION → SALES → ANALYTICS`
+
+`MEETING → TRANSCRIPTION → KNOWLEDGE → TASKS → SCHEDULING → FOLLOW-UP`
+
+Repeated fragmentation is a candidate signal for a vertical agent or integrated product, not proof of demand.
 
 ## Opportunity scoring
 
@@ -103,6 +149,20 @@ Candidate scoring should combine:
 
 The score is a prioritization aid, not evidence of market demand.
 
+## Epistemic / hallucination discipline
+
+The supplied corpus reinforces a strict evidence-state model:
+
+`GENERATED → INFERRED → UNVERIFIED → VERIFIED`
+
+No generated or inferred statement may silently become a verified fact. Prompt repetition can reinforce behavior but cannot substitute for independent verification.
+
+## Prompt strategy registry
+
+Prompt patterns such as role framing, outcome orientation, devil's-advocate analysis, alternative framing, trade-off analysis, blind-spot discovery and decomposition become reusable interaction strategies.
+
+They are strategies, not guarantees and not authorization mechanisms.
+
 ## Tool/skill catalog integration
 
 Tool and skill catalogs feed capability discovery, but:
@@ -118,10 +178,6 @@ Tool and skill catalogs feed capability discovery, but:
 External skills/plugins require the existing P100 supply-chain flow:
 
 `DISCOVER → HASH → PROVENANCE → STATIC CHECK → CAPABILITY DIFF → POLICY CHECK → CANDIDATE → APPROVE → ACTIVATE`
-
-## Cybersecurity corpus boundary
-
-Security tools discovered in market catalogs are represented as capability/risk metadata only. Offensive execution requires independent authorization, bounded sandboxing, audit and postcondition verification.
 
 ## Integration with Agent Factory
 
@@ -143,7 +199,11 @@ No market score or LLM recommendation can directly authorize deployment.
 8. Stale-provider detection.
 9. Unauthorized-tool execution denial tests.
 10. Candidate-to-agent provenance continuity.
+11. Automation failure-mode tests.
+12. Secret-leakage and configuration-isolation tests.
+13. Generated-patch readback and regression tests.
+14. Monetization claims separated from verified demand evidence.
 
 ## Decision
 
-This is a **P100 extension**, not a new standalone project at this stage. A future standalone product is justified only if continuous market verification, demand signals, competitor monitoring and automated opportunity generation become an independent commercial scope.
+This remains a **P100 extension**, not a new standalone project. The new corpus materially strengthens market intelligence by adding automation-engineering, agentic coding, epistemic discipline and commercialization signals.
