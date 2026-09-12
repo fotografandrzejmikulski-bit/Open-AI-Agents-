@@ -4,7 +4,7 @@
 
 **P100 — NeXus AI Code OMEGA-X Agentic Development Environment MAX**
 
-This extension records the GitHub corpus integration without creating a second product identity.
+This extension records the GitHub corpus and the 2026-09-12 database/DevOps/Git/network-security corpus integration without creating a second product identity.
 
 ## New control-plane layer
 
@@ -45,11 +45,92 @@ AUDIT / PROMOTION / ROLLBACK
 - MCP Registry / official GitHub MCP Server compatibility without granting implicit authority;
 - typed roadmap states and feedback/triage signals.
 
+## Database / query-performance contract
+
+The 2026-09-12 database corpus adds a data-plane verification layer:
+
+```text
+QUERY
+ ↓
+INDEX SELECTION
+ ↓
+EXPLAIN / ANALYZE
+ ↓
+OBSERVED PLAN + LATENCY / IO
+ ↓
+WORKLOAD VALIDATION
+ ↓
+PROMOTE / REJECT INDEX CHANGE
+```
+
+P100 should model primary, secondary, composite, unique, covering, partial and full-text indexes as workload-specific capabilities. Index decisions must consider selectivity/cardinality, left-prefix behavior, range-stop effects, write amplification, table size and index bloat. A generic rule from a cheatsheet is not sufficient evidence for a production index change.
+
+Semantic/vector indexes remain separate from relational identity. Physical index slots never become durable memory identity.
+
+## Git provenance contract
+
+Git is treated as a content-addressed evidence substrate. Commits represent snapshots; branches/tags are references; reset, revert and rebase have different provenance semantics; reflog and bisect provide recovery/regression-localization capabilities; worktrees enable isolated parallel contexts.
+
+For agentic operation:
+
+`model proposal → policy classification → authorization → Git mutation → readback → verification`.
+
+Commit creation, push, force rewrite, branch deletion, reset and deployment-triggering changes are consequential operations and must not be authorized merely by generated text.
+
+## DevOps delivery contract
+
+```text
+COMMIT
+ ↓
+CI / TEST
+ ↓
+SECURITY ANALYSIS
+ ↓
+ARTIFACT
+ ↓
+DIGEST / ATTESTATION
+ ↓
+BLUE-GREEN / CANARY / ROLLING STRATEGY
+ ↓
+DEPLOY
+ ↓
+HEALTH / SLO / RUNTIME READBACK
+ ↓
+PROMOTE OR ROLLBACK
+```
+
+CI/CD success is evidence about configured checks, not proof of production correctness. Blue-green and canary are risk-reduction deployment strategies; rollback is a recovery action; immutable infrastructure reduces uncontrolled mutation; chaos engineering is a bounded resilience-testing discipline.
+
+## Network / Zero Trust contract
+
+The 2026-09-12 network corpus strengthens P100's capability-policy boundary:
+
+- TCP/UDP semantics are transport properties, not application correctness guarantees;
+- TLS protects transport confidentiality/integrity but does not grant application authorization;
+- VPN is a secure tunnel, not implicit trust;
+- NAT is address translation, not a security boundary;
+- firewalls, proxies and IDS/IPS provide different enforcement/detection functions;
+- segmentation and DMZs reduce exposure/blast radius;
+- open ports represent potential service exposure, not verified service identity or authorization;
+- Zero Trust requires explicit verification of identity, device, application and data access.
+
+```text
+REACHABLE ≠ AUTHORIZED
+OPEN PORT ≠ TRUSTED SERVICE
+TLS ≠ AUTHORIZATION
+VPN ≠ ZERO TRUST
+NAT ≠ SECURITY CONTROL
+```
+
+## Port observation contract
+
+Common ports such as HTTP/HTTPS, SSH, database, Kubernetes API, container runtime, metrics and CI services may be used as discovery hints. Port-number mappings are never treated as authoritative service/version/vulnerability evidence. Service identity requires protocol-level or configuration evidence and independent verification.
+
 ## Complete-audit findings
 
-The supplied GitHub organization surface currently exposes repositories and services relevant to the P100 mission, including GitHub Agentic Workflows (`gh-aw`), shared agentic workflow actions, an agentic workflow firewall, an MCP gateway, artifact-attestation policy integration, a Copilot Agent SDK, CodeQL, a redacting logger and the official GitHub MCP Server. These are external reference patterns. They are **not** evidence that P100 already implements equivalent components.
+The supplied GitHub organization surface exposes repositories and services relevant to the P100 mission, including GitHub Agentic Workflows (`gh-aw`), shared agentic workflow actions, an agentic workflow firewall, an MCP gateway, artifact-attestation policy integration, a Copilot Agent SDK, CodeQL, a redacting logger and the official GitHub MCP Server. These are external reference patterns. They are **not** evidence that P100 already implements equivalent components.
 
-The GitHub Copilot App further demonstrates a current agentic developer workflow in which agents operate across repository work. P100 should therefore preserve an explicit distinction between agent planning, GitHub capability invocation, authorization and postcondition verification.
+The GitHub Copilot App demonstrates a current agentic developer workflow in which agents operate across repository work. P100 therefore preserves an explicit distinction between agent planning, GitHub capability invocation, authorization and postcondition verification.
 
 ## CodeQL contract
 
@@ -73,41 +154,13 @@ REMEDIATION
 RE-ANALYSIS
 ```
 
-For P100 this should cover supported JavaScript/TypeScript, Rust, Java/Kotlin and other relevant source paths where the configured CodeQL extractor supports them.
-
 ## Electron hardening contract
 
-P100's Electron shell must treat remote/untrusted content as hostile and maintain:
-
-- current stable Electron runtime policy;
-- context isolation;
-- sandboxing;
-- restrictive CSP;
-- secure HTTPS/WSS content;
-- restricted navigation/window creation;
-- IPC sender validation;
-- minimal preload API surface;
-- dependency review;
-- no privileged API exposure to arbitrary web content;
-- release/package verification through the chosen Electron packaging toolchain.
-
-Electron's current platform documentation also identifies Forge as the batteries-included build/publishing path and Fiddle as an experiment/reproduction path; these are useful references for P100 packaging and reproducibility, not mandatory dependencies.
+P100's Electron shell must treat remote/untrusted content as hostile and maintain current runtime policy, context isolation, sandboxing, restrictive CSP, secure HTTPS/WSS content, restricted navigation/window creation, IPC sender validation, minimal preload API surface, dependency review and release/package verification.
 
 ## npm / supply-chain contract
 
-The npm reference set adds concrete supply-chain controls beyond generic dependency review:
-
-- dependency audit evidence;
-- provenance statements;
-- OIDC trusted publishing where applicable;
-- staged publishing;
-- ECDSA registry signature verification where applicable;
-- mandatory 2FA policy;
-- malware-reporting and incident response path;
-- scoped organization/package access;
-- granular, least-privilege access tokens.
-
-Prefer trusted publishing for CI/CD package release when supported. Credentials remain outside prompts, source artifacts and UI state.
+The npm reference set adds dependency audit, provenance statements, OIDC trusted publishing where applicable, staged publishing, ECDSA registry signature verification where applicable, mandatory 2FA policy, malware-reporting/incident response, scoped access and granular least-privilege tokens.
 
 ## Credential contract
 
@@ -121,14 +174,8 @@ Required evidence:
 
 `SOURCE SHA + BUILD ENVIRONMENT + TEST EVIDENCE + SECURITY RESULT + DEPENDENCY STATE + ARTIFACT DIGEST + ATTESTATION/PROVENANCE + DEPLOYMENT RECORD + RUNTIME READBACK`.
 
-## Roadmap / feedback contract
-
-GitHub's public roadmap provides typed release phases (`exploring`, `in design`, `preview`, `ga`) and feature-area/deployment labels. P100 may use the same principle for project state without copying GitHub's exact taxonomy.
-
-Community discussions demonstrate an active feedback/incident signal stream. P100 should model feedback as observation requiring triage, not as automatic authority for a code change.
-
 ## Status
 
 **ARCHITECTURE ENHANCED — IMPLEMENTATION NOT YET VERIFIED**
 
-The supplied GitHub/Electron/npm documentation establishes design requirements and external reference patterns. It does not establish that P100 has already implemented or executed these gates.
+The supplied corpora establish design requirements and external reference patterns. They do not establish that P100 has already implemented or executed these gates.
