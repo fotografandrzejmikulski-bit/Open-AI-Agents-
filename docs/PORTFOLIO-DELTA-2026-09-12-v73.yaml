@@ -1,0 +1,48 @@
+version: v73
+date: 2026-09-12
+iteration: 78
+primary_project: P86
+secondary_projects:
+  - P100
+  - P77
+classification: existing_project_extension
+new_standalone_project: false
+extension: Sequential Matrix Analytics — Monety i Świnie
+source_scope:
+  domain_size: 49
+  unique_dates: 349
+  date_start: 2025-01-23
+  date_end: 2026-01-06
+  overlapping_date: 2025-07-22
+capabilities:
+  - visual_table_extraction
+  - temporal_matrix_normalization
+  - finite_state_rule_compilation
+  - sequence_analysis
+  - null_model_backtesting
+  - uncertainty_reporting
+  - provenance_preserving_simulation
+primitives:
+  - sequential-matrix
+  - matrix-row-observation
+  - matrix-cell-state
+  - matrix-aggregate-vector
+  - matrix-extraction-record
+  - state-transition-rule
+  - strategy-backtest-record
+  - null-model-baseline
+  - simulation-provenance-record
+epistemic_controls:
+  - highlighted_cell_is_not_prediction
+  - frequency_is_not_probability
+  - backtest_is_not_guarantee
+  - simulation_is_not_external_evidence
+  - pattern_is_not_causality
+  - ONT_semantics_unresolved
+verification_next:
+  - reconstruct_full_matrix
+  - reconcile_duplicate_date
+  - verify_all_cells
+  - time_respecting_out_of_sample_test
+  - randomized_null_model
+  - effect_size_and_uncertainty
