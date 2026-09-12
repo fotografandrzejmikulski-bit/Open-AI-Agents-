@@ -2,63 +2,86 @@
 
 ## Trigger
 
-Integration of ten supplied AI-tool / productivity / marketing / education / creative-tool visual references.
+Integration of 10 uploaded visual references covering AI prompting, paid/free tool substitution, creator/social-media workflows, analytics dashboards and 60 generative-AI project ideas.
 
-## Observation
+## Audit result
 
-The corpus repeatedly organizes the market by capability: assistant, research, coding, image, video, writing, presentations, automation, knowledge management, project management, scheduling, transcription, marketing, SEO, social media, sales, customer service, recruiting and analytics.
-
-## Synthesis
-
-The portfolio should treat these categories as a **capability graph** rather than a static tool directory. Existing P100 already provides the strongest home for this abstraction through its provider/skill registry and workflow control plane.
+The corpus was analyzed as a capability-discovery corpus rather than a factual product registry. Repeated tools and categories were normalized into capabilities and workflow stages.
 
 ## Changes
 
-1. Added discovery corpus:
-   `docs/knowledge-base/2026-09-12-corpus-ai-work-tools-competitive-substitution.md`
-2. Extended P100's conceptual control plane with:
-   - capability substitution;
-   - work-graph routing;
-   - meeting/transcription evidence flow;
-   - app-builder/coding convergence;
-   - marketing measurement loop;
-   - competence-evidence model.
-3. Reinforced P113 provider-neutral multimodal abstraction conceptually.
-4. Reinforced P30's measurement-first marketing/SEO model.
-5. Reinforced P114 provenance requirements for generated and analytics-derived records.
+### P100 — NeXus AI Code
 
-## Architectural delta
+Enhanced with:
+
+- structured prompt compiler contract;
+- explicit separation of prompt guidance from internal reasoning exposure;
+- analytics evidence contract;
+- social-media production/measurement loop;
+- project-idea intake and merge/reject gate;
+- expanded capability substitution graph;
+- provider fallback constraints.
+
+### P30 — Deep OSINT / Evidence Engine
+
+Marketing/SEO discovery is treated as evidence acquisition and measurement rather than as a static list of tools. Claims derived from keyword, SERP, analytics or social metrics require provenance and current source evidence.
+
+### P113 — OmniVisual Prompt Compiler
+
+Prompt role, output schema, examples, constraints, style and audience are formalized as provider-neutral prompt fields. Static tool/model lists remain discovery input only.
+
+### P114 — OmniCognitive Engineering Memory / Verification Substrate
+
+Analytics, transcription, generated assets and campaign outputs inherit provenance requirements. Dashboard screenshots and generated summaries cannot become authoritative memory without source/verification metadata.
+
+## New-project decision
+
+**NO NEW PROJECT.**
+
+The 60 ideas are mostly feature-level capabilities already represented across the portfolio. A new project would duplicate existing surfaces unless future evidence establishes a separate user/job, differentiated data/workflow moat and independent product boundary.
+
+## Architecture delta
 
 ```text
-STATIC TOOL LIST
-      ↓
+DISCOVERY
+ ↓
 CAPABILITY ONTOLOGY
-      ↓
-WORKFLOW GRAPH
-      ↓
-CONSTRAINED PROVIDER SUBSTITUTION
-      ↓
-POLICY / AUTHORIZATION
-      ↓
+ ↓
+TASK / WORKFLOW GRAPH
+ ↓
+PROVIDER CANDIDATES
+ ↓
+CONSTRAINT FILTER
+ ↓
+POLICY
+ ↓
+AUTHORIZATION
+ ↓
 EXECUTION
-      ↓
-MEASUREMENT / QA
-      ↓
+ ↓
+OBSERVATION / ANALYTICS
+ ↓
+QA / MEASUREMENT
+ ↓
 PROVENANCE
-      ↓
-LEARNING
+ ↓
+MEMORY / LEARNING
 ```
 
-## Decision
+## New invariants
 
-`NO_NEW_PROJECT`
-
-The material adds depth to existing boundaries rather than establishing an independent product identity.
-
-## Verification boundary
-
-All supplied graphics remain secondary discovery evidence. Current pricing, availability, API support, rankings, quality and lifecycle must be independently verified before being treated as runtime facts.
+- `LISTED ≠ VERIFIED`
+- `ALTERNATIVE ≠ EQUIVALENT`
+- `FREE ≠ UNRESTRICTED`
+- `PROMPT HACK ≠ GUARANTEED BEHAVIOR`
+- `CHAIN-OF-THOUGHT REQUEST ≠ REQUIRED EVIDENCE`
+- `DASHBOARD ≠ RAW DATA`
+- `METRIC ≠ CAUSALITY`
+- `ANALYTICS ≠ BUSINESS OUTCOME`
+- `PROJECT IDEA ≠ MARKET VALIDATION`
+- `GENERATED OUTPUT ≠ VERIFIED STATE`
+- `COURSE ≠ COMPETENCE`
 
 ## Status
 
-`ARCHITECTURE_ENHANCED_IMPLEMENTATION_NOT_VERIFIED`
+Architecture enhanced. Implementation and live product claims require independent verification.
