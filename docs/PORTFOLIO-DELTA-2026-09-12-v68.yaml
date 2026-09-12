@@ -1,0 +1,62 @@
+portfolio_delta: v68
+date: 2026-09-12
+iteration: 73
+primary_project: P100
+source: ai-tool-market-capability-expansion
+classification: existing_project_extension
+new_standalone_project: false
+extension_path: "projekty/100-nexus-ai-code-ai-tool-market-intelligence-extension-2026-09-12.md"
+changes:
+  - ai_tool_entity_resolution
+  - capability_taxonomy_expansion
+  - provider_lifecycle_state
+  - capability_substitution_graph
+  - workflow_adjacency_graph
+  - market_opportunity_scoring
+  - competitive_gap_candidate_generation
+  - tool_skill_capability_separation
+  - tool_availability_state_model
+  - market_intelligence_to_agent_factory_pipeline
+capability_domains:
+  - presentation
+  - spreadsheet
+  - scheduling
+  - knowledge_management
+  - chat_reasoning
+  - image
+  - writing
+  - email
+  - workflow_automation
+  - graphic_design
+  - data_visualization
+  - coding
+  - meeting_notes
+  - video
+  - seo
+  - website
+  - social_media
+  - sales_outreach
+  - research
+  - career
+  - voice_audio_music
+  - education
+  - agent_runtime
+verification:
+  source_type: operator_supplied_market_catalog
+  entity_resolution_required: true
+  current_product_status_verified: false
+  pricing_verified: false
+  demand_evidence_verified: false
+  substitution_pairs: hypothesis_only
+security_invariants:
+  - TOOL_LIST_NE_CURRENT_TRUTH
+  - CATEGORY_MATCH_NE_FUNCTIONAL_EQUIVALENCE
+  - PROVIDER_EXISTS_NE_PROVIDER_AVAILABLE
+  - AVAILABLE_NE_AUTHORIZED
+  - SKILL_NE_PERMISSION
+  - STATIC_CATALOG_NE_MARKET_DEMAND
+  - SIMILAR_PRODUCT_NE_BETTER_PRODUCT
+  - GENERATED_OUTPUT_NE_BUSINESS_OUTCOME
+cybersecurity_material:
+  classification: capability_and_risk_intelligence_only
+  privileged_execution: independently_authorized_and_bounded
