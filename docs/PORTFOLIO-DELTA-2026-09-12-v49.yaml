@@ -1,0 +1,42 @@
+version: 49
+date: 2026-09-12
+source: CineMatrix WinUI 3 / local film studio corpus
+new_numbered_project: false
+integration:
+  P97:
+    status: enhanced
+    additions:
+      - WinUI 3 native studio shell
+      - cinematic NLE workspace
+      - GPU/VRAM resource scheduler
+      - local execution adapters
+      - CineMatrix Shot IR
+      - cinematic compute-state UX
+      - long-form film production verification
+  P100:
+    status: enhanced
+    additions:
+      - Windows runtime and packaging assurance
+      - independent model-asset release manifest
+      - install/update/rollback verification
+      - ComfyUI endpoint and artifact identity checks
+  P113:
+    status: enhanced
+    additions:
+      - typed cinematic Shot IR
+      - directorial-to-model compiler boundary
+      - versioned model parameter metadata
+  P114:
+    status: enhanced
+    additions:
+      - Film World State
+      - temporal continuity retrieval
+      - stable entity identity
+      - stale/contradictory memory tests
+verification:
+  implementation_claim: not_verified
+  zero_copy_claim: not_verified
+  comfyui_in_process_claim: not_verified
+  model_vram_claims: source_derived
+  msix_external_location_claim: not_verified
+  production_readiness: not_verified
