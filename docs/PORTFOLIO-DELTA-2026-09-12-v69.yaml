@@ -1,0 +1,31 @@
+version: v69
+date: 2026-09-12
+primary_project: P100
+classification: existing_project_extension
+new_standalone_project: false
+extension: 802.11 Blue Team + AI DevSecOps Guardrail Plane
+capabilities:
+  - wireless_80211_assessment
+  - eap_enterprise_identity_assessment
+  - rogue_ap_evil_twin_detection
+  - captive_portal_exposure_assessment
+  - wps_exposure_assessment
+  - wireless_availability_anomaly_assessment
+  - multi_agent_security_orchestration
+  - mcp_capability_governance
+  - ai_coding_devsecops_guardrails
+  - evidence_provenance
+  - test_production_isolation
+verification:
+  source_derived: true
+  tool_current_status_verified: false
+  offensive_commands_promoted_to_execution: false
+  numeric_security_policies_globally_validated: false
+  authorization_required: true
+security_invariants:
+  - capability_is_not_authority
+  - target_discovery_is_not_ownership
+  - rag_and_mcp_do_not_override_policy
+  - consequential_wireless_testing_requires_explicit_scope
+  - generated_code_requires_independent_verification
+  - evidence_requires_provenance_and_readback
