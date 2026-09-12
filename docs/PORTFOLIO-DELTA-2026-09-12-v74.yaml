@@ -1,0 +1,32 @@
+version: v74
+date: 2026-09-12
+primary_project: P100
+classification: existing_project_extension
+new_standalone_project: false
+extension: Antigravity Cloud Memory, MCP Federation, Agent Registry & Neuro-Symbolic Verification
+capabilities:
+  - cloud_file_mcp_federation
+  - episodic_semantic_procedural_memory
+  - temporal_vector_memory
+  - specialist_agent_registry
+  - manager_view_approval_projection
+  - local_cloud_model_routing
+  - skill_provenance_and_activation
+  - neuro_symbolic_verification_adapter
+  - counterexample_driven_repair
+  - infrastructure_automation_sandbox
+invariants:
+  - mcp_connectivity_is_not_authorization
+  - memory_is_not_authority
+  - skill_is_not_authorization
+  - model_selection_is_not_trust
+  - formal_model_check_is_not_whole_system_proof
+  - tool_success_is_not_postcondition_proof
+verification:
+  source_claims_status: source_derived
+  exact_product_model_database_package_claims_verified: false
+  architecture_patterns_reusable_candidate: true
+  tenant_acl_before_context_release: required
+  secret_isolation: required
+  durable_approval_binding: required
+  runtime_readback: required
