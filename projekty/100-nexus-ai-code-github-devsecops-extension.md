@@ -184,6 +184,60 @@ ITERATION
 
 P100 should therefore represent a workflow as a typed DAG with capability requirements, provider candidates, cost budget, latency target, data sensitivity, authorization state and evidence requirements.
 
+## Capability substitution graph
+
+The latest corpus adds an explicit competitive-substitution layer above the provider registry. A tool is not selected because it is listed as “best,” “free,” “paid,” or “pro.” It is selected because it satisfies the task contract.
+
+```text
+BUSINESS OUTCOME
+ ↓
+CAPABILITY REQUIREMENT
+ ↓
+WORKFLOW / TASK GRAPH
+ ↓
+CANDIDATE PROVIDERS
+ ↓
+SEMANTIC + MODALITY + QUALITY MATCH
+ ↓
+COST / LATENCY / PRIVACY / INTEGRATION FILTER
+ ↓
+POLICY + AUTHORIZATION
+ ↓
+EXECUTION
+ ↓
+QA + MEASUREMENT
+ ↓
+PROVENANCE
+```
+
+`ALTERNATIVE ≠ EQUIVALENT`.
+
+Fallback routing must preserve task-critical semantic capability, input/output modality, quality floor, context/file limits, integration requirements, privacy/data-residency constraints, latency, cost, licensing and provenance. Silent substitution is prohibited when those constraints change.
+
+## Typed work graph
+
+Static tool lists should compile into a typed work graph:
+
+```text
+TASK
+ ↓
+SUBTASKS
+ ↓
+CAPABILITIES
+ ↓
+PROVIDERS / TOOLS
+ ↓
+CONSTRAINT FILTER
+ ↓
+ROUTING
+ ↓
+EXECUTION
+ ↓
+VERIFICATION
+```
+
+Nodes should carry capability, modality, input/output schema, evidence requirement, sensitivity class, authorization state and failure semantics. Edges should carry dependency and provenance relationships.
+
 ## AI tool substitution / fallback
 
 Paid-vs-free lists are useful for discovering alternative providers but are not evidence that two tools are functionally equivalent.
@@ -240,6 +294,82 @@ ARTIFICIAL INTELLIGENCE
 ```
 
 P100 may use this as an educational classification layer, but it is not a rigid runtime ontology. Conceptual families can overlap and modern systems can combine multiple paradigms.
+
+## Meeting / transcription evidence loop
+
+Transcription and meeting-note capabilities are treated as an evidence-producing workflow:
+
+```text
+AUDIO / MEETING
+ ↓
+TRANSCRIPTION
+ ↓
+SEGMENTATION
+ ↓
+DECISION / ACTION EXTRACTION
+ ↓
+VALIDATION
+ ↓
+TASK / KNOWLEDGE RECORD
+ ↓
+FOLLOW-UP
+ ↓
+OUTCOME
+```
+
+Transcript text is an observation and may contain recognition errors or ambiguity. Decisions and tasks require provenance and, where consequential, confirmation before becoming authoritative state.
+
+## App-builder / agentic-coding convergence
+
+App builders, coding assistants and agentic development tools are represented as different capability surfaces within the same controlled delivery pipeline:
+
+```text
+SPECIFICATION
+ ↓
+ARCHITECTURE
+ ↓
+CODE GENERATION
+ ↓
+DEPENDENCY RESOLUTION
+ ↓
+TEST
+ ↓
+SECURITY ANALYSIS
+ ↓
+BUILD
+ ↓
+ARTIFACT PROVENANCE
+ ↓
+DEPLOYMENT
+ ↓
+RUNTIME READBACK
+```
+
+Generated code remains untrusted until independently tested and verified. Tool identity does not grant merge, release or deployment authority.
+
+## Automation authorization boundary
+
+AI-generated plans and workflow recommendations do not authorize external actions.
+
+```text
+INTENT
+ ↓
+PLAN
+ ↓
+CAPABILITY RESOLUTION
+ ↓
+POLICY
+ ↓
+AUTHORIZATION
+ ↓
+ACTION
+ ↓
+READBACK
+ ↓
+POSTCONDITION
+```
+
+Automation must expose trigger, scope, credential, rate, stop-condition and rollback semantics.
 
 ## Database / query-performance contract
 
