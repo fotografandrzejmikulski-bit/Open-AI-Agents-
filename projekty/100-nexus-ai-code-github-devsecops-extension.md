@@ -4,7 +4,7 @@
 
 **P100 — NeXus AI Code OMEGA-X Agentic Development Environment MAX**
 
-This extension records the GitHub corpus, database/DevOps/Git/network-security corpora and the 2026-09-12 AI-tool/provider/education corpus without creating a second product identity.
+This extension records the GitHub corpus, database/DevOps/Git/network-security corpora and the 2026-09-12 AI-tool/provider/education/marketing/SEO corpus without creating a second product identity.
 
 ## New control-plane layer
 
@@ -51,32 +51,49 @@ AUDIT / PROMOTION / ROLLBACK
 
 ## AI capability/provider registry
 
-The 2026-09-12 AI-tool corpus broadens the registry from individual model providers to workflow capabilities. Categories observed in the supplied material include:
+The 2026-09-12 AI-tool corpora broaden the registry from individual model providers to workflow capabilities. Categories observed include:
 
-- chat / reasoning;
-- research;
+- chat / reasoning / research;
 - presentations;
-- image generation;
+- image generation/editing;
 - video generation/editing;
-- speech / audio / TTS;
+- speech / audio / TTS / transcription;
 - writing / copywriting;
-- email assistance;
-- meeting notes / transcription;
+- email assistance / email marketing;
+- meeting notes;
 - coding assistance;
-- spreadsheet assistance;
+- spreadsheets;
 - data visualization / analytics;
-- scheduling;
+- scheduling / planning;
 - workflow automation;
 - knowledge management;
-- graphic design;
 - sales / outreach;
 - social media;
-- SEO / marketing;
+- SEO / keyword research;
 - web development;
 - 3D creative tooling;
+- logo / brand generation;
+- marketing / advertising;
 - education / courses.
 
-The static infographics are **capability-discovery sources**, not canonical pricing, availability, ranking or model registries. Names, free/paid status, product scope and model capabilities must be verified before runtime selection.
+The registry should separate **capability ontology** from **provider inventory**:
+
+```text
+CAPABILITY
+  ├── sub-capability
+  ├── required modality
+  ├── quality threshold
+  └── evidence requirements
+       ↓
+PROVIDER / PRODUCT
+  ├── access mode
+  ├── lifecycle
+  ├── integration
+  ├── cost
+  └── verification evidence
+```
+
+Static infographics are capability-discovery sources, not canonical pricing, availability, ranking or model registries. Names, free/paid status, product scope and model capabilities must be verified before runtime selection.
 
 Canonical selection contract:
 
@@ -108,9 +125,44 @@ Mandatory state separation:
 
 A tool appearing in a directory or infographic never grants execution authority.
 
+## Marketing and SEO capability decomposition
+
+The new corpus strengthens P100's marketing ontology. Marketing is decomposed into SEO, social media, PPC, influencer marketing, e-commerce marketing, email marketing, affiliate marketing, brand strategy and traditional marketing.
+
+SEO is decomposed into:
+
+- keyword and intent research;
+- SERP/research analysis;
+- on-page and structured-data checks;
+- crawling and indexing diagnostics;
+- link/backlink analysis;
+- performance and analytics;
+- local-search signals;
+- recommendation → implementation → re-measurement.
+
+The resulting workflow model is:
+
+```text
+DISCOVER INTENT
+ ↓
+COLLECT SEARCH / SITE EVIDENCE
+ ↓
+ANALYZE CONTENT / TECHNICAL STATE
+ ↓
+GENERATE RECOMMENDATIONS
+ ↓
+AUTHORIZE IMPLEMENTATION
+ ↓
+MEASURE
+ ↓
+ITERATE
+```
+
+Tool presence does not constitute SEO evidence, and a generated recommendation does not constitute a measured business outcome.
+
 ## Workflow composition
 
-The new corpus reinforces a compositional model rather than a single-tool model:
+The corpus reinforces a compositional model rather than a single-tool model:
 
 ```text
 RESEARCH
@@ -155,7 +207,7 @@ A cheaper or free provider must not be substituted silently when the task's qual
 
 ## Education and capability development
 
-The supplied Google/Meta/Microsoft course graphics add a training dimension to P100. Course catalogs can be represented as capability-development resources:
+Course catalogs can be represented as capability-development resources:
 
 ```text
 SKILL GAP
@@ -172,6 +224,22 @@ SKILL REGISTRY UPDATE
 ```
 
 Course titles, ratings, enrollment counts and durations from static graphics are discovery metadata only and require current verification before being used for planning.
+
+The learning graph is separate from runtime authorization: completing or listing a course does not grant system permissions.
+
+## AI conceptual hierarchy
+
+The new teaching corpus includes a nested conceptual map:
+
+```text
+ARTIFICIAL INTELLIGENCE
+  └── MACHINE LEARNING
+       └── NEURAL NETWORKS
+            └── DEEP LEARNING
+                 └── GENERATIVE AI
+```
+
+P100 may use this as an educational classification layer, but it is not a rigid runtime ontology. Conceptual families can overlap and modern systems can combine multiple paradigms.
 
 ## Database / query-performance contract
 
@@ -250,10 +318,6 @@ VPN ≠ ZERO TRUST
 NAT ≠ SECURITY CONTROL
 PROXY ≠ TRUST BOUNDARY
 ```
-
-## Port observation contract
-
-Common ports such as HTTP/HTTPS, SSH, database, Kubernetes API, container runtime, metrics and CI services may be used as discovery hints. Port-number mappings are never treated as authoritative service/version/vulnerability evidence. Service identity requires protocol-level or configuration evidence and independent verification.
 
 ## AI security / pentesting contract
 
