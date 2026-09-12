@@ -4,7 +4,7 @@
 
 **P100 — NeXus AI Code OMEGA-X Agentic Development Environment MAX**
 
-This extension records the GitHub corpus, database/DevOps/Git/network-security corpora and the 2026-09-12 AI-tool/provider/education/marketing/SEO corpus without creating a second product identity.
+This extension records the GitHub corpus, database/DevOps/Git/network-security corpora and the 2026-09-12 AI-tool/provider/education/marketing/SEO/prompting/analytics corpus without creating a second product identity.
 
 ## New control-plane layer
 
@@ -74,7 +74,10 @@ The 2026-09-12 AI-tool corpora broaden the registry from individual model provid
 - 3D creative tooling;
 - logo / brand generation;
 - marketing / advertising;
-- education / courses.
+- education / courses;
+- prompt construction / evaluation;
+- web/product analytics;
+- career/recruitment/document workflows.
 
 The registry should separate **capability ontology** from **provider inventory**:
 
@@ -124,6 +127,32 @@ Mandatory state separation:
 `CONNECTED ≠ HEALTHY ≠ AVAILABLE ≠ AUTHORIZED ≠ ALLOWED`
 
 A tool appearing in a directory or infographic never grants execution authority.
+
+## Prompt compiler contract
+
+The latest visual corpus identifies recurring prompt dimensions: role, output format, examples/few-shot guidance, constraints, tone/style, iteration/refinement and target audience.
+
+P100 should compile these into a structured prompt contract rather than treating prompting as free-form text only:
+
+```text
+TASK / OUTCOME
+ ↓
+ROLE / CAPABILITY CONTEXT
+ ↓
+INPUTS + EVIDENCE
+ ↓
+CONSTRAINTS
+ ↓
+OUTPUT SCHEMA
+ ↓
+QUALITY / ACCEPTANCE CRITERIA
+ ↓
+STOP CONDITIONS
+ ↓
+VERIFY
+```
+
+The source's recommendation to request a model to expose chain-of-thought is not adopted as an architectural requirement. The system should instead use explicit reasoning policy, concise rationale, structured intermediate state where required, and independent verification. Internal hidden reasoning is not a durable evidence artifact.
 
 ## Marketing and SEO capability decomposition
 
@@ -237,6 +266,58 @@ VERIFICATION
 ```
 
 Nodes should carry capability, modality, input/output schema, evidence requirement, sensitivity class, authorization state and failure semantics. Edges should carry dependency and provenance relationships.
+
+## Analytics evidence contract
+
+The supplied analytics/dashboard reference reinforces a dedicated measurement layer. Analytics is an observation-producing capability, not an automatic causal explanation.
+
+```text
+SOURCE
+ ↓
+METRIC DEFINITION
+ ↓
+TIME WINDOW / SEGMENTS
+ ↓
+COLLECTION
+ ↓
+AGGREGATION / CALCULATION
+ ↓
+OBSERVATION
+ ↓
+INTERPRETATION
+ ↓
+ATTRIBUTION / LIMITATIONS
+ ↓
+DECISION
+```
+
+A dashboard screenshot is discovery evidence. Durable analytics claims require source identity, metric definition, time window, filters/segments, calculation method and provenance. `METRIC ≠ CAUSALITY` and `ANALYTICS ≠ BUSINESS OUTCOME`.
+
+## Social-media workflow
+
+The corpus's social-media categories imply a reusable production loop:
+
+```text
+IDEA / TREND SIGNAL
+ ↓
+CONTENT PLAN
+ ↓
+ASSET CREATION
+ ↓
+EDITING / CAPTIONS
+ ↓
+SCHEDULING / DISTRIBUTION
+ ↓
+OBSERVATION
+ ↓
+ANALYTICS
+ ↓
+ATTRIBUTION / INTERPRETATION
+ ↓
+ITERATION
+```
+
+The scheduling, design, hashtag, editing and analytics tools remain capability candidates; the system must verify current availability, permissions and limits before selecting one.
 
 ## AI tool substitution / fallback
 
@@ -370,6 +451,30 @@ POSTCONDITION
 ```
 
 Automation must expose trigger, scope, credential, rate, stop-condition and rollback semantics.
+
+## Project-idea intake
+
+The 60-project-idea visual is treated as an opportunity-discovery backlog. Representative ideas cover career/resume, social content, SEO/blogging, email, document/PDF analysis, learning, scheduling, podcasts/video, job matching, pitch decks, portfolio review, startup validation, finance tracking, contract analysis and brand voice.
+
+P100 should normalize such ideas into:
+
+```text
+IDEA
+ ↓
+USER / JOB TO BE DONE
+ ↓
+CAPABILITY
+ ↓
+EXISTING PROJECT MATCH
+ ↓
+MARKET / DEMAND EVIDENCE
+ ↓
+DIFFERENTIATION
+ ↓
+BUILD / REJECT / MERGE
+```
+
+Idea lists alone do not establish demand, monetization, defensibility or a need for a new project. Micro-tool ideas should normally be folded into existing products unless independent product boundaries emerge.
 
 ## Database / query-performance contract
 
