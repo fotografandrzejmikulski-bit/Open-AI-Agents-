@@ -1,0 +1,99 @@
+portfolio_delta:
+  date: 2026-09-12
+  version: v57
+  status: applied
+  decision: NO_NEW_PROJECT
+  corpus: mobile_ai_local_llm_companions_gamedev_portfolios_github_security
+  knowledge_base:
+    - docs/knowledge-base/2026-09-12-corpus-mobile-ai-companions-local-llm-gamedev-portfolios-github-security.md
+  project_impacts:
+    P86:
+      level: high
+      changes:
+        - godot_agentic_adapter_layer
+        - Godot MCP headless/editor/game bridge evidence
+        - frame verification
+        - sandboxed runtime testing
+        - release verification independent of model output
+    P100:
+      level: critical
+      changes:
+        - local inference provider class
+        - OpenRouter gateway class
+        - model locality/data-residency metadata
+        - builder license/open-core/paid-feature boundary registry
+        - GitHub artifact digest/deployment/attestation lineage
+        - npm trusted publishing/provenance
+        - Electron security baseline
+        - CodeQL security layer
+        - agentic abuse threat pattern
+    P113:
+      level: high
+      changes:
+        - video capability taxonomy
+        - local multimodal runtime feasibility
+        - temporal/video adapter metadata
+        - generated-media provenance
+    P118:
+      level: medium
+      changes:
+        - persistent AI companion architecture
+        - persona/memory/identity separation
+        - voice/avatar/mobile state layer
+        - safety/consent boundary
+    P119:
+      level: high
+      changes:
+        - local-model-to-mobile-agent path
+        - device capability policy
+        - action/readback verification
+    P97:
+      level: medium
+      changes:
+        - modular video-generation providers
+        - MCP-connected content automation evidence
+    portfolio_web_builder_layer:
+      level: medium
+      changes:
+        - Plasmic/GrapesJS/Builder capability set
+        - portfolio generator taxonomy
+        - GitHub-to-portfolio compilation model
+  new_ontology:
+    - LOCAL_INFERENCE_PROVIDER
+    - MODEL_GATEWAY
+    - AGENT_SKILL
+    - RUNTIME_BRIDGE
+    - FRAME_VERIFICATION
+    - MODEL_LOCALITY
+    - LICENSE_BOUNDARY
+    - PAID_FEATURE_BOUNDARY
+    - ARTIFACT_DEPLOYMENT_RECORD
+    - PROVENANCE_ATTESTATION
+    - PORTFOLIO_COMPILER
+  invariants:
+    - FORK != ORIGINAL_IMPLEMENTATION
+    - TOPIC != QUALITY_PROOF
+    - OPEN_SOURCE != ALL_FEATURES_FREE
+    - SELF_HOSTED != ZERO_OPERATING_COST
+    - LOCAL_MODEL != AUTOMATICALLY_SAFE
+    - AI_PERSONA != REAL_PERSON
+    - MEMORY != AUTHORITY
+    - GAME_GENERATED != GAME_VERIFIED
+    - BUILD_SUCCESS != RELEASE_AUTHORIZATION
+    - PROVENANCE != MALWARE_FREE_GUARANTEE
+    - AI_ASSISTANCE != AUTHORIZATION
+  source_quality:
+    github_topics: discovery_classification
+    market_articles: secondary_discovery
+    github_official_docs: authoritative_for_github_features
+    npm_docs: authoritative_for_npm_security_features
+    electron_docs: authoritative_for_electron_security_guidance
+    codeql_docs: authoritative_for_codeql_capability
+    google_play: product_listing_evidence
+    sentinelone: defensive_threat_intelligence
+  backlog:
+    - add locality/data-residency to provider registry
+    - add license/paid-feature boundaries to builder registry
+    - add runtime-frame evidence to game/mobile verification
+    - add artifact deployment record to provenance graph
+    - add portfolio compiler capability graph
