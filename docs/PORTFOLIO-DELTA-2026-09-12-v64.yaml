@@ -1,0 +1,57 @@
+id: chemia-p122
+iteration: 69
+date: 2026-09-12
+trigger: "CHEMIA complete consent-aware intimate two-player game specification"
+new_project: true
+project: P122
+project_path: "projekty/122-chemia-consent-aware-intimate-two-player-game/README.md"
+category: "mobile game / adaptive two-player experience"
+platform: "Android"
+stack: "Kotlin + Jetpack Compose + Room"
+core_loop: "SESSION → CONSENT → SELECT → PLAY → HEAT → CHAIN/CHOICE/MISSION → AFTERGLOW → CONTINUE OR PLAYER-INITIATED END"
+card_deck:
+  categories: 8
+  target_cards: 520
+  intensity_levels: 4
+  chain_cards: "100+"
+  secret_missions: 50
+mechanics:
+  - consent-aware-card-selection
+  - heat-0-100
+  - adaptive-weighted-selector
+  - anti-repeat-window
+  - chain-x1-to-x4
+  - partner-choice
+  - private-secret-missions
+  - jeszcze-jedna
+  - afterglow
+  - endless-mode
+  - private-preference-adaptation
+mvp:
+  - two-player-one-phone-offline
+  - private-cards
+  - no-penalty-skip
+  - session-history
+future:
+  - bluetooth
+  - wifi-direct
+  - internet-mode
+new_primitives:
+  - consent-aware-card-filter
+  - adaptive-weighted-card-selector
+  - heat-progression-engine
+  - chain-state-machine
+  - private-secret-mission-engine
+  - player-choice-branching
+  - afterglow-continuation-state
+  - two-player-private-shared-state-model
+  - seeded-selector-replay
+  - consent-game-property-tests
+invariants:
+  - "HEAT != CONSENT"
+  - "RANDOM != PERMISSION"
+  - "SKIP != FAILURE"
+  - "PRIVATE != SHARED"
+  - "INTENSITY != GRAPHIC CONTENT"
+status: architecture-integrated
+verification: "Content and engine constraints must be enforced independently; private player state must never leak into shared session state."
